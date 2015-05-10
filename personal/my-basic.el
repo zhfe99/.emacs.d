@@ -19,21 +19,20 @@
 (setq doc-view-resolution 800)
 (set-default-font "Monaco 12")
 (fringe-mode '(4 . 0))
-;; (fringe-mode 0)
-;; (set-fringe-style '(0 . 0))
-(ido-mode 1)
 
 ;; enable prelude sub-modules
 (require 'prelude-key-chord)
+(require 'prelude-ido)
 (require 'prelude-latex)
+(require 'prelude-helm)
+(require 'prelude-python)
+(require 'prelude-web)
+(require 'prelude-js)
 
 ;; tramp
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 (setq tramp-default-method "ssh")
 (setq tramp-chunksize 500)
-
-;; disable git backend to speed up sshfs file load among other things
-;; (setq vc-handled-backends (quote (RCS CVS SVN SCCS Bzr Hg Mtn Arch)))
 
 ;; save desktop only on mac
 (cond
@@ -42,13 +41,16 @@
  ((string-equal system-type "gnu/linux")
   (desktop-save-mode 0)))
 
-;; multiple-cursor
-(prelude-require-package 'multiple-cursors)
-
 ;; add marmalade repo into package src (prelude only includes mepla)
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+;; reveal-in-finder
+(prelude-require-package 'reveal-in-finder)
+
+;; multiple-cursor
+(prelude-require-package 'multiple-cursors)
 
 ;; ediff
 (setq ediff-split-window-function 'split-window-horizontally)
@@ -59,6 +61,9 @@
 
 ;; ace pinyin
 (prelude-require-package 'ace-pinyin)
+
+;; ace window
+(prelude-require-package 'ace-window)
 
 ;; helm-swoop
 (prelude-require-package 'helm-swoop)
@@ -74,6 +79,8 @@
 (setenv "GLOG_minloglevel" "1")
 (setenv "PYTHONPATH"
         (concat (getenv "PYTHONPATH")
+                ":" (getenv "HOME") "/anaconda/lib/python2.7"
+                ":" (getenv "HOME") "/anaconda/lib/python2.7/site-packages"
                 ":" (getenv "HOME") "/work/py"
                 ":" (getenv "HOME") "/work/tool/caffe/tools/extra"
                 ":" "/usr/local/ia/lib/python2.7/site-packages"))
@@ -82,7 +89,8 @@
                 ":" (getenv "HOME") "/anaconda/lib"))
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 (setenv "s3" "/ssh:feng@skyserver3k:")
-(setenv "a0a" "/sshx:feng@acadia0a:")
+(setenv "a0" "/sshx:feng@acadia0a:")
+(setenv "a3" "/sshx:feng@acadia3:")
 (setenv "e1" "/ssh:ubuntu@54.69.53.225:")
 (setenv "e1r" "/sshx:ubuntu@54.69.53.225|sudo:ubuntu@54.69.53.225:")
 (setenv "e2" "/ssh:feng@www.cvtell.com:")
@@ -92,8 +100,7 @@
 (setenv "work" (concat (getenv "HOME") "/work/"))
 (setenv "caf" (concat (getenv "HOME") "/work/py/test/caf/"))
 (setenv "caffe" (concat (getenv "HOME") "/work/tool/caffe/"))
-(setenv "f-zhou" (concat (getenv "HOME") "/work/web/f-zhou/"))
-(setenv "cv" (concat (getenv "HOME") "/work/pub/cv/"))
+(add-to-list 'exec-path "/Users/feng/anaconda/bin")
 
 ;; ispell
 (setq ispell-program-name
@@ -602,8 +609,8 @@
 (define-key my-key-map (kbd "e") 'ediff-files)
 (define-key my-key-map (kbd "r") 'revert-buffer-no-confirm)
 (define-key my-key-map (kbd "t") 'git-timemachine)
-(define-key my-key-map (kbd "a") '(lambda () (interactive) (find-file "~/work/dot/org/my/day.org")))
-(define-key my-key-map (kbd "A") '(lambda () (interactive) (find-file "~/work/dot/org/my/info.org")))
+(define-key my-key-map (kbd "a") '(lambda () (interactive) (find-file "~/log/org/my/day.org")))
+(define-key my-key-map (kbd "A") '(lambda () (interactive) (find-file "~/log/org/my/info.org")))
 (define-key my-key-map (kbd "s") 'sr-speedbar-toggle)
 (define-key my-key-map (kbd "d") 'dash-at-point)
 (define-key my-key-map (kbd "f") 'find-name-dired)
