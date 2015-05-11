@@ -615,7 +615,8 @@
 (define-key my-key-map (kbd "d") 'dash-at-point)
 (define-key my-key-map (kbd "f") 'find-name-dired)
 (define-key my-key-map (kbd "g") 'rgrep)
-;; z x are available
+;; z are available
+(define-key my-key-map (kbd "x") 'package-list-packages)
 (add-hook 'matlab-mode-hook
           (lambda ()
             (local-set-key (kbd "M-m c") 'my-matlab-create-date)
