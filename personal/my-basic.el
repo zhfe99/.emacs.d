@@ -301,13 +301,6 @@
   (interactive)
   (pop-to-buffer-same-window (process-buffer (elpy-shell-get-or-create-process))))
 
-;; jedi for python
-(prelude-require-package 'jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-(jedi:install-server)
-(setq elpy-rpc-backend "jedi")
-
 ;; using ipython as the default python console
 (setq python-shell-interpreter "ipython")
 (setq python-shell-interpreter-args "--pylab")
@@ -419,29 +412,6 @@
   (forward-char 1)
   (insert " "))
 
-(defun my-split-window-2-3 ()
-  "Split window as 2x3."
-  (interactive)
-  (split-window-right)
-  (split-window-right)
-  (split-window-below)
-  (windmove-right)
-  (split-window-below)
-  (windmove-right)
-  (split-window-below)
-  (balance-windows)
-  (windmove-left)
-  (windmove-left))
-
-(defun my-split-window-2-2 ()
-  "Split window as 2x2."
-  (interactive)
-  (split-window-right)
-  (split-window-below)
-  (windmove-right)
-  (split-window-below)
-  (windmove-left))
-
 ;; python shell (remap up key)
 (define-key comint-mode-map (kbd "<up>") 'comint-previous-matching-input-from-input)
 
@@ -450,8 +420,8 @@
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
 ;; org agenda file
-(setq org-agenda-files (list "~/work/dot/org/day.org"
-                             "~/work/dot/org/season.org"))
+(setq org-agenda-files (list "~/log/org/day.org"
+                             "~/log/org/season.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -499,9 +469,6 @@
     (org-clock-in)))
 (add-hook 'org-after-todo-state-change-hook
           'org-clock-in-if-doing)
-
-;; initial visibility for org file
-;; (setq org-startup-folded nil)
 
 ;; my key-binding in prelude mode
 (defun my-prelude-mode-keys ()
@@ -580,6 +547,8 @@
 (powerline-default-theme)
 
 ;; change the background to darker color
+(custom-set-variables
+ '(powerline-default-separator 'slant))
 (custom-set-faces
  '(powerline-active2 ((t (:inherit mode-line :background "#535353"))))
  '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "#474747")))))
@@ -628,10 +597,7 @@
 ;; v b are available
 
 ;; my key for shell & window management (all right-hand characters)
-;; y is available
-(define-key my-key-map (kbd "u") 'my-split-window-2-3)
-(define-key my-key-map (kbd "U") 'my-split-window-2-2)
-;; i is available
+;; y u i are available
 (define-key my-key-map (kbd "o") 'reveal-in-finder)
 (define-key my-key-map (kbd "p") 'my-elpy-shell-switch-to-shell)
 ;; [ ] are available
