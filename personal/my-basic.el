@@ -131,7 +131,6 @@
                ("Python" (mode . python-mode))
                ("Dired" (mode . dired-mode))
                ("Matlab" (mode . matlab-mode))
-               ("Python" (mode . python-mode))
                ("Org" (or
                        (mode . org-mode)
                        (mode . markdown-mode)))
@@ -144,7 +143,6 @@
                        (mode . latex-mode)
                        (mode . plain-tex-mode)
                        (mode . bibtex-mode)))
-               ("Matlab" (mode . matlab-mode))
                ("Org" (or
                        (mode . org-mode)
                        (mode . markdown-mode)))
@@ -297,7 +295,7 @@
 (prelude-require-package 'elpy)
 (elpy-enable)
 
-;; prefer to show elpy buffer in the same window
+;; show elpy buffer in the current window
 (defun my-elpy-shell-switch-to-shell ()
   "Switch to inferior Python process buffer."
   (interactive)
