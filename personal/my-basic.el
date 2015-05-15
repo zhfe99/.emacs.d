@@ -227,9 +227,11 @@
 (setq auto-mode-alist (cons '("\\.m$" . matlab-mode) auto-mode-alist))
 
 ;; matlab-mode-hook
+(require 'prelude-programming)
 (add-hook 'matlab-mode-hook
           (lambda()
             (setq matlab-indent-function t)
+            (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)))
 
 ;; matlab-shell-mode
@@ -420,8 +422,7 @@
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
 ;; org agenda file
-(setq org-agenda-files (list "~/log/org/day.org"
-                             "~/log/org/season.org"))
+(setq org-agenda-files (list "~/log/org/todo.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -578,7 +579,7 @@
 (define-key my-key-map (kbd "e") 'ediff-files)
 (define-key my-key-map (kbd "r") 'revert-buffer-no-confirm)
 (define-key my-key-map (kbd "t") 'git-timemachine)
-(define-key my-key-map (kbd "a") '(lambda () (interactive) (find-file "~/log/org/my/day.org")))
+(define-key my-key-map (kbd "a") '(lambda () (interactive) (find-file "~/log/org/my/todo.org")))
 (define-key my-key-map (kbd "A") '(lambda () (interactive) (find-file "~/log/org/my/info.org")))
 (define-key my-key-map (kbd "s") 'sr-speedbar-toggle)
 (define-key my-key-map (kbd "d") 'dash-at-point)
@@ -626,6 +627,7 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
 (global-set-key (kbd "C-x 0") 'ace-delete-window)
+(global-set-key (kbd "C-x )") 'delete-window)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-s") 'helm-swoop)
 (global-set-key (kbd "C-r") 'helm-swoop)
