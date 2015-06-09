@@ -27,7 +27,9 @@
 (require 'prelude-helm)
 (require 'prelude-python)
 (require 'prelude-web)
+(require 'prelude-css)
 (require 'prelude-js)
+(require 'prelude-org)
 
 ;; tramp
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
@@ -83,7 +85,8 @@
                 ":" (getenv "HOME") "/anaconda/lib/python2.7/site-packages"
                 ":" (getenv "HOME") "/work/py"
                 ":" (getenv "HOME") "/work/tool/caffe/tools/extra"
-                ":" "/usr/local/ia/lib/python2.7/site-packages"))
+                ":" (getenv "HOME") "/work/tool/caffe/python"
+                ":" (getenv "HOME") "/work/tool/ia/pyia/python"))
 (setenv "DYLD_FALLBACK_LIBRARY_PATH"
         (concat "/usr/local/cuda/lib:/usr/local/lib:/usr/lib"
                 ":" (getenv "HOME") "/anaconda/lib"))
@@ -123,6 +126,9 @@
 ;; makefile-mode
 (setq auto-mode-alist (cons '("Makefile\\." . makefile-mode) auto-mode-alist))
 
+;; protobuf-mode
+(setq auto-mode-alist (cons '("\\.prototxt$" . protobuf-mode) auto-mode-alist))
+
 ;; ibuffer
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
@@ -157,6 +163,7 @@
                          (mode . emacs-lisp-mode)
                          (mode . sh-mode)))
                ("Dired" (mode . dired-mode))
+               ("Configuration" (mode . protobuf-mode))
                ("Console" (name . "^\\*.*\\*$"))
                ))))
 (add-hook 'ibuffer-mode-hook
@@ -420,14 +427,16 @@
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
 ;; org agenda file
-(setq org-agenda-files (list "~/log/org/todo.org"))
+(setq org-agenda-files (list "~/log/org/my/todo.org" "~/log/org/my/todo.org_archive" "~/log/org/my/history/day.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
+(setq org-clock-persist-query-resume nil)
 (org-clock-persistence-insinuate)
+(setq org-clock-out-remove-zero-time-clocks t)
 
 ;; org todo key-words
-(setq org-todo-keywords '((sequence "TODO" "DOING" "CANCELED" "RUNNING" "|" "DONE" "PAUSED")))
+(setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "|" "DONE(d)" "HOLD(h)")))
 
 ;; key for switching between key-words
 (eval-after-load "org"
@@ -436,16 +445,17 @@
      (define-key org-mode-map "\M-o" 'org-todo-state-map)
      (define-key org-todo-state-map "t"
        #'(lambda nil (interactive) (org-todo "TODO")))
-     (define-key org-todo-state-map "c"
-       #'(lambda nil (interactive) (org-todo "CANCELED")))
-     (define-key org-todo-state-map "i"
-       #'(lambda nil (interactive) (org-todo "DOING")))
-     (define-key org-todo-state-map "r"
-       #'(lambda nil (interactive) (org-todo "RUNNING")))
+     (define-key org-todo-state-map "n"
+       #'(lambda nil (interactive) (org-todo "NEXT")))
+     (define-key org-todo-state-map "w"
+       #'(lambda nil (interactive) (org-todo "WORK")))
      (define-key org-todo-state-map "d"
        #'(lambda nil (interactive) (org-todo "DONE")))
-     (define-key org-todo-state-map "p"
-       #'(lambda nil (interactive) (org-todo "PAUSED")))))
+     (define-key org-todo-state-map "h"
+       #'(lambda nil (interactive) (org-todo "HOLD")))))
+
+(setq org-todo-keyword-faces
+      (quote (("NEXT" :foreground "yellow" :weight bold))))
 
 ;; reset org key to be consistent to global keys
 (defun my-org-mode-keys ()
@@ -460,14 +470,33 @@
   (define-key org-mode-map (kbd "<H-right>") 'org-shiftright))
 (add-hook 'org-mode-hook 'my-org-mode-keys)
 
-;; start org clock when the state is switched to "doing"
-(defun org-clock-in-if-doing ()
+;; start org clock when the state is switched to "work"
+(defun org-clock-in-if-work ()
   "Clock in when the task is marked STARTED."
-  (when (and (string= org-state "DOING")
+  (when (and (string= org-state "WORK")
              (not (string= org-last-state org-state)))
     (org-clock-in)))
 (add-hook 'org-after-todo-state-change-hook
-          'org-clock-in-if-doing)
+          'org-clock-in-if-work)
+
+(setq org-log-done nil)
+(setq org-agenda-start-with-log-mode t)
+(setq org-agenda-start-on-weekday nil)
+(setq org-agenda-sticky t)
+(setq org-agenda-span 'day)
+(setq org-startup-indented t)
+(setq org-hide-leading-stars t)
+(setq org-agenda-use-time-grid t)
+
+(setq org-drawers (quote ("PROPERTIES" "LOGBOOK" "REF")))
+
+;; don't destroy window configuration
+(setq org-agenda-window-setup 'current-window)
+(setq org-src-window-setup 'current-window)
+(defadvice org-agenda-get-restriction-and-command
+    (around nm-org-agenda-get-restriction-and-command activate)
+  (flet ((delete-other-windows () nil))
+    ad-do-it))
 
 ;; my key-binding in prelude mode
 (defun my-prelude-mode-keys ()
@@ -590,9 +619,12 @@
             (local-set-key (kbd "M-m c") 'my-matlab-create-date)
             (local-set-key (kbd "M-;") 'comment-dwim)))
 (add-hook 'python-mode-hook
-          (lambda () (local-set-key (kbd "M-m c") 'my-python-create-date)))
+          (lambda ()
+            (local-set-key (kbd "M-m c") 'my-python-create-date)))
 (add-hook 'sh-mode-hook
           (lambda () (local-set-key (kbd "M-m c") 'my-sh-create-date)))
+(add-hook 'org-mode-hook
+          (lambda () (local-set-key (kbd "C-c o") 'org-open-at-point)))
 ;; v b are available
 
 ;; my key for shell & window management (all right-hand characters)
@@ -602,6 +634,7 @@
 ;; [ ] are available
 (define-key my-key-map (kbd "|") 'my-toggle-window-split)
 ;; h j k ' are available
+(define-key my-key-map (kbd "j") 'org-clock-goto)
 (define-key my-key-map (kbd "l") 'matlab-shell)
 (define-key my-key-map (kbd "n") 'multi-term-next)
 (define-key my-key-map (kbd "m") 'multi-term)
@@ -621,6 +654,8 @@
 (global-set-key (kbd "<H-M-left>") 'buf-move-left)
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
 (global-set-key (kbd "C-M-k") 'sp-kill-sexp)
+(global-set-key (kbd "M-g M-g") 'avy-goto-line)
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
