@@ -186,7 +186,8 @@
  '(LaTeX-command "latex -synctex=1")
  '(font-latex-math-environments
    (quote
-    ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
+    ("display" "displaymath" "equation" "eqnarray" "gather"
+     "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
  '(TeX-view-program-list
    (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -r %n %o %b"))))
  '(TeX-view-program-selection
@@ -427,7 +428,10 @@
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
 ;; org agenda file
-(setq org-agenda-files (list "~/log/org/my/todo.org" "~/log/org/my/todo.org_archive" "~/log/org/my/history/day.org"))
+(setq org-agenda-files (list
+                        "~/log/org/my/todo.org"
+                        "~/log/org/my/todo.org_archive"
+                        "~/log/org/my/history/day.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -436,7 +440,8 @@
 (setq org-clock-out-remove-zero-time-clocks t)
 
 ;; org todo key-words
-(setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "|" "DONE(d)" "HOLD(h)")))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "|" "DONE(d)" "HOLD(h)")))
 
 ;; key for switching between key-words
 (eval-after-load "org"
@@ -545,7 +550,8 @@
 
 ;; dash for doc
 (prelude-require-package 'dash-at-point)
-(add-to-list 'dash-at-point-mode-alist '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
+(add-to-list 'dash-at-point-mode-alist
+             '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
 (add-to-list 'dash-at-point-mode-alist '(sql-mode . "psql"))
 
 ;; multi-term
@@ -560,7 +566,8 @@
  ((string-equal system-type "darwin")
   (setq multi-term-buffer-name "term" multi-term-program "/bin/bash"))
  ((string-equal system-type "gnu/linux")
-  (setq multi-term-buffer-name "term" multi-term-program (concat (getenv "HOME") "/bin/bash"))))
+  (setq multi-term-buffer-name "term"
+        multi-term-program (concat (getenv "HOME") "/bin/bash"))))
 (add-hook 'term-mode-hook
           (lambda () (setq truncate-lines 0)))
 
@@ -606,8 +613,12 @@
 (define-key my-key-map (kbd "e") 'ediff-files)
 (define-key my-key-map (kbd "r") 'revert-buffer-no-confirm)
 (define-key my-key-map (kbd "t") 'git-timemachine)
-(define-key my-key-map (kbd "a") '(lambda () (interactive) (find-file "~/log/org/my/todo.org")))
-(define-key my-key-map (kbd "A") '(lambda () (interactive) (find-file "~/log/org/my/info.org")))
+(define-key my-key-map (kbd "a") '(lambda ()
+                                    (interactive)
+                                    (find-file "~/log/org/my/todo.org")))
+(define-key my-key-map (kbd "A") '(lambda ()
+                                    (interactive)
+                                    (find-file "~/log/org/my/info.org")))
 (define-key my-key-map (kbd "s") 'sr-speedbar-toggle)
 (define-key my-key-map (kbd "d") 'dash-at-point)
 (define-key my-key-map (kbd "f") 'find-name-dired)
@@ -622,10 +633,18 @@
           (lambda ()
             (local-set-key (kbd "M-m c") 'my-python-create-date)))
 (add-hook 'sh-mode-hook
-          (lambda () (local-set-key (kbd "M-m c") 'my-sh-create-date)))
+          (lambda ()
+            (local-set-key (kbd "M-m c") 'my-sh-create-date)))
 (add-hook 'org-mode-hook
-          (lambda () (local-set-key (kbd "C-c o") 'org-open-at-point)))
+          (lambda ()
+            (local-set-key (kbd "C-c o") 'org-open-at-point)))
 ;; v b are available
+(define-key my-key-map (kbd "-") '(lambda ()
+                                    (interactive)
+                                    (align-regexp
+                                     (region-beginning)
+                                     (region-end)
+                                     (concat "\\(\\s-*\\)" " -"))))
 
 ;; my key for shell & window management (all right-hand characters)
 ;; y u i are available
