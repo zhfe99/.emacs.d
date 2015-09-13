@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: xlua.print
+# key: xp
+# --
+xlua.print($0)

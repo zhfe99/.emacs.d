@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: function
+# key: func
+# --
+def $1($2):
+    """
+    $4
+
+    Input
+      $2  -  $3
+    """
+    $0

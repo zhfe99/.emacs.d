@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: string.format
+# key: sf
+# --
+string.format($0)

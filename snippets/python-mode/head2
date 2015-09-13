@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: python header
+# key: !!
+# --
+#!/usr/bin/env python$0

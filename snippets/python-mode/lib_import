@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lib import
+# key: lib
+# --
+import py_lib as lib$0

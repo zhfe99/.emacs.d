@@ -54,8 +54,8 @@
 (evil-mode 1)
 (global-evil-surround-mode 1)
 
-(define-key evil-normal-state-map (kbd "C-A")
-  'evil-numbers/inc-at-pt)
+; (define-key evil-normal-state-map (kbd "C-A")
+;  'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-S-A")
   'evil-numbers/dec-at-pt)
 

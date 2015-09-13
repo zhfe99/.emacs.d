@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: common debug
+# key: deb
+# --
+debug.debug()
+$0

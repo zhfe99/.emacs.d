@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lua header
+# key: env
+# --
+#!/usr/bin/env th$0

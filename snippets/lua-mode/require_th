@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: require lua_th
+# key: th
+# --
+local th = require('lua_th')$0

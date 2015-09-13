@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bash header
+# key: !!
+# --
+#!/usr/bin/env sh$0

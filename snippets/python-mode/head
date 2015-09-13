@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: python header
+# key: !
+# --
+#!/usr/bin/env python
+"""
+$1
+
+History
+  create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%m-%d-%Y")`
+  modify  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%m-%d-%Y")`
+"""
+import py_lib as lib
+
+$0

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: facebook debugger
+# key: fdb
+# --
+local debugger = require('fb.debugger')
+debugger.enter()$0

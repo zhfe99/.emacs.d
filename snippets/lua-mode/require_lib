@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lib require
+# key: lib
+# --
+local lib = require('lua_lib')$0
