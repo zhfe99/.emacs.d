@@ -8,9 +8,6 @@
 (prelude-require-package 'elpy)
 (elpy-enable)
 
-(add-hook 'python-mode-hook '(lambda ()
-                               (setq python-indent-offset 2)))
-
 ;; show elpy buffer in the current window
 (defun my-elpy-shell-switch-to-shell ()
   "Switch to inferior Python process buffer."
@@ -74,6 +71,11 @@
 ;; python mode (save C-C C-p for other use)
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-p") nil))
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "H-c") 'my-python-create-date)
+             (setq python-indent-offset 2)))
 
 (provide 'my-python)
 ;;; my-python.el ends here

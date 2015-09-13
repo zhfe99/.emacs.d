@@ -2,18 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'prelude-programming)
+
 ;; matlab
 (prelude-require-package 'matlab-mode)
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
 (setq auto-mode-alist (cons '("\\.m$" . matlab-mode) auto-mode-alist))
-
-;; matlab-mode-hook
-(require 'prelude-programming)
-(add-hook 'matlab-mode-hook
-          (lambda()
-            (setq matlab-indent-function t)
-            (run-hooks 'prelude-prog-mode-hook)
-            (auto-fill-mode -1)))
 
 ;; matlab-shell-mode
 (autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
@@ -54,6 +48,18 @@
                 (progn
                   (message "%s is matlab-mode" (buffer-file-name))
                   (my-matlab-modify-date)))))
+
+;; matlab-mode-hook
+(add-hook 'matlab-mode-hook
+          (lambda()
+            (setq matlab-indent-function t)
+            (run-hooks 'prelude-prog-mode-hook)
+            (auto-fill-mode -1)
+            (local-set-key (kbd "H-c") 'my-matlab-create-date)
+            (local-set-key (kbd "M-;") 'comment-dwim)))
+
+;; julia-mode
+(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
 
 (provide 'my-matlab)
 ;;; my-editor.el ends here

@@ -2,6 +2,23 @@
 ;;; Commentary:
 ;;; Code:
 
+;; basic setting
+(setq visible-bell -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(delete-selection-mode 1)
+(setq frame-title-format '((buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+(setq-default truncate-lines -1)
+(server-start)
+(setq kill-buffer-query-functions nil)
+(setq mac-option-modifier 'hyper)
+(setq mac-command-modifier 'meta)
+(setq whitespace-line-column 80000)
+(setq doc-view-resolution 800)
+(set-default-font "Monaco 13")
+(fringe-mode '(4 . 0))
+(desktop-save-mode 1)
+(setq ediff-split-window-function 'split-window-horizontally)
+
 ;; environment variables
 (setenv "PATH"
         (concat "/usr/local/bin:/usr/texbin"
@@ -32,6 +49,14 @@
 (setenv "e2r" "/ssh:root@www.cvtell.com:")
 (setenv "pc" "/ssh:yahan@feng-pc:")
 (setenv "pal" "/scp:parallels@10.211.55.5:")
+
+;; ispell
+(setq ispell-program-name
+      (cond
+       ((string-equal system-type "darwin")
+        "/usr/local/bin/aspell")
+       ((string-equal system-type "gnu/linux")
+        "/usr/bin/aspell")))
 
 (provide 'my-env)
 ;;; my-env.el ends here

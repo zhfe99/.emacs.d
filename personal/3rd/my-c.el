@@ -10,9 +10,6 @@
             (setq c-basic-offset 2)
             (ggtags-mode t)))
 
-;; speedbar
-(prelude-require-package 'sr-speedbar)
-
 ;; c++-mode
 (add-hook 'c++-mode-hook
           (lambda()
@@ -35,10 +32,14 @@
             (ggtags-mode t)))
 
 ;; protobuf-mode
+(setq auto-mode-alist (cons '("\\.prototxt$" . protobuf-mode) auto-mode-alist))
 (add-hook 'protobuf-mode-hook
           (lambda()
             (subword-mode 1)
             (setq c-basic-offset 2)))
+
+;; makefile-mode
+(setq auto-mode-alist (cons '("Makefile\\." . makefile-mode) auto-mode-alist))
 
 (provide 'my-c)
 ;;; my-c.el ends here

@@ -46,12 +46,13 @@
             (insert (format-time-string time-format (current-time))))
         (message "create xxx not found")))))
 
-;; lua
+;; lua mode hood
 (add-hook 'lua-mode-hook
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
-            (setq lua-indent-level 2)))
+            (setq lua-indent-level 2)
+            (local-set-key (kbd "H-c") 'my-lua-create-date)))
 
 (defun my-lua-save-hook ()
   "My hook for saving python file (*.py)."

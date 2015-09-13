@@ -53,7 +53,8 @@
 (add-hook 'sh-mode-hook
           (lambda ()
             (subword-mode 1)
-            (yas-minor-mode)))
+            (yas-minor-mode)
+            (local-set-key (kbd "H-c") 'my-sh-create-date)))
 
 (provide 'my-sh)
 ;;; my-sh.el ends here

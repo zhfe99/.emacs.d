@@ -2,13 +2,18 @@
 ;;; Commentary:
 ;;; Code:
 
-(prelude-require-package 'multiple-cursors)
-(prelude-require-package 'multifiles)
-(require 'multifiles)
+;; helm
+(helm-autoresize-mode t)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
-(prelude-require-package 'ace-isearch)
+;; projectile: remote project will expire in 1 hour
+(setq projectile-file-exists-remote-cache-expire (* 60 60))
+
+;; ace-mode
 (global-ace-isearch-mode +1)
 
+;; search with selected region
 (defun jrh-isearch-with-region ()
   "Use region as the isearch text."
   (when mark-active
@@ -16,7 +21,6 @@
       (deactivate-mark)
       (isearch-push-state)
       (isearch-yank-string region))))
-
 (add-hook 'isearch-mode-hook #'jrh-isearch-with-region)
 
 ;; revert buffer without confirmation

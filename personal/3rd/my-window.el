@@ -42,5 +42,29 @@
            (error "No window %s from selected window" 'right))
           (t (delete-window other-window)))))
 
+(defun my-save-window-conf-1 ()
+  (interactive)
+  (window-configuration-to-register 1))
+
+(defun my-save-window-conf-2 ()
+  (interactive)
+  (window-configuration-to-register 2))
+
+(defun my-save-window-conf-3 ()
+  (interactive)
+  (window-configuration-to-register 3))
+
+(defun my-goto-window-conf-1 ()
+  (interactive)
+  (jump-to-register 1))
+
+(defun my-goto-window-conf-2 ()
+  (interactive)
+  (jump-to-register 2))
+
+(defun my-goto-window-conf-3 ()
+  (interactive)
+  (jump-to-register 3))
+
 (provide 'my-window)
 ;;; my-window.el ends here
