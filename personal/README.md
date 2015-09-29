@@ -16,9 +16,6 @@ distracted by other information (e.g., Facebook, Email, News,
 Youtube). Within Emacs, you can develop your favorite work-flow and
 stick with the same key shortcuts for different tasks.
 
-<!-- As a software being developed for 30 years, -->
-<!-- Emacs can offer your great tools to finish your work in very efficient way. -->
-
 # Emacs Build Choice
 I recommend to use the Emacs version from
 [Railwaycat's Port](https://github.com/railwaycat/emacs-mac-port),
@@ -35,4 +32,4 @@ You are ready to rock.
 
 # Matlab
 I barely use the default Matlab user interface. Instead, I run Matlab in Emacs.
-To start the Matlab shell in Emacs, you could type `M-m l` using my Emacs configuration.
+To start the Matlab shell in Emacs, you could type `H-m` using my Emacs configuration.

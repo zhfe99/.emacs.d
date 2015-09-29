@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: aligns
+# key: alis
+# --
+\begin{aligns}
+  $0
+\end{aligns}

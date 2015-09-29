@@ -14,10 +14,15 @@
 (setq mac-command-modifier 'meta)
 (setq whitespace-line-column 80000)
 (setq doc-view-resolution 800)
-(set-default-font "Monaco 13")
 (fringe-mode '(4 . 0))
 (desktop-save-mode 1)
 (setq ediff-split-window-function 'split-window-horizontally)
+
+;; font
+;; (set-default-font "Monaco 13")
+(set-default-font "Hack 14")
+;; (set-default-font "Menlo 13")
+;; (set-default-font "Source Code Pro 14")
 
 ;; environment variables
 (setenv "PATH"
@@ -43,6 +48,7 @@
 (setenv "a1" "/scp:feng@acadia1a:")
 (setenv "a2" "/scp:feng@acadia2a:")
 (setenv "a3" "/scp:feng@acadia3:")
+(setenv "a4" "/scp:feng@acadia4a:")
 (setenv "e1" "/ssh:ubuntu@54.69.53.225:")
 (setenv "e1r" "/sshx:ubuntu@54.69.53.225|sudo:ubuntu@54.69.53.225:")
 (setenv "e2" "/ssh:feng@www.cvtell.com:")
@@ -57,6 +63,14 @@
         "/usr/local/bin/aspell")
        ((string-equal system-type "gnu/linux")
         "/usr/bin/aspell")))
+
+(defun git-push-remote-origin ()
+  "run `git push'"
+  (interactive)
+  (shell-command "git add .")
+  (shell-command "git commit -m \"aa\"")
+  (shell-command "git push s3s master")
+  (message "DONE! git push at %s" default-directory))
 
 (provide 'my-env)
 ;;; my-env.el ends here

@@ -9,6 +9,7 @@
 (add-hook 'LaTeX-mode-hook
           (lambda()
             (TeX-PDF-mode t)
+            (yas-minor-mode t)
             (setq TeX-save-query nil)
             (toggle-truncate-lines)))
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)

@@ -54,6 +54,10 @@
   (interactive)
   (window-configuration-to-register 3))
 
+(defun my-save-window-conf-4 ()
+  (interactive)
+  (window-configuration-to-register 4))
+
 (defun my-goto-window-conf-1 ()
   (interactive)
   (jump-to-register 1))
@@ -65,6 +69,10 @@
 (defun my-goto-window-conf-3 ()
   (interactive)
   (jump-to-register 3))
+
+(defun my-goto-window-conf-4 ()
+  (interactive)
+  (jump-to-register 4))
 
 (provide 'my-window)
 ;;; my-window.el ends here

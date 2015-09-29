@@ -2,10 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'prelude-python)
-
 ;; elpy for python
-(prelude-require-package 'elpy)
 (elpy-enable)
 
 ;; show elpy buffer in the current window

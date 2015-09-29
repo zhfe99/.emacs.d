@@ -2,16 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
-;; multi-term
-(prelude-require-package 'multi-term)
 (defun term-send-esc ()
   "Send ESC in term mode."
   (interactive)
   (term-send-raw-string "\e"))
+
 (defun term-send-ad ()
   "Send \C-a\C-d in term mode."
   (interactive)
   (term-send-raw-string "\C-a\C-d"))
+
 (add-hook 'term-mode-hook
           (lambda ()
             (add-to-list 'term-bind-key-alist '("C-c C-f" . term-line-mode))

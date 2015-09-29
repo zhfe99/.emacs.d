@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'prelude-org)
-
 ;; org agenda file
 (setq org-agenda-files (list
                         "~/log/org/my/todo.org"
