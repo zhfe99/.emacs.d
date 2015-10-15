@@ -21,13 +21,13 @@
 ;; available:
 ;; q e r t y u i [ ]
 ;; h ; '
-;; z c b v /
-(global-set-key (kbd "H-q") 'git-push-remote-origin)
+;; z b v /
 (global-set-key (kbd "H-w") 'sp-rewrap-sexp)
 ;; (global-set-key (kbd "H-t") 'multi-term)
 (global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
-(global-set-key (kbd "H-p") 'my-elpy-shell-switch-to-shell)
+(global-set-key (kbd "H-p") 'git-push-remote-origin)
+;; (global-set-key (kbd "H-p") 'my-elpy-shell-switch-to-shell)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
 (global-set-key (kbd "H-A") 'my-open-info-org)
 (global-set-key (kbd "H-s") 'sp-splice-sexp)
@@ -41,6 +41,7 @@
 (global-set-key (kbd "H-|") 'my-toggle-window-split)
 (global-set-key (kbd "H-j") 'org-clock-goto)
 (global-set-key (kbd "H-m") 'matlab-shell)
+(global-set-key (kbd "H-c") 'helm-flycheck)
 (global-set-key (kbd "H-.") 'my-insert-single-space)
 (global-set-key (kbd "H->") 'my-insert-double-space)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
@@ -63,6 +64,11 @@
 (global-set-key (kbd "C-0") 'ace-delete-window)
 (global-set-key (kbd "C-)") 'delete-window)
 (define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
+(global-unset-key (kbd "C-t"))
+(global-set-key (kbd "C-t l") 'transpose-lines)
+(global-set-key (kbd "C-t w") 'transpose-words)
+(global-set-key (kbd "C-t c") 'transpose-chars)
+(global-set-key (kbd "C-t s") 'transpose-sexps)
 
 ;; C-x
 (global-set-key (kbd "C-x o") 'ace-swap-window)
@@ -74,10 +80,7 @@
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
 
 ;; M-
-(global-unset-key (kbd "M-t"))
-(global-set-key (kbd "M-t l") 'transpose-lines)
-(global-set-key (kbd "M-t w") 'transpose-words)
-(global-set-key (kbd "M-t s") 'transpose-sexps)
+;; (global-set-key (kbd "M-.") 'helm-etags-select)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)

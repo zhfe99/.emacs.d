@@ -69,6 +69,10 @@
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
+;; reserve M-. for find-tag
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "M-.") nil))
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)

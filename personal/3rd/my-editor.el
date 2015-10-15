@@ -17,6 +17,7 @@
 (helm-autoresize-mode -1)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+(setq projectile-switch-project-action 'helm-projectile-find-file)
 
 ;; projectile: remote project will expire in 1 hour
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
@@ -99,8 +100,7 @@
         (setq my-buffer-file-name1 (concat "/Users/feng/" my-buffer-file-name))
         (message dired-directory)
         (message my-buffer-file-name1)
-        (find-file my-buffer-file-name1)
-        )
+        (find-file my-buffer-file-name1))
     (progn
       (setq my-buffer-file-name (substring dired-directory (length "~/") nil))
       (setq my-buffer-file-name1 (concat "/scp:feng@skyserver3k:/home/ma/feng/" my-buffer-file-name))
@@ -123,6 +123,8 @@
    (region-beginning)
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
+
+(require 'helm-flycheck)
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

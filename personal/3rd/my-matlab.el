@@ -13,8 +13,8 @@
 (cond
  ((string-equal system-type "darwin")
   (setq matlab-shell-command "/Applications/MATLAB.app/bin/matlab"))
-  ((string-equal system-type "gnu/linux")
-   (setq matlab-shell-command "/usr/bin/matlab")))
+ ((string-equal system-type "gnu/linux")
+  (setq matlab-shell-command "/usr/bin/matlab")))
 
 ;; matlab startup configuration
 (setq matlab-shell-command-switches '("-nodesktop -nosplash"))
