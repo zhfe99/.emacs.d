@@ -19,12 +19,12 @@
 
 ;; H-
 ;; available:
-;; q e r t y u i [ ]
-;; h ; '
+;; e r t y u i [ ]
+;; h '
 ;; z b v /
+(global-set-key (kbd "H-q") 'god-local-mode)
 (global-set-key (kbd "H-w") 'sp-rewrap-sexp)
-;; (global-set-key (kbd "H-t") 'multi-term)
-(global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
+(global-set-key (kbd "H-i") 'change-inner)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'git-push-remote-origin)
 ;; (global-set-key (kbd "H-p") 'my-elpy-shell-switch-to-shell)
@@ -37,13 +37,14 @@
 (global-set-key (kbd "H-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "H-l") 'lua-show-process-buffer)
 (global-set-key (kbd "H-x") 'package-list-packages)
+(global-set-key (kbd "H-c") 'org-capture)
 (global-set-key (kbd "H--") 'my-align-comment)
 (global-set-key (kbd "H-|") 'my-toggle-window-split)
 (global-set-key (kbd "H-j") 'org-clock-goto)
 (global-set-key (kbd "H-m") 'matlab-shell)
-(global-set-key (kbd "H-c") 'helm-flycheck)
-(global-set-key (kbd "H-.") 'my-insert-single-space)
-(global-set-key (kbd "H->") 'my-insert-double-space)
+(global-set-key (kbd "H-.") 'my-reset-tags-table-list)
+;; (global-set-key (kbd "H-.") 'my-insert-single-space)
+;; (global-set-key (kbd "H->") 'my-insert-double-space)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
@@ -69,6 +70,8 @@
 (global-set-key (kbd "C-t w") 'transpose-words)
 (global-set-key (kbd "C-t c") 'transpose-chars)
 (global-set-key (kbd "C-t s") 'transpose-sexps)
+(global-set-key (kbd "C-h b") 'helm-descbinds)
+(global-set-key (kbd "C-j") 'indent-new-comment-line)
 
 ;; C-x
 (global-set-key (kbd "C-x o") 'ace-swap-window)
@@ -98,17 +101,21 @@
 (keymap-unset-key (kbd "M-r") "smartparens-mode")
 (global-set-key (kbd "M-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "M-s") 'save-buffer)
-(global-set-key (kbd "M-i") 'helm-mini)
-(define-key dired-mode-map (kbd "M-i") 'helm-mini)
+(global-set-key (kbd "M-h") 'helm-mini)
+(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (setq scroll-preserve-screen-position 1)
-(global-set-key (kbd "M-n") 'multi-term-next)
-(global-set-key (kbd "M-N") 'multi-term)
-(global-set-key (kbd "H-n") 'multi-term-next)
+(global-set-key (kbd "M-t") 'multi-term-next)
+(global-set-key (kbd "M-T") 'multi-term)
+(global-set-key (kbd "M-u") 'helm-projectile-switch-project)
 (global-set-key (kbd "M-p") 'my-get-current-on-server-or-local)
+(global-set-key (kbd "M-'") 'helm-flycheck)
+(global-set-key (kbd "M-.") 'helm-etags-select)
+(global-set-key (kbd "M-j") 'avy-goto-word-1)
 
 ;; key-chord
 (key-chord-define-global "yy" 'helm-show-kill-ring)
+(key-chord-define-global "xx" nil)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: \cellcolor{Gray}
+# key: gray
+# --
+\cellcolor{Gray}$0

@@ -8,6 +8,8 @@
                         "~/log/org/my/todo.org_archive"
                         "~/log/org/my/history/day.org"))
 
+(setq org-default-notes-file "~/log/org/my/refile.org")
+
 ;; open todo.org
 (defun my-open-todo-org ()
   (interactive)
@@ -37,6 +39,7 @@
   (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
   (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
   (define-key org-mode-map (kbd "<S-right>") 'windmove-right)
+  (define-key org-mode-map (kbd "M-h") 'helm-mini)
   (define-key org-mode-map (kbd "<H-up>") 'my-push-window-up)
   (define-key org-mode-map (kbd "<H-down>") 'my-push-window-down)
   (define-key org-mode-map (kbd "<H-left>") 'my-push-window-left)
@@ -70,6 +73,11 @@
     (around nm-org-agenda-get-restriction-and-command activate)
   (flet ((delete-other-windows () nil))
     ad-do-it))
+
+(setq org-agenda-custom-commands
+      '(("z"  "All" occur-tree "."
+         ((org-show-entry-below t)
+          (org-highlight-sparse-tree-matches nil)))))
 
 (provide 'my-org)
 ;;; my-org.el ends here

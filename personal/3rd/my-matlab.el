@@ -53,6 +53,7 @@
             (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)
             (local-set-key (kbd "H-c") 'my-matlab-create-date)
+            (local-set-key (kbd "M-s") 'save-buffer)
             (local-set-key (kbd "M-;") 'comment-dwim)))
 
 ;; julia-mode

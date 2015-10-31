@@ -17,7 +17,7 @@
 (helm-autoresize-mode -1)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-(setq projectile-switch-project-action 'helm-projectile-find-file)
+(setq projectile-switch-project-action 'helm-projectile)
 
 ;; projectile: remote project will expire in 1 hour
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
@@ -125,6 +125,46 @@
    (concat "\\(\\s-*\\)" " -")))
 
 (require 'helm-flycheck)
+
+;; (require 'god-mode)
+;; (global-set-key (kbd "<escape>") 'god-local-mode)
+
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
+(require 'wrap-region)
+(wrap-region-mode t)
+
+(require 'guide-key)
+(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-c p" "C-c C-x"))
+(guide-key-mode 1)
+
+;; Don't ask before rereading the TAGS files if they have changed
+(setq tags-revert-without-query t)
+
+(defun my-reset-tags-table-list ()
+  "Return a list of lines of a file at filePath."
+  (interactive)
+  (let ((proj-root (projectile-project-root)))
+    (setq filePath (concat proj-root "/deps")) ; get root_folder/depds
+    (when (file-exists-p filePath)
+      (setq projs (with-temp-buffer
+                    (insert-file-contents filePath)
+                    (split-string (buffer-string) "\n" t)))
+      (setq proj-tags
+            (mapcar
+             (lambda (str) (concat "/Users/feng/" str "/TAGS"))
+             projs
+             ))
+      (setq tags-table-list proj-tags)
+      )))
+
+(defun my-clear-etag-hash ()
+  "Some doc"
+  (interactive)
+  (clrhash helm-etags-cache)
+  )
+
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

@@ -2,4 +2,4 @@
 # name: bash header
 # key: !!
 # --
-#!/usr/bin/env sh$0
+#!/usr/bin/env bash$0

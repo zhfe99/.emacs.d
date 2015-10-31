@@ -65,7 +65,7 @@
         (my-python-modify-date))))
 (add-hook 'before-save-hook 'my-python-save-hook)
 
-;; python mode (save C-C C-p for other use)
+;; python mode (save C-c C-p for other use)
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-p") nil))
 
@@ -77,6 +77,10 @@
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)
              (setq python-indent-offset 2)))
+
+;; Use only own snippets, do not use bundled ones
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(yas-reload-all)
 
 (provide 'my-python)
 ;;; my-python.el ends here

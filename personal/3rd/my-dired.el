@@ -144,6 +144,7 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
 
 (define-key dired-mode-map "o" 'ace-dired-find-file)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
+(define-key dired-mode-map (kbd "M-u") 'helm-projectile-switch-project)
 (define-key dired-mode-map (kbd "M-p") 'my-get-current-on-server-or-local)
 
 (provide 'my-dired)
