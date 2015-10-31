@@ -23,6 +23,3 @@ which provides a native GUI support for latest Mac OSX.
 
 # Installation
 `git clone https://github.com/zhfe99/prelude ~/.emacs.d`
-
-<!-- # Terminal -->
-<!-- Couple the macro with a terminal embedded in your editor, and you're poised to be the most powerful developer in the office. Once your terminal is contained within your editor (and once you've spawned several simultaneous terminals in there too), you'll realize you no longer have reason to live outside the editor (though your spouse may disagree). -->
