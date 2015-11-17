@@ -19,8 +19,9 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; font
-;; (set-default-font "Monaco 13")
+(setq-default line-spacing 0.1)
 (set-default-font "Hack 14")
+;; (set-default-font "Monaco 13")
 ;; (set-default-font "Menlo 13")
 ;; (set-default-font "Source Code Pro 14")
 

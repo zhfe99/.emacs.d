@@ -19,12 +19,31 @@
 ;; matlab startup configuration
 (setq matlab-shell-command-switches '("-nodesktop -nosplash"))
 
+;; update creating date in the comment area (for matlab)
+(defun my-matlab-create-date ()
+  "Update creating date in the comment area (for matlab)."
+  (interactive)
+  (save-excursion
+    (let ((time-format "%Y-%m") (pt1) (pt2))
+      (goto-char (point-min))
+      (setq pt1 (search-forward "  create" nil t))
+      (if pt1
+          (progn
+            (message "done")
+            (search-forward "gmail.com), ")
+            (setq pt1 (point))
+            (end-of-line)
+            (setq pt2 (point))
+            (delete-region pt1 pt2)
+            (insert (format-time-string time-format (current-time))))
+        (message "create xxx not found")))))
+
 ;; update modifying date field in the comment area (for matlab)
 (defun my-matlab-modify-date ()
   "Update modifying date field in the comment area (for matlab)."
   (interactive)
   (save-excursion
-    (let ((time-format "%m-%d-%Y") (pt1) (pt2))
+    (let ((time-format "%Y-%m") (pt1) (pt2))
       (goto-char (point-min))
       (setq pt1 (search-forward "%   modify" nil t))
       (if pt1
@@ -53,6 +72,9 @@
             (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)
             (local-set-key (kbd "H-c") 'my-matlab-create-date)
+            (local-set-key (kbd "M-j") 'avy-goto-word-1)
+            (local-set-key (kbd "M-a") 'sp-splice-sexp)
+            (local-set-key (kbd "M-A") 'sp-rewrap-sexp)
             (local-set-key (kbd "M-s") 'save-buffer)
             (local-set-key (kbd "M-;") 'comment-dwim)))
 

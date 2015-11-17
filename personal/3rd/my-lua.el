@@ -33,7 +33,7 @@
   (save-excursion
     (let ((time-format "%Y-%m") (pt1) (pt2))
       (goto-char (point-min))
-      (setq pt1 (search-forward "--   create" nil t))
+      (setq pt1 (search-forward "  create" nil t))
       (if pt1
           (progn
             (message "done")
@@ -50,7 +50,12 @@
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
-            (setq lua-indent-level 2)
+            (setq safe-local-variable-values
+                  '((lua-indent-level . 2)
+                    (lua-indent-level . 3)
+                    (lua-indent-level . 4)
+                    (lua-indent-level . 8)))
+            ;; (setq lua-indent-level 2)
             (local-set-key (kbd "H-c") 'my-lua-create-date)))
 
 (defun my-lua-save-hook ()

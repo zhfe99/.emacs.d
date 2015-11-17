@@ -78,6 +78,10 @@
              (local-set-key (kbd "H-c") 'my-python-create-date)
              (setq python-indent-offset 2)))
 
+;; (add-hook 'cython-mode-hook
+;;           '(lambda ()
+;;              (which-func-mode -1)))
+
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-reload-all)

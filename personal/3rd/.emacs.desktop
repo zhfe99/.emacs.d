@@ -1,0 +1,63 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Nov 15 11:11:46 2015
+;; Desktop file format version 206
+;; Emacs version 24.5.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22088 55538 671855 0) (desktop . "206") "feng@feng-mbp.local" nil nil ((((font-backend mac-ct) (font . "-*-Hack-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "#DCDCCC") (background-color . "#3F3F3F") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 0) (alpha) (tool-bar-lines . 0) (title) (fullscreen) (menu-bar-lines . 1) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "#FFFFEF") (environment) (powerline-cache . "Unprintable entity") (frameset--id . "BC9B-483E-A938-6451") (frameset--mini t . t) (height . 54) (width . 239) (modeline . t) (minibuffer . t) (unsplittable) (left . 0) (top . 23) (icon-name) (visibility . t) (display . "Mac") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 80) (min-pixel-height-ignore . 38) (min-pixel-width-ignore . 24) (min-pixel-height-safe . 19) (min-pixel-width-safe . 16)) leaf (pixel-width . 1920) (pixel-height . 1007) (total-width . 240) (total-height . 53) (normal-height . 1.0) (normal-width . 1.0) (buffer "my-python.el" (selected . t) (hscroll . 0) (fringes 8 0 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 2642) (start . 1771))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list '("/Users/feng/.emacs.d/TAGS" "/Users/feng/.emacs.d/TAGSpersonal/3rd/my-python.el"))
+(setq search-ring '("which-" "blob" "input_gen" "shared_ptr" "initmo" "static" "forward" "list" "py" "ipynb" "pami" "Connec" "fg" "submo" "submodule" "sub\n"))
+(setq regexp-search-ring '("@.*{M" "\\.\\(GIF\\|JP\\(?:E?G\\)\\|P\\(?:BM\\|GM\\|N[GM]\\|PM\\)\\|SVG\\|TIFF?\\|X\\(?:[BP]M\\)\\|gif\\|jp\\(?:e?g\\)\\|p\\(?:bm\\|gm\\|n[gm]\\|pm\\)\\|svg\\|tiff?\\|x\\(?:[bp]m\\)\\)\\'" "@.*{Ja" "@.*{Lin" "@.*{Nam" "@.*{Bell" "@.*{W" ".\\(jpg\\)$" ".\\(solverstate\\)$" "c" " c" "\\<'(\\>" "\\<)\\>" "\\<(\\>" "('" "\\<('\\>"))
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/personal/3rd/" "~/.emacs.d/personal/3rd/my-python.el" "~/.emacs.d/personal/3rd/my-env.el" "~/data/vdo/down.txt" "~/tool/reinspect/train.py" "~/.emacs.d/personal/3rd/" "~/tool/apollocaffe/Makefile.mac" "~/.emacs.d/personal/3rd/my-tag.el" "~/tool/reinspect/bashrc.sh" "/Users/feng/shell/.git/COMMIT_EDITMSG" "~/shell/util.sh" "/Users/feng/tool/mat_lib/.git/COMMIT_EDITMSG" "~/pub/2015_pami_fgm/final/ref.bib" "~/pub/misc" "/Users/feng/Code/bgl/.git/COMMIT_EDITMSG" "~/code/bgl/.gitmodules" "/Users/feng/code/bgl/.git/COMMIT_EDITMSG" "/Users/feng/code/py_lib/.git/COMMIT_EDITMSG" "/Users/feng/code/bgl/.git/modules/tool/py_lib/COMMIT_EDITMSG" "/Users/feng/code/bgl/.git/COMMIT_EDITMSG" "~/code/bgl/" "/Users/feng/code/py_lib/.git/COMMIT_EDITMSG" "~/code/py_lib/" "/Users/feng/proj/car_demo/img/car2.jpg" "~/proj/car_demo/00101_jpkbg3gFWb7_600x450.jpg" "~/proj/liveness_demo/demo.py" "~/proj/liveness_demo/img/V0000186.jpg" "~/proj/liveness_demo/img/V0000001.jpg" "~/proj/liveness_demo/data/hand/v13b_info" "~/proj/liveness_demo/data/hand" "~/proj/liveness_demo/save/hand/caffe_old/proto/" "~/proj/liveness_demo/save/hand/caffe_old/model/hand_v13bs_gooT.caffemodel" "~/proj/liveness_demo/save/hand/caffe_old/data/" "/Users/feng/proj/liveness_demo/save/hand/caffe_old" "~/save/hand/caffe" "~/proj/liveness_demo/save/hand/caffe/data" "~/proj/liveness_demo/save/hand/caffe" "~/proj/liveness_demo/tool/py_caf_old" "~/tool/py_caf_old/" "~/proj/liveness_demo/tool/" "~/proj/liveness_demo/" "~/proj/liveness_demo" "~/proj/food_demo/img/food.jpg" "~/proj/fg/img" "~/proj/food_demo/img/1002946.jpg" "~/proj/food_demo/img/1005649.jpg" "~/proj/food_demo/save/food/caffe/data/" "~/proj/food_demo/save/food/caffe/proto/food_v5_gooT_deploy_sin.prototxt" "~/proj/food_demo/save/food/caffe/proto/" "/Users/feng/proj/food_demo/save/food/caffe/model/" "/Users/feng/proj/food_demo/data/food/" "/Users/feng/data/food/" "~/save/car/caffe/data/v5_info" "~/proj/food_demo/data/food" "/Users/feng/proj/food_demo" "/Users/feng/proj/car_demo/save/car/caffe/proto/car_v2c_gooT_deploy_sin.prototxt" "~/proj/car_demo/save/car/caffe/data/" "~/proj/car_demo/data/car/v2c_info" "~/proj/car_demo/save/car/caffe/proto/" "~/proj/car_demo/save/car/caffe/proto" "~/proj/car_demo/save/car/caffe/model/car_v2c_gooT.caffemodel" "~/proj/car_demo/img/car.jpg" "~/proj/fg/car" "~/shell/var.sh" "~/save/car/caffe/result.txt" "~/proj/car_demo/data/car/demo" "~/proj/car_demo/tool/" "~/proj/car_demo/tool" "~/proj/car_demo/save/car/caffe/data/" "~/proj/car_demo/save/car/caffe/model" "~/proj/car_demo/save/car/caffe/data" "~/proj/car_demo/save/car/caffe" "~/proj/car_demo/save/car" "~/proj/car_demo/data/car/v2_info" "~/proj/car_demo/data/car" "~/proj/car_demo/save" "~/proj/car_demo/data" "~/proj/car_demo/car" "~/proj/car_demo/" "~/proj/car_demo" "~/proj/sewer_demo/" "~/proj/fg/demo.py" "~/data/hand/info.txt" "~/save/hand/caffe_old/result.txt" "~/pub/2015_pami_ctw/final/ctw_pami.tex" "~/pub/2015_pami_fgm/final/" "~/pub/2015_pami_fgm/tex3" "~/papers/" "~/papers/experts/" "~/.emacs.d/personal/3rd/my-editor.el" "~/.emacs.d/snippets/python-mode/" "~/.emacs.d/snippets/lua-mode/indent" "~/tool/apollocaffe/python/requirements.txt" "~/save/food/caffe/result.txt" "~/log/org/my/info.org" "~/papers/experts/Schiele & Roth/" "~/pub/2016_cvpr_bgl/tex_sub/bgl.tex" "~/pub/2016_cvpr_bgl/tex_sub/bgl_sup.tex" "/Users/feng/proj/mat/.git/COMMIT_EDITMSG" "/scp:feng@skyserver3k:/home/ma/feng/tool/reinspect/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/feng/.emacs.d/personal/3rd/my-python.el"
+  "my-python.el"
+  'emacs-lisp-mode
+  '(prelude-mode global-auto-revert-mode smartparens-mode volatile-highlights-mode flyspell-mode projectile-mode anzu-mode whitespace-mode undo-tree-mode diff-hl-mode flx-ido-mode flycheck-mode ace-isearch-mode guide-key-mode TeX-PDF-mode guru-mode)
+  2642
+  '(2548 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/feng/.emacs.d/personal/3rd/my-editor.el"
+  "my-editor.el"
+  'emacs-lisp-mode
+  '(prelude-mode global-auto-revert-mode smartparens-mode volatile-highlights-mode flyspell-mode projectile-mode anzu-mode whitespace-mode undo-tree-mode diff-hl-mode flx-ido-mode flycheck-mode ace-isearch-mode guide-key-mode TeX-PDF-mode guru-mode)
+  270
+  '(175 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "3rd"
+  'dired-mode
+  '(prelude-mode global-auto-revert-mode volatile-highlights-mode projectile-mode anzu-mode flx-ido-mode ace-isearch-mode guide-key-mode TeX-PDF-mode subword-mode diff-hl-dired-mode dired-omit-mode)
+  508
+  '(nil nil)
+  t
+  '("/Users/feng/.emacs.d/personal/3rd/")
+  nil)
+
+(desktop-create-buffer 206
+  "/Users/feng/.emacs.d/personal/3rd/my-env.el"
+  "my-env.el"
+  'emacs-lisp-mode
+  '(prelude-mode global-auto-revert-mode smartparens-mode volatile-highlights-mode flyspell-mode projectile-mode anzu-mode whitespace-mode undo-tree-mode diff-hl-mode flx-ido-mode flycheck-mode ace-isearch-mode guide-key-mode TeX-PDF-mode guru-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . prefer-utf-8-unix)))
+

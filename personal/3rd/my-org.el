@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+
 ;; org agenda file
 (setq org-agenda-files (list
                         "~/log/org/my/todo.org"
@@ -20,6 +22,11 @@
   (interactive)
   (find-file "~/log/org/my/info.org"))
 
+;; open think.org
+(defun my-open-think-org ()
+  (interactive)
+  (find-file "~/log/org/my/think.org"))
+
 ;; org clock
 (setq org-clock-persist 't)
 (setq org-clock-persist-query-resume nil)
@@ -35,6 +42,10 @@
 ;; reset org key to be consistent to global keys
 (defun my-org-mode-keys ()
   "My keybindings for `org-mode'."
+  (define-key org-mode-map (kbd "<C-up>") 'org-backward-heading-same-level)
+  (define-key org-mode-map (kbd "<C-down>") 'org-forward-heading-same-level)
+  (define-key org-mode-map (kbd "<C-left>") 'outline-up-heading)
+  (define-key org-mode-map (kbd "<C-right>") 'outline-next-visible-heading)
   (define-key org-mode-map (kbd "<S-up>") 'windmove-up)
   (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
   (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
