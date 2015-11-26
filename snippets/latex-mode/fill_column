@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: fill column
+# key: !fill
+# --
+% -*- fill-column: 10000; -*-
+$0

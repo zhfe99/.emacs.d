@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: blue left
+# key: blue{
+# --
+{\color{blue}$0

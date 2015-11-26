@@ -1,15 +1,8 @@
 # -*- mode: snippet -*-
 # name: lua header
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
-# key: !
+# key: his
 # --
-#!/usr/bin/env th
---[[
-$1
-
 History
   create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
-  modify  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
-]]--
-
-$0
+  modify  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`$0

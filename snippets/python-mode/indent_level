@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: python indent level
+# key: !i
+# --
+# -*- python-indent-offset: 4; -*-
+$0

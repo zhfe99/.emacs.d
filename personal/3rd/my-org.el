@@ -4,6 +4,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;; org agenda file
 (setq org-agenda-files (list
                         "~/log/org/my/todo.org"

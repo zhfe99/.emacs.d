@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lua indent -level
+# key: !i
+# --
+-- -*- lua-indent-level: 4; -*-$0

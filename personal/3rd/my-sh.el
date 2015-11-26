@@ -54,7 +54,9 @@
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
-            (local-set-key (kbd "H-c") 'my-sh-create-date)))
+            (local-set-key (kbd "H-c") 'my-sh-create-date)
+            (local-set-key (kbd "M-.") 'find-tag)
+            (local-set-key (kbd "M-,") 'pop-tag-mark)))
 
 (provide 'my-sh)
 ;;; my-sh.el ends here

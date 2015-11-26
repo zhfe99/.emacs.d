@@ -30,3 +30,5 @@ tramp
 /personal/custom.el
 /.mc-lists.el
 TAGS
+README.md
+/image-dired/*

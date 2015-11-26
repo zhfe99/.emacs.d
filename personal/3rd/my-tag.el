@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq tags-table-list '("~/tool/lua_lib/TAGS" "~/tool/lua_th/TAGS" "~/tool/py_lib/TAGS" "~/tool/py_caf/TAGS" "~/tool/mat_lib/TAGS" "~/proj/mat/TAGS"))
+;; (setq tags-table-list '("~/code/lua_lib/TAGS" "~/code/lua_th/TAGS" "~/code/py_lib/TAGS" "~/code/py_caf/TAGS" "~/code/mat_lib/TAGS" "~/code/mat/TAGS"))
 
 ;; Don't ask before rereading the TAGS files if they have changed
 (setq tags-revert-without-query t)
@@ -54,13 +54,13 @@
 (setq tag-table-alist
       (list
        '("/Users/feng/.emacs.d/" "/Users/feng/.emacs.d/TAGS")
-       '("/Users/tool/caffe/" "/Users/feng/tool/caffe/TAGS")
-       '("/Users/feng/tool/char-rnn/" "/Users/feng/tool/char-rnn/TAGS" "/Users/feng/tool/lua_lib/TAGS" "/Users/feng/tool/lua_th/TAGS")
-       '("/Users/feng/proj/fg_elad/" "/Users/feng/proj/fg_elad/TAGS" "/Users/feng/tool/lua_lib/TAGS" "/Users/feng/tool/lua_th/TAGS")
-       '("/Users/feng/proj/fg/" "/Users/feng/proj/fg/TAGS" "/Users/feng/tool/py_lib/TAGS" "/Users/feng/tool/py_caf/TAGS")
-       '(".*\\.py$" "/Users/feng/tool/py_lib/TAGS" "/Users/feng/tool/py_caf/TAGS" "/Users/feng/tool/apollocaffe/TAGS")
-       '(".*\\.m$" "/Users/feng/tool/mat_lib/TAGS" "/Users/feng/proj/mat/TAGS")
-       '(".*\\.lua$" "/Users/tool/lua_lib/TAGS" "/Users/tool/lua_th/TAGS")))
+       '("/Users/code/caffe/" "/Users/feng/code/caffe/TAGS")
+       '("/Users/feng/code/char-rnn/" "/Users/feng/code/char-rnn/TAGS" "/Users/feng/code/lua_lib/TAGS" "/Users/feng/code/lua_th/TAGS")
+       '("/Users/feng/code/fg_elad/" "/Users/feng/code/fg_elad/TAGS" "/Users/feng/code/lua_lib/TAGS" "/Users/feng/code/lua_th/TAGS")
+       '("/Users/feng/code/fg/" "/Users/feng/code/fg/TAGS" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS")
+       '(".*\\.py$" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS" "/Users/feng/code/apollocaffe/TAGS")
+       '(".*\\.m$" "/Users/feng/code/mat_lib/TAGS" "/Users/feng/code/mat/TAGS")
+       '(".*\\.lua$" "/Users/code/lua_lib/TAGS" "/Users/code/lua_th/TAGS")))
 (setq etags-table-alist tag-table-alist)
 (setq etags-table-search-up-depth 10)
 
