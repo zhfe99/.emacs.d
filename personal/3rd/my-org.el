@@ -4,6 +4,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 
+;; better bullet
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
@@ -12,7 +13,6 @@
                         "~/log/org/my/todo.org"
                         "~/log/org/my/todo.org_archive"
                         "~/log/org/my/history/day.org"))
-
 (setq org-default-notes-file "~/log/org/my/refile.org")
 
 ;; open todo.org
@@ -35,6 +35,9 @@
 (setq org-clock-persist-query-resume nil)
 (org-clock-persistence-insinuate)
 (setq org-clock-out-remove-zero-time-clocks t)
+
+;; don't show in mode-line
+(setq org-clock-clocked-in-display nil)
 
 ;; org todo key-words
 (setq org-todo-keywords
@@ -60,12 +63,25 @@
   (define-key org-mode-map (kbd "<H-right>") 'my-push-window-right))
 (add-hook 'org-mode-hook 'my-org-mode-keys)
 
+;; use pomodoro
+(require 'pomodoro)
+(defun my-pomodoro-add-to-mode-line ()
+  (setq-default mode-line-format
+                (cons mode-line-format '(pomodoro-mode-line-string))))
+(my-pomodoro-add-to-mode-line)
+(setq pomodoro-work-time 25)
+(setq pomodoro-sound-player "mplayerx")
+(setq pomodoro-play-sounds nil)
+
 ;; start org clock when the state is switched to "work"
 (defun org-clock-in-if-work ()
   "Clock in when the task is marked STARTED."
-  (when (and (string= org-state "WORK")
-             (not (string= org-last-state org-state)))
-    (org-clock-in)))
+  (if (and (string= org-state "WORK")
+           (not (string= org-last-state org-state)))
+      (progn
+        (pomodoro-start nil)
+        (org-clock-in))
+    (pomodoro-stop)))
 (add-hook 'org-after-todo-state-change-hook
           'org-clock-in-if-work)
 

@@ -110,9 +110,12 @@
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
 
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-c p" "C-c C-x"))
-(guide-key-mode 1)
+;; (require 'guide-key)
+;; (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-c p" "C-c C-x"))
+;; (guide-key-mode 1)
+
+(require 'which-key)
+(which-key-mode)
 
 (provide 'my-editor)
 ;;; my-editor.el ends here
