@@ -3,14 +3,17 @@
 ;;; Code:
 
 ;; ace-mode
-(global-ace-isearch-mode +1)
-(setq ace-isearch-use-jump nil)
+(global-ace-isearch-mode -1)
+(setq ace-isearch-use-ace-jump nil)
 
 ;; turn-off beacon
 (beacon-mode -1)
 
-;; turn-off which-function-mode. Otherwise open cython (.pyx, .pyd) become very slow
-(which-function-mode -1)
+;; turn-on which-function-mode
+;; but turn-off for cython (.pyx, .pyd)
+(which-function-mode 1)
+(eval-after-load "which-func"
+  '(setq which-func-modes '(java-mode c++-mode c-mode org-mode python-mode emacs-lisp-mode)))
 
 ;; search with selected region
 (defun jrh-isearch-with-region ()
@@ -109,10 +112,6 @@
 
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
-
-;; (require 'guide-key)
-;; (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "C-c p" "C-c C-x"))
-;; (guide-key-mode 1)
 
 (require 'which-key)
 (which-key-mode)

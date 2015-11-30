@@ -11,9 +11,7 @@
 ;; org agenda file
 (setq org-agenda-files (list
                         "~/log/org/my/todo.org"
-                        "~/log/org/my/todo.org_archive"
                         "~/log/org/my/history/day.org"))
-(setq org-default-notes-file "~/log/org/my/refile.org")
 
 ;; open todo.org
 (defun my-open-todo-org ()
@@ -81,11 +79,18 @@
       (progn
         (pomodoro-start nil)
         (org-clock-in))
-    (pomodoro-stop)))
+    ;; stop pomodoro
+    (when pomodoro-timer
+      (pomodoro-stop))
+    ;; clock out
+    (when (and (string= org-state nil)
+               (org-clocking-p))
+      (org-clock-out))
+    ))
 (add-hook 'org-after-todo-state-change-hook
           'org-clock-in-if-work)
 
-(setq org-log-done t)
+(setq org-log-done nil)
 (setq org-agenda-start-with-log-mode t)
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
@@ -93,8 +98,9 @@
 (setq org-startup-indented t)
 (setq org-hide-leading-stars t)
 (setq org-agenda-use-time-grid t)
-
-(setq org-drawers (quote ("PROPERTIES" "LOGBOOK" "REF")))
+(setq org-agenda-todo-keyword-format "%-1s")
+(setq org-agenda-prefix-format "%?-12t% s")
+(setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
 
 ;; don't destroy window configuration
 (setq org-agenda-window-setup 'current-window)
@@ -103,11 +109,6 @@
     (around nm-org-agenda-get-restriction-and-command activate)
   (flet ((delete-other-windows () nil))
     ad-do-it))
-
-(setq org-agenda-custom-commands
-      '(("z"  "All" occur-tree "."
-         ((org-show-entry-below t)
-          (org-highlight-sparse-tree-matches nil)))))
 
 (provide 'my-org)
 ;;; my-org.el ends here
