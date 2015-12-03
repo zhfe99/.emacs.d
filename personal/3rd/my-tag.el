@@ -58,7 +58,7 @@
        '("/Users/feng/code/char-rnn/" "/Users/feng/code/char-rnn/TAGS" "/Users/feng/code/lua_lib/TAGS" "/Users/feng/code/lua_th/TAGS")
        '("/Users/feng/code/fg_elad/" "/Users/feng/code/fg_elad/TAGS" "/Users/feng/code/lua_lib/TAGS" "/Users/feng/code/lua_th/TAGS")
        '("/Users/feng/code/fg/" "/Users/feng/code/fg/TAGS" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS")
-       '(".*\\.py$" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS" "/Users/feng/code/apollocaffe/TAGS")
+       '(".*\\.py$" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS" "/Users/feng/code/caffe/TAGS")
        '(".*\\.m$" "/Users/feng/code/mat_lib/TAGS" "/Users/feng/code/mat/TAGS")
        '(".*\\.lua$" "/Users/code/lua_lib/TAGS" "/Users/code/lua_th/TAGS")))
 (setq etags-table-alist tag-table-alist)

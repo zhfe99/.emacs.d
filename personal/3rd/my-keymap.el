@@ -20,10 +20,10 @@
 ;; H-
 ;; available:
 ;; q w e r y u [ ]
-;; h l '
+;; s h l '
 ;; z b v , /
 ;; (global-set-key (kbd "H-q") 'god-local-mode)
-(global-set-key (kbd "H-i") 'change-inner)
+(global-set-key (kbd "H-i") 'helm-imenu)
 (global-set-key (kbd "H-t") 'my-regenerate-etags)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'git-push-remote-origin)
@@ -53,6 +53,7 @@
 (global-set-key (kbd "<f5>") 'kmacro-set-counter)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-'") 'helm-swoop)
 (global-set-key (kbd "C-!") 'mf/mirror-region-in-multifile)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
@@ -85,6 +86,8 @@
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
 
 ;; M-
+(global-set-key (kbd "M-i") 'change-inner)
+(global-set-key (kbd "M-I") 'change-outer)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)

@@ -42,6 +42,7 @@
 ;; remap M-j
 (define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)
 (define-key c-mode-map (kbd "M-j") 'avy-goto-word-1)
+(require 'protobuf-mode)
 (define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
 
 ;; protobuf-mode
