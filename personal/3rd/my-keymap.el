@@ -23,7 +23,7 @@
 ;; s h l '
 ;; z b v , /
 ;; (global-set-key (kbd "H-q") 'god-local-mode)
-(global-set-key (kbd "H-i") 'helm-imenu)
+(global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "H-t") 'my-regenerate-etags)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'git-push-remote-origin)
@@ -107,7 +107,6 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-h") 'helm-mini)
 (global-set-key (kbd "M-H") 'helm-projectile-find-file)
-(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-o") 'helm-find-files)
 ;; (setq scroll-preserve-screen-position 1)
 (global-set-key (kbd "M-t") 'multi-term-next)
@@ -123,9 +122,13 @@
 (global-set-key (kbd "M-a") 'sp-splice-sexp)
 (global-set-key (kbd "M-A") 'sp-rewrap-sexp)
 
+;; f-
+(global-set-key (kbd "<f1>") 'org-agenda-list)
+
 ;; key-chord
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "xx" nil)
+(key-chord-define-global "jj" 'linum-mode)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here

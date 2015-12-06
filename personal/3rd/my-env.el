@@ -27,8 +27,10 @@
 
 ;; environment variables
 (setenv "PATH"
-        (concat "/usr/local/bin:/usr/texbin"
+        (concat "/usr/local/bin"
+                ":" "/Library/TeX/texbin"
                 ":" (getenv "PATH")))
+(setq exec-path (append exec-path '("/Library/TeX/texbin")))
 (setenv "GLOG_minloglevel" "1")
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"

@@ -86,5 +86,28 @@
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-reload-all)
 
+;; Select all lines belong to the sub-block
+(defun my-nav-expand-to-sub-block ()
+  "Select all lines belong to the sub-block."
+  (interactive)
+  (save-excursion
+    (setq elpy-nav-expand--initial-position (point))
+    (python-nav-forward-statement)
+    (let ((indentation (current-indentation)))
+      (if (= indentation 0)
+          (mark-whole-buffer)
+        (while (<= indentation (current-indentation))
+          (python-nav-backward-statement))
+        (next-line)
+        (push-mark (point) nil t)
+        (while (<= indentation (current-indentation))
+          (python-nav-forward-statement))
+        (python-nav-backward-statement)))
+    (elpy-nav-indent-shift-left)
+    )
+  )
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block))
+
 (provide 'my-python)
 ;;; my-python.el ends here

@@ -101,6 +101,7 @@
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
 (setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
+(setq org-imenu-depth 3)
 
 ;; don't destroy window configuration
 (setq org-agenda-window-setup 'current-window)
