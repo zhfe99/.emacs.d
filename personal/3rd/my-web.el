@@ -13,3 +13,5 @@
 ;; reserve M-. for find-tag
 (eval-after-load 'js2-mode
   '(define-key js2-mode-map (kbd "M-.") nil))
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "M-j") nil))

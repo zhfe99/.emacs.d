@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My latex setting.
+
 ;;; Code:
 
 (require 'prelude-latex)

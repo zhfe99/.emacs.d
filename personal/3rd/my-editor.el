@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My main editor setting.
+
 ;;; Code:
 
 ;; ace-mode
@@ -10,7 +13,7 @@
 (beacon-mode -1)
 
 ;; turn-on which-function-mode
-;; but turn-off for cython (.pyx, .pyd)
+;; but turn-off it for cython (.pyx, .pyd) otherwise it will be extremely slow
 (which-function-mode 1)
 (eval-after-load "which-func"
   '(setq which-func-modes '(java-mode c++-mode c-mode org-mode python-mode emacs-lisp-mode)))
@@ -59,23 +62,24 @@
          (string-equal (substring s 0 (length begins)) begins))
         (t nil)))
 
-;; get current file on server or local
-(defun my-get-current-file-on-server-or-local()
-  "Get current file on server or local."
+;; switch to current file on server or local
+(defun my-switch-to-current-file-on-server-or-local()
+  "Switch current file on server or local."
   (interactive)
-  (if (my-string-starts-with (buffer-file-name) "/scp:")
+  (let (my-buffer-file-name my-buffer-file-name1)
+    (if (my-string-starts-with (buffer-file-name) "/scp:")
+        (progn
+          (setq my-buffer-file-name (substring (buffer-file-name) (length "/scp:feng@skyserver3k:/home/ma/feng/") nil))
+          (setq my-buffer-file-name1 (concat "/Users/feng/" my-buffer-file-name))
+          (find-file my-buffer-file-name1))
       (progn
-        (setq my-buffer-file-name (substring (buffer-file-name) (length "/scp:feng@skyserver3k:/home/ma/feng/") nil))
-        (setq my-buffer-file-name1 (concat "/Users/feng/" my-buffer-file-name))
-        (find-file my-buffer-file-name1))
-    (progn
-      (setq my-buffer-file-name (substring (buffer-file-name) (length "/Users/feng/") nil))
-      (setq my-buffer-file-name1 (concat "/scp:feng@skyserver3k:/home/ma/feng/" my-buffer-file-name))
-      (find-file my-buffer-file-name1)
-      )))
+        (setq my-buffer-file-name (substring (buffer-file-name) (length "/Users/feng/") nil))
+        (setq my-buffer-file-name1 (concat "/scp:feng@skyserver3k:/home/ma/feng/" my-buffer-file-name))
+        (find-file my-buffer-file-name1)
+        ))))
 
 ;; get current fold on server or local
-(defun my-get-current-dired-on-server-or-local()
+(defun my-switch-to-current-dired-on-server-or-local()
   "Get current fold on server or local."
   (interactive)
   (if (my-string-starts-with dired-directory "/scp:")
@@ -94,12 +98,12 @@
       )))
 
 ;; get current fold on server or local
-(defun my-get-current-on-server-or-local()
+(defun my-switch-to-current-on-server-or-local()
   "Get current fold on server or local."
   (interactive)
   (if (string= major-mode "dired-mode")
-      (my-get-current-dired-on-server-or-local)
-    (my-get-current-file-on-server-or-local)))
+      (my-switch-to-current-dired-on-server-or-local)
+    (my-switch-to-current-file-on-server-or-local)))
 
 (defun my-align-comment()
   (interactive)
@@ -115,6 +119,16 @@
 
 (require 'which-key)
 (which-key-mode)
+
+;; narrow / widen the current region
+;; or narrow / widen the current subtree if in org-mode
+(defun my-narrow-or-widen-dwim ()
+  "If the buffer is narrowed, it widens. Otherwise, it narrows to region, or Org subtree."
+  (interactive)
+  (cond ((buffer-narrowed-p) (widen))
+        ((region-active-p) (narrow-to-region (region-beginning) (region-end)))
+        ((equal major-mode 'org-mode) (org-narrow-to-subtree))
+        (t (error "Please select a region to narrow to"))))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

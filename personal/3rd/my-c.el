@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My C/C++ setting.
+
 ;;; Code:
 
 (setq auto-mode-alist

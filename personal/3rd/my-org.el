@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My org-mode setting.
+
 ;;; Code:
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
@@ -71,7 +74,7 @@
 (setq pomodoro-sound-player "mplayerx")
 (setq pomodoro-play-sounds nil)
 
-;; start org clock when the state is switched to "work"
+;; start org clock when the state is switched to WORK
 (defun org-clock-in-if-work ()
   "Clock in when the task is marked STARTED."
   (if (and (string= org-state "WORK")

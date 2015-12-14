@@ -1,6 +1,9 @@
 ;;; package --- Summary
 ;;; Commentary:
-;;; Code:
+
+;; My matlab setting.
+
+;;; code:
 
 ;; matlab
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)

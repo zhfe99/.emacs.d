@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My lua setting.
+
 ;;; Code:
 
 ;; lua

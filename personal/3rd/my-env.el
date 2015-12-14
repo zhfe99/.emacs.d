@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; Environment variables.
+
 ;;; Code:
 
 ;; basic setting
@@ -67,24 +70,6 @@
         "/usr/local/bin/aspell")
        ((string-equal system-type "gnu/linux")
         "/usr/bin/aspell")))
-
-(defun git-push-remote-origin ()
-  "run `git push'"
-  (interactive)
-  (shell-command "git add .")
-  (shell-command "git commit -m \"aa\"")
-  (shell-command "git push s3s master")
-  (message "DONE! git push at %s" default-directory))
-
-;; (setq shell-file-name "bash")
-;; (setq shell-command-switch "-ic")
-;; (setq shell-command-switch "")
-
-;; (setq tags-table-list '("~/tool/lua_lib/TAGS"
-;;                         "~/tool/lua_th/TAGS"
-;;                         "~/tool/py_lib/TAGS"
-;;                         "~/tool/py_caf/TAGS"
-;;                         "~/tool/mat_lib/TAGS"))
 
 (provide 'my-env)
 ;;; my-env.el ends here

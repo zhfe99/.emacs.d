@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My mode-line setting.
+
 ;;; Code:
 
 (setq sml/theme 'respectful)
@@ -10,5 +13,6 @@
 (setq sml/mule-info nil)
 (setq sml/prefix nil)
 (sml/setup)
+
 (provide 'my-modeline)
-;;; my-powerline.el ends here
+;;; my-modeline.el ends here
