@@ -72,7 +72,9 @@
 (require 'my-c)
 (require 'my-latex)
 (require 'my-term)
+(require 'my-git)
 (require 'my-dired)
+(require 'my-ibuffer)
 (require 'my-keymap)
 
 (provide 'my-basic)
