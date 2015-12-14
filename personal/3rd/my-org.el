@@ -105,6 +105,7 @@
 (setq org-agenda-prefix-format "%?-12t% s")
 (setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
 (setq org-imenu-depth 3)
+(setq org-agenda-archives-mode t)
 
 ;; don't destroy window configuration
 (setq org-agenda-window-setup 'current-window)
