@@ -88,8 +88,7 @@
     ;; clock out
     (when (and (string= org-state nil)
                (org-clocking-p))
-      (org-clock-out))
-    ))
+      (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook
           'org-clock-in-if-work)
 

@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My Python setting.
+
 ;;; Code:
 
 ;; elpy for python
@@ -78,10 +81,6 @@
              (local-set-key (kbd "H-c") 'my-python-create-date)
              (setq python-indent-offset 2)))
 
-;; (add-hook 'cython-mode-hook
-;;           '(lambda ()
-;;              (which-func-mode -1)))
-
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-reload-all)
@@ -103,9 +102,7 @@
         (while (<= indentation (current-indentation))
           (python-nav-forward-statement))
         (python-nav-backward-statement)))
-    (elpy-nav-indent-shift-left)
-    )
-  )
+    (elpy-nav-indent-shift-left)))
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block))
 

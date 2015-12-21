@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My window management setting.
+
 ;;; Code:
 
 (window-numbering-mode)

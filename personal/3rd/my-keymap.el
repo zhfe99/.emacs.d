@@ -22,11 +22,10 @@
 
 ;; H-
 ;; available:
-;; q w e r y u [ ]
+;; q w e r t y u [ ]
 ;; s h l '
 ;; z b v /
 (global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
-(global-set-key (kbd "H-t") 'my-regenerate-etags)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'git-push-remote-origin)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
@@ -53,7 +52,6 @@
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)
-(global-set-key (kbd "C-!") 'mf/mirror-region-in-multifile)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
 (global-set-key (kbd "C-1") 'delete-other-windows)
@@ -61,7 +59,6 @@
 (global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
 (global-set-key (kbd "C-4") 'my-save-window-conf-4)
 (global-set-key (kbd "C-0") 'ace-delete-window)
-(global-set-key (kbd "C-)") 'delete-window)
 (define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t l") 'transpose-lines)
