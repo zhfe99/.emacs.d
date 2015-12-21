@@ -38,15 +38,7 @@
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"
                 ":" (getenv "HOME") "/tool/py_lua"))
-;; (setenv "PYTHONPATH"
-;;         (concat (getenv "PYTHONPATH")
-;;                 ":" "/usr/local/lib/python2.7"
-;;                 ":" "/usr/local/lib/python2.7/site-packages"
-;;                 ":" (getenv "HOME") "/tool"
-;;                 ":" (getenv "HOME") "/tool/caffe/python"))
-;; (setenv "DYLD_FALLBACK_LIBRARY_PATH"
-;;         (concat "/usr/local/cuda/lib:/usr/local/lib:/usr/lib"))
-;; (setenv "PYTHONDONTWRITEBYTECODE" "1")
+
 (setenv "ts3" "/scp:feng@skyserver3k:")
 (setenv "ts4" "/scp:feng@skyserver4k:")
 (setenv "ts7" "/scp:feng@skyserver7k:")
@@ -56,8 +48,6 @@
 (setenv "ta3" "/scp:feng@acadia3:")
 (setenv "ta4" "/scp:feng@acadia4a:")
 (setenv "te3" "/ssh:ubuntu@52.91.111.136:")
-(setenv "te1" "/ssh:ubuntu@54.69.53.225:")
-(setenv "te1r" "/sshx:ubuntu@54.69.53.225|sudo:ubuntu@54.69.53.225:")
 (setenv "te2" "/ssh:feng@www.cvtell.com:")
 (setenv "te2r" "/ssh:root@www.cvtell.com:")
 (setenv "tpc" "/ssh:yahan@feng-pc:")

@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; Main key-map setting.
+;; My global key-map setting.
 
 ;;; Code:
 
@@ -81,8 +81,8 @@
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
 
 ;; M-
-(global-set-key (kbd "M-i") 'change-inner)
-(global-set-key (kbd "M-I") 'change-outer)
+(global-set-key (kbd "M-i") 'dired-jump)
+(global-set-key (kbd "M-I") 'change-inner)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)

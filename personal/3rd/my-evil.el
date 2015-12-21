@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My evil setting.
+
 ;;; Code:
 
 (require 'prelude-evil)

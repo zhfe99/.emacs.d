@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My shell mode setting.
+
 ;;; Code:
 
 ;; update modifying date field in the comment area (for sh)
