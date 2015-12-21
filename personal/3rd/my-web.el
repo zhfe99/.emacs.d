@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My web/js mode setting.
+
 ;;; Code:
 
 ;; web-mode

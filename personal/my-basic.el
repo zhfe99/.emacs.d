@@ -61,7 +61,6 @@
 (require 'my-editor)
 (require 'my-tag)
 (require 'my-window)
-; (require 'my-evil)
 (require 'my-tramp)
 (require 'my-matlab)
 (require 'my-python)

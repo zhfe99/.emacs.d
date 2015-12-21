@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+;; My projectile setting.
+
 ;; prelude
 (defun my-prelude-mode-keys ()
   "My keybindings for prelude-mode."

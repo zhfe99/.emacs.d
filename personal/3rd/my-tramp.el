@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My tramp setting.
+
 ;;; Code:
 
 ;; tramp

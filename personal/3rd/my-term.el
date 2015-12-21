@@ -1,5 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
+
+;; My ansi-term setting.
+
 ;;; Code:
 
 (defun term-send-esc ()
