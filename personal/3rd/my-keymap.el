@@ -71,8 +71,10 @@
 ;; C-x / C-c
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
-(global-set-key (kbd "C-c .") 'my-insert-single-space)
-(global-set-key (kbd "C-c >") 'my-insert-double-space)
+(global-set-key (kbd "C-c ,") 'my-insert-single-space)
+(global-set-key (kbd "C-c <") 'my-insert-double-space)
+(global-set-key (kbd "C-c M-.") 'find-tag)
+(global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 
 ;; H-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
