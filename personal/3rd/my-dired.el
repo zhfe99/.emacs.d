@@ -106,9 +106,12 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
       (switch-to-buffer buf)
       )))
 
+;; remap key for dired-mode to be consistent with the setting in my-keymap.el
 (define-key dired-mode-map "o" 'ace-dired-find-file)
+(define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
-(define-key dired-mode-map (kbd "M-u") 'helm-projectile-switch-project)
+(define-key dired-mode-map (kbd "M-i") 'dired-jump)
+(define-key dired-mode-map (kbd "M-u") 'git-push-remote-origin)
 (define-key dired-mode-map (kbd "M-p") 'my-switch-to-current-on-server-or-local)
 
 (provide 'my-dired)

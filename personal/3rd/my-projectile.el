@@ -26,7 +26,6 @@
 
 ;; projectile-key
 (define-key projectile-command-map (kbd "g") 'helm-projectile-grep)
-(define-key projectile-command-map (kbd "t") 'projectile-regenerate-tags)
 (define-key projectile-command-map (kbd "o") 'projectile-find-other-file)
 
 (provide 'my-projectile)

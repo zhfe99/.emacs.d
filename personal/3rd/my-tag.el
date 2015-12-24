@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My tag setting.
+;; My (c)tag setting.
 
 ;;; Code:
 
@@ -16,7 +16,7 @@
        '("/Users/feng/code/fzhou/fg_demo/" "/Users/feng/code/pyia/TAGS")
        '(".*\\.py$" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS" "/Users/feng/code/caffe/TAGS")
        '(".*\\.m$" "/Users/feng/code/mat_lib/TAGS" "/Users/feng/code/mat/TAGS")
-       '(".*\\.lua$" "/Users/code/lua_lib/TAGS" "/Users/code/lua_th/TAGS")))
+       '(".*\\.lua$" "/Users/feng/code/lua_lib/TAGS" "/Users/feng/code/lua_th/TAGS")))
 (setq etags-table-alist tag-table-alist)
 (setq etags-table-search-up-depth 10)
 
@@ -31,6 +31,7 @@
 (add-hook 'emacs-lisp-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'python-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'c++-mode-hook  'turn-on-ctags-auto-update-mode)
+(add-hook 'lua-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'c-mode-common-hook  'turn-on-ctags-auto-update-mode)
 (setq ctags-update-delay-seconds (* 1 60))
 

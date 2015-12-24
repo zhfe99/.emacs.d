@@ -25,9 +25,9 @@
 ;; q w e r t y u [ ]
 ;; s h l '
 ;; z b v /
+(global-set-key (kbd "H-e") 'ediff-files)
 (global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
-(global-set-key (kbd "H-p") 'git-push-remote-origin)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
 (global-set-key (kbd "H-A") 'my-open-info-org)
 (global-set-key (kbd "H-d") 'ace-duplicate-buffer)
@@ -84,7 +84,7 @@
 
 ;; M-
 (global-set-key (kbd "M-i") 'dired-jump)
-(global-set-key (kbd "M-I") 'change-inner)
+;; (global-set-key (kbd "M-I") 'change-inner)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
@@ -103,17 +103,18 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "M-h") 'helm-mini)
-(global-set-key (kbd "M-H") 'helm-projectile-find-file)
+(global-set-key (kbd "M-H") 'helm-projectile-switch-project)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "M-t") 'multi-term-next)
 (global-set-key (kbd "M-T") 'multi-term)
-(global-set-key (kbd "M-u") 'helm-projectile-switch-project)
+(global-set-key (kbd "M-u") 'git-push-remote-origin)
 (global-set-key (kbd "M-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "M-'") 'helm-flycheck)
 (global-set-key (kbd "M-.") 'helm-etags+-select)
 (global-set-key (kbd "M-*") 'helm-etags+-history)
 (global-set-key (kbd "M-,") 'helm-etags+-history-go-back)
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
+(global-set-key (kbd "M-J") 'avy-goto-char)
 (global-set-key (kbd "M-a") 'sp-splice-sexp)
 (global-set-key (kbd "M-A") 'sp-rewrap-sexp)
 
