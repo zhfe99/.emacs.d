@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; turn-off guru warning
+(setq prelude-guru nil)
+
 ;; ace-mode
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)

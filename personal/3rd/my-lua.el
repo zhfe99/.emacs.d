@@ -58,7 +58,6 @@
                     (lua-indent-level . 3)
                     (lua-indent-level . 4)
                     (lua-indent-level . 8)))
-            ;; (setq lua-indent-level 2)
             (local-set-key (kbd "H-c") 'my-lua-create-date)))
 
 (defun my-lua-save-hook ()
