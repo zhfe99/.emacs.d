@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My C/C++ setting.
+;; My C/C++/Cuda setting.
 
 ;;; Code:
 
@@ -15,23 +15,20 @@
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . cuda-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . cuda-mode))
 
-;; c++-mode
-(add-hook 'c++-mode-hook
-          (lambda()
-            (subword-mode 1)
-            (setq c-basic-offset 2)
-            ;; (ggtags-mode t)
-            ))
-(add-hook 'c++-mode-common-hook 'google-set-c-style)
-
 ;; c-mode
 (add-hook 'c-mode-hook
           (lambda()
             (subword-mode 1)
-            (setq c-basic-offset 2)
-            ;; (ggtags-mode t)
-            ))
+            (setq c-basic-offset 2)))
 (add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+;; c++-mode
+(add-hook 'c++-mode-hook
+          (lambda()
+            (subword-mode 1)
+            (setq c-basic-offset 2)))
+;; (add-hook 'c++-mode-hook 'google-set-c-style)
 
 ;; cuda-mode
 (add-hook 'cuda-mode-hook
@@ -40,7 +37,7 @@
             (setq c-basic-offset 2)
             ;; (ggtags-mode t)
             ))
-(add-hook 'cuda-mode-common-hook 'google-set-c-style)
+;; (add-hook 'cuda-mode-hook 'google-set-c-style)
 
 ;; remap M-j
 (define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)
