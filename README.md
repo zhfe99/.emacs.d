@@ -9,7 +9,7 @@ Everyday, I use Emacs as the universal tool to do most work, including
 - maintaining **Git** repositories.
 
 The reason I like Emacs is very simple: **being focused and
-productive**. Most time I have only two softwares running, **Spotify**
+productive**. Most time I have only two softwares running, **iTunes**
 for playing music and **Emacs** for working. Always staying in a
 single Emacs environment can largely save your time in switching
 between different softwares and reducing the distraction from other
