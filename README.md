@@ -1,6 +1,7 @@
 # Introduction
 Everyday, I use Emacs as the universal tool to do most work, including
 - editing all kinds of source codes (e.g., **Matlab**, **C/C++**, **Latex**, **Python**, **Html**, **Css**);
+- editing remote code on remote server using **Tramp**;
 - simulating shells for running **Matlab**, **Python** and **Zsh**;
 - connecting server through **SSH** and running multiple processes via **Screen**;
 - organizing folders and documents on my Mac;
@@ -16,7 +17,7 @@ distraction from other sources of information (e.g., Facebook, Email, News,
 Youtube). Within Emacs, you can develop your favorite work-flow and
 stick with the same key shortcuts for different tasks.
 
-# Emacs Build Choice
+# Emacs Version
 I recommend to use the Emacs version from
 [Railwaycat's Port](https://github.com/railwaycat/emacs-mac-port),
 which provides a native GUI support for latest Mac OSX.
@@ -25,6 +26,6 @@ which provides a native GUI support for latest Mac OSX.
 `git clone https://github.com/zhfe99/prelude ~/.emacs.d`
 
 # Organization
-My configuration mostly follows the default setting of the popular
-[prelude](https://github.com/bbatsov/prelude) package. Most of my
+My configuration follows the default setting of the popular
+[prelude](https://github.com/bbatsov/prelude) package. My
 personal modification can be found in the sub-folder `personal/`.
