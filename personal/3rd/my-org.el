@@ -13,23 +13,18 @@
 
 ;; org agenda file
 (setq org-agenda-files (list
-                        "~/log/org/my/todo.org"
-                        "~/log/org/my/history/day.org"))
+                        "~/papers/doc/org/todo.org"
+                        "~/papers/doc/org/history/day.org"))
 
 ;; open todo.org
 (defun my-open-todo-org ()
   (interactive)
-  (find-file "~/log/org/my/todo.org"))
+  (find-file "~/papers/doc/org/todo.org"))
 
 ;; open info.org
 (defun my-open-info-org ()
   (interactive)
-  (find-file "~/log/org/my/info.org"))
-
-;; open think.org
-(defun my-open-think-org ()
-  (interactive)
-  (find-file "~/log/org/my/think.org"))
+  (find-file "~/papers/doc/org/info.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -113,6 +108,14 @@
     (around nm-org-agenda-get-restriction-and-command activate)
   (flet ((delete-other-windows () nil))
     ad-do-it))
+
+(defun jcs-get-link (link)
+  "Retrieve URL from current Safari page and prompt for description.
+Insert an Org link at point."
+  (interactive "sLink Description: ")
+  (let ((result (shell-command-to-string
+                 "osascript -e 'tell application \"Safari\" to return URL of document 1'")))
+    (insert (format "[[%s][%s]]" (org-trim result) link))))
 
 (provide 'my-org)
 ;;; my-org.el ends here

@@ -22,11 +22,10 @@
 
 ;; H-
 ;; available:
-;; q w e r t y u [ ]
+;; q w e r t y u i [ ]
 ;; s h l '
 ;; z b v /
 (global-set-key (kbd "H-e") 'ediff-files)
-(global-set-key (kbd "H-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
 (global-set-key (kbd "H-A") 'my-open-info-org)
@@ -83,7 +82,8 @@
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
 
 ;; M-
-(global-set-key (kbd "M-i") 'dired-jump)
+(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
+(global-set-key (kbd "M-l") 'dired-jump)
 ;; (global-set-key (kbd "M-I") 'change-inner)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -117,6 +117,10 @@
 (global-set-key (kbd "M-J") 'avy-goto-char)
 (global-set-key (kbd "M-a") 'sp-splice-sexp)
 (global-set-key (kbd "M-A") 'sp-rewrap-sexp)
+(global-unset-key (kbd "M-c"))
+(global-set-key (kbd "M-c c") 'subword-capitalize)
+(global-set-key (kbd "M-c u") 'subword-upcase)
+(global-set-key (kbd "M-c l") 'subword-downcase)
 
 ;; function key
 (global-set-key (kbd "<f1>") 'org-agenda-list)

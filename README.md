@@ -23,3 +23,8 @@ which provides a native GUI support for latest Mac OSX.
 
 # Installation
 `git clone https://github.com/zhfe99/prelude ~/.emacs.d`
+
+# Organization
+My configuration mostly follows the default setting of the popular
+[prelude][https://github.com/bbatsov/prelude] package. Most of my
+personal modification can be found in the sub-folder `personal/`.
