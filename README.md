@@ -5,7 +5,7 @@ Everyday, I use Emacs as the universal tool to do most work, including
 - simulating shells for running **Matlab**, **Python** and **Zsh**;
 - connecting server through **SSH** and running multiple processes via **Screen**;
 - organizing folders and documents on my Mac;
-- taking notes using **Org**;
+- taking notes and tracking progress using **Org**;
 - maintaining **Git** repositories.
 
 The reason I like Emacs is very simple: **being focused and
