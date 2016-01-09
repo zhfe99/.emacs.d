@@ -1,7 +1,7 @@
 # Introduction
 Everyday, I use Emacs as the universal tool to do most work, including
 - editing all kinds of source codes (e.g., **Matlab**, **C/C++**, **Latex**, **Python**, **Html**, **Css**);
-- editing remote code on remote server using **Tramp**;
+- editing codes on remote server using **Tramp**;
 - simulating shells for running **Matlab**, **Python** and **Zsh**;
 - connecting server through **SSH** and running multiple processes via **Screen**;
 - organizing folders and documents on my Mac;
