@@ -12,10 +12,9 @@ The reason I like Emacs is very simple: **being focused and
 productive**. Most time I have only two softwares running, **Spotify**
 for playing music and **Emacs** for working. Always staying in a
 single Emacs environment can largely save your time in switching
-between different softwares and reducing the
-distraction from other sources of information (e.g., Facebook, Email, News,
-Youtube). Within Emacs, you can develop your favorite work-flow and
-stick with the same key shortcuts for different tasks.
+between different softwares and reducing the distraction from other
+sources of information. Within Emacs, you can develop your favorite
+work-flow and stick with the same key shortcuts for different tasks.
 
 # Emacs Version
 I recommend to use the Emacs version from
