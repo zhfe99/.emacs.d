@@ -26,4 +26,4 @@ which provides a native GUI support for latest Mac OSX.
 # Organization
 My configuration follows the default setting of the popular
 [prelude](https://github.com/bbatsov/prelude) package. My
-personal modification can be found in the sub-folder `personal/`.
+personal modification can be found in the sub-folder `personal/` and `personal/3rd`.
