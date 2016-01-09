@@ -26,5 +26,5 @@ which provides a native GUI support for latest Mac OSX.
 
 # Organization
 My configuration mostly follows the default setting of the popular
-[prelude][https://github.com/bbatsov/prelude] package. Most of my
+[prelude](https://github.com/bbatsov/prelude) package. Most of my
 personal modification can be found in the sub-folder `personal/`.
