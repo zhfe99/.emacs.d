@@ -1,13 +1,13 @@
 # Introduction
 Everyday, I use Emacs as the universal tool to do most work, including
-- editing all kinds of source codes (e.g., **Matlab**, **C/C++**, **Latex**, **Python**, **Html**, **Css**);
+- editing all kinds of source codes (e.g., **Matlab**, **C/C++**, **Latex**, **Python**, **Lua**, **Html**, **Css**);
 - editing codes on remote server using **Tramp**;
 - simulating shells for running **Matlab**, **Python** and **Zsh**;
 - organizing folders and documents on my Mac;
 - taking notes and tracking progress using **Org**;
 - maintaining **Git** repositories.
 
-The reason I like Emacs is very simple: **being focused and
+The reason I like Emacs is to be **focused and
 productive**. Most time I have only two softwares running, **iTunes**
 for playing music and **Emacs** for working. Always staying in a
 single Emacs environment can largely save your time in switching
