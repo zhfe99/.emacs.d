@@ -23,6 +23,7 @@
 ;; dired omit files
 (setq dired-omit-files
       (concat dired-omit-files
+              "\\|^\\$RECYCLE.BIN$"
               "\\|^\\.DS_Store$"
               "\\|^\\.Trash$"
               "\\|^\\.Xauthority$"
