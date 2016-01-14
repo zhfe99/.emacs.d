@@ -5,6 +5,10 @@
 
 ;;; Code:
 
+;; smooth scroll
+(require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
+
 ;; turn-off guru warning
 (setq prelude-guru nil)
 
