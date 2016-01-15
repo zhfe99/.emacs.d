@@ -23,12 +23,13 @@
 ;; H-
 ;; available:
 ;; q w e r t y u i [ ]
-;; s h l '
+;; h l '
 ;; z b v /
 (global-set-key (kbd "H-e") 'ediff-files)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
 (global-set-key (kbd "H-A") 'my-open-info-org)
+(global-set-key (kbd "H-s") 'my-find-file-as-sudo)
 (global-set-key (kbd "H-d") 'ace-duplicate-buffer)
 (global-set-key (kbd "H-f") 'find-name-dired)
 (global-set-key (kbd "H-g") 'rgrep)

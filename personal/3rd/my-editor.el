@@ -137,5 +137,12 @@
         ((equal major-mode 'org-mode) (org-narrow-to-subtree))
         (t (error "Please select a region to narrow to"))))
 
+;; re-open file as sudo
+(defun my-find-file-as-sudo ()
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (when file-name
+      (find-alternate-file (concat "/sudo::" file-name)))))
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
