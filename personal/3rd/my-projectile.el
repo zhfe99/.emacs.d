@@ -26,7 +26,6 @@
 
 ;; projectile-key
 (define-key projectile-command-map (kbd "g") 'helm-projectile-grep)
-(define-key projectile-command-map (kbd "o") 'projectile-find-other-file)
 
 (provide 'my-projectile)
 ;;; my-editor.el ends here
