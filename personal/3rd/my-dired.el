@@ -210,7 +210,6 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
 (define-key dired-mode-map (kbd "M-i") 'helm-semantic-or-imenu)
 (define-key dired-mode-map (kbd "M-l") 'dired-jump)
 (define-key dired-mode-map (kbd "M-u") 'git-push-remote-origin)
-(define-key dired-mode-map (kbd "M-p") 'my-switch-to-current-on-server-or-local)
 
 (provide 'my-dired)
 ;;; my-dired.el ends here
