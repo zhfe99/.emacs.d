@@ -52,6 +52,10 @@
 (prelude-require-package 'phi-search)
 ;; (prelude-require-package 'reveal-in-finder)
 (prelude-require-package 'sr-speedbar)
+(prelude-require-package 'etags-table)
+(prelude-require-package 'etags-select)
+(prelude-require-package 'window-numbering)
+(prelude-require-package 'protobuf-mode)
 (prelude-require-package 'smooth-scrolling)
 (prelude-require-package 'use-package)
 
