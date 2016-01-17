@@ -30,6 +30,7 @@
 (global-set-key (kbd "H-a") 'my-open-todo-org)
 (global-set-key (kbd "H-A") 'my-open-info-org)
 (global-set-key (kbd "H-s") 'my-find-file-as-sudo)
+(global-set-key (kbd "H-u") 'git-push-remote-origin)
 (global-set-key (kbd "H-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "H-d") 'ace-duplicate-buffer)
 (global-set-key (kbd "H-f") 'find-name-dired)
@@ -50,6 +51,7 @@
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
 ;; C-
+;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)
