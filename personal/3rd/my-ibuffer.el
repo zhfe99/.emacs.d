@@ -9,6 +9,7 @@
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote (("default"
+               ("Remote" (filename . "^/scp"))
                ("Image" (mode . image-mode))
                ("Python" (mode . python-mode))
                ("Lua" (mode . lua-mode))
