@@ -5,26 +5,36 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+;; set org mode for *.org and *.org_archive
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
-;; better bullet
+;; bueatify bullet
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; org agenda file
 (setq org-agenda-files (list
-                        "~/papers/doc/org/todo.org"
-                        "~/papers/doc/org/history/day.org"))
+                        "~/code/org/todo.org"
+                        "~/code/org/info.org"))
+
+;; org files location
+(setq org-directory "~/code/org/")
+
+;; set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/code/org/flagged.org")
+
+;; use MobileOrg on iOS through Dropbox
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 ;; open todo.org
 (defun my-open-todo-org ()
   (interactive)
-  (find-file "~/papers/doc/org/todo.org"))
+  (find-file "~/code/org/todo.org"))
 
 ;; open info.org
 (defun my-open-info-org ()
   (interactive)
-  (find-file "~/papers/doc/org/info.org"))
+  (find-file "~/code/org/info.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -41,7 +51,7 @@
 (setq org-todo-keyword-faces
       (quote (("NEXT" :foreground "yellow" :weight bold))))
 
-;; reset org key to be consistent to global keys
+;; remap org key to be consistent with global setting
 (defun my-org-mode-keys ()
   "My keybindings for `org-mode'."
   (define-key org-mode-map (kbd "<C-up>") 'org-backward-heading-same-level)
@@ -66,7 +76,6 @@
                 (cons mode-line-format '(pomodoro-mode-line-string))))
 (my-pomodoro-add-to-mode-line)
 (setq pomodoro-work-time 25)
-(setq pomodoro-sound-player "mplayerx")
 (setq pomodoro-play-sounds nil)
 
 ;; start org clock when the state is switched to WORK
@@ -92,8 +101,13 @@
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
 (setq org-agenda-span 'day)
+
+;; default to indent outline
 (setq org-startup-indented t)
+
+;; default to hide stars
 (setq org-hide-leading-stars t)
+
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
@@ -109,6 +123,7 @@
   (flet ((delete-other-windows () nil))
     ad-do-it))
 
+;; get the current page from Safari
 (defun jcs-get-link (link)
   "Retrieve URL from current Safari page and prompt for description.
 Insert an Org link at point."
