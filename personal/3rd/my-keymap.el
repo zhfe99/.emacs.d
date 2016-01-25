@@ -40,6 +40,7 @@
 (global-set-key (kbd "H-c") 'org-capture)
 (global-set-key (kbd "H--") 'my-align-comment)
 (global-set-key (kbd "H-j") 'org-clock-goto)
+(global-set-key (kbd "H-J") 'org-show-todo-tree)
 (global-set-key (kbd "H-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
 (global-set-key (kbd "H-,") 'diff-hl-previous-hunk)
