@@ -86,7 +86,6 @@
   '(define-key elpy-mode-map (kbd "M-.") nil))
 
 (require 'indent-guide)
-
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)

@@ -11,6 +11,8 @@
        '(("\\.cmake\\'" . cmake-mode))
        auto-mode-alist))
 
+(require 'indent-guide)
+
 ;; cuda
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . cuda-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . cuda-mode))
@@ -19,6 +21,7 @@
 (add-hook 'c-mode-hook
           (lambda()
             (subword-mode 1)
+            (indent-guide-mode)
             (setq c-basic-offset 2)))
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -27,6 +30,7 @@
 (add-hook 'c++-mode-hook
           (lambda()
             (subword-mode 1)
+            (indent-guide-mode)
             (setq c-basic-offset 2)))
 ;; (add-hook 'c++-mode-hook 'google-set-c-style)
 
@@ -35,6 +39,7 @@
           (lambda()
             (subword-mode 1)
             (setq c-basic-offset 2)
+            (indent-guide-mode)
             ;; (ggtags-mode t)
             ))
 ;; (add-hook 'cuda-mode-hook 'google-set-c-style)

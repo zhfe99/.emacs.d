@@ -53,6 +53,7 @@
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
+            (indent-guide-mode)
             (setq safe-local-variable-values
                   '((lua-indent-level . 2)
                     (lua-indent-level . 3)
