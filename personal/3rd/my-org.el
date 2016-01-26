@@ -12,6 +12,11 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
+;; the more pointed, the more important
+(eval-after-load 'org-bullets
+  '(setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
+
 ;; org agenda file
 (setq org-agenda-files (list
                         "~/code/org/todo.org"
