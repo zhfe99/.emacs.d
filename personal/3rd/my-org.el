@@ -75,7 +75,7 @@
   (setq-default mode-line-format
                 (cons mode-line-format '(pomodoro-mode-line-string))))
 (my-pomodoro-add-to-mode-line)
-(setq pomodoro-work-time 25)
+(setq pomodoro-work-time 40)
 (setq pomodoro-play-sounds nil)
 
 ;; start org clock when the state is switched to WORK
@@ -90,7 +90,7 @@
     (when pomodoro-timer
       (pomodoro-stop))
     ;; clock out
-    (when (and (string= org-state nil)
+    (when (and (or (string= org-state nil) (string= org-state "NEXT"))
                (org-clocking-p))
       (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook

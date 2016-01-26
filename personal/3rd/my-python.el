@@ -5,6 +5,15 @@
 
 ;;; Code:
 
+;; I don't like highlight-indentation mode
+;; Instead I prefer to use indent-guide mode
+(setq elpy-modules '(elpy-module-sane-defaults
+                     elpy-module-company
+                     elpy-module-eldoc
+                     elpy-module-flymake
+                     elpy-module-pyvenv
+                     elpy-module-yasnippet))
+
 ;; elpy for python
 (elpy-enable)
 
@@ -76,9 +85,13 @@
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "M-.") nil))
 
+(require 'indent-guide)
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)
+             (highlight-indentation-mode -1)
+             (indent-guide-mode)
              (setq python-indent-offset 2)))
 
 ;; Use only own snippets, do not use bundled ones
