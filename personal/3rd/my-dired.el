@@ -120,6 +120,7 @@
               "\\|^\\.zsh-update$"
               "\\|^\\.zsh_history$"
               "\\|^\\flycheck_"
+              "\\|flymake\\.py$"
               ))
 
 ;; ace-jump only search filename in dired
