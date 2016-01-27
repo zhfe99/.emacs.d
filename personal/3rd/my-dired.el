@@ -119,6 +119,7 @@
               "\\|^\\.zprofile$"
               "\\|^\\.zsh-update$"
               "\\|^\\.zsh_history$"
+              "\\|^\\flycheck_"
               ))
 
 ;; ace-jump only search filename in dired

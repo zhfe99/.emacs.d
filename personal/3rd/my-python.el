@@ -17,6 +17,8 @@
 ;; elpy for python
 (elpy-enable)
 
+(setq python-shell-prompt-detect-failure-warning nil)
+
 ;; show elpy buffer in the current window
 (defun my-elpy-shell-switch-to-shell ()
   "Switch to inferior Python process buffer."
@@ -89,7 +91,6 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)
-             (highlight-indentation-mode -1)
              (indent-guide-mode)
              (setq python-indent-offset 2)))
 
