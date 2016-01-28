@@ -62,6 +62,7 @@
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c ,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)
+(global-set-key (kbd "C-c '") 'helm-swoop)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
 (global-set-key (kbd "C-1") 'delete-other-windows)
