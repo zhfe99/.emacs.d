@@ -26,7 +26,7 @@
 ;; default shell form multi-term
 (cond
  ((string-equal system-type "darwin")
-  (setq multi-term-buffer-name "term" multi-term-program "/bin/zsh"))
+  (setq multi-term-buffer-name "term" multi-term-program "/home/ma/feng/apps/bin/zsh"))
  ((string-equal system-type "gnu/linux")
   (setq multi-term-buffer-name "term"
         multi-term-program (concat (getenv "HOME") "/bin/bash"))))
