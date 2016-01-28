@@ -90,6 +90,7 @@
 ;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
+(global-set-key (kbd "C-c =") 'er/expand-region)
 
 ;; H-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
