@@ -46,13 +46,13 @@
 (global-set-key (kbd "H-,") 'diff-hl-previous-hunk)
 (global-set-key (kbd "H-.") 'diff-hl-next-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
-(global-set-key (kbd "<C-c down>") 'my-push-window-down)
+(global-set-key (kbd "C-c <down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
-(global-set-key (kbd "<C-c up>") 'my-push-window-up)
+(global-set-key (kbd "C-c <up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
-(global-set-key (kbd "<C-c left>") 'my-push-window-left)
+(global-set-key (kbd "C-c <left>") 'my-push-window-left)
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
-(global-set-key (kbd "<C-c right>") 'my-push-window-right)
+(global-set-key (kbd "C-c <right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
 ;; C-
