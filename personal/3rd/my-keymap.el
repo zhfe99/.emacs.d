@@ -25,6 +25,7 @@
 ;; q w e r t y u i [ ]
 ;; h l '
 ;; z b v /
+;; notice these keys might not be accessible in terminal
 (global-set-key (kbd "H-e") 'ediff-files)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-a") 'my-open-todo-org)
@@ -46,13 +47,9 @@
 (global-set-key (kbd "H-,") 'diff-hl-previous-hunk)
 (global-set-key (kbd "H-.") 'diff-hl-next-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
-(global-set-key (kbd "C-c <down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
-(global-set-key (kbd "C-c <up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
-(global-set-key (kbd "C-c <left>") 'my-push-window-left)
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
-(global-set-key (kbd "C-c <right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
 ;; C-
@@ -65,15 +62,6 @@
 (global-set-key (kbd "C-c '") 'helm-swoop)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
-(global-set-key (kbd "C-1") 'delete-other-windows)
-(global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
-(global-set-key (kbd "C-x 2") 'split-window-below-and-move-there-dammit)
-(global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
-(global-set-key (kbd "C-x 3") 'split-window-right-and-move-there-dammit)
-(global-set-key (kbd "C-4") 'my-save-window-conf-4)
-(global-set-key (kbd "C-x 4") 'my-save-window-conf-4)
-(global-set-key (kbd "C-0") 'ace-delete-window)
-(global-set-key (kbd "C-x 0") 'ace-delete-window)
 (define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t l") 'transpose-lines)
@@ -83,14 +71,24 @@
 (global-set-key (kbd "C-h b") 'helm-descbinds)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
 
-;; C-x / C-c
+;; C-x
+(global-set-key (kbd "C-x 2") 'split-window-below-and-move-there-dammit)
+(global-set-key (kbd "C-x 3") 'split-window-right-and-move-there-dammit)
+(global-set-key (kbd "C-x 4") 'my-save-window-conf-4)
+(global-set-key (kbd "C-x 0") 'ace-delete-window)
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
+
+;; C-c
 ;; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
 ;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c =") 'er/expand-region)
+(global-set-key (kbd "C-c <down>") 'my-push-window-down)
+(global-set-key (kbd "C-c <up>") 'my-push-window-up)
+(global-set-key (kbd "C-c <left>") 'my-push-window-left)
+(global-set-key (kbd "C-c <right>") 'my-push-window-right)
 
 ;; H-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
