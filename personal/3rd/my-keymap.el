@@ -54,15 +54,21 @@
 ;; C-
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c .") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c ,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
 (global-set-key (kbd "C-1") 'delete-other-windows)
 (global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
+(global-set-key (kbd "C-x 2") 'split-window-below-and-move-there-dammit)
 (global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
+(global-set-key (kbd "C-x 3") 'split-window-right-and-move-there-dammit)
 (global-set-key (kbd "C-4") 'my-save-window-conf-4)
+(global-set-key (kbd "C-x 4") 'my-save-window-conf-4)
 (global-set-key (kbd "C-0") 'ace-delete-window)
+(global-set-key (kbd "C-x 0") 'ace-delete-window)
 (define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t l") 'transpose-lines)
@@ -75,8 +81,8 @@
 ;; C-x / C-c
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
-(global-set-key (kbd "C-c ,") 'my-insert-single-space)
-(global-set-key (kbd "C-c <") 'my-insert-double-space)
+;; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
+;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 
