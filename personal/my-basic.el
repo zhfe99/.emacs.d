@@ -58,6 +58,7 @@
 (prelude-require-package 'protobuf-mode)
 (prelude-require-package 'smooth-scrolling)
 (prelude-require-package 'use-package)
+(prelude-require-package 'iy-go-to-char)
 
 ;; other setting
 (require 'my-env)
