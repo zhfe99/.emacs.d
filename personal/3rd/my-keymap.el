@@ -82,6 +82,7 @@
 ;; C-c
 ;; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
 ;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
+(global-set-key (kbd "C-c M-i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c =") 'er/expand-region)

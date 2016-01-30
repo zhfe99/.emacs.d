@@ -59,6 +59,7 @@
 (prelude-require-package 'smooth-scrolling)
 (prelude-require-package 'use-package)
 (prelude-require-package 'iy-go-to-char)
+(prelude-require-package 'imenu-anywhere)
 
 ;; other setting
 (require 'my-env)
