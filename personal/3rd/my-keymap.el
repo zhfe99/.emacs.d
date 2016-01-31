@@ -87,17 +87,12 @@
 (global-set-key (kbd "C-0") 'ace-delete-window)
 
 ;; C-x
-(global-set-key (kbd "C-x 2") 'split-window-below-and-move-there-dammit)
-(global-set-key (kbd "C-x 3") 'split-window-right-and-move-there-dammit)
-(global-set-key (kbd "C-x 4") 'my-save-window-conf-4)
-(global-set-key (kbd "C-x 0") 'ace-delete-window)
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
 
 ;; C-c
-; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
-;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
-(global-set-key (kbd "C-c M-i") 'helm-imenu-anywhere)
+(define-key prelude-mode-map (kbd "C-c i") nil)
+(global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 
