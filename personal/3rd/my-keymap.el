@@ -80,6 +80,11 @@
 (global-set-key (kbd "C-t s") 'transpose-sexps)
 (global-set-key (kbd "C-h b") 'helm-descbinds)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
+(global-set-key (kbd "C-1") 'delete-other-windows)
+(global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
+(global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
+(global-set-key (kbd "C-4") 'my-save-window-conf-4)
+(global-set-key (kbd "C-0") 'ace-delete-window)
 
 ;; C-x
 (global-set-key (kbd "C-x 2") 'split-window-below-and-move-there-dammit)
