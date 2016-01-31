@@ -52,14 +52,24 @@
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
+(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this)
+(global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this)
+(global-set-key (kbd "\e[46;3~") 'er/expand-region)
+(global-set-key (kbd "\e[46;A~") 'my-push-window-up)
+(global-set-key (kbd "\e[46;B~") 'my-push-window-down)
+(global-set-key (kbd "\e[46;C~") 'my-push-window-left)
+(global-set-key (kbd "\e[46;D~") 'my-push-window-right)
+(global-set-key (kbd "\e[27;5;39~") 'helm-swoop)
+(global-set-key (kbd "\e[46;3;A~") 'buf-move-up)
+(global-set-key (kbd "\e[46;3;B~") 'buf-move-down)
+(global-set-key (kbd "\e[46;3;C~") 'buf-move-left)
+(global-set-key (kbd "\e[46;3;D~") 'buf-move-right)
+
 ;; C-
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c .") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c ,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)
-(global-set-key (kbd "C-c '") 'helm-swoop)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
 (define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
@@ -80,16 +90,11 @@
 (global-set-key (kbd "C-x O") 'ace-swap-window)
 
 ;; C-c
-;; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
+; (global-set-key (kbd "C-c ,") 'my-insert-single-space)
 ;; (global-set-key (kbd "C-c <") 'my-insert-double-space)
 (global-set-key (kbd "C-c M-i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
-(global-set-key (kbd "C-c =") 'er/expand-region)
-(global-set-key (kbd "C-c <down>") 'my-push-window-down)
-(global-set-key (kbd "C-c <up>") 'my-push-window-up)
-(global-set-key (kbd "C-c <left>") 'my-push-window-left)
-(global-set-key (kbd "C-c <right>") 'my-push-window-right)
 
 ;; H-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
@@ -107,6 +112,8 @@
 (global-set-key (kbd "M-m") 'iy-go-up-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
 (global-set-key (kbd "<M-up>") 'move-text-up)
+(define-key input-decode-map "\e\e[A" [(meta up)])
+(define-key input-decode-map "\e\e[B" [(meta down)])
 (eval-after-load "smartparens-mode"
   '(define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
 (global-set-key (kbd "<M-down>") 'move-text-down)
