@@ -18,6 +18,9 @@
 
 ;; use git-gutter+
 (require 'git-gutter-fringe+)
+(cond
+ ((string-equal system-type "gnu/linux")
+  (git-gutter+-toggle-fringe)))
 
 ;; key
 (eval-after-load 'git-gutter+
