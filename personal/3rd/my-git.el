@@ -17,7 +17,7 @@
 (global-diff-hl-mode -1)
 
 ;; use git-gutter+
-(global-git-gutter+-mode +1)
+(require 'git-gutter-fringe+)
 
 ;; key
 (eval-after-load 'git-gutter+

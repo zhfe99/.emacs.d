@@ -61,6 +61,7 @@
 (prelude-require-package 'iy-go-to-char)
 (prelude-require-package 'imenu-anywhere)
 (prelude-require-package 'git-gutter+)
+(prelude-require-package 'git-gutter-fringe+)
 
 ;; other setting
 (require 'my-env)
