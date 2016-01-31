@@ -52,6 +52,10 @@
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
+(global-set-key (kbd "\e[45;1~") 'delete-other-windows)
+(global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit)
+(global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit)
+(global-set-key (kbd "\e[45;0~") 'ace-delete-window)
 (global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this)
 (global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this)
 (global-set-key (kbd "\e[46;3~") 'er/expand-region)
