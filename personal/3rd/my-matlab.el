@@ -75,6 +75,7 @@
             (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)
             (indent-guide-mode)
+            (git-gutter+-mode)
             (local-set-key (kbd "H-c") 'my-matlab-create-date)
             (local-set-key (kbd "M-j") 'avy-goto-word-1)
             (local-set-key (kbd "M-a") 'sp-splice-sexp)

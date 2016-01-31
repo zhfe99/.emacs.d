@@ -60,12 +60,14 @@
             (subword-mode 1)
             (yas-minor-mode)
             (indent-guide-mode)
+            (git-gutter+-mode)
             (local-set-key (kbd "H-c") 'my-sh-create-date)))
 
 ;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (indent-guide-mode)))
+            (indent-guide-mode)
+            (git-gutter+-mode)))
 
 (provide 'my-sh)
 ;;; my-sh.el ends here

@@ -22,6 +22,7 @@
           (lambda()
             (subword-mode 1)
             (indent-guide-mode)
+            (git-gutter+-mode)
             (setq c-basic-offset 2)))
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -31,6 +32,7 @@
           (lambda()
             (subword-mode 1)
             (indent-guide-mode)
+            (git-gutter+-mode)
             (setq c-basic-offset 2)))
 ;; (add-hook 'c++-mode-hook 'google-set-c-style)
 
@@ -40,8 +42,7 @@
             (subword-mode 1)
             (setq c-basic-offset 2)
             (indent-guide-mode)
-            ;; (ggtags-mode t)
-            ))
+            (git-gutter+-mode)))
 ;; (add-hook 'cuda-mode-hook 'google-set-c-style)
 
 ;; remap M-j
@@ -55,7 +56,8 @@
 (add-hook 'protobuf-mode-hook
           (lambda()
             (subword-mode 1)
-            (setq c-basic-offset 2)))
+            (setq c-basic-offset 2)
+            (git-gutter+-mode)))
 
 ;; makefile-mode
 (setq auto-mode-alist (cons '("Makefile\\." . makefile-mode) auto-mode-alist))

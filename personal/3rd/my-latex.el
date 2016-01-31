@@ -56,8 +56,7 @@ filling of the current paragraph."
   "This function turns on auto-fill-mode and sets the function
 used to fill a paragraph to `my-LaTeX-auto-fill-function'."
   (auto-fill-mode)
-  (setq auto-fill-function 'my-LaTeX-auto-fill-function)
-  )
+  (setq auto-fill-function 'my-LaTeX-auto-fill-function))
 
 (add-hook 'LaTeX-mode-hook 'my-LaTeX-setup-auto-fill)
 

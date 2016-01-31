@@ -92,6 +92,7 @@
           '(lambda ()
              (local-set-key (kbd "H-c") 'my-python-create-date)
              (indent-guide-mode)
+             (git-gutter+-mode)
              (setq python-indent-offset 2)))
 
 ;; Use only own snippets, do not use bundled ones
