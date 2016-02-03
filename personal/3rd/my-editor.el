@@ -144,7 +144,5 @@
     (when file-name
       (find-alternate-file (concat "/sudo::" file-name)))))
 
-
-
 (provide 'my-editor)
 ;;; my-editor.el ends here
