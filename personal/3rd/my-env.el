@@ -39,7 +39,11 @@
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"
                 ":" (getenv "HOME") "/tool/py_lua"))
+(setenv "PYTHONPATH"
+        (concat (getenv "HOME") "/code"
+                ":" (getenv "PYTHONPATH")))
 
+;; remote server
 (setenv "ts3" "/scp:feng@skyserver3k:")
 (setenv "ts4" "/scp:feng@skyserver4k:")
 (setenv "ts7" "/scp:feng@skyserver7k:")
