@@ -34,6 +34,9 @@
 ;; use MobileOrg on iOS through Dropbox
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
+;; use org-completion-use
+(setq org-completion-use-ido t)
+
 ;; open todo.org
 (defun my-open-todo-org ()
   (interactive)
