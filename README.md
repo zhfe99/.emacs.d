@@ -21,7 +21,7 @@ I recommend to use the Emacs version from
 which provides a native GUI support for latest Mac OSX.
 
 # Installation
-`git clone https://github.com/zhfe99/prelude ~/.emacs.d`
+`git clone https://github.com/zhfe99/.emacs.d ~/.emacs.d`
 
 # Organization
 My configuration follows the default setting of the popular
