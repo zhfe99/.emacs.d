@@ -1,1 +1,1 @@
-; x(setq projectile-keymap-prefix (kbd "M-u"))
+(setq projectile-keymap-prefix (kbd "M-u"))
