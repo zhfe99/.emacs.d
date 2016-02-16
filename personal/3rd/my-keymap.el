@@ -99,6 +99,7 @@
 (global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
+(global-set-key (kbd "C-c M-j") 'avy-pop-mark)
 
 ;; H-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
