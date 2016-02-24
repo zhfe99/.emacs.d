@@ -42,6 +42,7 @@
 (prelude-require-package 'hydra)
 (prelude-require-package 'julia-mode)
 (prelude-require-package 'markdown-mode)
+(prelude-require-package 'markdown-preview-mode)
 (prelude-require-package 'pomodoro)
 (prelude-require-package 'jump-char)
 (prelude-require-package 'keyfreq)

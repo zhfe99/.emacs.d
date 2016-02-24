@@ -147,5 +147,8 @@
 ;; load markdown-mode
 (require 'markdown-mode)
 
+;; load markdown-preview-mode (C-c C-c p is to preview the markdown file in browser)
+(require 'markdown-preview-mode)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
