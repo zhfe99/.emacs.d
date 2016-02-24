@@ -206,7 +206,10 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
       )))
 
 ;; remap key for dired-mode to be consistent with the setting in my-keymap.el
-(define-key dired-mode-map "o" 'ace-dired-find-file)
+(define-key dired-mode-map "E" 'ace-dired-find-file)
+(define-key dired-mode-map "o" 'prelude-open-with)
+(define-key dired-mode-map "d" 'dired-do-delete)
+(define-key dired-mode-map "i" 'dired-do-delete)
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-i") 'helm-semantic-or-imenu)
