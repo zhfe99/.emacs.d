@@ -144,5 +144,8 @@
     (when file-name
       (find-alternate-file (concat "/sudo::" file-name)))))
 
+;; load markdown-mode
+(require 'markdown-mode)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
