@@ -22,8 +22,10 @@
 
 ;; org agenda file
 (setq org-agenda-files (list
-                        "~/code/org/todo.org"
-                        "~/code/org/info.org"))
+                        "~/code/org/code.org"
+                        "~/code/org/cs.org"
+                        "~/code/org/research.org"
+                        "~/code/org/todo.org"))
 
 ;; org files location
 (setq org-directory "~/code/org/")
