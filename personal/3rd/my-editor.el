@@ -122,6 +122,11 @@
 (require 'helm-flycheck)
 
 (keyfreq-mode 1)
+(setq keyfreq-excluded-commands
+      '(self-insert-command
+        abort-recursive-edit
+        previous-line
+        next-line))
 (keyfreq-autosave-mode 1)
 
 (require 'which-key)

@@ -25,7 +25,8 @@
                         "~/code/org/code.org"
                         "~/code/org/cs.org"
                         "~/code/org/research.org"
-                        "~/code/org/todo.org"))
+                        "~/code/org/project.org"
+                        "~/code/org/misc.org"))
 
 ;; org files location
 (setq org-directory "~/code/org/")
