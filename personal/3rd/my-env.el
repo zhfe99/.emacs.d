@@ -66,5 +66,12 @@
        ((string-equal system-type "gnu/linux")
         "/usr/bin/aspell")))
 
+;; define function to shutdown emacs server instance
+(defun server-shutdown ()
+  "Save buffers, Quit, and Shutdown (kill) server"
+  (interactive)
+  (save-some-buffers)
+  (kill-emacs))
+
 (provide 'my-env)
 ;;; my-env.el ends here
