@@ -216,5 +216,10 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
 (define-key dired-mode-map (kbd "M-l") 'dired-jump)
 ;; (define-key dired-mode-map (kbd "M-u") 'git-push-remote-origin)
 
+(use-package dired-narrow
+  :ensure t
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow)))
+
 (provide 'my-dired)
 ;;; my-dired.el ends here

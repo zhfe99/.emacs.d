@@ -66,6 +66,7 @@
 (prelude-require-package 'git-gutter-fringe+)
 
 ;; other setting
+(require 'use-package)
 (require 'my-env)
 (require 'my-modeline)
 (require 'my-projectile)
