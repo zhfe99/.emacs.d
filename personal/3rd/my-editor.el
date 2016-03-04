@@ -155,5 +155,9 @@
 ;; load markdown-preview-mode (C-c C-c p is to preview the markdown file in browser)
 (require 'markdown-preview-mode)
 
+;; multiple-cursor: map RET to get consistent behavior at the terminal
+;; https://github.com/magnars/multiple-cursors.el/pull/168
+(define-key mc/keymap (kbd "<RET>") 'multiple-cursors-mode)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
