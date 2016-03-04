@@ -19,7 +19,7 @@
 (setq whitespace-line-column 80000)
 (setq doc-view-resolution 800)
 (fringe-mode '(4 . 0))
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; font
