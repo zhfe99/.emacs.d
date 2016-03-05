@@ -77,7 +77,7 @@
       (progn
         (message "%s is python-mode" (buffer-file-name))
         (my-python-modify-date))))
-(add-hook 'before-save-hook 'my-python-save-hook)
+;; (add-hook 'before-save-hook 'my-python-save-hook)
 
 ;; python mode (save C-c C-p for other use)
 (eval-after-load "python"

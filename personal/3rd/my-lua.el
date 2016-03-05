@@ -68,7 +68,7 @@
       (progn
         (message "%s is lua-mode" (buffer-file-name))
         (my-lua-modify-date))))
-(add-hook 'before-save-hook 'my-lua-save-hook)
+;; (add-hook 'before-save-hook 'my-lua-save-hook)
 
 (provide 'my-lua)
 ;;; my-lua.el ends here

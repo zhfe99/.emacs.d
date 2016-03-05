@@ -50,7 +50,7 @@
       (progn
         (message "%s is sh-mode" (buffer-file-name))
         (my-sh-modify-date))))
-(add-hook 'before-save-hook 'my-sh-save-hook)
+;; (add-hook 'before-save-hook 'my-sh-save-hook)
 
 (require 'indent-guide)
 
