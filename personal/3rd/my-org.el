@@ -22,7 +22,7 @@
 
 ;; org agenda file
 (setq org-agenda-files (list
-                        "~/code/org/code.org"
+                        "~/code/org/info.org"
                         "~/code/org/cs.org"
                         "~/code/org/research.org"
                         "~/code/org/project.org"

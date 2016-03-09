@@ -27,7 +27,7 @@ tramp
 /srecode-map.el
 /personal/aspell_feng
 /ac-comphist.dat
-/personal/custom.el
+# /personal/custom.el
 /.mc-lists.el
 TAGS
 README.md
