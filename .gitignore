@@ -25,7 +25,6 @@ tramp
 /.python-environments/
 /org-clock-save.el
 /srecode-map.el
-/personal/aspell_feng
 /ac-comphist.dat
 # /personal/custom.el
 /.mc-lists.el
