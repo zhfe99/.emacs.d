@@ -76,6 +76,10 @@
   (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
   (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
   (define-key org-mode-map (kbd "<S-right>") 'windmove-right)
+  (define-key org-mode-map (kbd "\e[47;C~") 'org-metaleft) ; M-left
+  (define-key org-mode-map (kbd "\e[47;D~") 'org-metaright) ; M-right
+  (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left
+  (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right
   (define-key org-mode-map (kbd "M-h") 'helm-mini)
   (define-key org-mode-map (kbd "<H-up>") 'my-push-window-up)
   (define-key org-mode-map (kbd "<H-down>") 'my-push-window-down)

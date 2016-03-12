@@ -44,31 +44,37 @@
 (global-set-key (kbd "H-J") 'org-show-todo-tree)
 (global-set-key (kbd "H-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
-(global-set-key (kbd "H-,") 'diff-hl-previous-hunk)
-(global-set-key (kbd "H-.") 'diff-hl-next-hunk)
+(global-set-key (kbd "H-,") 'git-gutter+-previous-hunk)
+(global-set-key (kbd "H-.") 'git-gutter+-next-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
 
-;; use key in iterm2 on OSX
-(global-set-key (kbd "\e[45;1~") 'delete-other-windows)
-(global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit)
-(global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit)
-(global-set-key (kbd "\e[45;0~") 'ace-delete-window)
-(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this)
-(global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this)
-(global-set-key (kbd "\e[46;3~") 'er/expand-region)
-(global-set-key (kbd "\e[46;A~") 'my-push-window-up)
-(global-set-key (kbd "\e[46;B~") 'my-push-window-down)
-(global-set-key (kbd "\e[46;C~") 'my-push-window-left)
-(global-set-key (kbd "\e[46;D~") 'my-push-window-right)
-(global-set-key (kbd "\e[27;5;39~") 'helm-swoop)
-(global-set-key (kbd "\e[46;3;A~") 'buf-move-up)
-(global-set-key (kbd "\e[46;3;B~") 'buf-move-down)
-(global-set-key (kbd "\e[46;3;C~") 'buf-move-left)
-(global-set-key (kbd "\e[46;3;D~") 'buf-move-right)
+;; use special key in iterm2 on OSX
+(global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
+(global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
+(global-set-key (kbd "\e[60;3~") 'git-gutter+-previous-hunk) ; H-,
+(global-set-key (kbd "\e[60;4~") 'git-gutter+-next-hunk) ; H-.
+(global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
+(global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit) ; C-2
+(global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit) ; C-3
+(global-set-key (kbd "\e[45;0~") 'ace-delete-window)          ; C-0
+(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-,
+(global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this)     ; C-.
+(global-set-key (kbd "\e[46;3~") 'er/expand-region)           ; C-=
+(global-set-key (kbd "\e[27;5;39~") 'helm-swoop)              ; C-'
+(global-set-key (kbd "\e[46;A~") 'my-push-window-up)    ; H-up
+(global-set-key (kbd "\e[46;B~") 'my-push-window-down)  ; H-down
+(global-set-key (kbd "\e[46;C~") 'my-push-window-left)  ; H-left
+(global-set-key (kbd "\e[46;D~") 'my-push-window-right) ; H-right
+(global-set-key (kbd "\e[46;3;A~") 'buf-move-up)        ; M-H-up
+(global-set-key (kbd "\e[46;3;B~") 'buf-move-down)      ; M-H-down
+(global-set-key (kbd "\e[46;3;C~") 'buf-move-left)      ; M-H-left
+(global-set-key (kbd "\e[46;3;D~") 'buf-move-right)     ; M-H-right
+(global-set-key (kbd "\e[47;A~") 'move-text-up)         ; M-up
+(global-set-key (kbd "\e[47;B~") 'move-text-down)       ; M-down
 
 ;; C-
 ;; Some of the key might not be available in terminal
@@ -111,15 +117,12 @@
 ;; M-
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-l") 'dired-jump)
-;; (global-set-key (kbd "M-I") 'change-inner)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-m") 'iy-go-up-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
 (global-set-key (kbd "<M-up>") 'move-text-up)
-(define-key input-decode-map "\e\e[A" [(meta up)])
-(define-key input-decode-map "\e\e[B" [(meta down)])
 (eval-after-load "smartparens-mode"
   '(define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
 (global-set-key (kbd "<M-down>") 'move-text-down)
