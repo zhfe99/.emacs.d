@@ -117,8 +117,16 @@
           (python-nav-forward-statement))
         (python-nav-backward-statement)))
     (elpy-nav-indent-shift-left)))
+
+;; re-map key
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right))
 
 (provide 'my-python)
 ;;; my-python.el ends here

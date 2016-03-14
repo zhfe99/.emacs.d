@@ -1,24 +1,24 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My C/C++/Cuda setting.
+;; My Makefile/C/C++/Cuda setting.
 
 ;;; Code:
 
-(setq auto-mode-alist
-      (append
-       '(("CMakeLists\\.txt\\'" . cmake-mode))
-       '(("\\.cmake\\'" . cmake-mode))
-       auto-mode-alist))
-
+;; use indent-guide
 (require 'indent-guide)
 
-;; cuda
+;; (c)make file map
+(add-to-list 'auto-mode-alist '("Makefile\\." . makefile-mode))
+(add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
+(add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
+
+;; cuda file map
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . cuda-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . cuda-mode))
 
-;; c-mode
-(add-hook 'c-mode-hook
+;; c-mode-common-hook (c, c++, cuda)
+(add-hook 'c-mode-common-hook
           (lambda()
             (subword-mode 1)
             (indent-guide-mode)
@@ -27,40 +27,23 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
-;; c++-mode
-(add-hook 'c++-mode-hook
-          (lambda()
-            (subword-mode 1)
-            (indent-guide-mode)
-            (git-gutter+-mode)
-            (setq c-basic-offset 2)))
-;; (add-hook 'c++-mode-hook 'google-set-c-style)
-
-;; cuda-mode
-(add-hook 'cuda-mode-hook
-          (lambda()
-            (subword-mode 1)
-            (setq c-basic-offset 2)
-            (indent-guide-mode)
-            (git-gutter+-mode)))
-;; (add-hook 'cuda-mode-hook 'google-set-c-style)
-
-;; remap M-j
-(define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)
-(define-key c-mode-map (kbd "M-j") 'avy-goto-word-1)
+;; use protobuf mode
 (require 'protobuf-mode)
-(define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
 
-;; protobuf-mode
-(setq auto-mode-alist (cons '("\\.prototxt$" . protobuf-mode) auto-mode-alist))
+;; protobuf file map mode
+(add-to-list 'auto-mode-alist '("\\.prototxt$" . protobuf-mode))
+
+;; protobuf-mode-hook
 (add-hook 'protobuf-mode-hook
           (lambda()
             (subword-mode 1)
             (setq c-basic-offset 2)
             (git-gutter+-mode)))
 
-;; makefile-mode
-(setq auto-mode-alist (cons '("Makefile\\." . makefile-mode) auto-mode-alist))
+;; remap M-j
+(define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)
+(define-key c-mode-map (kbd "M-j") 'avy-goto-word-1)
+(define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
 
 (provide 'my-c)
 ;;; my-c.el ends here
