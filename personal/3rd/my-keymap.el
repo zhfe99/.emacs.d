@@ -57,6 +57,7 @@
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
 (global-set-key (kbd "\e[60;3~") 'git-gutter+-previous-hunk) ; H-,
 (global-set-key (kbd "\e[60;4~") 'git-gutter+-next-hunk) ; H-.
+(global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
 (global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit) ; C-2
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit) ; C-3
