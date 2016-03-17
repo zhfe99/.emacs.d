@@ -155,7 +155,6 @@
 ;; function key
 (global-set-key (kbd "<f1>") 'org-agenda-list)
 (global-set-key (kbd "<f2>") 'org-todo-list)
-(global-set-key (kbd "<f5>") 'kmacro-set-counter)
 
 ;; key-chord
 (key-chord-define-global "yy" nil)
