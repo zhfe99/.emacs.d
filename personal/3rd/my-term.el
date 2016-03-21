@@ -15,14 +15,6 @@
   (interactive)
   (term-send-raw-string "\C-a\C-d"))
 
-(add-hook 'term-mode-hook
-          (lambda ()
-            (add-to-list 'term-bind-key-alist '("C-c C-f" . term-line-mode))
-            (add-to-list 'term-bind-key-alist '("C-d" . term-send-raw))
-            (add-to-list 'term-bind-key-alist '("C-c C-k" . term-char-mode))
-            (add-to-list 'term-bind-key-alist '("C-c C-a" . term-send-ad))
-            (add-to-list 'term-bind-key-alist '("C-c C-e" . term-send-esc))))
-
 ;; default shell form multi-term
 (cond
  ((string-equal system-type "darwin")

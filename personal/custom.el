@@ -21,7 +21,7 @@
  '(lua-default-application "th")
  '(org-agenda-files
    (quote
-    ("~/code/org/info.org" "~/code/org/cs.org" "~/code/org/research.org" "~/code/org/project.org" "~/code/org/misc.org")))
+    ("~/org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))
  '(projectile-keymap-prefix (kbd "M-p"))
@@ -68,10 +68,3 @@
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete))))
  '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(powerline-active2 ((t (:inherit mode-line :background "#535353"))))
- '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "#474747")))))

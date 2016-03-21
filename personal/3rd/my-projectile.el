@@ -4,7 +4,7 @@
 
 ;; My projectile setting.
 
-;; prelude
+;; disable some prelude keys
 (defun my-prelude-mode-keys ()
   "My keybindings for prelude-mode."
   (define-key prelude-mode-map (kbd "M-o") nil)

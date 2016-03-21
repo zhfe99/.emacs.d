@@ -18,19 +18,6 @@
 (setq reftex-plug-into-auctex t)
 
 ;; read in PDF
-(custom-set-variables
- '(LaTeX-command "latex -synctex=1")
- '(font-latex-math-environments
-   (quote
-    ("display" "displaymath" "equation" "eqnarray" "gather"
-     "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
- '(TeX-view-program-list
-   (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -r %n %o %b"))))
- '(TeX-view-program-selection
-   (quote (((output-dvi style-pstricks) "dvips and gv")
-           (output-dvi "xdvi")
-           (output-pdf "Skim")
-           (output-html "xdg-open")))))
 (setq-default TeX-master nil)
 
 (defvar my-LaTeX-no-autofill-environments
