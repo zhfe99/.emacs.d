@@ -21,36 +21,33 @@
       (message  "%s unbound for %s" key keymap))))
 
 ;; H-
-;; available:
-;; q w e r t y u i [ ]
-;; h l '
+;; the following keys are still available:
+;; q w e r t y i [ ]
+;; a h l '
 ;; z b v /
-;; notice these keys might not be accessible in terminal
-(global-set-key (kbd "H-e") 'ediff-files)
-(global-set-key (kbd "H-o") 'reveal-in-finder)
-(global-set-key (kbd "H-a") 'my-open-todo-org)
-(global-set-key (kbd "H-A") 'my-open-info-org)
-(global-set-key (kbd "H-s") 'my-find-file-as-sudo)
 (global-set-key (kbd "H-u") 'git-push-remote-origin)
+(global-set-key (kbd "H-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'my-switch-to-current-on-server-or-local)
+(global-set-key (kbd "H-s") 'my-find-file-as-sudo)
 (global-set-key (kbd "H-d") 'ace-duplicate-buffer)
 (global-set-key (kbd "H-f") 'find-name-dired)
 (global-set-key (kbd "H-g") 'rgrep)
+(global-set-key (kbd "H-j") 'org-clock-goto)
+(global-set-key (kbd "H-J") 'org-show-todo-tree)
 (global-set-key (kbd "H-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "H-x") 'package-list-packages)
 (global-set-key (kbd "H-c") 'org-capture)
-(global-set-key (kbd "H--") 'my-align-comment)
-(global-set-key (kbd "H-j") 'org-clock-goto)
-(global-set-key (kbd "H-J") 'org-show-todo-tree)
 (global-set-key (kbd "H-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
 (global-set-key (kbd "H-,") 'git-gutter+-previous-hunk)
 (global-set-key (kbd "H-.") 'git-gutter+-next-hunk)
+(global-set-key (kbd "H-/") 'git-gutter+-show-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
+(global-set-key (kbd "H--") 'my-align-comment)
 
 ;; use special key in iterm2 on OSX
 (global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
