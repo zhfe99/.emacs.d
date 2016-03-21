@@ -20,35 +20,17 @@
 (eval-after-load 'org-bullets
   '(setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
 
-;; org agenda file
-(setq org-agenda-files (list
-                        "~/code/org/info.org"
-                        "~/code/org/cs.org"
-                        "~/code/org/research.org"
-                        "~/code/org/project.org"
-                        "~/code/org/misc.org"))
-
 ;; org files location
-(setq org-directory "~/code/org/")
+(setq org-directory "~/org/")
 
 ;; set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/code/org/flagged.org")
+(setq org-mobile-inbox-for-pull "~/org/flagged.org")
 
 ;; use MobileOrg on iOS through Dropbox
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 ;; use org-completion-use
 (setq org-completion-use-ido t)
-
-;; open todo.org
-(defun my-open-todo-org ()
-  (interactive)
-  (find-file "~/code/org/todo.org"))
-
-;; open info.org
-(defun my-open-info-org ()
-  (interactive)
-  (find-file "~/code/org/info.org"))
 
 ;; org clock
 (setq org-clock-persist 't)
@@ -61,9 +43,7 @@
 
 ;; org todo key-words
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "RUNG(r)" "FINS(f)" "|" "DONE(d)" "HOLD(h)")))
-(setq org-todo-keyword-faces
-      (quote (("NEXT" :foreground "yellow" :weight bold))))
+      '((sequence "TODO(t)" "WORK(w)" "RUNG(r)" "|" "DONE(d)")))
 
 ;; remap org key to be consistent with global setting
 (defun my-org-mode-keys ()
@@ -108,7 +88,7 @@
     (when pomodoro-timer
       (pomodoro-stop))
     ;; clock out
-    (when (and (or (string= org-state nil) (string= org-state "NEXT"))
+    (when (and (or (string= org-state nil) (string= org-state "TODO"))
                (org-clocking-p))
       (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook
@@ -126,9 +106,11 @@
 ;; default to hide stars
 (setq org-hide-leading-stars t)
 
+;; agenda format
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
+
 (setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
 (setq org-imenu-depth 3)
 (setq org-agenda-archives-mode t)
@@ -149,6 +131,13 @@ Insert an Org link at point."
   (let ((result (shell-command-to-string
                  "osascript -e 'tell application \"Safari\" to return URL of document 1'")))
     (insert (format "[[%s][%s]]" (org-trim result) link))))
+
+;; org capture template
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
 
 (provide 'my-org)
 ;;; my-org.el ends here
