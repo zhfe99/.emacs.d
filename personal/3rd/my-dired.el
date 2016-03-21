@@ -25,6 +25,7 @@
       (concat dired-omit-files
               "\\|^\\$RECYCLE.BIN$"
               "\\|^\\.DS_Store$"
+              "\\|^\\._.DS_Store$"
               "\\|^\\.Trash$"
               "\\|^\\.Xauthority$"
               "\\|^\\.adobe$"
