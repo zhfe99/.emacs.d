@@ -26,7 +26,7 @@
  '(powerline-default-separator (quote slant))
  '(projectile-keymap-prefix (kbd "M-p"))
  '(projectile-tags-command
-   "ctags -Re -f \"%s\" %s --exclude=data --exclude=save --exclude=tool")
+   "ctags -Re -f \"%s\" %s")
  '(safe-local-variable-values
    (quote
     ((eval when
