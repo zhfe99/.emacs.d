@@ -10,11 +10,12 @@
 (setq tags-add-tables nil)
 
 (require 'etags-table)
+(setq torch-tag-path (concat (getenv "HOME") "/.torch/TAGS"))
 (setq tag-table-alist
       (list
        '("/Users/feng/.emacs.d/" "/Users/feng/.emacs.d/TAGS")
        '(".*\\.py$" "/Users/feng/code/py_lib/TAGS" "/Users/feng/code/py_caf/TAGS" "/Users/feng/code/caffe/TAGS")
-       '(".*\\.lua$" (concat (getenv "HOME") "/.torch/TAGS"))))
+       '(".*\\.lua$" "/home/parallels/.torch/TAGS")))
 (setq etags-table-alist tag-table-alist)
 (setq etags-table-search-up-depth 10)
 
