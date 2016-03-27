@@ -23,11 +23,11 @@
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))
  '(projectile-keymap-prefix (kbd "M-p"))
- '(projectile-tags-command
-   "ctags -Re -f \"%s\" %s")
+ '(projectile-tags-command "ctags -Re -f \"%s\" %s")
  '(safe-local-variable-values
    (quote
-    ((eval when
+    ((python-indent . 2)
+     (eval when
            (require
             (quote rainbow-mode)
             nil t)
