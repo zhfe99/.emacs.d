@@ -52,6 +52,8 @@
   (define-key org-mode-map (kbd "<C-down>") 'org-forward-heading-same-level)
   (define-key org-mode-map (kbd "<C-left>") 'outline-up-heading)
   (define-key org-mode-map (kbd "<C-right>") 'outline-next-visible-heading)
+  (define-key org-mode-map (kbd "<C-S-left>") 'org-shiftleft)
+  (define-key org-mode-map (kbd "<C-S-right>") 'org-shiftright)
   (define-key org-mode-map (kbd "<S-up>") 'windmove-up)
   (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
   (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
