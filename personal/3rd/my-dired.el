@@ -189,22 +189,6 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
         (aw-switch-to-window win)
         (find-file buf)))))
 
-(require 'ace-window)
-(defun ace-duplicate-buffer ()
-  "Switch to another buffer in another window."
-  (interactive)
-  (let ((start-win (selected-window))
-        (buf (current-buffer))
-        (win (aw-select " Ace Buffer: ")))
-    (progn
-      ;; (message win)
-      (aw-switch-to-window win)
-      (setq buf (buffer-name))
-      (message buf)
-      (aw-switch-to-window start-win)
-      (switch-to-buffer buf)
-      )))
-
 ;; remap key for dired-mode to be consistent with the setting in my-keymap.el
 (define-key dired-mode-map "E" 'ace-dired-find-file)
 (define-key dired-mode-map "o" 'prelude-open-with)
