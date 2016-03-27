@@ -19,14 +19,12 @@
    (quote
     ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
  '(lua-default-application "th")
- '(org-agenda-files
-   (quote
-    ("~/org")))
+ '(org-agenda-files (quote ("~/org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))
  '(projectile-keymap-prefix (kbd "M-p"))
  '(projectile-tags-command
-   "ctags -Re -f \"%s\" %s --exclude=data --exclude=save --exclude=tool")
+   "ctags -Re -f \"%s\" %s")
  '(safe-local-variable-values
    (quote
     ((eval when
@@ -68,3 +66,9 @@
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete))))
  '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

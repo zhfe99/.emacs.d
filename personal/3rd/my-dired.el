@@ -89,7 +89,6 @@
               "\\|^\\.pulse.*$"
               "\\|^\\.putty$"
               "\\|^\\.pylint.d$"
-              "\\|^\\.pylintrc$"
               "\\|^\\.python-eggs$"
               "\\|^\\.python_history$"
               "\\|^\\.pyvim$"
