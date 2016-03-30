@@ -134,6 +134,7 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "M-h") 'helm-mini)
+(global-set-key (kbd "M-H") 'counsel-goto-recent-directory)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "M-t") 'multi-term-next)
 (global-set-key (kbd "M-T") 'multi-term)

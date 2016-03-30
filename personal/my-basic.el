@@ -71,6 +71,7 @@
 (require 'my-modeline)
 (require 'my-projectile)
 (require 'my-editor)
+(require 'my-ivy)
 (require 'my-tag)
 (require 'my-window)
 (require 'my-tramp)
