@@ -37,8 +37,9 @@
 (setq org-clock-persist-query-resume nil)
 (org-clock-persistence-insinuate)
 (setq org-clock-out-remove-zero-time-clocks t)
+(setq org-log-done t)
 
-;; don't show in mode-line
+;; Already use pomodoro. Don't need to show clock in mode-line
 (setq org-clock-clocked-in-display nil)
 
 ;; org todo key-words
@@ -69,6 +70,12 @@
   (define-key org-mode-map (kbd "<H-right>") 'my-push-window-right))
 (add-hook 'org-mode-hook 'my-org-mode-keys)
 
+(defun my-org-agenda-mode-keys ()
+  "My keybindings for `org-agenda'."
+  (define-key org-agenda-mode-map (kbd "<C-S-left>") 'org-shiftleft)
+  (define-key org-agenda-mode-map (kbd "<C-S-right>") 'org-shiftright))
+(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-keys)
+
 ;; use pomodoro
 (require 'pomodoro)
 (defun my-pomodoro-add-to-mode-line ()
@@ -96,7 +103,6 @@
 (add-hook 'org-after-todo-state-change-hook
           'org-clock-in-if-work)
 
-(setq org-log-done nil)
 (setq org-agenda-start-with-log-mode t)
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
