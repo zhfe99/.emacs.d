@@ -131,7 +131,6 @@
 (keymap-unset-key '[M-s] "smartparens-mode")
 (keymap-unset-key (kbd "M-s") "smartparens-mode")
 (keymap-unset-key (kbd "M-r") "smartparens-mode")
-(global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "M-h") 'helm-mini)
 (global-set-key (kbd "M-H") 'counsel-goto-recent-directory)
