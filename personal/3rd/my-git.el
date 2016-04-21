@@ -17,10 +17,11 @@
 (global-diff-hl-mode -1)
 
 ;; use git-gutter+
-(require 'git-gutter-fringe+)
-(cond
- ((string-equal system-type "gnu/linux")
-  (git-gutter+-toggle-fringe)))
+(when (fboundp 'define-fringe-bitmap)
+  (require 'git-gutter-fringe+)
+  (cond
+   ((string-equal system-type "gnu/linux")
+    (git-gutter+-toggle-fringe))))
 
 ;; key
 (eval-after-load 'git-gutter+
