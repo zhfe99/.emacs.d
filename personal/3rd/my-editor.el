@@ -167,5 +167,11 @@
 ;; https://github.com/magnars/multiple-cursors.el/pull/168
 (define-key mc/keymap (kbd "<RET>") 'multiple-cursors-mode)
 
+;; use auto-save
+;; follow http://www.jianshu.com/p/998ceaf522d1
+(require 'auto-save)
+(auto-save-enable)
+(setq auto-save-slient t)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
