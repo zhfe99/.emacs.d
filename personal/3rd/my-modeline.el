@@ -7,7 +7,7 @@
 
 (setq sml/theme 'respectful)
 (size-indication-mode -1)
-(setq sml/name-width 30)
+(setq sml/name-width 50)
 (setq sml/line-number-format " %3l")
 (setq sml/mode-width nil)
 (setq sml/mule-info nil)
