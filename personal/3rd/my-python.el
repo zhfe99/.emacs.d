@@ -93,7 +93,7 @@
              (local-set-key (kbd "H-c") 'my-python-create-date)
              (indent-guide-mode)
              (git-gutter+-mode)
-             (setq python-indent-offset 2)))
+             (setq python-indent-offset 4)))
 
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
