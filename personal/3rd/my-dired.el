@@ -240,12 +240,44 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
   (rename-file start-file-full end-file)
   (message "moved %s to %s" start-file-full end-file)))
 
+;; Using rsync in dired
+;; http://oremacs.com/2016/02/24/dired-rsync/
+(defun ora-dired-rsync (dest)
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name
+      "Rsync to:"
+      (dired-dwim-target-directory)))))
+  ;; store all selected files into "files" list
+  (let ((files (dired-get-marked-files
+                nil current-prefix-arg))
+        ;; the rsync command
+        (tmtxt/rsync-command
+         "rsync -arvz --progress "))
+    ;; add all selected file names as arguments
+    ;; to the rsync command
+    (dolist (file files)
+      (setq tmtxt/rsync-command
+            (concat tmtxt/rsync-command
+                    (shell-quote-argument file)
+                    " ")))
+    ;; append the destination
+    (setq tmtxt/rsync-command
+          (concat tmtxt/rsync-command
+                  (shell-quote-argument dest)))
+    ;; run the async shell command
+    (async-shell-command tmtxt/rsync-command "*rsync*")
+    ;; finally, switch to that window
+    (other-window 1)))
+
 ;; remap key for dired-mode to be consistent with the setting in my-keymap.el
 (define-key dired-mode-map "E" 'ace-dired-find-file)
 (define-key dired-mode-map "o" 'prelude-open-with)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "i" 'dired-do-delete)
+(define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-i") 'helm-semantic-or-imenu)
