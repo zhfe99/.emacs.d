@@ -160,6 +160,7 @@
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "xx" nil)
 (key-chord-define-global "jj" 'linum-mode)
+(key-chord-define-global "zz" 'repeat)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
