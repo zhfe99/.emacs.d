@@ -20,34 +20,57 @@
       (define-key map key nil)
       (message  "%s unbound for %s" key keymap))))
 
-;; H-
+;; H(s)-
 ;; the following keys are still available:
 ;; q w e r t y i [ ]
 ;; a h l '
 ;; z b v /
 (global-set-key (kbd "H-u") 'git-push-remote-origin)
+(global-set-key (kbd "s-u") 'git-push-remote-origin)
 (global-set-key (kbd "H-o") 'reveal-in-finder)
+(global-set-key (kbd "s-o") 'reveal-in-finder)
 (global-set-key (kbd "H-p") 'my-switch-to-current-on-server-or-local)
+(global-set-key (kbd "s-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "H-s") 'my-find-file-as-sudo)
+(global-set-key (kbd "s-s") 'my-find-file-as-sudo)
 (global-set-key (kbd "H-d") 'ace-duplicate-current-buffer-in-other-window)
+(global-set-key (kbd "s-d") 'ace-duplicate-current-buffer-in-other-window)
 (global-set-key (kbd "H-f") 'find-name-dired)
+(global-set-key (kbd "s-f") 'find-name-dired)
 (global-set-key (kbd "H-g") 'rgrep)
+(global-set-key (kbd "s-g") 'rgrep)
 (global-set-key (kbd "H-j") 'org-clock-goto)
+(global-set-key (kbd "s-j") 'org-clock-goto)
 (global-set-key (kbd "H-J") 'org-show-todo-tree)
+(global-set-key (kbd "s-J") 'org-show-todo-tree)
 (global-set-key (kbd "H-k") 'sp-kill-hybrid-sexp)
+(global-set-key (kbd "s-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "H-x") 'package-list-packages)
+(global-set-key (kbd "s-x") 'package-list-packages)
 (global-set-key (kbd "H-c") 'org-capture)
+(global-set-key (kbd "s-c") 'org-capture)
 (global-set-key (kbd "H-m") 'matlab-shell)
+(global-set-key (kbd "s-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
+(global-set-key (kbd "s-n") 'my-narrow-or-widen-dwim)
 (global-set-key (kbd "H-,") 'git-gutter+-previous-hunk)
+(global-set-key (kbd "s-,") 'git-gutter+-previous-hunk)
 (global-set-key (kbd "H-.") 'git-gutter+-next-hunk)
+(global-set-key (kbd "s-.") 'git-gutter+-next-hunk)
 (global-set-key (kbd "H-/") 'git-gutter+-show-hunk)
+(global-set-key (kbd "s-/") 'git-gutter+-show-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
+(global-set-key (kbd "<s-down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
+(global-set-key (kbd "<s-up>") 'my-push-window-up)
 (global-set-key (kbd "<H-left>") 'my-push-window-left)
+(global-set-key (kbd "<s-left>") 'my-push-window-left)
 (global-set-key (kbd "<H-right>") 'my-push-window-right)
+(global-set-key (kbd "<s-right>") 'my-push-window-right)
 (global-set-key (kbd "H-4") 'my-goto-window-conf-4)
+(global-set-key (kbd "s-4") 'my-goto-window-conf-4)
 (global-set-key (kbd "H--") 'my-align-comment)
+(global-set-key (kbd "s--") 'my-align-comment)
 
 ;; use special key in iterm2 on OSX
 (global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
@@ -107,11 +130,17 @@
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)
 
-;; H-M-
+;; H(s)-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
+(global-set-key (kbd "<s-M-up>") 'buf-move-up)
+(global-set-key (kbd "<H-M-up>") 'buf-move-up)
+(global-set-key (kbd "<s-M-up>") 'buf-move-up)
 (global-set-key (kbd "<H-M-down>") 'buf-move-down)
+(global-set-key (kbd "<s-M-down>") 'buf-move-down)
 (global-set-key (kbd "<H-M-left>") 'buf-move-left)
+(global-set-key (kbd "<s-M-left>") 'buf-move-left)
 (global-set-key (kbd "<H-M-right>") 'buf-move-right)
+(global-set-key (kbd "<s-M-right>") 'buf-move-right)
 
 ;; M-
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
