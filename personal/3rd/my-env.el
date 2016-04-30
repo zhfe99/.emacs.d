@@ -24,7 +24,11 @@
 
 ;; font
 (setq-default line-spacing 0.1)
-(set-default-font "Hack 14")
+(condition-case err
+    (set-default-font "Hack 14")
+  (error (message "%s" (error-message-string err))))
+
+;; font used before
 ;; (set-default-font "Monaco 13")
 ;; (set-default-font "Menlo 13")
 ;; (set-default-font "Source Code Pro 14")
