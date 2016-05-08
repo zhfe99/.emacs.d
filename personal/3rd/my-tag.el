@@ -31,6 +31,7 @@
 (add-hook 'python-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'c++-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'lua-mode-hook  'turn-on-ctags-auto-update-mode)
+(add-hook 'matlab-mode-hook  'turn-on-ctags-auto-update-mode)
 (add-hook 'c-mode-common-hook  'turn-on-ctags-auto-update-mode)
 (setq ctags-update-delay-seconds (* 1 60))
 
