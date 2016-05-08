@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: python header
-# key: !!
+# key: #!
 # --
 #!/usr/bin/env python
 $0

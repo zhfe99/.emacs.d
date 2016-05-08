@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: python header
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
-# key: !
+# key: head
 # --
 #!/usr/bin/env python
 """
@@ -9,7 +9,6 @@ $1
 
 History
   create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
-  modify  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
 """
 
 $0
