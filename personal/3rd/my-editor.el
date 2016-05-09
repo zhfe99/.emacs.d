@@ -173,5 +173,9 @@
 (auto-save-enable)
 (setq auto-save-slient t)
 
+(cond
+ ((string-equal system-type "darwin")
+  (require 'reveal-in-osx-finder)))
+
 (provide 'my-editor)
 ;;; my-editor.el ends here

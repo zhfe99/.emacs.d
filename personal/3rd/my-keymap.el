@@ -27,8 +27,8 @@
 ;; z b v /
 (global-set-key (kbd "H-u") 'git-push-remote-origin)
 (global-set-key (kbd "s-u") 'git-push-remote-origin)
-(global-set-key (kbd "H-o") 'reveal-in-finder)
-(global-set-key (kbd "s-o") 'reveal-in-finder)
+(global-set-key (kbd "H-o") 'reveal-in-osx-finder)
+(global-set-key (kbd "s-o") 'reveal-in-osx-finder)
 (global-set-key (kbd "H-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "s-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "H-s") 'my-find-file-as-sudo)
