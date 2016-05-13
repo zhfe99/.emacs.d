@@ -73,6 +73,7 @@
               "\\|^\\.lesshst$"
               "\\|^\\.lldb$"
               "\\|^\\.local$"
+              "\\|^\\.localized$"
               "\\|^\\.lua.*$"
               "\\|^\\.matlab$"
               "\\|^\\.matplotlib$"
