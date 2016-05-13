@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: main function
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# key: main
+# --
+def main():
+    """
+    Main function.
+    """
+    import argparse
+
+    # argument
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--$0', help='', dest='', default=)
+    args = parser.parse_args()
+
+
+if __name__ == '__main__':
+    main()
