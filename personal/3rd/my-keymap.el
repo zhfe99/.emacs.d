@@ -128,6 +128,7 @@
 (define-key prelude-mode-map (kbd "C-c i") nil)
 (global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c b") 'prelude-bing)
+(global-set-key (kbd "C-c t") 'org-capture)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)

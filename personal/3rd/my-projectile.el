@@ -8,6 +8,7 @@
 (defun my-prelude-mode-keys ()
   "My keybindings for prelude-mode."
   (define-key prelude-mode-map (kbd "M-o") nil)
+  (define-key prelude-mode-map (kbd "C-c t") nil)
   (define-key prelude-mode-map (kbd "C-c s") nil)
   (define-key prelude-mode-map (kbd "<M-S-up>") nil)
   (define-key prelude-mode-map (kbd "<M-S-down>") nil)
