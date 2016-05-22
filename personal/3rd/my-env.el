@@ -30,7 +30,6 @@
 
 ;; font used before
 ;; (set-default-font "Monaco 13")
-;; (set-default-font "Menlo 13")
 ;; (set-default-font "Source Code Pro 14")
 
 ;; environment variables
