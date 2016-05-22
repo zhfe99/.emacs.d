@@ -24,7 +24,7 @@
 ;; the following keys are still available:
 ;; q w e r t y i [ ]
 ;; a h l '
-;; z b v /
+;; z c b v /
 (global-set-key (kbd "H-u") 'git-push-remote-origin)
 (global-set-key (kbd "s-u") 'git-push-remote-origin)
 (global-set-key (kbd "H-o") 'reveal-in-osx-finder)
@@ -47,8 +47,6 @@
 (global-set-key (kbd "s-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "H-x") 'package-list-packages)
 (global-set-key (kbd "s-x") 'package-list-packages)
-(global-set-key (kbd "H-c") 'org-capture)
-(global-set-key (kbd "s-c") 'org-capture)
 (global-set-key (kbd "H-m") 'matlab-shell)
 (global-set-key (kbd "s-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
