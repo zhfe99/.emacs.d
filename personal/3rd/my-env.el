@@ -49,18 +49,9 @@
                 ":" (getenv "PYTHONPATH")))
 
 ;; remote server
-(setenv "ts3" "/scp:feng@skyserver3k:")
-(setenv "ts4" "/scp:feng@skyserver4k:")
-(setenv "ts7" "/scp:feng@skyserver7k:")
-(setenv "ta0" "/scp:feng@acadia0a:")
-(setenv "ta1" "/scp:feng@acadia1a:")
-(setenv "ta2" "/scp:feng@acadia2a:")
-(setenv "ta3" "/scp:feng@acadia3:")
-(setenv "ta4" "/scp:feng@acadia4a:")
 (setenv "te3" "/ssh:ubuntu@52.91.111.136:")
 (setenv "te2" "/ssh:feng@www.cvtell.com:")
 (setenv "te2r" "/ssh:root@www.cvtell.com:")
-(setenv "tpc" "/ssh:yahan@feng-pc:")
 (setenv "tpal" "/scp:parallels@10.211.55.5:")
 
 ;; ispell

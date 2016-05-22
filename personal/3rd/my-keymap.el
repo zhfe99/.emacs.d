@@ -122,6 +122,7 @@
 ;; C-x
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
+(global-set-key (kbd "C-x =") 'git-gutter+-show-hunk)
 
 ;; C-c
 (prelude-install-search-engine "bing"     "http://www.bing.com/search?q="              "Bing: ")

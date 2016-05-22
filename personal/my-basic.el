@@ -82,7 +82,7 @@
 (require 'my-web)
 (require 'my-org)
 (require 'my-c)
-(require 'my-latex)
+; (require 'my-latex)
 (require 'my-term)
 (require 'my-git)
 (require 'my-dired)
