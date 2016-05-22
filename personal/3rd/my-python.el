@@ -32,25 +32,6 @@
 ;; remap up key in python shell
 (define-key comint-mode-map (kbd "<up>") 'comint-previous-matching-input-from-input)
 
-;; update modifying date field in the comment area (for python)
-(defun my-python-modify-date ()
-  "Update modifying date field in the comment area (for python)."
-  (interactive)
-  (save-excursion
-    (let ((time-format "%Y-%m") (pt1) (pt2))
-      (goto-char (point-min))
-      (setq pt1 (search-forward "  modify" nil t))
-      (if pt1
-          (progn
-            (message "done")
-            (search-forward "gmail.com), ")
-            (setq pt1 (point))
-            (end-of-line)
-            (setq pt2 (point))
-            (delete-region pt1 pt2)
-            (insert (format-time-string time-format (current-time))))
-        (message "modify xxx not found")))))
-
 ;; update creating date in the comment area (for python)
 (defun my-python-create-date ()
   "Update creating date in the comment area (for python)."
@@ -90,7 +71,7 @@
 (require 'indent-guide)
 (add-hook 'python-mode-hook
           '(lambda ()
-             (local-set-key (kbd "H-c") 'my-python-create-date)
+             (local-set-key (kbd "C-c M-c") 'my-python-create-date)
              (indent-guide-mode)
              (git-gutter+-mode)
              (setq python-indent-offset 4)))
@@ -125,9 +106,10 @@
 (defun my-python-shift-block-right-two-space ()
   "Select all lines belong to the sub-block."
   (interactive)
-  (let ((init-indentation (current-indentation))
-        (curr-indentation)
-        (curr-line-empty))
+  (save-excursion
+    (let ((init-indentation (current-indentation))
+          (curr-indentation)
+          (curr-line-empty))
       (next-line)
       (setq curr-indentation (current-indentation))
       (setq curr-line-empty (my-blank-line-p))
@@ -136,8 +118,7 @@
         (move-beginning-of-line nil)
         (insert "  ")
         (next-line)
-        (setq curr-indentation (current-indentation))
-    )))
+        (setq curr-indentation (current-indentation))))))
 
 ;; re-map key
 (eval-after-load "elpy"
@@ -150,6 +131,8 @@
   '(define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left))
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
 
 (provide 'my-python)
 ;;; my-python.el ends here
