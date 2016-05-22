@@ -82,7 +82,9 @@
 (require 'my-web)
 (require 'my-org)
 (require 'my-c)
-; (require 'my-latex)
+(cond
+ ((string-equal system-type "darwin")
+  (require 'my-latex)))
 (require 'my-term)
 (require 'my-git)
 (require 'my-dired)
