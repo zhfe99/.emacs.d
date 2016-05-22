@@ -118,9 +118,32 @@
         (python-nav-backward-statement)))
     (elpy-nav-indent-shift-left)))
 
+(defun my-blank-line-p ()
+  (= (current-indentation)
+     (- (line-end-position) (line-beginning-position))))
+
+(defun my-python-shift-block-right-two-space ()
+  "Select all lines belong to the sub-block."
+  (interactive)
+  (let ((init-indentation (current-indentation))
+        (curr-indentation)
+        (curr-line-empty))
+      (next-line)
+      (setq curr-indentation (current-indentation))
+      (setq curr-line-empty (my-blank-line-p))
+      (while (or (my-blank-line-p)
+                 (< init-indentation curr-indentation))
+        (move-beginning-of-line nil)
+        (insert "  ")
+        (next-line)
+        (setq curr-indentation (current-indentation))
+    )))
+
 ;; re-map key
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space))
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block))
 (eval-after-load "elpy"

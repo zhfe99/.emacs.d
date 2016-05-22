@@ -283,6 +283,7 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-i") 'helm-semantic-or-imenu)
+(define-key dired-mode-map (kbd "M-T") 'multi-term)
 (define-key dired-mode-map (kbd "M-l") 'dired-jump)
 ;; (define-key dired-mode-map (kbd "M-u") 'git-push-remote-origin)
 

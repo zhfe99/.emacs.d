@@ -39,6 +39,7 @@
                 ":" "/Library/TeX/texbin"
                 ":" (getenv "PATH")))
 (setq exec-path (append exec-path '("/Library/TeX/texbin")))
+(setq exec-path (append exec-path '("/Library/TeX/Root/bin/universal-darwin")))
 (setenv "GLOG_minloglevel" "1")
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"
