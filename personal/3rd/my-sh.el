@@ -5,25 +5,6 @@
 
 ;;; Code:
 
-;; update modifying date field in the comment area (for sh)
-(defun my-sh-modify-date ()
-  "Update modifying date field in the comment area (for sh)."
-  (interactive)
-  (save-excursion
-    (let ((time-format "%Y-%m") (pt1) (pt2))
-      (goto-char (point-min))
-      (setq pt1 (search-forward "  modify" nil t))
-      (if pt1
-          (progn
-            (message "done")
-            (search-forward "gmail.com), ")
-            (setq pt1 (point))
-            (end-of-line)
-            (setq pt2 (point))
-            (delete-region pt1 pt2)
-            (insert (format-time-string time-format (current-time))))
-        (message "modify xxx not found")))))
-
 ;; update creating date in the comment area (for sh)
 (defun my-sh-create-date ()
   "Update creating date in the comment area (for sh)."
@@ -61,7 +42,7 @@
             (yas-minor-mode)
             (indent-guide-mode)
             (git-gutter+-mode)
-            (local-set-key (kbd "H-c") 'my-sh-create-date)))
+            (local-set-key (kbd "C-c M-c") 'my-sh-create-date)))
 
 ;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
