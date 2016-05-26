@@ -52,7 +52,6 @@
 (prelude-require-package 'multifiles)
 (prelude-require-package 'multiple-cursors)
 (prelude-require-package 'phi-search)
-;; (prelude-require-package 'reveal-in-finder)
 (prelude-require-package 'sr-speedbar)
 (prelude-require-package 'etags-table)
 (prelude-require-package 'etags-select)
