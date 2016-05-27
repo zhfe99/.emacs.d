@@ -26,8 +26,8 @@
   (pop-to-buffer-same-window (process-buffer (elpy-shell-get-or-create-process))))
 
 ;; using ipython as the default python console
-(setq python-shell-interpreter "ipython")
-(setq python-shell-interpreter-args "--pylab")
+;; (setq python-shell-interpreter "python")
+;; (setq python-shell-interpreter-args "--pylab")
 
 ;; remap up key in python shell
 (define-key comint-mode-map (kbd "<up>") 'comint-previous-matching-input-from-input)
