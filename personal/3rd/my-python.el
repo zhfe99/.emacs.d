@@ -78,12 +78,12 @@
 
 (cond
  ((string-equal system-type "darwin")
-  (require 'indent-guide))
- (cond
-  ((string-equal system-type "darwin")
-   (add-hook 'python-mode-hook
-             '(lambda ()
-                (indent-guide-mode)))
+  (require 'indent-guide)))
+(cond
+ ((string-equal system-type "darwin")
+  (add-hook 'python-mode-hook
+            '(lambda ()
+               (indent-guide-mode)))))
 
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
