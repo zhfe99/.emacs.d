@@ -5,9 +5,6 @@
 
 ;;; Code:
 
-;; use indent-guide
-(require 'indent-guide)
-
 ;; (c)make file map
 (add-to-list 'auto-mode-alist '("Makefile\\." . makefile-mode))
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
@@ -21,9 +18,17 @@
 (add-hook 'c-mode-common-hook
           (lambda()
             (subword-mode 1)
-            (indent-guide-mode)
             (git-gutter+-mode)
             (setq c-basic-offset 2)))
+
+;; use indent-gude only for mac
+(cond
+ ((string-equal system-type "darwin")
+  (require 'indent-guide)
+  (add-hook 'python-mode-hook
+            '(lambda ()
+               (indent-guide-mode)))))
+
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 

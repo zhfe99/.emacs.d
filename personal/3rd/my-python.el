@@ -76,11 +76,10 @@
              (git-gutter+-mode)
              (setq python-indent-offset 4)))
 
+;; use indent-gude only for mac
 (cond
  ((string-equal system-type "darwin")
-  (require 'indent-guide)))
-(cond
- ((string-equal system-type "darwin")
+  (require 'indent-guide)
   (add-hook 'python-mode-hook
             '(lambda ()
                (indent-guide-mode)))))
