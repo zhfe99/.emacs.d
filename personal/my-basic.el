@@ -20,6 +20,10 @@
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(setq package-archives
+      '(("gnu-cn" . "http://elpa.codefalling.com/gnu/")
+	("org-cn" . "http://elpa.codefalling.com/org/")
+	("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")))
 
 ;; 3rd package
 (prelude-require-package 'ace-isearch)
