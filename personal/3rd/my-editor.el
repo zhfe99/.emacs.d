@@ -173,6 +173,9 @@
 (auto-save-enable)
 (setq auto-save-slient t)
 
+;; enable to use global company
+(global-company-mode)
+
 (cond
  ((string-equal system-type "darwin")
   (require 'reveal-in-osx-finder)))
