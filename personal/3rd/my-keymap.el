@@ -129,6 +129,8 @@
 (global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c b") 'prelude-bing)
 (global-set-key (kbd "C-c t") 'org-capture)
+(global-set-key (kbd "C-c C-p") 'flycheck-previous-error)
+(global-set-key (kbd "C-c C-n") 'flycheck-next-error)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)
