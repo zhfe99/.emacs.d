@@ -57,15 +57,6 @@
             (insert (format-time-string time-format (current-time))))
         (message "create xxx not found")))))
 
-;; save hook
-(defun my-python-save-hook ()
-  "My hook for saving python file (*.py)."
-  (if (eq major-mode 'python-mode)
-      (progn
-        (message "%s is python-mode" (buffer-file-name))
-        (my-python-modify-date))))
-;; (add-hook 'before-save-hook 'my-python-save-hook)
-
 ;; python mode (save C-c C-p for other use)
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-p") nil))
