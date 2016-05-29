@@ -24,7 +24,7 @@
 ;; the following keys are still available:
 ;; q w r t y u i [ ]
 ;; a h l '
-;; z c b v /
+;; z c b v , . /
 (global-set-key (kbd "H-e") 'ediff)
 (global-set-key (kbd "s-e") 'ediff)
 (global-set-key (kbd "H-o") 'reveal-in-osx-finder)
@@ -51,12 +51,6 @@
 (global-set-key (kbd "s-m") 'matlab-shell)
 (global-set-key (kbd "H-n") 'my-narrow-or-widen-dwim)
 (global-set-key (kbd "s-n") 'my-narrow-or-widen-dwim)
-(global-set-key (kbd "H-,") 'git-gutter+-previous-hunk)
-(global-set-key (kbd "s-,") 'git-gutter+-previous-hunk)
-(global-set-key (kbd "H-.") 'git-gutter+-next-hunk)
-(global-set-key (kbd "s-.") 'git-gutter+-next-hunk)
-(global-set-key (kbd "H-/") 'git-gutter+-show-hunk)
-(global-set-key (kbd "s-/") 'git-gutter+-show-hunk)
 (global-set-key (kbd "<H-down>") 'my-push-window-down)
 (global-set-key (kbd "<s-down>") 'my-push-window-down)
 (global-set-key (kbd "<H-up>") 'my-push-window-up)
@@ -73,8 +67,6 @@
 ;; use special key in iterm2 on OSX
 (global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
-(global-set-key (kbd "\e[60;3~") 'git-gutter+-previous-hunk) ; H-,
-(global-set-key (kbd "\e[60;4~") 'git-gutter+-next-hunk) ; H-.
 (global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
@@ -121,7 +113,7 @@
 ;; C-x
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
-(global-set-key (kbd "C-x =") 'git-gutter+-show-hunk)
+(global-set-key (kbd "C-x C-v") 'git-gutter+-show-hunk)
 
 ;; C-c
 (prelude-install-search-engine "bing"     "http://www.bing.com/search?q="              "Bing: ")
@@ -129,8 +121,8 @@
 (global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c b") 'prelude-bing)
 (global-set-key (kbd "C-c t") 'org-capture)
-(global-set-key (kbd "C-c C-p") 'flycheck-previous-error)
-(global-set-key (kbd "C-c C-n") 'flycheck-next-error)
+(global-set-key (kbd "C-c C-p") 'flymake-goto-prev-error)
+(global-set-key (kbd "C-c C-n") 'flymake-goto-next-error)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)

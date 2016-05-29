@@ -17,8 +17,8 @@
                        elpy-module-yasnippet))))
 
 ;; use fly-check instead of flymake
-(with-eval-after-load 'elpy
-  (remove-hook 'elpy-modules 'elpy-module-flymake))
+;; (with-eval-after-load 'elpy
+;;   (remove-hook 'elpy-modules 'elpy-module-flymake))
 
 ;; elpy for python
 (elpy-enable)
@@ -64,10 +64,6 @@
 ;; reserve M-. for find-tag
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "M-.") nil))
-(eval-after-load "elpy"
-  '(define-key elpy-mode-map (kbd "C-c C-p") nil))
-(eval-after-load "elpy"
-  '(define-key elpy-mode-map (kbd "C-c C-n") nil))
 
 (add-hook 'python-mode-hook
           '(lambda ()

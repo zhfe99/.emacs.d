@@ -119,7 +119,11 @@
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
 
-(require 'helm-flycheck)
+(global-flycheck-mode -1)
+;; (require 'helm-flycheck)
+;; (setq flycheck-display-errors-delay 0.9)
+;; (setq flycheck-display-errors-function #'flycheck-display-error-messages)
+;; (add-to-list 'display-buffer-alist (cons "\\*Flycheck error messages\\*" (cons #'display-buffer-no-window nil)))
 
 (keyfreq-mode 1)
 (setq keyfreq-excluded-commands

@@ -40,7 +40,7 @@
 (prelude-require-package 'ggtags)
 (prelude-require-package 'which-key)
 (prelude-require-package 'helm-descbinds)
-(prelude-require-package 'helm-flycheck)
+;; (prelude-require-package 'helm-flycheck)
 (prelude-require-package 'helm-projectile)
 (prelude-require-package 'helm-swoop)
 (prelude-require-package 'hydra)
