@@ -64,6 +64,8 @@
 ;; reserve M-. for find-tag
 (eval-after-load "elpy"
   '(define-key elpy-mode-map (kbd "M-.") nil))
+(eval-after-load "elpy"
+  '(define-key elpy-mode-map (kbd "C-c C-v") 'elpy-flymake-show-error))
 
 (add-hook 'python-mode-hook
           '(lambda ()
