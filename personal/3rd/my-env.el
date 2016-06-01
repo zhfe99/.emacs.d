@@ -47,11 +47,9 @@
         (concat (getenv "HOME") "/code"
                 ":" (getenv "PYTHONPATH")))
 
-;; remote server
-(setenv "te3" "/ssh:ubuntu@52.91.111.136:")
-(setenv "te2" "/ssh:feng@www.cvtell.com:")
-(setenv "te2r" "/ssh:root@www.cvtell.com:")
-(setenv "tpal" "/scp:parallels@10.211.55.5:")
+(setenv "PYTHONPATH"
+        (concat (getenv "HOME") "/code/baidu/tl/tools"
+                ":" (getenv "PYTHONPATH")))
 
 ;; ispell
 (setq ispell-program-name
