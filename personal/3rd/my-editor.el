@@ -63,55 +63,6 @@
              '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
 (add-to-list 'dash-at-point-mode-alist '(sql-mode . "PASCAL"))
 
-(defun my-string-starts-with (s begins)
-  "Return non-nil if string S starts with BEGINS."
-  (cond ((>= (length s) (length begins))
-         (string-equal (substring s 0 (length begins)) begins))
-        (t nil)))
-
-;; switch to current file on server or local
-(defun my-switch-to-current-file-on-server-or-local()
-  "Switch current file on server or local."
-  (interactive)
-  (let (my-buffer-file-name my-buffer-file-name1)
-    (if (my-string-starts-with (buffer-file-name) "/scp:")
-        (progn
-          (setq my-buffer-file-name (substring (buffer-file-name) (length "/scp:feng@skyserver3k:/home/ma/feng/") nil))
-          (setq my-buffer-file-name1 (concat "/Users/feng/" my-buffer-file-name))
-          (find-file my-buffer-file-name1))
-      (progn
-        (setq my-buffer-file-name (substring (buffer-file-name) (length "/Users/feng/") nil))
-        (setq my-buffer-file-name1 (concat "/scp:feng@skyserver3k:/home/ma/feng/" my-buffer-file-name))
-        (find-file my-buffer-file-name1)
-        ))))
-
-;; get current fold on server or local
-(defun my-switch-to-current-dired-on-server-or-local()
-  "Get current fold on server or local."
-  (interactive)
-  (if (my-string-starts-with dired-directory "/scp:")
-      (progn
-        (setq my-buffer-file-name (substring dired-directory (length "/scp:feng@skyserver3k:/home/ma/feng/") nil))
-        (setq my-buffer-file-name1 (concat "/Users/feng/" my-buffer-file-name))
-        (message dired-directory)
-        (message my-buffer-file-name1)
-        (find-file my-buffer-file-name1))
-    (progn
-      (setq my-buffer-file-name (substring dired-directory (length "~/") nil))
-      (setq my-buffer-file-name1 (concat "/scp:feng@skyserver3k:/home/ma/feng/" my-buffer-file-name))
-      (message dired-directory)
-      (message my-buffer-file-name1)
-      (find-file my-buffer-file-name1)
-      )))
-
-;; get current fold on server or local
-(defun my-switch-to-current-on-server-or-local()
-  "Get current fold on server or local."
-  (interactive)
-  (if (string= major-mode "dired-mode")
-      (my-switch-to-current-dired-on-server-or-local)
-    (my-switch-to-current-file-on-server-or-local)))
-
 (defun my-align-comment()
   (interactive)
   (align-regexp
