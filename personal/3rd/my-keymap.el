@@ -73,6 +73,7 @@
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
 (global-set-key (kbd "\e[60;8~") 'edebug-defun) ; H-b
+(global-set-key (kbd "\e[60;9~") 'my-switch-to-current-on-server-or-local) ; H-p
 (global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
 (global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit) ; C-2
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit) ; C-3
