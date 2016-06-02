@@ -24,9 +24,9 @@
 ;; the following keys are still available:
 ;; q w r t y u i [ ]
 ;; a h l '
-;; z c b v , . /
-(global-set-key (kbd "H-q") 'edebug-defun)
-(global-set-key (kbd "s-q") 'edebug-defun)
+;; z c v , . /
+(global-set-key (kbd "H-b") 'edebug-defun)
+(global-set-key (kbd "s-b") 'edebug-defun)
 (global-set-key (kbd "H-e") 'ediff)
 (global-set-key (kbd "s-e") 'ediff)
 (global-set-key (kbd "H-o") 'reveal-in-osx-finder)
@@ -72,7 +72,7 @@
 (global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
-(global-set-key (kbd "\e[60;8~") 'edebug-defun) ; H-q
+(global-set-key (kbd "\e[60;8~") 'edebug-defun) ; H-b
 (global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
 (global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit) ; C-2
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit) ; C-3
