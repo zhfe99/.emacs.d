@@ -70,6 +70,12 @@
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
 
+(defun my-cleanup()
+  "Clean up."
+  (interactive)
+  (recentf-cleanup)
+  (projectile-cleanup-known-projects))
+
 (global-flycheck-mode -1)
 ;; (require 'helm-flycheck)
 ;; (setq flycheck-display-errors-delay 0.9)
