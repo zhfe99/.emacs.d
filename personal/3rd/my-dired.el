@@ -278,7 +278,6 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
 (define-key dired-mode-map "o" 'prelude-open-with)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map "D" 'bjm/move-file-here)
-(define-key dired-mode-map "i" 'dired-do-delete)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
