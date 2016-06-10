@@ -38,6 +38,7 @@
 (org-clock-persistence-insinuate)
 (setq org-clock-out-remove-zero-time-clocks t)
 (setq org-log-done t)
+(setq org-clock-idle-time 2)
 
 ;; Already use pomodoro. Don't need to show clock in mode-line
 (setq org-clock-clocked-in-display nil)
@@ -78,12 +79,12 @@
 
 ;; use pomodoro
 (require 'pomodoro)
-(defun my-pomodoro-add-to-mode-line ()
-  (setq-default mode-line-format
-                (cons mode-line-format '(pomodoro-mode-line-string))))
-(my-pomodoro-add-to-mode-line)
-(setq pomodoro-work-time 40)
-(setq pomodoro-play-sounds nil)
+;; (defun my-pomodoro-add-to-mode-line ()
+;;   (setq-default mode-line-format
+;;                 (cons mode-line-format '(pomodoro-mode-line-string))))
+;; (my-pomodoro-add-to-mode-line)
+;; (setq pomodoro-work-time 40)
+;; (setq pomodoro-play-sounds nil)
 
 ;; start org clock when the state is switched to WORK
 (defun org-clock-in-if-work ()
