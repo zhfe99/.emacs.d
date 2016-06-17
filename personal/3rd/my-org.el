@@ -38,7 +38,7 @@
 (org-clock-persistence-insinuate)
 (setq org-clock-out-remove-zero-time-clocks t)
 (setq org-log-done t)
-(setq org-clock-idle-time 2)
+(setq org-clock-idle-time 30)
 
 ;; Already use pomodoro. Don't need to show clock in mode-line
 (setq org-clock-clocked-in-display nil)
