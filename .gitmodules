@@ -1,3 +1,6 @@
 [submodule "personal/emacs_private"]
 	path = personal/emacs_private
 	url = ../emacs_private.git
+[submodule "elpa"]
+	path = elpa
+	url = ../elpa.git
