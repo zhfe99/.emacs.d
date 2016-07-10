@@ -5,7 +5,7 @@
 
 ;;; code:
 
-;; matlab
+n;; matlab
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
 (setq auto-mode-alist (cons '("\\.m$" . matlab-mode) auto-mode-alist))
 
@@ -17,7 +17,7 @@
  ((string-equal system-type "darwin")
   (setq matlab-shell-command "/Applications/MATLAB.app/bin/matlab"))
  ((string-equal system-type "gnu/linux")
-  (setq matlab-shell-command "/usr/bin/matlab")))
+  (setq matlab-shell-command "/home/adu/common/MATLAB/R2013a/bin/matlab")))
 
 ;; matlab startup configuration
 (setq matlab-shell-command-switches '("-nodesktop -nosplash"))
