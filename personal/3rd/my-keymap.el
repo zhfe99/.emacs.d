@@ -69,6 +69,7 @@
 ;; use special key in iterm2 on OSX
 (global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
+(global-set-key (kbd "\e[60;3~") 'matlab-shell) ; H-m
 (global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
