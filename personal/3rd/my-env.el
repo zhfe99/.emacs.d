@@ -57,7 +57,7 @@
        ((string-equal system-type "darwin")
         "/usr/local/bin/aspell")
        ((string-equal system-type "gnu/linux")
-        "/usr/bin/aspell")))
+        (concat (getenv "HOME") "/apps/bin/aspell"))))
 
 ;; define function to shutdown emacs server instance
 (defun server-shutdown ()
