@@ -53,6 +53,16 @@
   (define-key org-agenda-mode-map (kbd "<C-S-right>") 'org-shiftright))
 (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-keys)
 
+(setq org-agenda-custom-commands
+      '(("h" "Daily habits"
+         ((agenda ""))
+         ((org-agenda-show-log t)
+          (org-agenda-ndays 7)
+          (org-agenda-log-mode-items '(state))
+          (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp ":DAILY:"))))
+        ;; other commands here
+        ))
+
 ;; use pomodoro
 ;; (require 'pomodoro)
 ;; (defun my-pomodoro-add-to-mode-line ()
