@@ -8,30 +8,37 @@
 ;; turn-off diff-hl mode
 (global-diff-hl-mode -1)
 
-;; use git-gutter+
-(when (fboundp 'define-fringe-bitmap)
-  (require 'git-gutter-fringe+)
-  (cond
-   ((string-equal system-type "gnu/linux")
-    (git-gutter+-toggle-fringe))))
+;; use git-gutter
+(if (fboundp 'define-fringe-bitmap)
+    (require 'git-gutter-fringe)
+  (require 'git-gutter-fringe))
 
-;; key
-(eval-after-load 'git-gutter+
-  '(progn
-     ;;; Jump between hunks
-     (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+;; http://blog.binchen.org/posts/enhance-emacs-git-gutter-with-ivy-mode.html
+(defun my-reshape-git-gutter (gutter)
+  "Re-shape gutter for `ivy-read'."
+  (let* ((lineno (aref gutter 3))
+         line)
+    (save-excursion
+      (goto-line lineno)
+      (setq line (buffer-substring (line-beginning-position)
+                                   (line-end-position))))
+    ;; build (key . lineno)
+    (cons (format "%s %d: %s"
+                  (if (eq 'deleted (aref gutter 1)) "-" "+")
+                  lineno
+                  (replace-regexp-in-string "^[ \t]*" "" line))
+          lineno)))
 
-     ;;; Act on hunks
-     (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
-     ;; Stage hunk at point.
-     ;; If region is active, stage all hunk lines within the region.
-     (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
-     (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
-     (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)
-     (define-key git-gutter+-mode-map (kbd "C-x C-y") 'git-gutter+-stage-and-commit-whole-buffer)
-     (define-key git-gutter+-mode-map (kbd "C-x U") 'git-gutter+-unstage-whole-buffer)))
+(defun my-goto-git-gutter ()
+  (interactive)
+  (if git-gutter:diffinfos
+      (let* ((collection (mapcar 'my-reshape-git-gutter
+                                 git-gutter:diffinfos)))
+        (ivy-read "git-gutters:"
+                  collection
+                  :action (lambda (lineno)
+                            (goto-line lineno))))
+    (message "NO git-gutters!")))
 
 (provide 'my-git)
 ;;; my-git.el ends here

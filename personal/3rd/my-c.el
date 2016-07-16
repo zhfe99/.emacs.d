@@ -18,7 +18,7 @@
 (add-hook 'c-mode-common-hook
           (lambda()
             (subword-mode 1)
-            (git-gutter+-mode)
+            (git-gutter-mode)
             (setq c-basic-offset 2)))
 
 ;; use indent-gude only for mac
@@ -43,7 +43,7 @@
           (lambda()
             (subword-mode 1)
             (setq c-basic-offset 2)
-            (git-gutter+-mode)))
+            (git-gutter-mode)))
 
 ;; remap M-j
 (define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)

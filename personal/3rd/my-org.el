@@ -13,21 +13,22 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (org-bullets-mode 1)
-            (git-gutter+-mode)))
+            (git-gutter-mode)))
 
 ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
 ;; the more pointed, the more important
-(eval-after-load 'org-bullets
-  '(setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
+;; (eval-after-load 'org-bullets
+;;   '(setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
+
+;; default to indent outline
+;; if set t, then org-hide-leading-stars will be always t
+(setq org-startup-indented nil)
+
+;; default to hide stars
+(setq org-hide-leading-stars nil)
 
 ;; org files location
 (setq org-directory "~/org/")
-
-;; set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/org/flagged.org")
-
-;; use MobileOrg on iOS through Dropbox
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 ;; use org-completion-use
 (setq org-completion-use-ido t)
@@ -46,12 +47,6 @@
 ;; org todo key-words
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WORK(w)" "RUNG(r)" "|" "DONE(d)")))
-
-(defun my-org-agenda-mode-keys ()
-  "My keybindings for `org-agenda'."
-  (define-key org-agenda-mode-map (kbd "<C-S-left>") 'org-shiftleft)
-  (define-key org-agenda-mode-map (kbd "<C-S-right>") 'org-shiftright))
-(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-keys)
 
 (setq org-agenda-custom-commands
       '(("h" "Daily habits"
@@ -94,12 +89,6 @@
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
 (setq org-agenda-span 'day)
-
-;; default to indent outline
-(setq org-startup-indented t)
-
-;; default to hide stars
-(setq org-hide-leading-stars t)
 
 ;; agenda format
 (setq org-agenda-use-time-grid t)
@@ -418,6 +407,13 @@ application the system uses for this file type."
   (define-key org-mode-map (kbd "<H-left>") 'my-push-window-left)
   (define-key org-mode-map (kbd "<H-right>") 'my-push-window-right))
 (add-hook 'org-mode-hook 'my-org-mode-keys)
+
+;; remap key in org agenda
+(defun my-org-agenda-mode-keys ()
+  "My keybindings for `org-agenda'."
+  (define-key org-agenda-mode-map (kbd "<C-S-left>") 'org-shiftleft)
+  (define-key org-agenda-mode-map (kbd "<C-S-right>") 'org-shiftright))
+(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-keys)
 
 (provide 'my-org)
 ;;; my-org.el ends here
