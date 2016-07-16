@@ -66,6 +66,7 @@
 (prelude-require-package 'iy-go-to-char)
 (prelude-require-package 'imenu-anywhere)
 (prelude-require-package 'git-gutter)
+(prelude-require-package 'counsel-projectile)
 (prelude-require-package 'git-gutter+)
 (prelude-require-package 'git-gutter-fringe+)
 
