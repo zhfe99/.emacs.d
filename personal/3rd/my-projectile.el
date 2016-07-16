@@ -23,14 +23,13 @@
 (setq projectile-completion-system 'ivy)
 
 ;; use counsel-projectile
-(setq projectile-switch-project-action 'counsel-projectile)
 (setq projectile-find-dir-includes-top-level t)
 
 ;; projectile: remote project will expire in 1 hour
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
 
 ;; projectile-key
-(define-key projectile-command-map (kbd "h") 'counsel-projectile)
+(define-key projectile-command-map (kbd "p") 'counsel-projectile)
 
 (provide 'my-projectile)
 ;;; my-editor.el ends here
