@@ -4,6 +4,9 @@
 
 ;; My projectile setting.
 
+;; use counsel-projectile
+(require 'counsel-projectile)
+
 ;; disable some prelude keys
 (defun my-prelude-mode-keys ()
   "My keybindings for prelude-mode."

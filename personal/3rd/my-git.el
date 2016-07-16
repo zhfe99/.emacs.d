@@ -40,5 +40,8 @@
                             (goto-line lineno))))
     (message "NO git-gutters!")))
 
+;; use ivy in magit
+(setq magit-completing-read-function 'ivy-completing-read)
+
 (provide 'my-git)
 ;;; my-git.el ends here

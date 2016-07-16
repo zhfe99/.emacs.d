@@ -12,6 +12,9 @@
 ;; enable ivy-mode
 (ivy-mode)
 
+;; combine recentf inside ivy-switch-buffer
+(setq ivy-use-virtual-buffers t)
+
 (defun counsel-goto-recent-directory ()
   "Recent directories"
   (interactive)
@@ -192,11 +195,6 @@ Or else, find files since 24 weeks (6 months) ago."
                                 bookmarks))
               :action (lambda (bookmark)
                         (bookmark-jump bookmark)))))
-
-
-;; (setq magit-completing-read-function 'ivy-completing-read)
-(setq ivy-use-virtual-buffers t)
-(require 'counsel-projectile)
 
 (provide 'my-ivy)
 ;;; my-dired.el ends here
