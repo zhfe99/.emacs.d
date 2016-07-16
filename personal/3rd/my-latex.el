@@ -4,7 +4,6 @@
 ;; My latex setting.
 
 ;;; Code:
-
 (require 'prelude-latex)
 
 ;; latex

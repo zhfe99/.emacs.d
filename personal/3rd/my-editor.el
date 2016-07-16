@@ -58,7 +58,6 @@
   (insert " "))
 
 ;; dash for doc
-(prelude-require-package 'dash-at-point)
 (add-to-list 'dash-at-point-mode-alist
              '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
 (add-to-list 'dash-at-point-mode-alist '(sql-mode . "PASCAL"))

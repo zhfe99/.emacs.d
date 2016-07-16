@@ -96,6 +96,7 @@
 
 ;; C-
 ;; Some of the key might not be available in terminal
+(global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") 'helm-swoop)

@@ -69,6 +69,7 @@
 (prelude-require-package 'counsel-projectile)
 (prelude-require-package 'git-gutter+)
 (prelude-require-package 'git-gutter-fringe+)
+(prelude-require-package 'dash-at-point)
 
 ;; other setting
 (require 'use-package)

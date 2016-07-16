@@ -401,7 +401,7 @@ application the system uses for this file type."
   (define-key org-mode-map (kbd "\e[47;D~") 'org-metaright) ; M-right
   (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left
   (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right
-  (define-key org-mode-map (kbd "M-h") 'helm-mini)
+  (define-key org-mode-map (kbd "M-h") 'ivy-switch-buffer)
   (define-key org-mode-map (kbd "<H-up>") 'my-push-window-up)
   (define-key org-mode-map (kbd "<H-down>") 'my-push-window-down)
   (define-key org-mode-map (kbd "<H-left>") 'my-push-window-left)
