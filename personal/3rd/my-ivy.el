@@ -7,6 +7,11 @@
 
 (require 'cl)
 (require 'ivy) ; swiper 7.0+ should be installed
+(require 'counsel)
+
+;; enable ivy-mode
+(ivy-mode)
+
 (defun counsel-goto-recent-directory ()
   "Recent directories"
   (interactive)
@@ -30,7 +35,8 @@
     (shell-command "history -r") ; reload history
     (setq collection
           (nreverse
-           (split-string (with-temp-buffer (insert-file-contents (file-truename "~/.bash_history"))
+           (split-string
+            (with-temp-buffer (insert-file-contents (file-truename "~/.bash_history"))
                                            (buffer-string))
                          "\n"
                          t)))
@@ -185,8 +191,12 @@ Or else, find files since 24 weeks (6 months) ago."
                                     (cons key bookmark)))
                                 bookmarks))
               :action (lambda (bookmark)
-                        (bookmark-jump bookmark)))
-    ))
+                        (bookmark-jump bookmark)))))
+
+(setq projectile-completion-system 'ivy)
+;; (setq magit-completing-read-function 'ivy-completing-read)
+(setq ivy-use-virtual-buffers t)
+(require 'counsel-projectile)
 
 (provide 'my-ivy)
 ;;; my-dired.el ends here

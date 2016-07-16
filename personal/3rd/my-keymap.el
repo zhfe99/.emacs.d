@@ -118,14 +118,10 @@
 ;; C-x
 (global-set-key (kbd "C-x o") 'ace-select-window)
 (global-set-key (kbd "C-x O") 'ace-swap-window)
-(global-set-key (kbd "C-x C-v") 'git-gutter+-show-hunk)
-(global-set-key (kbd "C-x C-p") 'git-gutter+-previous-hunk)
-(global-set-key (kbd "C-x C-n") 'git-gutter+-next-hunk)
+(global-set-key (kbd "C-x C-v") 'my-goto-git-gutter)
 
 ;; C-c
 (prelude-install-search-engine "bing"     "http://www.bing.com/search?q="              "Bing: ")
-(define-key prelude-mode-map (kbd "C-c i") nil)
-(global-set-key (kbd "C-c i") 'helm-imenu-anywhere)
 (global-set-key (kbd "C-c b") 'prelude-bing)
 (global-set-key (kbd "C-c t") 'org-capture)
 (global-set-key (kbd "C-c C-p") 'flymake-goto-prev-error)
