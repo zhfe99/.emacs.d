@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; turn-off ido mode
+(ido-mode -1)
+
 (require 'cl)
 (require 'ivy) ; swiper 7.0+ should be installed
 (require 'counsel)
