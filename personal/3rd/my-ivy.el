@@ -193,7 +193,7 @@ Or else, find files since 24 weeks (6 months) ago."
               :action (lambda (bookmark)
                         (bookmark-jump bookmark)))))
 
-(setq projectile-completion-system 'ivy)
+
 ;; (setq magit-completing-read-function 'ivy-completing-read)
 (setq ivy-use-virtual-buffers t)
 (require 'counsel-projectile)
