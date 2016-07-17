@@ -11,7 +11,7 @@
 ;; use git-gutter
 (if (fboundp 'define-fringe-bitmap)
     (require 'git-gutter-fringe)
-  (require 'git-gutter-fringe))
+  (require 'git-gutter))
 
 ;; http://blog.binchen.org/posts/enhance-emacs-git-gutter-with-ivy-mode.html
 (defun my-reshape-git-gutter (gutter)
