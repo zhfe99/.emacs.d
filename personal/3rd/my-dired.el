@@ -290,14 +290,5 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 
-;;preview files in dired
-(cond
- ((string-equal system-type "darwin")
-  (use-package peep-dired
-    :ensure t
-    :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded
-    :bind (:map dired-mode-map
-                ("P" . peep-dired)))))
-
 (provide 'my-dired)
 ;;; my-dired.el ends here
