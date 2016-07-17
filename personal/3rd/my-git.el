@@ -40,6 +40,22 @@
                             (goto-line lineno))))
     (message "NO git-gutters!")))
 
+;; see what line changed in latest commit
+;; http://blog.binchen.org/posts/git-gutter-tip.html
+(defun git-gutter-reset-to-head-parent()
+  (interactive)
+  (let (parent (filename (buffer-file-name)))
+    (if (eq git-gutter:vcs-type 'svn)
+        (setq parent "PREV")
+      (setq parent (if filename (concat (shell-command-to-string (concat "git --no-pager log --oneline -n1 --pretty='format:%H' " filename)) "^") "HEAD^")))
+    (git-gutter:set-start-revision parent)
+    (message "git-gutter:set-start-revision HEAD^")))
+
+(defun git-gutter-reset-to-default ()
+  (interactive)
+  (git-gutter:set-start-revision nil)
+  (message "git-gutter reset"))
+
 ;; use ivy in magit
 (setq magit-completing-read-function 'ivy-completing-read)
 
