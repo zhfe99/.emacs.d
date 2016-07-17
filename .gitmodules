@@ -1,3 +1,6 @@
 [submodule "site-lisp/counsel-projectile"]
 	path = site-lisp/counsel-projectile
 	url = ../counsel-projectile.git
+[submodule "site-lisp/zenburn-emacs"]
+	path = site-lisp/zenburn-emacs
+	url = ../zenburn-emacs.git

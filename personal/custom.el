@@ -44,7 +44,6 @@
                        "\\_>"))
               1
               (quote font-lock-variable-name-face))))))))
- '(auto-save-idle 2)
  '(term-bind-key-alist
    (quote
     (("C-c C-a" . term-send-ad)

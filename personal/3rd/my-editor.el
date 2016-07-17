@@ -19,6 +19,12 @@
 ;; turn-off beacon
 (beacon-mode -1)
 
+;; use zenburn
+(use-package zenburn-theme
+  :load-path "site-lisp/zenburn-emacs/"
+  :config
+  (load-theme 'zenburn t))
+
 ;; turn-on which-function-mode
 ;; but turn-off it for cython (.pyx, .pyd) otherwise it will be extremely slow
 (which-function-mode 1)
