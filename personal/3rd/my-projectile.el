@@ -5,7 +5,10 @@
 ;; My projectile setting.
 
 ;; use counsel-projectile
-(require 'counsel-projectile)
+(use-package counsel-projectile
+  :load-path "site-lisp/counsel-projectile/"
+  :config
+  (define-key projectile-command-map (kbd "p") 'counsel-projectile))
 
 ;; disable some prelude keys
 (defun my-prelude-mode-keys ()
@@ -29,7 +32,7 @@
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
 
 ;; projectile-key
-(define-key projectile-command-map (kbd "p") 'counsel-projectile)
+
 
 (provide 'my-projectile)
 ;;; my-editor.el ends here

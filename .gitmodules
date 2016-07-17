@@ -1,0 +1,3 @@
+[submodule "site-lisp/counsel-projectile"]
+	path = site-lisp/counsel-projectile
+	url = ../counsel-projectile.git
