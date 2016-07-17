@@ -61,6 +61,25 @@
       (kill-new val)
       (message "%s => kill-ring" val))))
 
+(defun counsel-yank-zsh-history ()
+  "Yank the bash history"
+  (interactive)
+  (let (hist-cmd collection val)
+    (shell-command "history -r") ; reload history
+    (setq collection
+          (nreverse
+           (mapcar (lambda (v) (replace-regexp-in-string "^: [.0-9]+:0;" "" v))
+                   (split-string
+                    (with-temp-buffer (insert-file-contents (file-truename "~/.zsh_history"))
+                                      (buffer-string))
+                    "\n"
+                    t))))
+    (when (and collection (> (length collection) 0)
+               (setq val (if (= 1 (length collection)) (car collection)
+                           (ivy-read (format "Zsh history:") collection))))
+      (kill-new val)
+      (message "%s => kill-ring" val))))
+
 ; {{ @see http://oremacs.com/2015/04/19/git-grep-ivy/
 (defun counsel-git-grep-or-find-api (fn git-cmd hint open-another-window)
   "Apply FN on the output lines of GIT-CMD.  HINT is hint when user input.
