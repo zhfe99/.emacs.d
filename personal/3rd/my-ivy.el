@@ -25,7 +25,7 @@
 (setq ivy-extra-directories nil)
 
 ;; ivy format
-(setq ivy-count-format "(%d/%d) ")
+;; (setq ivy-count-format "(%d/%d) ")
 
 (defun counsel-goto-recent-directory ()
   "Recent directories"
