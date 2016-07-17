@@ -23,8 +23,7 @@
         (set-keymap-parent newmap oldmap)
         (define-key newmap (kbd "C-a") nil)
         (make-local-variable 'minor-mode-overriding-map-alist)
-        (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist))
-  )
+        (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist)))
 (add-hook 'term-mode-hook 'my-term-mode-hook)
 
 ;; default shell form multi-term
@@ -36,6 +35,43 @@
         multi-term-program (concat (getenv "HOME") "/apps/bin/zsh"))))
 (add-hook 'term-mode-hook
           (lambda () (setq truncate-lines 0)))
+
+(defun counsel-yank-bash-history ()
+  "Yank the bash history"
+  (interactive)
+  (let (hist-cmd collection val)
+    (shell-command "history -r") ; reload history
+    (setq collection
+          (nreverse
+           (split-string
+            (with-temp-buffer (insert-file-contents (file-truename "~/.bash_history"))
+                                           (buffer-string))
+                         "\n"
+                         t)))
+    (when (and collection (> (length collection) 0)
+               (setq val (if (= 1 (length collection)) (car collection)
+                           (ivy-read (format "Bash history:") collection))))
+      (kill-new val)
+      (message "%s => kill-ring" val))))
+
+(defun counsel-yank-zsh-history ()
+  "Yank the bash history"
+  (interactive)
+  (let (hist-cmd collection val)
+    (shell-command "history -r") ; reload history
+    (setq collection
+          (nreverse
+           (mapcar (lambda (v) (replace-regexp-in-string "^: [.0-9]+:0;" "" v))
+                   (split-string
+                    (with-temp-buffer (insert-file-contents (file-truename "~/.zsh_history"))
+                                      (buffer-string))
+                    "\n"
+                    t))))
+    (when (and collection (> (length collection) 0)
+               (setq val (if (= 1 (length collection)) (car collection)
+                           (ivy-read (format "Zsh history:") collection))))
+      (kill-new val)
+      (message "%s => kill-ring" val))))
 
 (provide 'my-term)
 ;;; my-term.el ends here
