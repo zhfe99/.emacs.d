@@ -129,6 +129,7 @@
 (global-set-key (kbd "C-c t") 'org-capture)
 (global-set-key (kbd "C-c C-p") 'flymake-goto-prev-error)
 (global-set-key (kbd "C-c C-n") 'flymake-goto-next-error)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)
@@ -146,7 +147,7 @@
 (global-set-key (kbd "<s-M-right>") 'buf-move-right)
 
 ;; M-
-(global-set-key (kbd "M-i") 'ivy-imenu-goto)
+(global-set-key (kbd "M-i") 'counsel-imenu)
 (global-set-key (kbd "M-l") 'dired-jump)
 (global-set-key (kbd "M-g") 'avy-goto-line)
 (global-set-key (kbd "M-x") 'counsel-M-x)

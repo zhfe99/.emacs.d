@@ -8,7 +8,8 @@
 (use-package counsel-projectile
   :load-path "site-lisp/counsel-projectile/"
   :config
-  (define-key projectile-command-map (kbd "p") 'counsel-projectile))
+  (define-key projectile-command-map (kbd "p") 'counsel-projectile)
+  (define-key projectile-command-map (kbd "h") 'counsel-ag))
 
 ;; disable some prelude keys
 (defun my-prelude-mode-keys ()
