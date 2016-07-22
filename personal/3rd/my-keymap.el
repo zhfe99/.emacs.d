@@ -40,7 +40,7 @@
 (global-set-key (kbd "s-d") 'ace-duplicate-current-buffer-in-other-window)
 (global-set-key (kbd "H-f") 'find-name-dired)
 (global-set-key (kbd "s-f") 'find-name-dired)
-(global-set-key (kbd "H-g") 'rgrep)
+(global-set-key (kbd "H-g") 'counsel-git-grep)
 (global-set-key (kbd "s-g") 'rgrep)
 (global-set-key (kbd "H-j") 'org-clock-goto)
 (global-set-key (kbd "s-j") 'org-clock-goto)
@@ -68,7 +68,7 @@
 (global-set-key (kbd "s--") 'my-align-comment)
 
 ;; use special key in iterm2 on OSX
-(global-set-key (kbd "\e[60;1~") 'rgrep) ; H-g
+(global-set-key (kbd "\e[60;1~") 'counsel-git-grep) ; H-g
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
 (global-set-key (kbd "\e[60;3~") 'matlab-shell) ; H-m
 (global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
