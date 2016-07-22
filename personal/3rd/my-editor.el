@@ -113,9 +113,6 @@
           (lambda()
             (visual-line-mode 1)))
 
-;; load markdown-preview-mode (C-c C-c p is to preview the markdown file in browser)
-(require 'markdown-preview-mode)
-
 ;; use multiple-cursor
 (require 'multiple-cursors)
 
