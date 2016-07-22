@@ -89,14 +89,6 @@
         ((equal major-mode 'org-mode) (org-narrow-to-subtree))
         (t (error "Please select a region to narrow to"))))
 
-;; load markdown-mode
-(require 'markdown-mode)
-
-;; markdown-mode-hook
-(add-hook 'markdown-mode-hook
-          (lambda()
-            (visual-line-mode 1)))
-
 ;; use multiple-cursor
 (require 'multiple-cursors)
 
