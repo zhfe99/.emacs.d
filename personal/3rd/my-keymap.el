@@ -84,7 +84,6 @@
 (global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-,
 (global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this)     ; C-.
 (global-set-key (kbd "\e[46;3~") 'er/expand-region)           ; C-=
-(global-set-key (kbd "\e[27;5;39~") 'helm-swoop)              ; C-'
 (global-set-key (kbd "\e[46;A~") 'my-push-window-up)    ; H-up
 (global-set-key (kbd "\e[46;B~") 'my-push-window-down)  ; H-down
 (global-set-key (kbd "\e[46;C~") 'my-push-window-left)  ; H-left
@@ -101,10 +100,8 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-'") 'helm-swoop)
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
-(define-key isearch-mode-map (kbd "C-'") 'helm-swoop-from-isearch)
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t l") 'transpose-lines)
 (global-set-key (kbd "C-t w") 'transpose-words)
