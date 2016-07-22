@@ -47,22 +47,6 @@
   (interactive)
   (revert-buffer t t))
 
-;; insert double space
-(defun my-insert-double-space ()
-  "Insert space so that a|bc -> a bc |."
-  (interactive)
-  (insert " ")
-  (forward-char 2)
-  (insert " "))
-
-;; insert single space
-(defun my-insert-single-space ()
-  "Insert space so that a|bc -> a b |c."
-  (interactive)
-  (insert " ")
-  (forward-char 1)
-  (insert " "))
-
 ;; dash for doc
 (add-to-list 'dash-at-point-mode-alist
              '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
