@@ -19,7 +19,7 @@
 ;; turn-off beacon
 (beacon-mode -1)
 
-;; use zenburn
+;; use my own zenburn
 (use-package zenburn-theme
   :load-path "site-lisp/zenburn-emacs/"
   :config
@@ -94,9 +94,6 @@
         previous-line
         next-line))
 (keyfreq-autosave-mode 1)
-
-(require 'which-key)
-(which-key-mode)
 
 ;; narrow / widen the current region
 ;; or narrow / widen the current subtree if in org-mode
