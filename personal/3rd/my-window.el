@@ -85,7 +85,6 @@
         (buf (current-buffer))
         (win (aw-select " Ace Buffer: ")))
     (progn
-      ;; (message win)
       (aw-switch-to-window win)
       (setq buf (buffer-name))
       (message buf)
@@ -98,7 +97,6 @@
   (let ((buf (current-buffer))
         (win (aw-select " Ace Buffer: ")))
     (progn
-      ;; (message win)
       (aw-switch-to-window win)
       (switch-to-buffer buf))))
 
