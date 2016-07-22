@@ -6,6 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/personal/3rd")
 
 ;; enable prelude sub-modules
+(require 'prelude-company)
 (require 'prelude-key-chord)
 (require 'prelude-ido)
 (require 'prelude-helm)
