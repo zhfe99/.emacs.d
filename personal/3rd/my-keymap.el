@@ -22,10 +22,11 @@
 
 ;; H(s)-
 ;; the following keys are still available:
-;; q w r t y u i [ ]
+;; q r t y u i [ ]
 ;; a h l '
 ;; c v , . /
 (global-set-key (kbd "H-z") 'counsel-yank-zsh-history)
+(global-set-key (kbd "H-w") 'kill-this-buffer)
 (global-set-key (kbd "H-b") 'edebug-defun)
 (global-set-key (kbd "s-b") 'edebug-defun)
 (global-set-key (kbd "H-e") 'ediff)
@@ -71,6 +72,7 @@
 (global-set-key (kbd "\e[60;1~") 'counsel-git-grep) ; H-g
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
 (global-set-key (kbd "\e[60;3~") 'matlab-shell) ; H-m
+(global-set-key (kbd "\e[60;4~") 'kill-this-buffer) ; H-w
 (global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
