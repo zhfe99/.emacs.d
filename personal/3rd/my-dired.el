@@ -58,7 +58,6 @@
               "\\|^\\.gem$"
               "\\|^\\.fontconfig$"
               "\\|^\\.gconf$"
-              "\\|^\\.globalrc$"
               "\\|^\\.gnome2.*$"
               "\\|^\\.gnupg$"
               "\\|^\\.gnuplot_history$"
