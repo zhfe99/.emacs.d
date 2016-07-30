@@ -52,10 +52,10 @@
                (setq val (if (= 1 (length collection)) (car collection)
                            (ivy-read (format "Bash history:") collection))))
       (kill-new val)
-      (message "%s => kill-ring" val))))
+      (term-paste))))
 
 (defun counsel-yank-zsh-history ()
-  "Yank the bash history"
+  "Yank the zsh history"
   (interactive)
   (let (hist-cmd collection val)
     (shell-command "history -r") ; reload history
@@ -71,7 +71,7 @@
                (setq val (if (= 1 (length collection)) (car collection)
                            (ivy-read (format "Zsh history:") collection))))
       (kill-new val)
-      (message "%s => kill-ring" val))))
+      (term-paste))))
 
 (provide 'my-term)
 ;;; my-term.el ends here
