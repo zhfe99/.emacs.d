@@ -28,7 +28,7 @@
 (setq org-hide-leading-stars nil)
 
 ;; org files location
-(setq org-directory "~/org/")
+(setq org-directory "~/code/mine/org")
 
 ;; use org-completion-use
 (setq org-completion-use-ido t)
@@ -118,9 +118,9 @@ Insert an Org link at point."
 
 ;; org capture template
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/code/mine/org/gtd.org" "Tasks")
          "* TODO %?\n  %i\n")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+        ("j" "Journal" entry (file+datetree "~/code/mine/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
 (setq org-refile-targets

@@ -19,7 +19,7 @@
    (quote
     ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
  '(lua-default-application "th")
- '(org-agenda-files (quote ("~/org")))
+ '(org-agenda-files (quote ("~/code/mine/org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))
  '(projectile-keymap-prefix (kbd "M-p"))
