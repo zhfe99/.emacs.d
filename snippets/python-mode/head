@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: python header
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
-# key: head
+# key: hd
 # --
 #!/usr/bin/env python
 """

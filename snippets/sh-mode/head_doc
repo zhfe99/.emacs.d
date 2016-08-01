@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: header with doc
-# key: head
+# key: hd
 # --
 #!/usr/bin/env bash
 #
