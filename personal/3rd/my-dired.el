@@ -114,6 +114,8 @@
               "\\|^\\.zsh_history$"
               "\\|^\\flycheck_"
               "\\|flymake\\.py$"
+              "\\|GPATH$"
+              "\\|GRTAGS$"
               ))
 
 ;; ace-jump only search filename in dired
