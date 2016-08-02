@@ -71,14 +71,6 @@
 ;; (setq flycheck-display-errors-function #'flycheck-display-error-messages)
 ;; (add-to-list 'display-buffer-alist (cons "\\*Flycheck error messages\\*" (cons #'display-buffer-no-window nil)))
 
-(keyfreq-mode 1)
-(setq keyfreq-excluded-commands
-      '(self-insert-command
-        abort-recursive-edit
-        previous-line
-        next-line))
-(keyfreq-autosave-mode 1)
-
 ;; narrow / widen the current region
 ;; or narrow / widen the current subtree if in org-mode
 (defun my-narrow-or-widen-dwim ()
