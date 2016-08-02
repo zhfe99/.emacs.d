@@ -4,3 +4,6 @@
 [submodule "site-lisp/zenburn-emacs"]
 	path = site-lisp/zenburn-emacs
 	url = ../zenburn-emacs.git
+[submodule "site-lisp/helm-etags-plus"]
+	path = site-lisp/helm-etags-plus
+	url = ../helm-etags-plus.git
