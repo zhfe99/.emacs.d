@@ -66,5 +66,10 @@
   (save-some-buffers)
   (kill-emacs))
 
+;; hide buffer when using M-&
+;; http://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement
+(add-to-list 'display-buffer-alist
+             (cons "\\*Async Shell Command\\*.*" (cons #'display-buffer-no-window nil)))
+
 (provide 'my-env)
 ;;; my-env.el ends here
