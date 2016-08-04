@@ -132,6 +132,14 @@
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)
+(defhydra hydra-zoom (global-map "C-c s")
+  "smartparens"
+  ("f" sp-forward-sexp "forward")
+  ("b" sp-backward-sexp "backward")
+  ("p" sp-backward-down-sexp "backward-down")
+  ("u" sp-backward-up-sexp "backward-up")
+  ("a" sp-splice-sexp "splice")
+  ("r" sp-rewrap-sexp "rewarp"))
 
 ;; H(s)-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
