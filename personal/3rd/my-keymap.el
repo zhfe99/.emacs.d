@@ -23,7 +23,7 @@
 ;; H(s)-
 ;; the following keys are still available:
 ;; q w r t y u i [ ]
-;; a h l '
+;; a s g h k l '
 ;; c v , . /
 (global-set-key (kbd "H-z") 'counsel-yank-zsh-history)
 (global-set-key (kbd "H-b") 'edebug-defun)
@@ -34,20 +34,14 @@
 (global-set-key (kbd "s-o") 'reveal-in-osx-finder)
 (global-set-key (kbd "H-p") 'my-switch-to-current-on-server-or-local)
 (global-set-key (kbd "s-p") 'my-switch-to-current-on-server-or-local)
-(global-set-key (kbd "H-s") 'my-find-file-as-sudo)
-(global-set-key (kbd "s-s") 'my-find-file-as-sudo)
 (global-set-key (kbd "H-d") 'ace-duplicate-current-buffer-in-other-window)
 (global-set-key (kbd "s-d") 'ace-duplicate-current-buffer-in-other-window)
 (global-set-key (kbd "H-f") 'find-name-dired)
 (global-set-key (kbd "s-f") 'find-name-dired)
-(global-set-key (kbd "H-g") 'counsel-git-grep)
-(global-set-key (kbd "s-g") 'rgrep)
 (global-set-key (kbd "H-j") 'org-clock-goto)
 (global-set-key (kbd "s-j") 'org-clock-goto)
 (global-set-key (kbd "H-J") 'org-show-todo-tree)
 (global-set-key (kbd "s-J") 'org-show-todo-tree)
-(global-set-key (kbd "H-k") 'sp-kill-hybrid-sexp)
-(global-set-key (kbd "s-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "H-x") 'package-list-packages)
 (global-set-key (kbd "s-x") 'package-list-packages)
 (global-set-key (kbd "H-m") 'matlab-shell)
@@ -68,10 +62,8 @@
 (global-set-key (kbd "s--") 'my-align-comment)
 
 ;; use special key in iterm2 on OSX
-(global-set-key (kbd "\e[60;1~") 'counsel-git-grep) ; H-g
 (global-set-key (kbd "\e[60;2~") 'find-name-dired) ; H-f
 (global-set-key (kbd "\e[60;3~") 'matlab-shell) ; H-m
-(global-set-key (kbd "\e[60;5~") 'sp-kill-hybrid-sexp)   ; H-k
 (global-set-key (kbd "\e[60;6~") 'ace-duplicate-current-buffer-in-other-window) ; H-d
 (global-set-key (kbd "\e[60;7~") 'ediff) ; H-e
 (global-set-key (kbd "\e[60;8~") 'edebug-defun) ; H-b
@@ -132,14 +124,15 @@
 (global-set-key (kbd "C-c M-.") 'find-tag)
 (global-set-key (kbd "C-c M-*") 'pop-tag-mark)
 (global-set-key (kbd "C-c M-j") 'avy-pop-mark)
-(defhydra hydra-zoom (global-map "C-c s")
+(defhydra hydra-sp (global-map "C-c s")
   "smartparens"
   ("f" sp-forward-sexp "forward")
   ("b" sp-backward-sexp "backward")
   ("p" sp-backward-down-sexp "backward-down")
   ("u" sp-backward-up-sexp "backward-up")
   ("a" sp-splice-sexp "splice")
-  ("r" sp-rewrap-sexp "rewarp"))
+  ("r" sp-rewrap-sexp "rewarp")
+  ("k" sp-kill-hybrid-sexp "kill-sexp"))
 
 ;; H(s)-M-
 (global-set-key (kbd "<H-M-up>") 'buf-move-up)
@@ -185,9 +178,7 @@
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
 (global-set-key (kbd "M-J") 'avy-goto-char)
 (global-set-key (kbd "M-a") 'magit-status)
-;; (global-set-key (kbd "M-a") 'sp-splice-sexp)
-(global-set-key (kbd "M-A") 'sp-rewrap-sexp)
-(defhydra hydra-zoom (global-map "M-c")
+(defhydra hydra-capitalize (global-map "M-c")
   "case"
   ("c" subword-capitalize "captial")
   ("u" subword-upcase "upcase")
