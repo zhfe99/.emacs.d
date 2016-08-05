@@ -37,6 +37,7 @@
               "\\|^\\.aws$"
               "\\|^\\.backups$"
               "\\|^\\.baidu.cookies$"
+              "\\|^\\.bash_history$"
               "\\|^\\.boot2docker$"
               "\\|^\\.bypy$"
               "\\|^\\.cache$"
@@ -115,8 +116,7 @@
               "\\|^\\flycheck_"
               "\\|flymake\\.py$"
               "\\|GPATH$"
-              "\\|GRTAGS$"
-              ))
+              "\\|GRTAGS$"))
 
 ;; show .bin .so .a
 (setq dired-omit-extensions
