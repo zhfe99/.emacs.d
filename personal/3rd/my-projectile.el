@@ -23,6 +23,9 @@
   (define-key prelude-mode-map (kbd "<C-S-down>") nil))
 (add-hook 'prelude-mode-hook 'my-prelude-mode-keys)
 
+;; add bing search-backward
+(prelude-install-search-engine "bing"     "http://www.bing.com/search?q="              "Bing: ")
+
 ;; use ivy
 (setq projectile-completion-system 'ivy)
 
@@ -31,9 +34,6 @@
 
 ;; projectile: remote project will expire in 1 hour
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
-
-;; projectile-key
-
 
 (provide 'my-projectile)
 ;;; my-editor.el ends here

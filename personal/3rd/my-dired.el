@@ -279,18 +279,7 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
     ;; finally, switch to that window
     (other-window 1)))
 
-;; remap key for dired-mode to be consistent with the setting in my-keymap.el
-(define-key dired-mode-map "E" 'ace-dired-find-file)
-(define-key dired-mode-map "o" 'crux-open-with)
-(define-key dired-mode-map "d" 'dired-do-delete)
-(define-key dired-mode-map "D" 'bjm/move-file-here)
-(define-key dired-mode-map "Y" 'ora-dired-rsync)
-(define-key dired-mode-map ")" 'dired-omit-mode)
-(define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
-(define-key dired-mode-map (kbd "M-b") 'subword-backward)
-(define-key dired-mode-map (kbd "M-T") 'multi-term)
-(define-key dired-mode-map (kbd "M-l") 'dired-jump)
-
+;; use dired-narrow
 (use-package dired-narrow
   :ensure t
   :bind (:map dired-mode-map

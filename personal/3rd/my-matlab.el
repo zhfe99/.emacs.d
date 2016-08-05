@@ -76,11 +76,7 @@
             (auto-fill-mode -1)
             (indent-guide-mode)
             (git-gutter-mode)
-            (local-set-key (kbd "H-c") 'my-matlab-create-date)
-            (local-set-key (kbd "M-j") 'avy-goto-word-1)
-            (local-set-key (kbd "M-a") 'sp-splice-sexp)
-            (local-set-key (kbd "M-A") 'sp-rewrap-sexp)
-            (local-set-key (kbd "M-s") 'save-buffer)
+            (local-set-key (kbd "M-j") 'hydra-jump/body)
             (local-set-key (kbd "M-;") 'comment-dwim)))
 
 ;; julia-mode

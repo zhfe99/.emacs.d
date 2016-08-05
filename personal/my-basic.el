@@ -94,6 +94,7 @@
 (require 'my-dired)
 
 (require 'my-ibuffer)
+(require 'my-hydra)
 (require 'my-keymap)
 
 (provide 'my-basic)

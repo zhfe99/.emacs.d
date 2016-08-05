@@ -46,7 +46,5 @@
             (ibuffer-auto-mode 1)
             (ibuffer-switch-to-saved-filter-groups "default")))
 
-(define-key ibuffer-mode-map (kbd "M-o") 'ivy-switch-buffer)
-
 (provide 'my-ibuffer)
 ;;; my-ibuffer.el ends here

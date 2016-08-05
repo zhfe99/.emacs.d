@@ -63,12 +63,9 @@
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 ;; remap M-j
-(define-key c++-mode-map (kbd "M-j") 'avy-goto-word-1)
-(define-key c-mode-map (kbd "M-j") 'avy-goto-word-1)
-(define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
-(define-key c++-mode-map (kbd "M-a") 'magit-status)
-(define-key c-mode-map (kbd "M-a") 'magit-status)
-(define-key protobuf-mode-map (kbd "M-a") 'magit-status)
+(define-key c++-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key c-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
 
 (provide 'my-c)
 ;;; my-c.el ends here
