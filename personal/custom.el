@@ -55,7 +55,6 @@
      ("C-p" . previous-line)
      ("C-n" . next-line)
      ("C-s" . isearch-forward)
-     ("C-r" . counsel-yank-zsh-history)
      ("C-m" . term-send-return)
      ("C-y" . term-paste)
      ("M-f" . term-send-forward-word)
