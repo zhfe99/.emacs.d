@@ -65,7 +65,7 @@
      ("M-r" . term-send-reverse-search-history)
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete))))
- '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))))
+ '(term-unbind-key-list (quote ("C-o" "C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
