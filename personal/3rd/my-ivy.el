@@ -187,5 +187,8 @@ Or else, find files since 24 weeks (6 months) ago."
               :action (lambda (bookmark)
                         (bookmark-jump bookmark)))))
 
+;; https://github.com/abo-abo/swiper/issues/256
+(require 'ivy_buffer_extend)
+
 (provide 'my-ivy)
 ;;; my-dired.el ends here
