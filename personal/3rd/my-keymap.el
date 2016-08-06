@@ -49,6 +49,7 @@
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-j") 'hydra-jump/body)
 (global-set-key (kbd "M-l") 'hydra-line/body)
+(global-set-key (kbd "M-m") 'hydra-misc/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 
 ;; dired-mode

@@ -157,5 +157,12 @@
   ("n" my-narrow-or-widen-dwim "narrow")
   ("l" mc/edit-beginnings-of-lines "mc line" :exit t))
 
+;; misc
+(defhydra hydra-misc ()
+  "misc"
+  ("c" my-cleanup "cleanup" :exit t)
+  ("e" ediff "ediff" :exit t)
+  )
+
 (provide 'my-hydra)
 ;;; my-hydra.el ends here
