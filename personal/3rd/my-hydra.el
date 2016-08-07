@@ -155,6 +155,7 @@
   ("-" er/contract-region "contract")
   ("g" prelude-google "google" :exit t)
   ("b" prelude-bing "bing" :exit t)
+  ("s" helm-swoop "swoop" :exit t)
   ("n" my-narrow-or-widen-dwim "narrow")
   ("l" mc/edit-beginnings-of-lines "mc line" :exit t))
 
@@ -162,8 +163,7 @@
 (defhydra hydra-misc ()
   "misc"
   ("c" my-cleanup "cleanup" :exit t)
-  ("e" ediff "ediff" :exit t)
-  )
+  ("e" ediff "ediff" :exit t))
 
 (provide 'my-hydra)
 ;;; my-hydra.el ends here
