@@ -144,6 +144,7 @@
   ("v" scroll-up-command "scroll up")
   ("V" scroll-down-command "scroll down")
   ("l" recenter-top-bottom "recenter")
+  ("o" crux-smart-open-line "open line")
   ("k" kill-whole-line "kill"))
 
 ;; region
