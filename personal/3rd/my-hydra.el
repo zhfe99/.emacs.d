@@ -58,6 +58,7 @@
   ("n" sp-up-sexp "up")
   ("<down>" sp-next-sexp "next")
   ("<up>" sp-previous-sexp "previous")
+  ("e" eval-last-sexp "eval" :exit t)
   ("s" sp-splice-sexp "splice" :exit t)
   ("r" sp-rewrap-sexp "rewarp" :exit t)
   ("k" sp-kill-hybrid-sexp "kill-sexp" :exit t))
@@ -67,8 +68,7 @@
   "multiple-cursors"
   ("." mc/mark-next-like-this "next-like")
   ("," mc/mark-previous-like-this "previous-like")
-  ("a" mc/mark-all-like-this "all-like")
-  )
+  ("a" mc/mark-all-like-this "all-like"))
 
 ;; term
 (defhydra hydra-term (:color red :hint nil)
@@ -144,8 +144,18 @@
   ("v" scroll-up-command "scroll up")
   ("V" scroll-down-command "scroll down")
   ("l" recenter-top-bottom "recenter")
-  ("o" crux-smart-open-line "open line")
-  ("k" kill-whole-line "kill"))
+  ("n" crux-smart-open-line "open line")
+  ("{" backward-paragraph "backward")
+  ("}" forward-paragraph "forward")
+  ("k" kill-whole-line "kill")
+  ("w" avy-goto-word-1 "word" :exit t)
+  ("f" forward-char "forward char")
+  ("F" forward-word "forward word")
+  ("b" backward-char "backward char")
+  ("B" backward-word "backward word")
+  ("a" crux-move-beginning-of-line "head")
+  ("e" move-end-of-line "end")
+  ("/" undo-tree-undo "undo"))
 
 ;; region
 (defhydra hydra-region ()
