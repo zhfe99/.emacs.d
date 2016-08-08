@@ -86,17 +86,17 @@
   ("h" counsel-yank-zsh-history "zsh-history"))
 
 ;; jump
-(defhydra hydra-jump ()
+(defhydra hydra-jump (:color blue)
   "jump"
-  ("c" avy-goto-char "char" :exit t)
-  ("j" avy-goto-word-1 "word" :exit t)
-  ("l" avy-goto-line "line" :exit t)
-  ("k" org-clock-goto "clock" :exit t)
+  ("c" avy-goto-char "char")
+  ("j" avy-goto-word-1 "word")
+  ("l" avy-goto-line "line")
+  ("k" org-clock-goto "clock")
   ("'" avy-pop-mark "pop-mark")
-  ("i" counsel-imenu "counsel-imenu" :exit t)
-  ("I" ivy-imenu-goto "ivy-imenu" :exit t)
-  ("m" iy-go-up-to-char "iy-go-up-to-char" :exit t)
-  ("M" iy-go-up-to-char-backward "iy-go-up-to-char-backward" :exit t))
+  ("i" counsel-imenu "counsel-imenu")
+  ("I" ivy-imenu-goto "ivy-imenu")
+  ("f" iy-go-up-to-char "iy-go-up-to-char")
+  ("F" iy-go-up-to-char-backward "iy-go-up-to-char-backward"))
 
 ;; open
 (defhydra hydra-open (:color blue)
