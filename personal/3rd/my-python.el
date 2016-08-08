@@ -70,7 +70,7 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-c M-c") 'my-python-create-date)
-             (git-gutter-mode)
+             (git-gutter+-mode)
              (setq python-indent-offset 4)))
 
 ;; use indent-gude only for mac

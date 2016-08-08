@@ -38,11 +38,10 @@
 ;; M-
 ;; the following keys are available
 ;; e, r, i
-;; a
+;; a, k
 ;; , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
-(global-set-key (kbd "M-k") 'kill-whole-line)
 
 (global-set-key (kbd "M-t") 'hydra-term/body)
 (global-set-key (kbd "M-o") 'hydra-open/body)
@@ -62,6 +61,7 @@
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
+(define-key dired-mode-map (kbd "M-l") 'hydra-line/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
 

@@ -22,11 +22,9 @@
   ("K" my-push-window-up "push up")
   ("L" my-push-window-right "push right")
   ("o" ace-select-window "select")
-  ("u" (progn
-         (winner-undo)
-         (setq this-command 'winner-undo))
-   "undo")
-  ("r" winner-redo "redo")
+  ("u" winner-undo "undo")
+  ("r" winner-redo "redo" :exit t)
+  ("1" delete-other-windows "delete others")
   ("2" split-window-below-and-move-there-dammit "split below")
   ("3" split-window-right-and-move-there-dammit "split down")
   ("b" balance-windows "balance")
@@ -71,15 +69,15 @@
   ("a" mc/mark-all-like-this "all-like"))
 
 ;; term
-(defhydra hydra-term (:color red :hint nil)
+(defhydra hydra-term (:color blue)
   "term"
-  ("t" multi-term "new term" :exit t)
-  ("n" multi-term-next "next term")
+  ("n" multi-term "new term")
+  ("t" multi-term-next "next term")
   ("p" multi-term-prev "previous term")
-  ("m" matlab-shell "matlab" :exit t)
-  ("e" eshell "eshell" :exit t)
-  ("a" ansi-term "ansi-term" :exit t)
-  ("h" counsel-yank-zsh-history "zsh-history" :exit t))
+  ("m" matlab-shell "matlab")
+  ("e" eshell "eshell")
+  ("a" ansi-term "ansi-term")
+  ("h" counsel-yank-zsh-history "zsh-history"))
 
 ;; jump
 (defhydra hydra-jump ()
@@ -95,10 +93,11 @@
   ("M" iy-go-up-to-char-backward "iy-go-up-to-char-backward" :exit t))
 
 ;; open
-(defhydra hydra-open ()
+(defhydra hydra-open (:color blue)
   "open"
   ("o" ivy-switch-buffer "buffer" :exit t)
   ("d" counsel-goto-recent-directory "directory" :exit t)
+  ("M-o" counsel-find-file "file" :exit t)
   ("f" counsel-find-file "file" :exit t)
   ("a" org-agenda-list "agenda" :exit t)
   ("t" org-todo-list "todo" :exit t)
@@ -119,12 +118,13 @@
 (defhydra hydra-git ()
   "git"
   ("g" magit-status "magit-status" :exit t)
-  ("i" my-goto-git-gutter "git-gutter" :exit t)
-  ("p" git-gutter:previous-hunk "previous hunk")
-  ("=" vc-diff "diff")
-  ("n" git-gutter:next-hunk "next hunk")
-  ("s" git-gutter:stage-hunk "stage hunk")
-  )
+  ("i" my-goto-git-gutter+ "git-gutter" :exit t)
+  ("p" git-gutter+-previous-hunk "previous")
+  ("=" git-gutter+-show-hunk "show")
+  ("n" git-gutter+-next-hunk "next")
+  ("s" git-gutter+-stage-hunks "stage")
+  ("c" git-gutter+-stage-and-commit "commit")
+  ("a" git-gutter+-stage-and-commit-whole-buffer "whole"))
 
 ;; transpose
 (defhydra hydra-transpose ()
@@ -149,8 +149,9 @@
   ("o" crux-smart-open-line "open line")
   ("{" backward-paragraph "backward")
   ("}" forward-paragraph "forward")
+  ("M-l" kill-whole-line "kill" :exit t)
   ("k" kill-whole-line "kill")
-  ("w" avy-goto-word-1 "word" :exit t)
+  ("w" avy-goto-word-1 "word")
   ("f" forward-char "forward char")
   ("w" forward-word "forward word")
   ("b" backward-char "backward char")
@@ -175,14 +176,16 @@
   ("l" mc/edit-beginnings-of-lines "mc line" :exit t))
 
 ;; misc
-(defhydra hydra-misc ()
+(defhydra hydra-misc (:color blue)
   "misc"
-  ("c" my-cleanup "cleanup" :exit t)
-  ("e" ediff "ediff" :exit t)
-  ("l" linum-mode "linum" :exit t)
-  ("h" helm-man-woman "man" :exit t)
-  ("s" swiper-all "swiper all" :exit t))
+  ("c" my-cleanup "cleanup")
+  ("e" ediff "ediff")
+  ("l" linum-mode "linum")
+  ("h" helm-man-woman "man")
+  ("b" edebug-defun "debug")
+  ("s" swiper-all "swiper all"))
 
+;; org
 (defhydra hydra-org (:color red :hint nil)
   "
 Navigation^
