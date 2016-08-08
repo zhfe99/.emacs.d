@@ -72,7 +72,11 @@
   "multiple-cursors"
   ("." mc/mark-next-like-this "next-like")
   ("," mc/mark-previous-like-this "previous-like")
-  ("a" mc/mark-all-like-this "all-like"))
+  ("a" mc/edit-beginnings-of-lines "begin" :exit t)
+  ("e" mc/edit-ends-of-lines "end" :exit t)
+  ("l" mc/edit-lines "line" :exit t)
+  ("r" mc/mark-all-in-region "all-in-region" :exit t)
+  ("m" mc/mark-all-like-this "all-like" :exit t))
 
 ;; term
 (defhydra hydra-term (:color blue)
@@ -181,8 +185,7 @@
   ("g" prelude-google "google" :exit t)
   ("b" prelude-bing "bing" :exit t)
   ("s" helm-swoop "swoop" :exit t)
-  ("n" my-narrow-or-widen-dwim "narrow")
-  ("l" mc/edit-beginnings-of-lines "mc line" :exit t))
+  ("n" my-narrow-or-widen-dwim "narrow"))
 
 ;; misc
 (defhydra hydra-misc (:color blue)
