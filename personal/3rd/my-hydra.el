@@ -98,17 +98,13 @@
   ("m" iy-go-up-to-char "iy-go-up-to-char" :exit t)
   ("M" iy-go-up-to-char-backward "iy-go-up-to-char-backward" :exit t))
 
-;; recent
-(defhydra hydra-recent (:color blue)
-  "open"
-  ("h" ivy-switch-buffer "buffer" :exit t)
-  ("d" counsel-goto-recent-directory "directory" :exit t)
-  ("f" find-file-in-project "file" :exit t))
-
 ;; open
 (defhydra hydra-open (:color blue)
   "open"
-  ("o" counsel-find-file "file" :exit t)
+  ("o" ivy-switch-buffer "buffer" :exit t)
+  ("d" counsel-goto-recent-directory "directory" :exit t)
+  ("f" find-file-in-project "file" :exit t)
+  ("M-o" counsel-find-file "file" :exit t)
   ("a" org-agenda-list "agenda" :exit t)
   ("t" org-todo-list "todo" :exit t)
   ("c" org-capture "capture" :exit t)
