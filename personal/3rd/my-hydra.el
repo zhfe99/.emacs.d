@@ -194,7 +194,8 @@
   ("l" linum-mode "linum")
   ("h" helm-man-woman "man")
   ("b" edebug-defun "debug")
-  ("i" crux-sudo-edit "sudo")
+  ("o" crux-sudo-edit "sudo")
+  ("i" irony-install-server "irony")
   ("s" swiper-all "swiper all"))
 
 ;; org
