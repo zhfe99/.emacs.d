@@ -13,10 +13,14 @@
   ("j" windmove-down "move down")
   ("k" windmove-up "move up")
   ("l" windmove-right "move right")
-  ("M-h" buf-move-left "move left")
-  ("M-j" buf-move-down "move down")
-  ("M-k" buf-move-up "move up")
-  ("M-l" buf-move-right "move right")
+  ("<left>" buf-move-left "move left")
+  ("<down>" buf-move-down "move down")
+  ("<up>" buf-move-up "move up")
+  ("<right>" buf-move-right "move right")
+  ("C-h" my-move-splitter-left "splitter left")
+  ("C-j" my-move-splitter-down "splitter down")
+  ("C-k" my-move-splitter-up "splitter up")
+  ("C-l" my-move-splitter-right "splitter right")
   ("H" my-push-window-left "push left")
   ("J" my-push-window-down "push down")
   ("K" my-push-window-up "push up")
@@ -59,6 +63,8 @@
   ("e" eval-last-sexp "eval" :exit t)
   ("s" sp-splice-sexp "splice" :exit t)
   ("r" sp-rewrap-sexp "rewarp" :exit t)
+  ("i" change-inner "change inner" :exit t)
+  ("o" change-outer "change outer" :exit t)
   ("k" sp-kill-hybrid-sexp "kill-sexp" :exit t))
 
 ;; multiple-cursors
@@ -92,13 +98,17 @@
   ("m" iy-go-up-to-char "iy-go-up-to-char" :exit t)
   ("M" iy-go-up-to-char-backward "iy-go-up-to-char-backward" :exit t))
 
+;; recent
+(defhydra hydra-recent (:color blue)
+  "open"
+  ("h" ivy-switch-buffer "buffer" :exit t)
+  ("d" counsel-goto-recent-directory "directory" :exit t)
+  ("f" find-file-in-project "file" :exit t))
+
 ;; open
 (defhydra hydra-open (:color blue)
   "open"
-  ("o" ivy-switch-buffer "buffer" :exit t)
-  ("d" counsel-goto-recent-directory "directory" :exit t)
-  ("M-o" counsel-find-file "file" :exit t)
-  ("f" counsel-find-file "file" :exit t)
+  ("o" counsel-find-file "file" :exit t)
   ("a" org-agenda-list "agenda" :exit t)
   ("t" org-todo-list "todo" :exit t)
   ("c" org-capture "capture" :exit t)
@@ -117,7 +127,8 @@
 ;; git
 (defhydra hydra-git ()
   "git"
-  ("g" magit-status "magit-status" :exit t)
+  ("g" magit-status-fullscreen "magit-status" :exit t)
+  ("G" magit-status "magit-status" :exit t)
   ("i" my-goto-git-gutter+ "git-gutter" :exit t)
   ("p" git-gutter+-previous-hunk "previous")
   ("=" git-gutter+-show-hunk "show")
@@ -155,6 +166,7 @@
   ("f" forward-char "forward char")
   ("w" forward-word "forward word")
   ("b" backward-char "backward char")
+  ("d" crux-duplicate-and-comment-current-line-or-region "duplicate")
   ("W" backward-word "backward word")
   ("a" crux-move-beginning-of-line "head")
   ("e" move-end-of-line "end")
@@ -183,6 +195,7 @@
   ("l" linum-mode "linum")
   ("h" helm-man-woman "man")
   ("b" edebug-defun "debug")
+  ("i" crux-sudo-edit "sudo")
   ("s" swiper-all "swiper all"))
 
 ;; org

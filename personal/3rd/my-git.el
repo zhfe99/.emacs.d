@@ -85,5 +85,16 @@
 ;; use ivy in magit
 (setq magit-completing-read-function 'ivy-completing-read)
 
+(defun magit-status-fullscreen (prefix)
+  (interactive "P")
+  (magit-status)
+  (unless prefix
+    (delete-other-windows)))
+
+(set-default 'magit-push-always-verify nil)
+(set-default 'magit-revert-buffers 'silent)
+(set-default 'magit-no-confirm '(stage-all-changes
+                                 unstage-all-changes))
+
 (provide 'my-git)
 ;;; my-git.el ends here

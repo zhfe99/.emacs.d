@@ -98,5 +98,12 @@
  ((string-equal system-type "darwin")
   (require 'reveal-in-osx-finder)))
 
+(use-package change-inner
+  :ensure t)
+
+(use-package find-file-in-project
+  :load-path "site-lisp/find-file-in-project/"
+  :ensure t)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
