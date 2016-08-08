@@ -16,9 +16,6 @@
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)
 
-;; turn-off beacon
-(beacon-mode -1)
-
 ;; use my own zenburn
 (use-package zenburn-theme
   :load-path "site-lisp/zenburn-emacs/"
