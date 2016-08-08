@@ -161,7 +161,6 @@
   ("o" crux-smart-open-line "open line")
   ("{" backward-paragraph "backward")
   ("}" forward-paragraph "forward")
-  ("M-l" kill-whole-line "kill" :exit t)
   ("k" kill-whole-line "kill")
   ("w" avy-goto-word-1 "word")
   ("f" forward-char "forward char")

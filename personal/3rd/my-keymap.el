@@ -23,7 +23,10 @@
 ;; C-
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-S-s") 'isearch-forward)
 (global-set-key (kbd "C-h b") 'helm-descbinds)
+(global-set-key (kbd "C-k") 'kill-line)
+(global-set-key (kbd "C-S-k") 'crux-kill-whole-line)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "C-x C-r") 'revert-buffer-no-confirm)
