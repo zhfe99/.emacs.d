@@ -8,8 +8,8 @@
 ;; turn-off diff-hl mode
 (global-diff-hl-mode -1)
 
-;; use git-gutter
-(if (fboundp 'define-fringe-bitmap)
+;; use git-gutter+
+(if (display-graphic-p)
     (require 'git-gutter-fringe+)
   (require 'git-gutter+))
 
