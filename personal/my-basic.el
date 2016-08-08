@@ -34,6 +34,7 @@
 (prelude-require-package 'google-c-style)
 (prelude-require-package 'org-bullets)
 (prelude-require-package 'buffer-move)
+(prelude-require-package 'change-inner)
 (prelude-require-package 'dired+)
 (prelude-require-package 'dired-details+)
 (prelude-require-package 'dired-sort)
