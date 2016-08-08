@@ -131,6 +131,7 @@
   ("n" git-gutter+-next-hunk "next")
   ("s" git-gutter+-stage-hunks "stage")
   ("c" git-gutter+-stage-and-commit "commit")
+  ("t" git-timemachine "time-machine" :exit t)
   ("a" git-gutter+-stage-and-commit-whole-buffer "whole"))
 
 ;; transpose
