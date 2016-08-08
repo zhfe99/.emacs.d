@@ -127,7 +127,7 @@
 ;; git
 (defhydra hydra-git ()
   "git"
-  ("g" magit-status-fullscreen "magit-status" :exit t)
+  ("g" magit-status-fullscreen "magit" :exit t)
   ("G" magit-status "magit-status" :exit t)
   ("i" my-goto-git-gutter+ "git-gutter" :exit t)
   ("p" git-gutter+-previous-hunk "previous")

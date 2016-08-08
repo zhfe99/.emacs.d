@@ -13,7 +13,7 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (org-bullets-mode 1)
-            (git-gutter-mode)))
+            (git-gutter+-mode)))
 
 ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
 ;; the more pointed, the more important
