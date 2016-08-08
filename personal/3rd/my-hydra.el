@@ -85,7 +85,7 @@
 (defhydra hydra-jump ()
   "jump"
   ("c" avy-goto-char "char" :exit t)
-  ("w" avy-goto-word-1 "word" :exit t)
+  ("j" avy-goto-word-1 "word" :exit t)
   ("l" avy-goto-line "line" :exit t)
   ("k" org-clock-goto "clock" :exit t)
   ("'" avy-pop-mark "pop-mark")
@@ -97,7 +97,7 @@
 ;; open
 (defhydra hydra-open ()
   "open"
-  ("b" ivy-switch-buffer "buffer" :exit t)
+  ("o" ivy-switch-buffer "buffer" :exit t)
   ("d" counsel-goto-recent-directory "directory" :exit t)
   ("f" counsel-find-file "file" :exit t)
   ("a" org-agenda-list "agenda" :exit t)
@@ -122,7 +122,9 @@
   ("i" my-goto-git-gutter "git-gutter" :exit t)
   ("p" git-gutter:previous-hunk "previous hunk")
   ("=" vc-diff "diff")
-  ("n" git-gutter:next-hunk "next hunk"))
+  ("n" git-gutter:next-hunk "next hunk")
+  ("s" git-gutter:stage-hunk "stage hunk")
+  )
 
 ;; transpose
 (defhydra hydra-transpose ()
@@ -133,7 +135,7 @@
   ("s" transpose-sexps "sexp"))
 
 ;; line
-(defhydra hydra-line ()
+(defhydra hydra-line (:color pink)
   "line"
   ("<up>" move-text-up "switch up")
   ("<down>" move-text-down "switch down")
@@ -144,18 +146,21 @@
   ("v" scroll-up-command "scroll up")
   ("V" scroll-down-command "scroll down")
   ("l" recenter-top-bottom "recenter")
-  ("n" crux-smart-open-line "open line")
+  ("o" crux-smart-open-line "open line")
   ("{" backward-paragraph "backward")
   ("}" forward-paragraph "forward")
   ("k" kill-whole-line "kill")
   ("w" avy-goto-word-1 "word" :exit t)
   ("f" forward-char "forward char")
-  ("F" forward-word "forward word")
+  ("w" forward-word "forward word")
   ("b" backward-char "backward char")
-  ("B" backward-word "backward word")
+  ("W" backward-word "backward word")
   ("a" crux-move-beginning-of-line "head")
   ("e" move-end-of-line "end")
-  ("/" undo-tree-undo "undo"))
+  ("/" undo-tree-undo "undo")
+  ("'" pop-to-mark-command "pop")
+  ("m" set-mark-command "mark")
+  ("q" nil))
 
 ;; region
 (defhydra hydra-region ()
@@ -173,7 +178,28 @@
 (defhydra hydra-misc ()
   "misc"
   ("c" my-cleanup "cleanup" :exit t)
-  ("e" ediff "ediff" :exit t))
+  ("e" ediff "ediff" :exit t)
+  ("l" linum-mode "linum" :exit t)
+  ("h" helm-man-woman "man" :exit t)
+  ("s" swiper-all "swiper all" :exit t))
+
+(defhydra hydra-org (:color red :hint nil)
+  "
+Navigation^
+---------------------------------------------------------
+_j_ next heading
+_k_ prev heading
+_h_ next heading (same level)
+_l_ prev heading (same level)
+_u_p higher heading
+_g_o to
+"
+  ("j" outline-next-visible-heading)
+  ("k" outline-previous-visible-heading)
+  ("h" org-forward-heading-same-level)
+  ("l" org-backward-heading-same-level)
+  ("u" outline-up-heading)
+  ("g" org-goto :exit t))
 
 (provide 'my-hydra)
 ;;; my-hydra.el ends here

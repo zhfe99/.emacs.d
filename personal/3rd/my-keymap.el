@@ -42,7 +42,6 @@
 ;; , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
-(global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-k") 'kill-whole-line)
 
 (global-set-key (kbd "M-t") 'hydra-term/body)
