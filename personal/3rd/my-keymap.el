@@ -32,8 +32,6 @@
 (global-set-key (kbd "C-k") 'kill-line)
 (global-set-key (kbd "C-M-k") 'crux-kill-whole-line)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
-(global-set-key (kbd "C-x C-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-t") 'hydra-transpose/body)
 (global-set-key (kbd "C-o") 'hydra-window/body)
@@ -45,11 +43,10 @@
 ;; M-
 ;; the following keys are available
 ;; e, r, i
-;; a, k
+;; a, h, k
 ;; , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
-
 (global-set-key (kbd "M-t") 'hydra-term/body)
 (global-set-key (kbd "M-o") 'hydra-open/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)

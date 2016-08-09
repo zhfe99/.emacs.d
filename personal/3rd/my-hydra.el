@@ -103,17 +103,20 @@
   ("F" iy-go-up-to-char-backward "iy-go-up-to-char-backward"))
 
 ;; open
-(defhydra hydra-open (:color blue)
+(defhydra hydra-open (:color blue :hint nil)
   "open"
-  ("o" ivy-switch-buffer "buffer" :exit t)
-  ("d" counsel-goto-recent-directory "directory" :exit t)
-  ("f" find-file-in-project "file" :exit t)
-  ("M-o" counsel-find-file "file" :exit t)
-  ("a" org-agenda-list "agenda" :exit t)
-  ("t" org-todo-list "todo" :exit t)
-  ("c" org-capture "capture" :exit t)
-  ("u" ace-duplicate-current-buffer-in-other-window "duplicate" :exit t)
-  ("p" my-switch-to-current-on-server-or-local "same-file" :exit t)
+  ("o" ivy-switch-buffer "buffer")
+  ("d" counsel-goto-recent-directory "directory")
+  ("f" find-file-in-project "file")
+  ("M-o" counsel-find-file "file")
+  ("a" org-agenda-list "agenda")
+  ("t" org-todo-list "todo")
+  ("s" save-buffer "save")
+  ("r" revert-buffer-no-confirm "revert")
+  ("k" kill-this-buffer "kill")
+  ("c" org-capture "capture")
+  ("u" ace-duplicate-current-buffer-in-other-window "duplicate")
+  ("p" my-switch-to-current-on-server-or-local "same-file")
   ("z" reveal-in-osx-finder "reveal-in-osx-finder"))
 
 ;; tag
@@ -188,7 +191,7 @@
 ;; gdb
 (defhydra hydra-gdb (:color pink)
   "gdb"
-  ("d" gdb "start")
+  ("r" gdb "start")
   ("B" gdb-display-breakpoints-buffer "display-breakpoints-buffer")
   ("b" gud-break "break")
   ("g" gdb-display-gdb-buffer "display-gdb-buffer")
@@ -198,8 +201,10 @@
   ("S" gdb-display-stack-buffer "display-stack-buffer")
   ("c" gud-cont "cont")
   ("n" gud-next "next")
-  ("r" gud-run "run")
   ("l" gud-refresh "refresh")
+  ("f" gud-finish "finish")
+  ("u" gud-up "up")
+  ("d" gud-down "down")
   ("s" gud-step "step")
   ("q" nil "quit"))
 
@@ -210,10 +215,9 @@
   ("e" ediff "ediff")
   ("l" linum-mode "linum")
   ("h" helm-man-woman "man")
-  ("b" edebug-defun "debug")
+  ("b" edebug-defun "edebug")
   ("o" crux-sudo-edit "sudo")
   ("i" irony-install-server "irony")
-  ("g" hydra-gdb/body "gdb")
   ("s" swiper-all "swiper all"))
 
 ;; org
