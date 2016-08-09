@@ -20,6 +20,10 @@
       (define-key map key nil)
       (message  "%s unbound for %s" key keymap))))
 
+;; H-
+(global-set-key (kbd "H-g") 'hydra-gdb/body)
+(global-set-key (kbd "\e[60;1~") 'hydra-gdb/body)
+
 ;; C-
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-s") 'swiper)
