@@ -40,7 +40,7 @@
   ("q" nil))
 
 ;; change case
-(defhydra hydra-case ()
+(defhydra hydra-case (:color pink)
   "case"
   ("c" subword-capitalize "captial")
   ("u" subword-upcase "upcase")
@@ -112,6 +112,7 @@
   ("a" org-agenda-list "agenda")
   ("t" org-todo-list "todo")
   ("s" save-buffer "save")
+  ("b" bury-buffer "bury")
   ("r" revert-buffer-no-confirm "revert")
   ("k" kill-this-buffer "kill")
   ("c" org-capture "capture")
@@ -191,9 +192,9 @@
 ;; gdb
 (defhydra hydra-gdb (:color pink)
   "gdb"
-  ("r" gdb "start")
+  ("r" gdb "start" :exit t)
   ("B" gdb-display-breakpoints-buffer "display-breakpoints-buffer")
-  ("b" gud-break "break")
+  ("b" gud-break "break" :exit t)
   ("g" gdb-display-gdb-buffer "display-gdb-buffer")
   ("l" gdb-display-locals-buffer "display-locals-buffer")
   ("m" gdb-many-windows "many-windoes")
