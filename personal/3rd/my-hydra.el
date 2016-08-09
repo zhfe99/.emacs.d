@@ -96,7 +96,7 @@
   ("j" avy-goto-word-1 "word")
   ("l" avy-goto-line "line")
   ("k" org-clock-goto "clock")
-  ("'" avy-pop-mark "pop-mark")
+  ("'" avy-pop-mark "pop-mark" :exit nil)
   ("i" counsel-imenu "counsel-imenu")
   ("I" ivy-imenu-goto "ivy-imenu")
   ("f" iy-go-up-to-char "iy-go-up-to-char")
@@ -171,7 +171,6 @@
   ("a" crux-move-beginning-of-line "head")
   ("e" move-end-of-line "end")
   ("/" undo-tree-undo "undo")
-  ("'" pop-to-mark-command "pop")
   ("m" set-mark-command "mark")
   ("q" nil))
 
@@ -186,6 +185,24 @@
   ("s" helm-swoop "swoop" :exit t)
   ("n" my-narrow-or-widen-dwim "narrow"))
 
+;; gdb
+(defhydra hydra-gdb (:color pink)
+  "gdb"
+  ("d" gdb "start")
+  ("B" gdb-display-breakpoints-buffer "display-breakpoints-buffer")
+  ("b" gud-break "break")
+  ("g" gdb-display-gdb-buffer "display-gdb-buffer")
+  ("l" gdb-display-locals-buffer "display-locals-buffer")
+  ("m" gdb-many-windows "many-windoes")
+  ("o" gdb-display-io-buffer "display-io-buffer")
+  ("S" gdb-display-stack-buffer "display-stack-buffer")
+  ("c" gud-cont "cont")
+  ("n" gud-next "next")
+  ("r" gud-run "run")
+  ("l" gud-refresh "refresh")
+  ("s" gud-step "step")
+  ("q" nil "quit"))
+
 ;; misc
 (defhydra hydra-misc (:color blue)
   "misc"
@@ -196,6 +213,7 @@
   ("b" edebug-defun "debug")
   ("o" crux-sudo-edit "sudo")
   ("i" irony-install-server "irony")
+  ("g" hydra-gdb/body "gdb")
   ("s" swiper-all "swiper all"))
 
 ;; org

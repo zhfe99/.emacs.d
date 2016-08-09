@@ -67,5 +67,13 @@
 (define-key c-mode-map (kbd "M-j") 'hydra-jump/body)
 (define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
 
+;; gdb
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t)
+
 (provide 'my-c)
 ;;; my-c.el ends here
