@@ -64,6 +64,7 @@
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
+(define-key dired-mode-map "l" 'dired-jump)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-l") 'hydra-line/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
