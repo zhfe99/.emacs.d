@@ -105,7 +105,9 @@ _l_          _L_      _C-l_        _<right>_"
   ("i" counsel-imenu "counsel-imenu")
   ("I" ivy-imenu-goto "ivy-imenu")
   ("f" iy-go-up-to-char "iy-go-up-to-char")
-  ("F" iy-go-up-to-char-backward "iy-go-up-to-char-backward"))
+  ("F" iy-go-up-to-char-backward "iy-go-up-to-char-backward")
+  ("z" zop-to-char "zop-to-char")
+  ("Z" zap-to-char "zap-to-char"))
 
 ;; open
 (defhydra hydra-open (:color blue :hint nil)
