@@ -60,6 +60,7 @@
 ;; dired-mode
 (define-key dired-mode-map "E" 'ace-dired-find-file)
 (define-key dired-mode-map "o" 'crux-open-with)
+(define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
