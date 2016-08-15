@@ -391,12 +391,16 @@ application the system uses for this file type."
   (define-key org-mode-map (kbd "<C-right>") 'outline-next-visible-heading)
   (define-key org-mode-map (kbd "<C-S-left>") 'org-shiftleft)
   (define-key org-mode-map (kbd "<C-S-right>") 'org-shiftright)
+  (define-key org-mode-map (kbd "<S-up>") 'windmove-up)
+  (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
+  (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
+  (define-key org-mode-map (kbd "<S-right>") 'windmove-right)
   (define-key org-mode-map (kbd "C-c O") 'my-org-open-at-point)
   (define-key org-mode-map (kbd "C-c C-o") 'org-open-at-point)
-  (define-key org-mode-map (kbd "\e[47;C~") 'org-metaleft) ; M-left
-  (define-key org-mode-map (kbd "\e[47;D~") 'org-metaright) ; M-right
-  (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left
-  (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right
+  (define-key org-mode-map (kbd "\e[47;C~") 'org-metaleft) ; M-left in iterm2
+  (define-key org-mode-map (kbd "\e[47;D~") 'org-metaright) ; M-right in iterm2
+  (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
+  (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
 )
 (add-hook 'org-mode-hook 'my-org-mode-keys)
 
