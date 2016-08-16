@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My org-mode setting.
+;; My org-mode / markdown-mode setting.
 
 ;;; Code:
 
@@ -13,6 +13,11 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (org-bullets-mode 1)
+            (git-gutter+-mode)))
+
+;; markdown hood
+(add-hook 'markdown-mode-hook
+          (lambda ()
             (git-gutter+-mode)))
 
 ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
