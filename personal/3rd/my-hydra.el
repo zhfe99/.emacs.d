@@ -9,11 +9,13 @@
 ;; window
 (defhydra hydra-window (:hint nil)
   "
-^windmove^   ^push^   ^splitter^   ^buf-move^
-_h_          _H_      _C-h_        _<left>_
-_j_          _J_      _C-j_        _<down>_
-_k_          _K_      _C-k_        _<up>_
-_l_          _L_      _C-l_        _<right>_"
+switch: _h_ _j_ _k_ _l_ _o_
+push:   _H_ _J_ _K_ _L_
+size:   _C-h_ _C-j_ _C-k_ _C-l_ _b_
+move:   _↑_ _→_ _↓_ _←_ _s_
+split:  _2_ _3_ _u_ _r_
+text:   _0_ _=_ _-_
+delete: _1_ _d_"
   ("h" windmove-left)
   ("j" windmove-down)
   ("k" windmove-up)
@@ -37,7 +39,7 @@ _l_          _L_      _C-l_        _<right>_"
   ("2" split-window-below-and-move-there-dammit)
   ("3" split-window-right-and-move-there-dammit)
   ("b" balance-windows)
-  ("+" text-scale-increase)
+  ("=" text-scale-increase)
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
   ("s" (lambda () (interactive) (ace-window 4)))
@@ -52,7 +54,7 @@ _l_          _L_      _C-l_        _<right>_"
   ("l" subword-downcase "downcase")
   ("b" backward-word "backword")
   ("f" forward-word "forward")
-  ("q" nil))
+  ("q" nil "quit"))
 
 ;; smartparens
 (defhydra hydra-sp ()
@@ -111,21 +113,28 @@ _l_          _L_      _C-l_        _<right>_"
 
 ;; open
 (defhydra hydra-open (:color blue :hint nil)
-  "open"
-  ("o" ivy-switch-buffer "buffer")
-  ("d" counsel-goto-recent-directory "directory")
-  ("f" find-file-in-project "file")
-  ("M-o" counsel-find-file "file")
-  ("a" org-agenda-list "agenda")
-  ("t" org-todo-list "todo")
-  ("s" save-buffer "save")
-  ("b" bury-buffer "bury")
-  ("r" revert-buffer-no-confirm "revert")
-  ("k" kill-this-buffer "kill")
-  ("c" org-capture "capture")
-  ("u" ace-duplicate-current-buffer-in-other-window "duplicate")
-  ("p" my-switch-to-current-on-server-or-local "same-file")
-  ("z" reveal-in-osx-finder "reveal-in-osx-finder"))
+  "
+^buffer^     ^file^        ^org^
+_o_: open    _M-o_: open   _t_: todo
+_s_: save    _f_: project  _a_: agenda
+_k_: kill    _z_: reveal   _c_: capture
+_b_: bury    _d_: dired
+_r_: revert
+_d_: dupe"
+  ("o" ivy-switch-buffer)
+  ("d" counsel-goto-recent-directory)
+  ("f" find-file-in-project)
+  ("M-o" counsel-find-file)
+  ("a" org-agenda-list)
+  ("t" org-todo-list)
+  ("s" save-buffer)
+  ("b" bury-buffer)
+  ("r" revert-buffer-no-confirm)
+  ("k" kill-this-buffer)
+  ("c" org-capture)
+  ("u" ace-duplicate-current-buffer-in-other-window)
+  ("p" my-switch-to-current-on-server-or-local)
+  ("z" reveal-in-osx-finder))
 
 ;; tag
 (defhydra hydra-tag ()
