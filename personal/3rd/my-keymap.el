@@ -70,6 +70,7 @@
 (define-key dired-mode-map (kbd "M-l") 'hydra-line/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
+(define-key org-mode-map (kbd "M-m") 'hydra-org/body)
 
 ;; unset keys
 (define-key flyspell-mode-map (kbd "C-.") nil)

@@ -145,7 +145,7 @@ Or else, find files since 24 weeks (6 months) ago."
                         (list (cons (concat prefix (if prefix ".") (car elm))
                                     (copy-marker (cdr elm))))))))
 
-(defun ivy-imenu-goto ()
+(defun my-ivy-imenu-goto ()
   "Go to buffer position"
   (interactive)
   (let ((imenu-auto-rescan t) items)
