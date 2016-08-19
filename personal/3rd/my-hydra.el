@@ -59,44 +59,70 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("q" nil "quit"))
 
 ;; smartparens
-(defhydra hydra-sp ()
-  "smartparens"
-  ("f" sp-forward-sexp "forward")
-  ("d" sp-down-sexp "down")
-  ("u" sp-backward-up-sexp "backward up")
-  ("b" sp-backward-sexp "backward")
-  ("p" sp-backward-down-sexp "backward-down")
-  ("n" sp-up-sexp "up")
-  ("<down>" sp-next-sexp "next")
-  ("<up>" sp-previous-sexp "previous")
-  ("e" eval-last-sexp "eval" :exit t)
-  ("s" sp-splice-sexp "splice" :exit t)
-  ("r" sp-rewrap-sexp "rewarp" :exit t)
-  ("i" change-inner "change inner" :exit t)
-  ("o" change-outer "change outer" :exit t)
-  ("k" sp-kill-hybrid-sexp "kill-sexp" :exit t))
+(defhydra hydra-sp (:color pink :hint nil)
+  "
+^Move^    ^Kill^     ^Wrap^      ^Lisp^
+^====^====^====^=====^====^======^====^
+_f_ ford  _i_ in     _s_ splice  _e_ eval
+_b_ back  _o_ out    _r_ rewarp
+_p_ in    _k_ kill   _l_ slurp
+_n_ out   _d_ ford   _a_ barf
+^^        _D_ back"
+  ("f" sp-forward-sexp)
+  ("P" sp-down-sexp)
+  ("N" sp-backward-up-sexp)
+  ("b" sp-backward-sexp)
+  ("p" sp-backward-down-sexp)
+  ("n" sp-up-sexp)
+  ("<down>" sp-next-sexp)
+  ("<up>" sp-previous-sexp)
+  ("e" eval-last-sexp :exit t)
+  ("s" sp-splice-sexp :exit t)
+  ("r" sp-rewrap-sexp :exit t)
+  ("l" sp-slurp-hybrid-sexp)
+  ("a" sp-forward-barf-sexp)
+  ("i" change-inner :exit t)
+  ("o" change-outer :exit t)
+  ("k" sp-kill-hybrid-sexp :exit t)
+  ("d" sp-kill-sexp)
+  ("D" sp-backward-kill-sexp)
+  ("q" nil))
 
 ;; multiple-cursors
-(defhydra hydra-mc ()
-  "multiple-cursors"
-  ("." mc/mark-next-like-this "next-like")
-  ("," mc/mark-previous-like-this "previous-like")
-  ("a" mc/edit-beginnings-of-lines "begin" :exit t)
-  ("e" mc/edit-ends-of-lines "end" :exit t)
-  ("l" mc/edit-lines "line" :exit t)
-  ("r" mc/mark-all-in-region "all-in-region" :exit t)
-  ("m" mc/mark-all-like-this "all-like" :exit t))
+(defhydra hydra-mc (:hint nil)
+  "
+^Select^       ^Line^    ^Multi^
+^======^=======^====^====^=====^=
+_._ next       _l_ line  _r_ all
+_>_ skip next  _a_ head  _m_ mark
+_,_ prev       _e_ tail
+_<_ skip prev"
+  ("." mc/mark-next-like-this)
+  (">" mc/skip-to-next-like-this)
+  ("," mc/mark-previous-like-this)
+  ("<" mc/skip-to-previous-like-this)
+  ("a" mc/edit-beginnings-of-lines :exit t)
+  ("e" mc/edit-ends-of-lines :exit t)
+  ("l" mc/edit-lines :exit t)
+  ("r" mc/mark-all-in-region :exit t)
+  ("m" mc/mark-all-like-this :exit t))
 
 ;; term
-(defhydra hydra-term (:color blue)
-  "term"
-  ("n" multi-term "new term")
-  ("t" multi-term-next "next term")
-  ("p" multi-term-prev "previous term")
-  ("m" matlab-shell "matlab")
-  ("e" eshell "eshell")
-  ("a" ansi-term "ansi-term")
-  ("h" counsel-yank-zsh-history "zsh-history"))
+(defhydra hydra-term (:color blue :hint nil)
+  "
+^Select^  ^Mode^      ^History^
+^======^==^====^======^====^=====
+_t_ next  _m_ matlab  _h_ zsh
+_n_ new   _e_ eshell  _H_ bash
+_p_ prev  _a_ ansi"
+  ("n" multi-term)
+  ("t" multi-term-next)
+  ("p" multi-term-prev)
+  ("m" matlab-shell)
+  ("e" eshell)
+  ("a" ansi-term)
+  ("h" counsel-yank-zsh-history)
+  ("H" counsel-yank-bash-history))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil)
@@ -106,8 +132,7 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
 _j_ word  _f_ ford  _z_ zop  _i_ ivy  _k_ clock
 _c_ char  _F_ back  _Z_ zap  _I_ my
 _l_ line
-_'_ pop
-"
+_'_ pop"
   ("c" avy-goto-char)
   ("j" avy-goto-word-1)
   ("l" avy-goto-line)
@@ -186,20 +211,19 @@ _G_ orig  _p_ prev  _c_ commit
                          :post (set-cursor-color "#ffffff")
                          :color pink :hint nil)
   "
-^Arrow^    ^Scroll^    ^Delete^  ^Move^
-^=====^====^======^====^======^==^====^
-_h_ left   _C-v_ up    _d_ del   _
-_j_ down   _M-v_ down  _x_ char
-_k_ up     ^^          _u_ undo
-_l_ right
-"
+^Char^     ^Word^    ^Line^     ^Buffer^  ^Other^
+^====^=====^====^====^====^=====^====^====^=====^===
+_h_ left   _w_ ford  _a_ head   _g_ head  _m_ mark
+_j_ down   _b_ back  _e_ tail   _G_ tail  _u_ undo
+_k_ up     _dw_ del  _↑_ up     _V_ up    _._ repeat
+_l_ right  ^^        _↓_ down   _v_ down
+_x_ del    ^^        _yy_ yank"
   ;; movement
   ("w" forward-word)
   ("b" backward-word)
   ;; scrolling
-  ("C-v" scroll-up-command nil)
-  ("M-v" scroll-down-command nil)
-  ("v" recenter-top-bottom)
+  ("v" scroll-up-command nil)
+  ("V" scroll-down-command nil)
   ;; arrows
   ("h" backward-char)
   ("j" next-line)
@@ -207,47 +231,24 @@ _l_ right
   ("l" forward-char)
   ;; delete
   ("x" delete-char)
-  ("d" hydra-vi-del/body "del" :exit t)
+  ("dw" kill-word)
+  ("dd" crux-kill-whole-line)
   ("u" undo-tree-undo)
   ;; should be generic "open"
-  ("r" push-button "open")
+  ("r" push-button)
   ("." hydra-repeat)
+  ;; buffer
+  ("g" beginning-of-buffer)
+  ("G" end-of-buffer)
   ;; bad
-  ("m" set-mark-command "mark")
-  ("a" move-beginning-of-line "beg")
-  ("e" move-end-of-line "end")
-  ("y" kill-ring-save "yank" :exit t)
+  ("m" set-mark-command)
+  ("yy" crux-duplicate-current-line-or-region)
+  ;; line
+  ("a" move-beginning-of-line)
+  ("e" move-end-of-line)
+  ("<up>" move-text-up)
+  ("<down>" move-text-down)
   ;; exit points
-  ("q" nil "ins")
-  ("C-n" (forward-line 1) nil :exit t)
-  ("C-p" (forward-line -1) nil :exit t))
-
-;; line
-(defhydra hydra-line (:color pink)
-  "line"
-  ("<up>" move-text-up "switch up")
-  ("<down>" move-text-down "switch down")
-  ("p" previous-line "move up")
-  ("n" next-line "move next")
-  ("<" beginning-of-buffer "begin")
-  (">" end-of-buffer "end")
-  ("v" scroll-up-command "scroll up")
-  ("V" scroll-down-command "scroll down")
-  ("l" recenter-top-bottom "recenter")
-  ("o" crux-smart-open-line "open line")
-  ("{" backward-paragraph "backward")
-  ("}" forward-paragraph "forward")
-  ("k" kill-whole-line "kill")
-  ("w" avy-goto-word-1 "word")
-  ("f" forward-char "forward char")
-  ("w" forward-word "forward word")
-  ("b" backward-char "backward char")
-  ("d" crux-duplicate-and-comment-current-line-or-region "duplicate")
-  ("W" backward-word "backward word")
-  ("a" crux-move-beginning-of-line "head")
-  ("e" move-end-of-line "end")
-  ("/" undo-tree-undo "undo")
-  ("m" set-mark-command "mark")
   ("q" nil))
 
 ;; region
@@ -281,9 +282,11 @@ _l_ right
   ("s" gud-step "step")
   ("q" nil "quit"))
 
-;; misc
-(defhydra hydra-misc (:color blue)
-  "misc"
+;; edit
+(defhydra hydra-edit (:color blue :hint nil)
+  "
+_q_ fill"
+  ("q" fill-paragraph)
   ("c" my-cleanup "cleanup")
   ("e" ediff "ediff")
   ("l" linum-mode "linum")
