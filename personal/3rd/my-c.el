@@ -21,6 +21,11 @@
             (git-gutter+-mode)
             (setq c-basic-offset 2)))
 
+;; cmake-mode-hook
+(add-hook 'cmake-mode-hook
+          (lambda()
+            (git-gutter+-mode)))
+
 ;; use indent-gude only for mac
 (cond
  ((string-equal system-type "darwin")
