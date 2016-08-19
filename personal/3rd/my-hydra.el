@@ -116,7 +116,7 @@ _'_ pop
   ("i" counsel-imenu)
   ("I" my-ivy-imenu-goto)
   ("f" iy-go-up-to-char)
-  ("F" iy-go-up-to-char-backward)
+  ("F" iy-go-to-char-backward)
   ("z" zop-to-char)
   ("Z" zap-to-char))
 
