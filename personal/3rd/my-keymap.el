@@ -42,11 +42,12 @@
 
 ;; M-
 ;; the following keys are available
-;; e, r, i
+;; q, r, i
 ;; a, h, k
-;; , /
+;; z, , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
+(global-set-key (kbd "M-'") 'repeat)
 (global-set-key (kbd "M-t") 'hydra-term/body)
 (global-set-key (kbd "M-o") 'hydra-open/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
@@ -54,7 +55,7 @@
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-j") 'hydra-jump/body)
 (global-set-key (kbd "M-l") 'hydra-vi/body)
-(global-set-key (kbd "M-m") 'hydra-misc/body)
+(global-set-key (kbd "M-e") 'hydra-edit/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 
 ;; dired-mode
