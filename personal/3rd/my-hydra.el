@@ -7,7 +7,7 @@
 (use-package hydra)
 
 ;; window
-(defhydra hydra-window (:hint nil)
+(defhydra hydra-window (:hint nil :idle 1.5)
   "
 ^Switch^   ^Delete^   ^Boundary^     ^Swap^     ^Split^    ^Text^
 ^======^===^====^=====^========^=====^====^=====^=====^====^====^======
@@ -49,7 +49,7 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("q" nil))
 
 ;; change case
-(defhydra hydra-case (:color pink)
+(defhydra hydra-case (:color pink :idle 1.5)
   "case"
   ("c" subword-capitalize "captial")
   ("u" subword-upcase "upcase")
@@ -59,7 +59,7 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("q" nil "quit"))
 
 ;; smartparens
-(defhydra hydra-sp (:color pink :hint nil)
+(defhydra hydra-sp (:color pink :hint nil :idle 1.5)
   "
 ^Move^    ^Kill^     ^Wrap^      ^Lisp^
 ^====^====^====^=====^====^======^====^
@@ -89,7 +89,7 @@ _n_ out   _d_ ford   _a_ barf
   ("q" nil))
 
 ;; multiple-cursors
-(defhydra hydra-mc (:hint nil)
+(defhydra hydra-mc (:hint nil :idle 1.5)
   "
 ^Select^       ^Line^    ^Multi^
 ^======^=======^====^====^=====^=
@@ -108,7 +108,7 @@ _<_ skip prev"
   ("m" mc/mark-all-like-this :exit t))
 
 ;; term
-(defhydra hydra-term (:color blue :hint nil)
+(defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
 ^Select^  ^Mode^      ^History^
 ^======^==^====^======^====^=====
@@ -125,7 +125,7 @@ _p_ prev  _a_ ansi"
   ("H" counsel-yank-bash-history))
 
 ;; jump
-(defhydra hydra-jump (:color blue :hint nil)
+(defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
 ^Jump^    ^Move^    ^Del^    ^Imenu^  ^Org^
 ^====^====^=========^===^====^=====^==^===^====
@@ -146,7 +146,7 @@ _'_ pop"
   ("Z" zap-to-char))
 
 ;; open
-(defhydra hydra-open (:color blue :hint nil)
+(defhydra hydra-open (:color blue :hint nil :idle 1.5)
   "
 ^Buffer^    ^File^       ^Org^
 ^======^====^====^=======^===^======
@@ -200,7 +200,7 @@ _G_ orig  _p_ prev  _c_ commit
   ("a" git-gutter+-stage-and-commit-whole-buffer))
 
 ;; transpose
-(defhydra hydra-transpose ()
+(defhydra hydra-transpose (:idle 1.5)
   "transpose"
   ("l" transpose-lines "line")
   ("w" transpose-words "word")
@@ -209,7 +209,7 @@ _G_ orig  _p_ prev  _c_ commit
 
 (defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
                          :post (set-cursor-color "#ffffff")
-                         :color pink :hint nil)
+                         :color pink :hint nil :idle 1.5)
   "
 ^Char^     ^Word^    ^Line^     ^Buffer^  ^Other^
 ^====^=====^====^====^====^=====^====^====^=====^===
@@ -252,7 +252,7 @@ _x_ del    ^^        _yy_ yank"
   ("q" nil))
 
 ;; region
-(defhydra hydra-region ()
+(defhydra hydra-region (:idle 1.5)
   "region"
   ("a" my-align-comment "align-comment" :exit t)
   ("=" er/expand-region "expand")
@@ -297,7 +297,7 @@ _q_ fill"
   ("s" swiper-all "swiper all"))
 
 ;; org
-(defhydra hydra-org (:color red :hint nil)
+(defhydra hydra-org (:color red :hint nil :idle 1.5)
   "
 Navigation^
 ---------------------------------------------------------

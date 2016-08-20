@@ -25,6 +25,8 @@
 (global-set-key (kbd "\e[60;1~") 'hydra-gdb/body)
 
 ;; C-
+;; the following keys are available
+;; q
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
@@ -68,14 +70,18 @@
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "J" 'dired-up-directory)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
-(define-key dired-mode-map (kbd "M-l") 'hydra-line/body)
+(define-key dired-mode-map (kbd "M-l") 'hydra-vi/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
+
+;; org-mode
 (define-key org-mode-map (kbd "M-m") 'hydra-org/body)
 
-;; unset keys
+;; flyspell-mode
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
+
+;; smartparens-mode
 (eval-after-load "smartparens-mode"
   '(define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
 (keymap-unset-key '[M-down] "smartparens-mode")
