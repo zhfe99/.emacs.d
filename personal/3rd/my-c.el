@@ -67,11 +67,6 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-;; remap M-j
-(define-key c++-mode-map (kbd "M-j") 'hydra-jump/body)
-(define-key c-mode-map (kbd "M-j") 'hydra-jump/body)
-(define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
-
 ;; gdb
 (setq
  ;; use gdb-many-windows by default

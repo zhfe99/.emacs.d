@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-;; use ibuffer
+;; organize ibuffer
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote (("default"

@@ -16,8 +16,7 @@ _j_ down   _J_ down   _C-j_ down     _↓_ down   _3_ right  _-_ decrease
 _k_ up     _K_ up     _C-k_ up       _↑_ up     _u_ undo   _0_ default
 _l_ right  _L_ right  _C-l_ right    _→_ right  _r_ redo
 _o_ ace    _1_ other  _b_   balance  _s_ ace
-^^         _d_ ace
-"
+^^         _d_ ace"
   ("h" windmove-left)
   ("j" windmove-down)
   ("k" windmove-up)
@@ -30,14 +29,14 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("C-j" my-move-splitter-down)
   ("C-k" my-move-splitter-up)
   ("C-l" my-move-splitter-right)
-  ("H" my-push-window-left)
-  ("J" my-push-window-down)
-  ("K" my-push-window-up)
-  ("L" my-push-window-right)
+  ("H" my-push-window-left :exit t)
+  ("J" my-push-window-down :exit t)
+  ("K" my-push-window-up :exit t)
+  ("L" my-push-window-right :exit t)
   ("o" ace-select-window)
   ("u" winner-undo)
   ("r" winner-redo :exit t)
-  ("1" delete-other-windows)
+  ("1" delete-other-windows :exit t)
   ("2" split-window-below-and-move-there-dammit)
   ("3" split-window-right-and-move-there-dammit)
   ("b" balance-windows)
@@ -45,18 +44,107 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
   ("s" (lambda () (interactive) (ace-window 4)))
-  ("d" (lambda () (interactive) (ace-window 16)))
+  ("d" (lambda () (interactive) (ace-window 16))  :exit t)
   ("q" nil))
 
-;; change case
-(defhydra hydra-case (:color pink :idle 1.5)
-  "case"
-  ("c" subword-capitalize "captial")
-  ("u" subword-upcase "upcase")
-  ("l" subword-downcase "downcase")
-  ("b" backward-word "backword")
-  ("f" forward-word "forward")
-  ("q" nil "quit"))
+;; buffer
+(defhydra hydra-buffer (:color blue :hint nil :idle 1.5)
+  "
+^Buffer^    ^File^       ^Org^        ^Toggle^
+^======^====^====^=======^===^========^======^
+_o_ open    _M-o_ open   _t_ todo     _l_ linum
+_s_ save    _f_ project  _a_ agenda   _e_ ediff
+_k_ kill    _z_ reveal   _c_ capture
+_b_ bury    _d_ dired
+_r_ revert  _p_ machine
+_u_ dupe
+_R_ sudo"
+  ("o" ivy-switch-buffer)
+  ("e" ediff)
+  ("d" counsel-goto-recent-directory)
+  ("f" find-file-in-project)
+  ("M-o" counsel-find-file)
+  ("a" org-agenda-list)
+  ("t" org-todo-list)
+  ("s" save-buffer)
+  ("b" bury-buffer)
+  ("r" revert-buffer-no-confirm)
+  ("k" kill-this-buffer)
+  ("c" org-capture)
+  ("u" ace-duplicate-current-buffer-in-other-window)
+  ("p" my-switch-to-current-on-server-or-local)
+  ("z" reveal-in-osx-finder)
+  ("R" crux-sudo-edit)
+  ("l" linum-mode))
+
+;; jump
+(defhydra hydra-jump (:color blue :hint nil :idle 1.5)
+  "
+^Jump^    ^Move^    ^Imenu^  ^Bookmark^
+^====^====^====^====^=====^==^========^===
+_j_ word  _f_ ford  _i_ ivy  _b_ jump
+_c_ char  _F_ back  _I_ my   _B_ set
+_l_ line  ^^        ^^       _k_ org-clock
+_'_ pop"
+  ("c" avy-goto-char)
+  ("j" avy-goto-word-1)
+  ("l" avy-goto-line)
+  ("k" org-clock-goto)
+  ("'" avy-pop-mark :exit nil)
+  ("i" counsel-imenu)
+  ("I" my-ivy-imenu-goto)
+  ("b" bookmark-jump)
+  ("B" bookmark-set)
+  ("f" iy-go-up-to-char)
+  ("F" iy-go-to-char-backward))
+
+;; vi
+(defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
+                         :post (set-cursor-color "#ffffff")
+                         :color pink :hint nil :idle 1.5)
+  "
+^Char^     ^Word^    ^Line^     ^Buffer^  ^Other^
+^====^=====^====^====^====^=====^====^====^=====^===
+_h_ left   _w_ ford  _a_ head   _g_ head  _m_ mark
+_j_ down   _b_ back  _e_ tail   _G_ tail  _u_ undo
+_k_ up     _dw_ del  _↑_ up     _v_ down  _Q_ fill
+_l_ right  ^^        _↓_ down   _V_ up
+_x_ del    ^^        _yy_ yank"
+  ;; movement
+  ("w" forward-word)
+  ("b" backward-word)
+  ;; scrolling
+  ("v" scroll-up-command nil)
+  ("V" scroll-down-command nil)
+  ;; arrows
+  ("h" backward-char)
+  ("j" next-line)
+  ("k" previous-line)
+  ("l" forward-char)
+  ;; delete
+  ("x" delete-char)
+  ("dw" kill-word)
+  ("dd" crux-kill-whole-line)
+  ;; should be generic "open"
+  ("r" push-button)
+  ;; buffer
+  ("g" beginning-of-buffer)
+  ("G" end-of-buffer)
+  ;; bad
+  ("m" set-mark-command)
+  ("yy" crux-duplicate-current-line-or-region)
+  ;; line
+  ("a" move-beginning-of-line)
+  ("e" move-end-of-line)
+  ("<up>" move-text-up)
+  ("<down>" move-text-down)
+  ;; exit points
+  ("Q" fill-paragraph)
+  ("u" undo-tree-undo)
+  ("f" iy-go-up-to-char :exit t)
+  ("F" iy-go-to-char-backward :exit t)
+  ("dt" zop-up-to-char)
+  ("dT" zap-to-char))
 
 ;; smartparens
 (defhydra hydra-sp (:color pink :hint nil :idle 1.5)
@@ -88,97 +176,6 @@ _n_ out   _d_ ford   _a_ barf
   ("D" sp-backward-kill-sexp)
   ("q" nil))
 
-;; multiple-cursors
-(defhydra hydra-mc (:hint nil :idle 1.5)
-  "
-^Select^       ^Line^    ^Multi^
-^======^=======^====^====^=====^=
-_._ next       _l_ line  _r_ all
-_>_ skip next  _a_ head  _m_ mark
-_,_ prev       _e_ tail
-_<_ skip prev"
-  ("." mc/mark-next-like-this)
-  (">" mc/skip-to-next-like-this)
-  ("," mc/mark-previous-like-this)
-  ("<" mc/skip-to-previous-like-this)
-  ("a" mc/edit-beginnings-of-lines :exit t)
-  ("e" mc/edit-ends-of-lines :exit t)
-  ("l" mc/edit-lines :exit t)
-  ("r" mc/mark-all-in-region :exit t)
-  ("m" mc/mark-all-like-this :exit t))
-
-;; term
-(defhydra hydra-term (:color blue :hint nil :idle 1.5)
-  "
-^Select^  ^Mode^      ^History^
-^======^==^====^======^====^=====
-_t_ next  _m_ matlab  _h_ zsh
-_n_ new   _e_ eshell  _H_ bash
-_p_ prev  _a_ ansi"
-  ("n" multi-term)
-  ("t" multi-term-next)
-  ("p" multi-term-prev)
-  ("m" matlab-shell)
-  ("e" eshell)
-  ("a" ansi-term)
-  ("h" counsel-yank-zsh-history)
-  ("H" counsel-yank-bash-history))
-
-;; jump
-(defhydra hydra-jump (:color blue :hint nil :idle 1.5)
-  "
-^Jump^    ^Move^    ^Del^    ^Imenu^  ^Org^
-^====^====^=========^===^====^=====^==^===^====
-_j_ word  _f_ ford  _z_ zop  _i_ ivy  _k_ clock
-_c_ char  _F_ back  _Z_ zap  _I_ my
-_l_ line
-_'_ pop"
-  ("c" avy-goto-char)
-  ("j" avy-goto-word-1)
-  ("l" avy-goto-line)
-  ("k" org-clock-goto)
-  ("'" avy-pop-mark :exit nil)
-  ("i" counsel-imenu)
-  ("I" my-ivy-imenu-goto)
-  ("f" iy-go-up-to-char)
-  ("F" iy-go-to-char-backward)
-  ("z" zop-to-char)
-  ("Z" zap-to-char))
-
-;; open
-(defhydra hydra-open (:color blue :hint nil :idle 1.5)
-  "
-^Buffer^    ^File^       ^Org^
-^======^====^====^=======^===^======
-_o_ open    _M-o_ open   _t_ todo
-_s_ save    _f_ project  _a_ agenda
-_k_ kill    _z_ reveal   _c_ capture
-_b_ bury    _d_ dired
-_r_ revert  _p_ machine
-_u_ dupe"
-  ("o" ivy-switch-buffer)
-  ("d" counsel-goto-recent-directory)
-  ("f" find-file-in-project)
-  ("M-o" counsel-find-file)
-  ("a" org-agenda-list)
-  ("t" org-todo-list)
-  ("s" save-buffer)
-  ("b" bury-buffer)
-  ("r" revert-buffer-no-confirm)
-  ("k" kill-this-buffer)
-  ("c" org-capture)
-  ("u" ace-duplicate-current-buffer-in-other-window)
-  ("p" my-switch-to-current-on-server-or-local)
-  ("z" reveal-in-osx-finder))
-
-;; tag
-(defhydra hydra-tag ()
-  "tag"
-  ("." helm-etags+-select "helm-etags" :exit t)
-  ("/" helm-etags+-history "etags history")
-  ("," helm-etags+-history-go-back "etags history go back")
-  (">" find-tag "tag"))
-
 ;; git
 (defhydra hydra-git (:hint nil)
   "
@@ -199,6 +196,50 @@ _G_ orig  _p_ prev  _c_ commit
   ("t" git-timemachine :exit t)
   ("a" git-gutter+-stage-and-commit-whole-buffer))
 
+;; multiple-cursors
+(defhydra hydra-mc (:hint nil :idle 1.5)
+  "
+^Select^  ^Skip^     ^Line^   ^Multi^
+^======^==^====^=====^====^===^=====^=
+_._ next  _>_ next  _l_ line  _r_ all
+_,_ prev  _<_ prev  _a_ head  _m_ mark
+^^        ^^        _e_ tail"
+  ("." mc/mark-next-like-this)
+  (">" mc/skip-to-next-like-this)
+  ("," mc/mark-previous-like-this)
+  ("<" mc/skip-to-previous-like-this)
+  ("a" mc/edit-beginnings-of-lines :exit t)
+  ("e" mc/edit-ends-of-lines :exit t)
+  ("l" mc/edit-lines :exit t)
+  ("r" mc/mark-all-in-region :exit t)
+  ("m" mc/mark-all-like-this :exit t))
+
+;; term
+(defhydra hydra-term (:color blue :hint nil :idle 1.5)
+  "
+^Select^  ^Mode^      ^History^  ^Misc^
+^======^==^====^======^====^=====^=====^
+_t_ next  _m_ matlab  _h_ zsh    _w_ man
+_n_ new   _e_ eshell  _H_ bash
+_p_ prev  _a_ ansi"
+  ("n" multi-term)
+  ("t" multi-term-next)
+  ("p" multi-term-prev)
+  ("m" matlab-shell)
+  ("e" eshell)
+  ("a" ansi-term)
+  ("h" counsel-yank-zsh-history)
+  ("H" counsel-yank-bash-history)
+  ("w" helm-man-woman))
+
+;; tag
+(defhydra hydra-tag ()
+  "tag"
+  ("." helm-etags+-select "helm-etags" :exit t)
+  ("/" helm-etags+-history "etags history")
+  ("," helm-etags+-history-go-back "etags history go back")
+  (">" find-tag "tag"))
+
 ;; transpose
 (defhydra hydra-transpose (:idle 1.5)
   "transpose"
@@ -207,48 +248,14 @@ _G_ orig  _p_ prev  _c_ commit
   ("c" transpose-chars "char")
   ("s" transpose-sexps "sexp"))
 
-(defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
-                         :post (set-cursor-color "#ffffff")
-                         :color pink :hint nil :idle 1.5)
-  "
-^Char^     ^Word^    ^Line^     ^Buffer^  ^Other^
-^====^=====^====^====^====^=====^====^====^=====^===
-_h_ left   _w_ ford  _a_ head   _g_ head  _m_ mark
-_j_ down   _b_ back  _e_ tail   _G_ tail  _u_ undo
-_k_ up     _dw_ del  _↑_ up     _V_ up    _._ repeat
-_l_ right  ^^        _↓_ down   _v_ down
-_x_ del    ^^        _yy_ yank"
-  ;; movement
-  ("w" forward-word)
-  ("b" backward-word)
-  ;; scrolling
-  ("v" scroll-up-command nil)
-  ("V" scroll-down-command nil)
-  ;; arrows
-  ("h" backward-char)
-  ("j" next-line)
-  ("k" previous-line)
-  ("l" forward-char)
-  ;; delete
-  ("x" delete-char)
-  ("dw" kill-word)
-  ("dd" crux-kill-whole-line)
-  ("u" undo-tree-undo)
-  ;; should be generic "open"
-  ("r" push-button)
-  ("." hydra-repeat)
-  ;; buffer
-  ("g" beginning-of-buffer)
-  ("G" end-of-buffer)
-  ;; bad
-  ("m" set-mark-command)
-  ("yy" crux-duplicate-current-line-or-region)
-  ;; line
-  ("a" move-beginning-of-line)
-  ("e" move-end-of-line)
-  ("<up>" move-text-up)
-  ("<down>" move-text-down)
-  ;; exit points
+;; change case
+(defhydra hydra-case (:color pink :idle 1.5)
+  "case"
+  ("c" subword-capitalize "captial")
+  ("u" subword-upcase "upcase")
+  ("l" subword-downcase "downcase")
+  ("b" backward-word "backword")
+  ("f" forward-word "forward")
   ("q" nil))
 
 ;; region
@@ -263,16 +270,18 @@ _x_ del    ^^        _yy_ yank"
   ("n" my-narrow-or-widen-dwim "narrow"))
 
 ;; gdb
-(defhydra hydra-gdb (:color pink)
-  "gdb"
-  ("r" gdb "start" :exit t)
-  ("B" gdb-display-breakpoints-buffer "display-breakpoints-buffer")
-  ("b" gud-break "break" :exit t)
-  ("g" gdb-display-gdb-buffer "display-gdb-buffer")
-  ("l" gdb-display-locals-buffer "display-locals-buffer")
+ (defhydra hydra-gdb (:color pink :hint nil)
+  "
+^Move^    ^Break^
+^====^====^=====^
+_c_ cont  _b_ set
+_n_ next  _B_ show
+_s_ step
+"
+  ("r" gdb :exit t)
+  ("B" gdb-display-breakpoints-buffer)
+  ("b" gud-break :exit t)
   ("m" gdb-many-windows "many-windoes")
-  ("o" gdb-display-io-buffer "display-io-buffer")
-  ("S" gdb-display-stack-buffer "display-stack-buffer")
   ("c" gud-cont "cont")
   ("n" gud-next "next")
   ("l" gud-refresh "refresh")
@@ -282,38 +291,63 @@ _x_ del    ^^        _yy_ yank"
   ("s" gud-step "step")
   ("q" nil "quit"))
 
-;; edit
-(defhydra hydra-edit (:color blue :hint nil)
-  "
-_q_ fill"
-  ("q" fill-paragraph)
-  ("c" my-cleanup "cleanup")
-  ("e" ediff "ediff")
-  ("l" linum-mode "linum")
-  ("h" helm-man-woman "man")
-  ("b" edebug-defun "edebug")
-  ("o" crux-sudo-edit "sudo")
-  ("i" irony-install-server "irony")
-  ("s" swiper-all "swiper all"))
-
 ;; org
-(defhydra hydra-org (:color red :hint nil :idle 1.5)
+ (defhydra hydra-org (:color pink :hint nil :idle 1.5)
   "
-Navigation^
----------------------------------------------------------
-_j_ next heading
-_k_ prev heading
-_h_ next heading (same level)
-_l_ prev heading (same level)
-_u_ higher heading
-_g_ to
-"
+^Move^    ^Cross^   ^Head^        ^Change^    ^Open^
+^====^====^=====^===^====^========^======^====^====^===
+_n_ next  _j_ next  _t_ todo      _←_ left    _o_ open
+_p_ prev  _k_ prev  _w_ refile    _↓_ down    _O_ dired
+^^        _h_ up    _s_ tag       _↑_ up
+^^        ^^        _,_ priority  _→_ right"
   ("j" outline-next-visible-heading)
   ("k" outline-previous-visible-heading)
-  ("h" org-forward-heading-same-level)
-  ("l" org-backward-heading-same-level)
-  ("u" outline-up-heading)
-  ("g" org-goto :exit t))
+  ("h" outline-up-heading)
+  ("n" org-forward-heading-same-level)
+  ("p" org-backward-heading-same-level)
+  ("t" org-todo)
+  ("w" org-refile)
+  ("s" org-set-tags)
+  ("," org-priority)
+  ("<left>" org-metaleft)
+  ("<right>" org-metaright)
+  ("<up>" org-metaup)
+  ("<down>" org-metadown)
+  ("o" org-open-at-point :exit t)
+  ("O" my-org-open-at-point :exit t)
+  ("q" nil))
+
+;; lisp
+(defhydra hydra-lisp (:color red :hint nil :idle 1.5)
+  "
+^Edebug^
+---------
+_g_ defun"
+  ("g" edebug-defun))
+
+;; python
+(defhydra hydra-python (:color red :hint nil :idle 1.5)
+  "
+^Date^
+---------
+_c_ create"
+  ("c" my-python-create-date))
+
+;; shell
+(defhydra hydra-sh (:color red :hint nil :idle 1.5)
+  "
+^Date^
+---------
+_c_ create"
+  ("c" my-sh-create-date))
+
+;; c-mode
+(defhydra hydra-c (:color red :hint nil)
+  "
+^Irony^
+---------
+_i_ install"
+  ("i" irony-install-server))
 
 (provide 'my-hydra)
 ;;; my-hydra.el ends here

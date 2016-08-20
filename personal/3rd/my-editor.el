@@ -79,7 +79,8 @@
         (t (error "Please select a region to narrow to"))))
 
 ;; use multiple-cursor
-(require 'multiple-cursors)
+(use-package multiple-cursors
+  :ensure t)
 
 ;; multiple-cursor: map RET to get consistent behavior at the terminal
 ;; https://github.com/magnars/multiple-cursors.el/pull/168
@@ -91,9 +92,8 @@
 (auto-save-enable)
 (setq auto-save-slient t)
 
-(cond
- ((string-equal system-type "darwin")
-  (require 'reveal-in-osx-finder)))
+(use-package reveal-in-osx-finder
+  :if (string-equal system-type "darwin"))
 
 (use-package change-inner
   :ensure t)

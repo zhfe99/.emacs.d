@@ -387,34 +387,5 @@ application the system uses for this file type."
     (move-marker org-open-link-marker nil)
     (run-hook-with-args 'org-follow-link-hook)))
 
-;; remap org key to be consistent with global setting
-(defun my-org-mode-keys ()
-  "My keybindings for `org-mode'."
-  (define-key org-mode-map (kbd "<C-up>") 'org-backward-heading-same-level)
-  (define-key org-mode-map (kbd "<C-down>") 'org-forward-heading-same-level)
-  (define-key org-mode-map (kbd "<C-left>") 'outline-up-heading)
-  (define-key org-mode-map (kbd "<C-right>") 'outline-next-visible-heading)
-  (define-key org-mode-map (kbd "<C-S-left>") 'org-shiftleft)
-  (define-key org-mode-map (kbd "<C-S-right>") 'org-shiftright)
-  (define-key org-mode-map (kbd "<S-up>") 'windmove-up)
-  (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
-  (define-key org-mode-map (kbd "<S-left>") 'windmove-left)
-  (define-key org-mode-map (kbd "<S-right>") 'windmove-right)
-  (define-key org-mode-map (kbd "C-c O") 'my-org-open-at-point)
-  (define-key org-mode-map (kbd "C-c C-o") 'org-open-at-point)
-  (define-key org-mode-map (kbd "\e[47;C~") 'org-metaleft) ; M-left in iterm2
-  (define-key org-mode-map (kbd "\e[47;D~") 'org-metaright) ; M-right in iterm2
-  (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
-  (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
-)
-(add-hook 'org-mode-hook 'my-org-mode-keys)
-
-;; remap key in org agenda
-(defun my-org-agenda-mode-keys ()
-  "My keybindings for `org-agenda'."
-  (define-key org-agenda-mode-map (kbd "<C-S-left>") 'org-shiftleft)
-  (define-key org-agenda-mode-map (kbd "<C-S-right>") 'org-shiftright))
-(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-keys)
-
 (provide 'my-org)
 ;;; my-org.el ends here

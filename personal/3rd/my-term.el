@@ -36,6 +36,7 @@
 (add-hook 'term-mode-hook
           (lambda () (setq truncate-lines 0)))
 
+;; yank bash history
 (defun counsel-yank-bash-history ()
   "Yank the bash history"
   (interactive)
@@ -54,6 +55,7 @@
       (kill-new val)
       (term-paste))))
 
+;; yank zsh history
 (defun counsel-yank-zsh-history ()
   "Yank the zsh history"
   (interactive)

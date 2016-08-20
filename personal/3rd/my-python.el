@@ -57,19 +57,8 @@
             (insert (format-time-string time-format (current-time))))
         (message "create xxx not found")))))
 
-;; python mode (save C-c C-p for other use)
-(eval-after-load "python"
-  '(define-key python-mode-map (kbd "C-c C-p") nil))
-
-;; reserve M-. for find-tag
-(eval-after-load "elpy"
-  '(define-key elpy-mode-map (kbd "M-.") nil))
-(eval-after-load "elpy"
-  '(define-key elpy-mode-map (kbd "C-c C-v") 'elpy-flymake-show-error))
-
 (add-hook 'python-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-c M-c") 'my-python-create-date)
              (git-gutter+-mode)
              (setq python-indent-offset 4)))
 
@@ -125,14 +114,6 @@
         (next-line)
         (setq curr-indentation (current-indentation))))))
 
-;; re-map key
-(with-eval-after-load "elpy"
-  (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
-  (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
-  (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
-  (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left)
-  (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right)
-  (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
 
 (provide 'my-python)
 ;;; my-python.el ends here

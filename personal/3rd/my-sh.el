@@ -41,8 +41,7 @@
             (subword-mode 1)
             (yas-minor-mode)
             (indent-guide-mode)
-            (git-gutter+-mode)
-            (local-set-key (kbd "C-c M-c") 'my-sh-create-date)))
+            (git-gutter+-mode)))
 
 ;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook

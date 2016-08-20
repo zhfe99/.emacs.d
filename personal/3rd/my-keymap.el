@@ -44,20 +44,19 @@
 
 ;; M-
 ;; the following keys are available
-;; q, r, i
+;; q, e, r, i
 ;; a, h, k
 ;; z, , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-'") 'repeat)
 (global-set-key (kbd "M-t") 'hydra-term/body)
-(global-set-key (kbd "M-o") 'hydra-open/body)
+(global-set-key (kbd "M-o") 'hydra-buffer/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-j") 'hydra-jump/body)
 (global-set-key (kbd "M-l") 'hydra-vi/body)
-(global-set-key (kbd "M-e") 'hydra-edit/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 
 ;; dired-mode
@@ -76,14 +75,50 @@
 
 ;; org-mode
 (define-key org-mode-map (kbd "M-m") 'hydra-org/body)
+(define-key org-mode-map (kbd "<S-up>") 'windmove-up)
+(define-key org-mode-map (kbd "<S-down>") 'windmove-down)
+(define-key org-mode-map (kbd "<S-left>") 'windmove-left)
+(define-key org-mode-map (kbd "<S-right>") 'windmove-right)
+(define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
+(define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-m") 'hydra-org/body)))
+
+;; lisp-mode
+(define-key lisp-mode-map (kbd "M-m") 'hydra-lisp/body)
+
+;; sh-mode
+(with-eval-after-load "sh-mode"
+  (define-key sh-mode-map (kbd "M-m") 'hydra-sh/body))
+
+;; python-mode
+(define-key python-mode-map (kbd "M-m") 'hydra-python/body)
+
+;; elpy
+(with-eval-after-load "elpy"
+  (define-key elpy-mode-map (kbd "M-.") nil)
+  (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
+  (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
+  (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
+  (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left)
+  (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right)
+  (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
+
+;; c-mode
+(define-key c++-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key c-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key c-mode-map (kbd "M-m") 'hydra-c/body)
+(define-key c++-mode-map (kbd "M-m") 'hydra-c/body)
 
 ;; flyspell-mode
 (define-key flyspell-mode-map (kbd "C-.") nil)
 (define-key flyspell-mode-map (kbd "C-,") nil)
 
 ;; smartparens-mode
-(eval-after-load "smartparens-mode"
-  '(define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
+(with-eval-after-load "smartparens-mode"
+  (define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
 (keymap-unset-key '[M-down] "smartparens-mode")
 (keymap-unset-key '[M-up] "smartparens-mode")
 (keymap-unset-key '[M-s] "smartparens-mode")
@@ -93,7 +128,7 @@
 ;; key-chord
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "xx" nil)
-(key-chord-define-global "jj" 'linum-mode)
+(key-chord-define-global "jj" nil)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
