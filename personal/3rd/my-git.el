@@ -8,7 +8,7 @@
 ;; turn-off diff-hl mode
 (global-diff-hl-mode -1)
 
-;; use git-gutter+
+;; use git-gutter+ (in terminal) / git-gutter-fringe+ (in Gui)
 (if (display-graphic-p)
     (require 'git-gutter-fringe+)
   (require 'git-gutter+))
@@ -29,6 +29,7 @@
                   (replace-regexp-in-string "^[ \t]*" "" line))
           lineno)))
 
+;; use ivy to show diffs
 (defun my-goto-git-gutter ()
   (interactive)
   (if git-gutter:diffinfos
@@ -85,6 +86,7 @@
 ;; use ivy in magit
 (setq magit-completing-read-function 'ivy-completing-read)
 
+;; use magit-status in fullscreen
 (defun magit-status-fullscreen (prefix)
   (interactive "P")
   (magit-status)

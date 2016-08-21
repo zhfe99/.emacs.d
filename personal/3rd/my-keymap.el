@@ -37,6 +37,7 @@
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-t") 'hydra-transpose/body)
 (global-set-key (kbd "C-o") 'hydra-window/body)
+(global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-.") 'hydra-mc/body)
 (global-set-key (kbd "\e[46;5~") 'hydra-mc/body) ; C-. in iterm2
 (global-set-key (kbd "C-=") 'hydra-region/body)

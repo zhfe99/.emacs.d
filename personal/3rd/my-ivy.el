@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My dired setting.
+;; My ivy setting.
 
 ;;; Code:
 
@@ -9,7 +9,7 @@
 (ido-mode -1)
 
 (require 'cl)
-(require 'ivy) ; swiper 7.0+ should be installed
+(require 'ivy)
 (require 'counsel)
 
 ;; enable ivy-mode
@@ -24,6 +24,7 @@
 ;; Do not show "./" and "../" in the `counsel-find-file' completion list
 (setq ivy-extra-directories nil)
 
+;; recent directories
 (defun counsel-goto-recent-directory ()
   "Recent directories"
   (interactive)

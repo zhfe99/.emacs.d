@@ -28,7 +28,7 @@
 (eval-after-load "which-func"
   '(setq which-func-modes '(java-mode c++-mode c-mode org-mode python-mode emacs-lisp-mode)))
 
-;; search with selected region
+;; isearch with selected region
 (defun jrh-isearch-with-region ()
   "Use region as the isearch text."
   (when mark-active
@@ -49,6 +49,8 @@
              '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
 (add-to-list 'dash-at-point-mode-alist '(sql-mode . "PASCAL"))
 
+;; align function head comment
+;; used in many languages
 (defun my-align-comment()
   (interactive)
   (align-regexp
@@ -56,6 +58,7 @@
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
 
+;; clean up recentf & projectile projects
 (defun my-cleanup()
   "Clean up."
   (interactive)

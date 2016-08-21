@@ -41,33 +41,6 @@
             (insert (format-time-string time-format (current-time))))
         (message "create xxx not found")))))
 
-;; update modifying date field in the comment area (for matlab)
-(defun my-matlab-modify-date ()
-  "Update modifying date field in the comment area (for matlab)."
-  (interactive)
-  (save-excursion
-    (let ((time-format "%Y-%m") (pt1) (pt2))
-      (goto-char (point-min))
-      (setq pt1 (search-forward "%   modify" nil t))
-      (if pt1
-          (progn
-            (message "done")
-            (search-forward "gmail.com), ")
-            (setq pt1 (point))
-            (end-of-line)
-            (setq pt2 (point))
-            (delete-region pt1 pt2)
-            (insert (format-time-string time-format (current-time))))
-        (message "modify xxx not found")))))
-
-;; update the "modify date" in the comment before saving
-(add-hook 'before-save-hook
-          (lambda()
-            (if (eq major-mode 'matlab-mode)
-                (progn
-                  (message "%s is matlab-mode" (buffer-file-name))
-                  (my-matlab-modify-date)))))
-
 ;; matlab-mode-hook
 (add-hook 'matlab-mode-hook
           (lambda()

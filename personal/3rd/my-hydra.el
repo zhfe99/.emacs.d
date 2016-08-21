@@ -90,7 +90,7 @@ _'_ pop"
   ("j" avy-goto-word-1)
   ("l" avy-goto-line)
   ("k" org-clock-goto)
-  ("'" avy-pop-mark :exit nil)
+  ("'" pop-global-mark :exit nil)
   ("i" counsel-imenu)
   ("I" my-ivy-imenu-goto)
   ("b" bookmark-jump)
