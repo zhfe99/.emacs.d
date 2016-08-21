@@ -102,5 +102,9 @@
   :load-path "site-lisp/find-file-in-project/"
   :ensure t)
 
+(use-package fasd
+  :load-path "site-lisp/emacs-fasd/")
+(global-fasd-mode 1)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here

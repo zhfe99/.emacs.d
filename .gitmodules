@@ -9,4 +9,7 @@
 	url = ../helm-etags-plus.git
 [submodule "site-lisp/find-file-in-project"]
 	path = site-lisp/find-file-in-project
-	url = https://github.com/technomancy/find-file-in-project
+	url = ../find-file-in-project.git
+[submodule "site-lisp/emacs-fasd"]
+	path = site-lisp/emacs-fasd
+	url = ../emacs-fasd.git
