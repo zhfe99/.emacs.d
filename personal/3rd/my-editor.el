@@ -44,14 +44,16 @@
   (interactive)
   (revert-buffer t t))
 
-;; dash for doc
-(add-to-list 'dash-at-point-mode-alist
-             '(python-mode . "python2,numpy,django,sqlalchemy,numpy,scipy"))
-(add-to-list 'dash-at-point-mode-alist '(sql-mode . "PASCAL"))
+;; insert current date
+(defun my-insert-current-date()
+  "Insert current date."
+  (interactive)
+  (let ((time-format "%Y-%m-%d"))
+    (insert (format-time-string time-format (current-time)))))
 
 ;; align function head comment
-;; used in many languages
 (defun my-align-comment()
+  "Align function head comment."
   (interactive)
   (align-regexp
    (region-beginning)

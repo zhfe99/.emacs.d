@@ -32,7 +32,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-h b") 'helm-descbinds)
 (global-set-key (kbd "C-k") 'kill-line)
-(global-set-key (kbd "C-M-k") 'crux-kill-whole-line)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-t") 'hydra-transpose/body)
@@ -45,8 +44,8 @@
 
 ;; M-
 ;; the following keys are available
-;; q, e, r, i
-;; a, h, k
+;; q, y, r, i
+;; a, h, k, l
 ;; z, , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
@@ -57,7 +56,7 @@
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-j") 'hydra-jump/body)
-(global-set-key (kbd "M-l") 'hydra-vi/body)
+(global-set-key (kbd "M-e") 'hydra-edit/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 
 ;; dired-mode
@@ -70,7 +69,7 @@
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "J" 'dired-up-directory)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
-(define-key dired-mode-map (kbd "M-l") 'hydra-vi/body)
+(define-key dired-mode-map (kbd "M-e") 'hydra-edit/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
 
@@ -127,6 +126,7 @@
 (keymap-unset-key (kbd "M-r") "smartparens-mode")
 
 ;; key-chord
+(key-chord-define-global "uu" nil)
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "xx" nil)
 (key-chord-define-global "jj" nil)

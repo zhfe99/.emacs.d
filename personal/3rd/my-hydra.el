@@ -43,8 +43,8 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("=" text-scale-increase)
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
-  ("s" (lambda () (interactive) (ace-window 4)))
-  ("d" (lambda () (interactive) (ace-window 16))  :exit t)
+  ("s" (lambda () (interactive) (ace-window 4)) :exit t)
+  ("d" (lambda () (interactive) (ace-window 16)) :exit t)
   ("q" nil))
 
 ;; buffer
@@ -57,8 +57,7 @@ _s_ save    _f_ project  _a_ agenda   _e_ ediff
 _k_ kill    _z_ reveal   _c_ capture
 _b_ bury    _d_ dired
 _r_ revert  _p_ machine
-_u_ dupe
-_R_ sudo"
+_u_ dupe"
   ("o" ivy-switch-buffer)
   ("e" ediff)
   ("d" counsel-goto-recent-directory)
@@ -74,7 +73,6 @@ _R_ sudo"
   ("u" ace-duplicate-current-buffer-in-other-window)
   ("p" my-switch-to-current-on-server-or-local)
   ("z" reveal-in-osx-finder)
-  ("R" crux-sudo-edit)
   ("l" linum-mode))
 
 ;; jump
@@ -90,7 +88,7 @@ _'_ pop"
   ("j" avy-goto-word-1)
   ("l" avy-goto-line)
   ("k" org-clock-goto)
-  ("'" pop-global-mark :exit nil)
+  ("'" avy-pop-mark)
   ("i" counsel-imenu)
   ("I" my-ivy-imenu-goto)
   ("b" bookmark-jump)
@@ -98,53 +96,29 @@ _'_ pop"
   ("f" iy-go-up-to-char)
   ("F" iy-go-to-char-backward))
 
-;; vi
-(defhydra hydra-vi (:pre (set-cursor-color "#e52b50")
-                         :post (set-cursor-color "#ffffff")
-                         :color pink :hint nil :idle 1.5)
+;; edit
+(defhydra hydra-edit (:color blue :hint nil :idle 1.5)
   "
-^Char^     ^Word^    ^Line^     ^Buffer^  ^Other^
-^====^=====^====^====^====^=====^====^====^=====^===
-_h_ left   _w_ ford  _a_ head   _g_ head  _m_ mark
-_j_ down   _b_ back  _e_ tail   _G_ tail  _u_ undo
-_k_ up     _dw_ del  _↑_ up     _v_ down  _Q_ fill
-_l_ right  ^^        _↓_ down   _V_ up
-_x_ del    ^^        _yy_ yank"
-  ;; movement
-  ("w" forward-word)
-  ("b" backward-word)
-  ;; scrolling
-  ("v" scroll-up-command nil)
-  ("V" scroll-down-command nil)
-  ;; arrows
-  ("h" backward-char)
-  ("j" next-line)
-  ("k" previous-line)
-  ("l" forward-char)
-  ;; delete
-  ("x" delete-char)
-  ("dw" kill-word)
-  ("dd" crux-kill-whole-line)
-  ;; should be generic "open"
-  ("r" push-button)
-  ;; buffer
-  ("g" beginning-of-buffer)
-  ("G" end-of-buffer)
-  ;; bad
-  ("m" set-mark-command)
-  ("yy" crux-duplicate-current-line-or-region)
-  ;; line
-  ("a" move-beginning-of-line)
-  ("e" move-end-of-line)
-  ("<up>" move-text-up)
-  ("<down>" move-text-down)
-  ;; exit points
-  ("Q" fill-paragraph)
-  ("u" undo-tree-undo)
-  ("f" iy-go-up-to-char :exit t)
-  ("F" iy-go-to-char-backward :exit t)
-  ("dt" zop-up-to-char)
-  ("dT" zap-to-char))
+^Line^    ^Other^
+^====^=====^====^=
+_↑_ up    _y_ yank
+_↓_ down  _z_ zop
+_d_ dup   _Z_ zap
+_k_ kill  _t_ date
+_q_ fill  _s_ sudo"
+  ("t" my-insert-current-date)
+  ("d" crux-duplicate-current-line-or-region)
+  ("k" crux-kill-whole-line)
+  ("K" crux-kill-line-backwards)
+  ("y" counsel-yank-pop)
+  ("z" zop-up-to-char)
+  ("Z" zap-to-char)
+  ("q" fill-paragraph)
+  ("s" crux-sudo-edit)
+  ("o" crux-smart-open-line)
+  ("O" crux-smart-open-line-above)
+  ("<up>" move-text-up :exit nil)
+  ("<down>" move-text-down :exit nil))
 
 ;; smartparens
 (defhydra hydra-sp (:color pink :hint nil :idle 1.5)
