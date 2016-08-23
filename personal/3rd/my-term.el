@@ -85,6 +85,7 @@
                         nil))
                     (buffer-list))))
 
+;;===========
 ;; Get prompt
 (defun my-term-get-prompt ()
   "Get term prompt."
@@ -105,17 +106,31 @@
     (setq prompt (my-term-get-prompt))
     (rename-buffer (format "*%s*" prompt))))
 
+;;======================
 ;; Open term list in ivy
+(defun my-buffer-switch-in-visible-window (buffer)
+  "Switch buffer in visible window"
+  (let (win)
+    (setq win (get-buffer-window buffer))
+    (if win
+        (select-window win)
+      (switch-to-buffer buffer))
+    )
+  )
+
+
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
   (interactive)
-  (let ((buffer-list (my-term-get-all-term-buffer)))
-    (if buffer-list
-        (ivy-read "terms:"
-                  buffer-list
-                  :action (lambda (buffer)
-                            (switch-to-buffer (cdr buffer))))
-      (multi-term-next))))
+  (let ((buffer-list (my-term-get-all-term-buffer))
+        len)
+    (setq len (length buffer-list))
+    (cond ((= 0 len) (multi-term-next))
+          ((= 1 len) (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
+          (t (ivy-read "terms:"
+                       buffer-list
+                       :action (lambda (buffer)
+                                 (my-buffer-switch-in-visible-window (cdr buffer))))))))
 
 (ivy-set-actions
  'my-ivy-term-goto

@@ -133,6 +133,7 @@ _n_ out   _d_ ford   _a_ barf
   ("f" sp-forward-sexp)
   ("P" sp-down-sexp)
   ("N" sp-backward-up-sexp)
+  ("M-n" my-sp-up-sexp-loop)
   ("b" sp-backward-sexp)
   ("p" sp-backward-down-sexp)
   ("n" sp-up-sexp)
@@ -195,14 +196,14 @@ _,_ prev  _<_ prev  _a_ head  _m_ mark
 ^======^==^====^======^=======^==^====^
 _t_ menu  _m_ matlab  _h_ zsh    _r_ rename
 _n_ next  _e_ eshell  _H_ bash
-_p_ prev  _a_ ansi"
+_p_ prev  _M-t_ new"
   ("t" my-ivy-term-goto)
   ("M-t" multi-term)
   ("n" multi-term-next)
   ("p" multi-term-prev)
   ("m" matlab-shell)
   ("e" eshell)
-  ("a" ansi-term)
+  ("M-t" multi-term)
   ("r" my-term-rename-as-prompt)
   ("h" counsel-yank-zsh-history)
   ("H" counsel-yank-bash-history))
@@ -306,7 +307,8 @@ _p_ prev  _k_ prev  _w_ refile    _↓_ down    _O_ dired
 ^Edebug^
 ---------
 _g_ defun"
-  ("g" edebug-defun))
+  ("g" edebug-defun)
+  ("e" eval-defun))
 
 ;; python
 (defhydra hydra-python (:color red :hint nil :idle 1.5)

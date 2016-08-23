@@ -91,6 +91,12 @@
 ;; https://github.com/magnars/multiple-cursors.el/pull/168
 (define-key mc/keymap (kbd "<RET>") 'multiple-cursors-mode)
 
+;; loop sp-up-sexp until the end
+(defun my-sp-up-sexp-loop (&optional arg interactive)
+  "Move forward out of one level of parentheses."
+  (interactive)
+  (while (sp-up-sexp) nil))
+
 ;; use auto-save
 ;; follow http://www.jianshu.com/p/998ceaf522d1
 (require 'auto-save)
