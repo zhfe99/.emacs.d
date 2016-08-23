@@ -192,19 +192,28 @@ _,_ prev  _<_ prev  _a_ head  _m_ mark
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
 ^Select^  ^Mode^      ^History^  ^Misc^
-^======^==^====^======^====^=====^=====^
-_t_ menu  _m_ matlab  _h_ zsh    _w_ man
+^======^==^====^======^=======^==^====^
+_t_ menu  _m_ matlab  _h_ zsh    _r_ rename
 _n_ next  _e_ eshell  _H_ bash
 _p_ prev  _a_ ansi"
   ("t" my-ivy-term-goto)
+  ("M-t" multi-term)
   ("n" multi-term-next)
   ("p" multi-term-prev)
   ("m" matlab-shell)
   ("e" eshell)
   ("a" ansi-term)
+  ("r" my-term-rename-as-prompt)
   ("h" counsel-yank-zsh-history)
-  ("H" counsel-yank-bash-history)
-  ("w" helm-man-woman))
+  ("H" counsel-yank-bash-history))
+
+;; info
+(defhydra hydra-info (:color blue :hint nil :idle 1.5)
+  "
+^Select^  ^Mode^      ^History^  ^Misc^
+^======^==^====^======^====^=====^=====^
+_m_ man"
+  ("m" helm-man-woman))
 
 ;; tag
 (defhydra hydra-tag ()

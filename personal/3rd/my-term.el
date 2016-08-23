@@ -85,6 +85,26 @@
                         nil))
                     (buffer-list))))
 
+;; Get prompt
+(defun my-term-get-prompt ()
+  "Get term prompt."
+  (let (prompt pos)
+    (term-send-raw-string "\C-l")
+    (sleep-for 0.5)
+    (save-excursion
+      (goto-char (point-min))
+      (setq prompt (buffer-substring-no-properties 1 (- (line-end-position) 1)))
+      (setq pos (string-match " (" prompt))
+      (substring prompt 0 pos))))
+
+;; Rename term
+(defun my-term-rename-as-prompt ()
+  "Rename term as prompt."
+  (interactive)
+  (let (prompt)
+    (setq prompt (my-term-get-prompt))
+    (rename-buffer (format "*%s*" prompt))))
+
 ;; Open term list in ivy
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
@@ -96,6 +116,11 @@
                   :action (lambda (buffer)
                             (switch-to-buffer (cdr buffer))))
       (multi-term-next))))
+
+(ivy-set-actions
+ 'my-ivy-term-goto
+ '(("n" (lambda (buffer) (multi-term)) "new")
+   ("k" (lambda (buffer) (kill-buffer (cdr buffer))) "kill")))
 
 (provide 'my-term)
 ;;; my-term.el ends here

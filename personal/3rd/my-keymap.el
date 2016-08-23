@@ -44,13 +44,14 @@
 
 ;; M-
 ;; the following keys are available
-;; q, y, r, i
+;; q, y, r
 ;; a, h, k, l
 ;; z, , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-'") 'repeat)
 (global-set-key (kbd "M-t") 'hydra-term/body)
+(global-set-key (kbd "M-i") 'hydra-info/body)
 (global-set-key (kbd "M-o") 'hydra-buffer/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)

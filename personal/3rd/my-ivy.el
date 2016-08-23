@@ -18,6 +18,9 @@
 ;; combine recentf inside ivy-switch-buffer
 (setq ivy-use-virtual-buffers t)
 
+;; remove initial ^ input
+(setq ivy-initial-inputs-alist nil)
+
 ;; ivy window height
 (setq ivy-height 10)
 
