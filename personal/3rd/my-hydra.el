@@ -193,11 +193,11 @@ _,_ prev  _<_ prev  _a_ head  _m_ mark
   "
 ^Select^  ^Mode^      ^History^  ^Misc^
 ^======^==^====^======^====^=====^=====^
-_t_ next  _m_ matlab  _h_ zsh    _w_ man
-_n_ new   _e_ eshell  _H_ bash
+_t_ menu  _m_ matlab  _h_ zsh    _w_ man
+_n_ next  _e_ eshell  _H_ bash
 _p_ prev  _a_ ansi"
-  ("n" multi-term)
-  ("t" multi-term-next)
+  ("t" my-ivy-term-goto)
+  ("n" multi-term-next)
   ("p" multi-term-prev)
   ("m" matlab-shell)
   ("e" eshell)
@@ -292,7 +292,7 @@ _p_ prev  _k_ prev  _w_ refile    _↓_ down    _O_ dired
   ("q" nil))
 
 ;; lisp
-(defhydra hydra-lisp (:color red :hint nil :idle 1.5)
+(defhydra hydra-lisp (:color blue :hint nil :idle 1.5)
   "
 ^Edebug^
 ---------

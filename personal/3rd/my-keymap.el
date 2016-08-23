@@ -87,6 +87,7 @@
 
 ;; lisp-mode
 (define-key lisp-mode-map (kbd "M-m") 'hydra-lisp/body)
+(define-key emacs-lisp-mode-map (kbd "M-m") 'hydra-lisp/body)
 
 ;; sh-mode
 (with-eval-after-load "sh-mode"

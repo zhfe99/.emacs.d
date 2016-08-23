@@ -75,5 +75,27 @@
       (kill-new val)
       (term-paste))))
 
+;; Get all term buffers
+(defun my-term-get-all-term-buffer ()
+  "Get all term buffers."
+  (delq nil (mapcar (lambda (buffer)
+                      (set-buffer buffer)
+                      (if (equal major-mode 'term-mode)
+                          (cons (buffer-name buffer) buffer)
+                        nil))
+                    (buffer-list))))
+
+;; Open term list in ivy
+(defun my-ivy-term-goto ()
+  "Open term list in ivy"
+  (interactive)
+  (let ((buffer-list (my-term-get-all-term-buffer)))
+    (if buffer-list
+        (ivy-read "terms:"
+                  buffer-list
+                  :action (lambda (buffer)
+                            (switch-to-buffer (cdr buffer))))
+      (multi-term-next))))
+
 (provide 'my-term)
 ;;; my-term.el ends here
