@@ -52,7 +52,7 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   "
 ^Buffer^    ^File^       ^Org^        ^Toggle^
 ^======^====^====^=======^===^========^======^
-_o_ open    _M-o_ open   _t_ todo     _l_ linum
+_o_ open    _M-o_ open   _t_ todo
 _s_ save    _f_ project  _a_ agenda   _e_ ediff
 _k_ kill    _z_ reveal   _c_ capture
 _b_ bury    _d_ dired
@@ -72,18 +72,16 @@ _u_ dupe"
   ("c" org-capture)
   ("u" ace-duplicate-current-buffer-in-other-window)
   ("p" my-switch-to-current-on-server-or-local)
-  ("z" reveal-in-osx-finder)
-  ("l" linum-mode))
+  ("z" reveal-in-osx-finder))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Jump^    ^Move^    ^Imenu^  ^Bookmark^
-^====^====^====^====^=====^==^========^===
-_j_ word  _f_ ford  _i_ ivy  _b_ jump
-_c_ char  _F_ back  _I_ my   _B_ set
-_l_ line  ^^        ^^       _k_ org-clock
-_'_ pop"
+^Avy^     ^Iy^        ^Scroll^  ^Imenu^  ^Bookmark^  ^Misc^
+^===^=====^==^========^======^==^=====^==^========^==^====^===
+_j_ word  _M-j_ ford  _v_ down  _i_ list  _b_ jump    _k_ clock
+_c_ char  _F_ back    _V_ up    _I_ my    _B_ set     _'_ pop
+_l_ line"
   ("c" avy-goto-char)
   ("j" avy-goto-word-1)
   ("l" avy-goto-line)
@@ -93,43 +91,70 @@ _'_ pop"
   ("I" my-ivy-imenu-goto)
   ("b" bookmark-jump)
   ("B" bookmark-set)
-  ("f" iy-go-up-to-char)
-  ("F" iy-go-to-char-backward))
+  ("v" my-scroll-down-half :exit nil)
+  ("V" my-scroll-up-half :exit nil)
+  ("M-j" iy-go-up-to-char)
+  ("M-h" iy-go-to-char-backward)
+  ("<up>" move-text-up :exit nil)
+  ("<down>" move-text-down :exit nil)
+  ("q" nil))
 
-;; edit
-(defhydra hydra-edit (:color blue :hint nil :idle 1.5)
+;; toggle
+(defhydra hydra-toggle (:color blue :hint nil :idle 1.5)
   "
 ^Line^    ^Other^
 ^====^=====^====^=
-_↑_ up    _y_ yank
-_↓_ down  _z_ zop
-_d_ dup   _Z_ zap
-_k_ kill  _t_ date
-_q_ fill  _s_ sudo"
+^^       _s_ sudo"
+  ("q" fill-paragraph)
+  ("l" linum-mode)
+  ("t" counsel-load-theme)
+  ("s" crux-sudo-edit)
+  ("c" my-cleanup)
+  ("w" whitespace-cleanup)
+  ("v" visual-line-mode))
+
+;; yank
+(defhydra hydra-yank (:color blue :hint nil :idle 1.5)
+  "
+^Line^    ^Other^
+^====^=====^====^=
+_y_ yank  _t_ date
+_M-y_ pop
+_l_ line"
   ("t" my-insert-current-date)
-  ("d" crux-duplicate-current-line-or-region)
+  ("M-y" crux-duplicate-current-line-or-region)
+  ("y" counsel-yank-pop)
+  ("l" my-avy-copy-line)
+  ("o" crux-smart-open-line)
+  ("O" crux-smart-open-line-above))
+
+;; kill
+(defhydra hydra-kill (:color blue :hint nil :idle 1.5)
+  "
+^Line^     ^Zap^        ^Parens^
+^====^=====^===^========^======^=
+_k_ whole  _M-k_ up-to  _s_ sp
+_K_ back   _Z_ back     _i_ inner
+^^         ^^           _o_ outer"
+  ("s" sp-kill-hybrid-sexp)
+  ("d" sp-kill-sexp)
+  ("D" sp-backward-kill-sexp)
   ("k" crux-kill-whole-line)
   ("K" crux-kill-line-backwards)
-  ("y" counsel-yank-pop)
-  ("z" zop-up-to-char)
+  ("M-k" zop-up-to-char)
   ("Z" zap-to-char)
-  ("q" fill-paragraph)
-  ("s" crux-sudo-edit)
-  ("o" crux-smart-open-line)
-  ("O" crux-smart-open-line-above)
-  ("<up>" move-text-up :exit nil)
-  ("<down>" move-text-down :exit nil))
+  ("i" change-inner)
+  ("o" change-outer))
 
 ;; smartparens
 (defhydra hydra-sp (:color pink :hint nil :idle 1.5)
   "
-^Move^    ^Kill^     ^Wrap^      ^Lisp^
-^====^====^====^=====^====^======^====^
-_f_ ford  _i_ in     _s_ splice  _e_ eval
-_b_ back  _o_ out    _r_ rewarp
-_p_ in    _k_ kill   _l_ slurp
-_n_ out   _d_ ford   _a_ barf
-^^        _D_ back"
+^Move^    ^Wrap^
+^====^====^====^====
+_f_ ford  _s_ splice
+_b_ back  _r_ rewarp
+_p_ in    _l_ slurp
+_n_ out   _a_ barf"
   ("f" sp-forward-sexp)
   ("P" sp-down-sexp)
   ("N" sp-backward-up-sexp)
@@ -139,16 +164,10 @@ _n_ out   _d_ ford   _a_ barf
   ("n" sp-up-sexp)
   ("<down>" sp-next-sexp)
   ("<up>" sp-previous-sexp)
-  ("e" eval-last-sexp :exit t)
   ("s" sp-splice-sexp :exit t)
   ("r" sp-rewrap-sexp :exit t)
   ("l" sp-slurp-hybrid-sexp)
   ("a" sp-forward-barf-sexp)
-  ("i" change-inner :exit t)
-  ("o" change-outer :exit t)
-  ("k" sp-kill-hybrid-sexp :exit t)
-  ("d" sp-kill-sexp)
-  ("D" sp-backward-kill-sexp)
   ("q" nil))
 
 ;; git
@@ -217,12 +236,19 @@ _m_ man"
   ("m" helm-man-woman))
 
 ;; tag
-(defhydra hydra-tag ()
-  "tag"
-  ("." helm-etags+-select "helm-etags" :exit t)
-  ("/" helm-etags+-history "etags history")
-  ("," helm-etags+-history-go-back "etags history go back")
-  (">" find-tag "tag"))
+(defhydra hydra-tag (:hint nil :idle 1.5)
+  "
+^Helm^    ^Dump^    ^Emacs^
+^====^====^====^====^=====^=
+_._ ford  _f_ ford  _>_ ford
+_,_ back  _b_ back
+_/_ hist"
+  ("." helm-etags+-select :exit t)
+  ("f" dumb-jump-go :exit t)
+  ("b" dumb-jump-back)
+  ("/" helm-etags+-history)
+  ("," helm-etags+-history-go-back)
+  (">" find-tag :exit t))
 
 ;; transpose
 (defhydra hydra-transpose (:idle 1.5)
@@ -238,8 +264,6 @@ _m_ man"
   ("c" subword-capitalize "captial")
   ("u" subword-upcase "upcase")
   ("l" subword-downcase "downcase")
-  ("b" backward-word "backword")
-  ("f" forward-word "forward")
   ("q" nil))
 
 ;; region
@@ -332,7 +356,10 @@ _c_ create"
 ^Irony^
 ---------
 _i_ install"
-  ("i" irony-install-server))
+  ("i" irony-install-server)
+  ("a" beginning-of-defun :exit nil)
+  ("e" end-of-defun :exit nil)
+  ("h" mark-defun))
 
 (provide 'my-hydra)
 ;;; my-hydra.el ends here

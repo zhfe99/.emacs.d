@@ -40,5 +40,7 @@
   (add-hook 'c-mode-common-hook 'turn-on-ctags-auto-update-mode)
   (setq ctags-update-delay-seconds (* 1 60)))
 
+(setq dumb-jump-selector 'ivy)
+
 (provide 'my-tag)
 ;;; my-tag.el ends here

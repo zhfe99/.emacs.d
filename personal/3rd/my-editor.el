@@ -12,6 +12,9 @@
 ;; turn-off guru warning
 (setq prelude-guru nil)
 
+;; turn-off whilespace cleanup
+(setq prelude-clean-whitespace-on-save nil)
+
 ;; ace-mode
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)
@@ -83,6 +86,17 @@
         ((equal major-mode 'org-mode) (org-narrow-to-subtree))
         (t (error "Please select a region to narrow to"))))
 
+(defun window-half-height ()
+  (max 1 (/ (1- (window-height (selected-window))) 2)))
+
+(defun my-scroll-down-half ()
+  (interactive)
+  (next-line (window-half-height)))
+
+(defun my-scroll-up-half ()
+  (interactive)
+  (previous-line (window-half-height)))
+
 ;; use multiple-cursor
 (use-package multiple-cursors
   :ensure t)
@@ -116,6 +130,22 @@
 (use-package fasd
   :load-path "site-lisp/emacs-fasd/")
 (global-fasd-mode 1)
+
+;; copy a selected line
+(defun my-avy-copy-line (arg)
+  "Copy a selected line."
+  (interactive "p")
+  (let ((initial-window (selected-window)))
+    (avy-with avy-copy-line
+      (let* ((start (avy--line))
+             (str (buffer-substring-no-properties
+                   start
+                   (save-excursion
+                     (goto-char start)
+                     (move-end-of-line arg)
+                     (point)))))
+        (kill-new str)
+        (select-window initial-window)))))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

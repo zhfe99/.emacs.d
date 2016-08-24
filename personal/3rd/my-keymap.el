@@ -44,20 +44,22 @@
 
 ;; M-
 ;; the following keys are available
-;; q, y, r
-;; a, h, k, l
+;; e, y, r
+;; a, h, l
 ;; z, , /
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-'") 'repeat)
 (global-set-key (kbd "M-t") 'hydra-term/body)
+(global-set-key (kbd "M-y") 'hydra-yank/body)
 (global-set-key (kbd "M-i") 'hydra-info/body)
 (global-set-key (kbd "M-o") 'hydra-buffer/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-j") 'hydra-jump/body)
-(global-set-key (kbd "M-e") 'hydra-edit/body)
+(global-set-key (kbd "M-k") 'hydra-kill/body)
+(global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 
 ;; dired-mode
@@ -110,9 +112,13 @@
 ;; c-mode
 (define-key c++-mode-map (kbd "M-j") 'hydra-jump/body)
 (define-key c-mode-map (kbd "M-j") 'hydra-jump/body)
-(define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
+(define-key c++-mode-map (kbd "M-q") 'hydra-toggle/body)
+(define-key c-mode-map (kbd "M-q") 'hydra-toggle/body)
+(define-key c++-mode-map (kbd "M-e") nil)
+(define-key c-mode-map (kbd "M-e") nil)
 (define-key c-mode-map (kbd "M-m") 'hydra-c/body)
 (define-key c++-mode-map (kbd "M-m") 'hydra-c/body)
+(define-key protobuf-mode-map (kbd "M-j") 'hydra-jump/body)
 
 ;; flyspell-mode
 (define-key flyspell-mode-map (kbd "C-.") nil)
