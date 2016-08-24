@@ -93,8 +93,8 @@
     (term-send-raw-string "\C-l")
     (sleep-for 0.5)
     (save-excursion
-      (goto-char (point-min))
-      (setq prompt (buffer-substring-no-properties 1 (- (line-end-position) 1)))
+      (goto-char (window-start))
+      (setq prompt (buffer-substring-no-properties (window-start) (- (line-end-position) 1)))
       (setq pos (string-match " (" prompt))
       (substring prompt 0 pos))))
 
