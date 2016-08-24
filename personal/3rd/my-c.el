@@ -50,12 +50,17 @@
             (setq c-basic-offset 2)
             (git-gutter+-mode)))
 
+;; company
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony-c-headers))
 
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'objc-mode-hook 'irony-mode)
+
+(setq company-idle-delay 0.1)
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
