@@ -9,12 +9,6 @@
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
 
-;; turn-off guru warning
-(setq prelude-guru nil)
-
-;; turn-off whilespace cleanup
-(setq prelude-clean-whitespace-on-save nil)
-
 ;; ace-mode
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)
@@ -86,6 +80,17 @@
         ((equal major-mode 'org-mode) (org-narrow-to-subtree))
         (t (error "Please select a region to narrow to"))))
 
+;; Type M-y after C-y to activate counsel-yank-pop
+(advise-commands "indent" (yank counsel-yank-pop) after
+                 "If current mode is one of `prelude-yank-indent-modes',
+indent yanked text (with prefix arg don't indent)."
+                 (if (and (not (ad-get-arg 0))
+                          (not (member major-mode prelude-indent-sensitive-modes))
+                          (or (derived-mode-p 'prog-mode)
+                              (member major-mode prelude-yank-indent-modes)))
+                     (let ((transient-mark-mode nil))
+                       (yank-advised-indent-function (region-beginning) (region-end)))))
+
 (defun window-half-height ()
   (max 1 (/ (1- (window-height (selected-window))) 2)))
 
@@ -146,6 +151,23 @@
                      (point)))))
         (kill-new str)
         (select-window initial-window)))))
+
+(setq initial-buffer-choice (lambda ()
+                              (org-agenda-list 1)
+                              (get-buffer "*Org Agenda(a)*")))
+
+;; http://emacs.stackexchange.com/questions/18716/why-does-multiple-cursors-use-the-same-char-for-all-cursors-with-zap-to-char-but/18880#18880
+(defun mc-friendly/zap-up-to-char (arg char)
+  (interactive (list (prefix-numeric-value current-prefix-arg)
+                     (read-char "Zap up to char: " t)))
+  (let ((direction (if (>= arg 0) 1 -1)))
+    (kill-region (point)
+                 (progn
+                   (forward-char direction)
+                   (unwind-protect
+                       (search-forward (char-to-string char) nil nil arg)
+                     (backward-char direction))
+                   (point)))))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

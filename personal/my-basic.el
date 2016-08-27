@@ -7,7 +7,6 @@
 
 ;; enable prelude sub-modules
 (require 'prelude-company)
-(require 'prelude-key-chord)
 (require 'prelude-ido)
 (require 'prelude-helm)
 (require 'prelude-programming)
