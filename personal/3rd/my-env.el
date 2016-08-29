@@ -19,18 +19,19 @@
 (setq whitespace-line-column 80000)
 (setq doc-view-resolution 800)
 (fringe-mode '(4 . 0))
-;; (desktop-save-mode 1)
 (setq ediff-split-window-function 'split-window-horizontally)
+
+;; open todo-list at startup
+(setq initial-buffer-choice (lambda ()
+                              (org-agenda-list 1)
+                              (org-todo-list)
+                              (get-buffer "*Org Agenda(t)*")))
 
 ;; font
 (setq-default line-spacing 0.1)
 (condition-case err
     (set-default-font "Hack 14")
   (error (message "%s" (error-message-string err))))
-
-;; font used before
-;; (set-default-font "Monaco 13")
-;; (set-default-font "Source Code Pro 14")
 
 ;; environment variables
 (setenv "PATH"

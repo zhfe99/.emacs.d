@@ -98,13 +98,30 @@
       (setq pos (string-match " (" prompt))
       (substring prompt 0 pos))))
 
-;; Rename term
-(defun my-term-rename-as-prompt ()
-  "Rename term as prompt."
-  (interactive)
+(defun my-term-parse-prompt (prompt level)
+  "Parse prompt"
+  (cond
+   ((eq level 0) prompt)
+   ((eq level 1) (substring prompt 0
+                            (string-match " " prompt)))))
+
+(defun my-term-rename-as-prompt-level (level)
+  "Rename term as prompt."  
   (let (prompt)
     (setq prompt (my-term-get-prompt))
-    (rename-buffer (format "*%s*" prompt))))
+    (rename-buffer (format "*%s*"
+                           (my-term-parse-prompt prompt level)))))
+
+;; Rename term
+(defun my-term-rename-as-prompt-level-0 ()
+  "Rename term as prompt."
+  (interactive)
+  (my-term-rename-as-prompt-level 0))
+
+(defun my-term-rename-as-prompt-level-1 ()
+  "Rename term as prompt."
+  (interactive)
+  (my-term-rename-as-prompt-level 1))
 
 ;;======================
 ;; Open term list in ivy
@@ -117,7 +134,6 @@
       (switch-to-buffer buffer))
     )
   )
-
 
 (defun my-ivy-term-goto ()
   "Open term list in ivy"

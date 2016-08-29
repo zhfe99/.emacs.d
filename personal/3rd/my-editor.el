@@ -116,6 +116,12 @@ indent yanked text (with prefix arg don't indent)."
   (interactive)
   (while (sp-up-sexp) nil))
 
+;; loop sp-up-sexp until the end
+(defun my-sp-backward-up-sexp-loop (&optional arg interactive)
+  "Move forward out of one level of parentheses."
+  (interactive)
+  (while (sp-backward-up-sexp) nil))
+
 ;; use auto-save
 ;; follow http://www.jianshu.com/p/998ceaf522d1
 (require 'auto-save)
@@ -151,10 +157,6 @@ indent yanked text (with prefix arg don't indent)."
                      (point)))))
         (kill-new str)
         (select-window initial-window)))))
-
-(setq initial-buffer-choice (lambda ()
-                              (org-agenda-list 1)
-                              (get-buffer "*Org Agenda(a)*")))
 
 ;; http://emacs.stackexchange.com/questions/18716/why-does-multiple-cursors-use-the-same-char-for-all-cursors-with-zap-to-char-but/18880#18880
 (defun mc-friendly/zap-up-to-char (arg char)

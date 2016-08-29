@@ -29,6 +29,8 @@
 ;; C-
 ;; The following keys are still available:
 ;; q
+;; ; '
+;; , 
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
@@ -91,6 +93,7 @@
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "<f2>") 'org-todo-list)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
+(define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'magit-status-fullscreen)
 

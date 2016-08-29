@@ -58,18 +58,18 @@ _s_ save    _o_ open     _c_ capture
 _k_ kill    _f_ project  
 _b_ bury    _z_ reveal   
 _r_ revert  _d_ dired
-_u_ dupe    _p_ machine"  
-  ("d" counsel-goto-recent-directory)
-  ("f" find-file-in-project)
-  ("o" counsel-find-file)
+_u_ dupe    _m_ machine"  
   ("s" save-buffer)
+  ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" revert-buffer-no-confirm)
-  ("k" kill-this-buffer)
-  ("c" org-capture)
+  ("o" counsel-find-file)
+  ("f" find-file-in-project)
+  ("z" reveal-in-osx-finder)
+  ("d" counsel-goto-recent-directory)
   ("u" ace-duplicate-current-buffer-in-other-window)
-  ("p" my-switch-to-current-on-server-or-local)
-  ("z" reveal-in-osx-finder))
+  ("m" my-switch-to-current-on-server-or-local)
+  ("c" org-capture))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
@@ -123,31 +123,28 @@ _l_ line"
 ;; smartparens
 (defhydra hydra-sp (:color pink :hint nil :idle 1.5)
   "
-^Move^    ^Wrap^      ^Kill^
-^====^====^====^======^======^=
-_f_ ford  _s_ splice  _k_ kill
-_b_ back  _r_ rewarp  _d_ ford 
-_p_ in    _l_ slurp   _D_ back 
-_n_ out   _a_ barf    _i_ inner
-^^        ^^          _o_ outer"
+^Move^    ^Out^      ^Wrap^      ^Kill^
+^====^====^===^======^====^======^====^===
+_f_ ford  _,_ left   _s_ splice  _k_ kill
+_b_ back  _._ right  _r_ rewarp  _d_ ford 
+^^        _>_ end    _l_ slurp   _D_ back 
+^^        _<_ left   _a_ barf    _i_ inner
+^^        ^^         ^^          _o_ outer"
   ("f" sp-forward-sexp)
-  ("P" sp-down-sexp)
-  ("N" sp-backward-up-sexp)
-  ("M-n" my-sp-up-sexp-loop)
-  ("b" sp-backward-sexp)
-  ("p" sp-backward-down-sexp)
-  ("n" sp-up-sexp)
-  ("<down>" sp-next-sexp)
-  ("<up>" sp-previous-sexp)
+  ("b" sp-backward-sexp)  
+  ("," sp-backward-up-sexp)
+  ("." sp-up-sexp)
+  ("<" my-sp-backward-up-sexp-loop)
+  (">" my-sp-up-sexp-loop)
   ("s" sp-splice-sexp :exit t)
   ("r" sp-rewrap-sexp :exit t)
   ("l" sp-slurp-hybrid-sexp)
   ("a" sp-forward-barf-sexp)
-  ("i" change-inner)
-  ("o" change-outer)
-  ("k" sp-kill-hybrid-sexp)
-  ("d" sp-kill-sexp)
-  ("D" sp-backward-kill-sexp)  
+  ("i" change-inner :exit t)
+  ("o" change-outer :exit t)
+  ("k" sp-kill-hybrid-sexp :exit t)
+  ("d" sp-kill-sexp :exit t)
+  ("D" sp-backward-kill-sexp :exit t)  
   ("q" nil))
 
 ;; git
@@ -191,10 +188,10 @@ _,_ prev  _<_ prev  _a_ head  _m_ mark
 ;; term
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
-^Select^  ^Mode^      ^History^  ^Misc^
-^======^==^====^======^=======^==^====^
-_t_ menu  _m_ matlab  _h_ zsh    _r_ rename
-_n_ next  _e_ eshell  _H_ bash
+^Select^  ^Mode^      ^History^  ^Rename^
+^======^==^====^======^=======^==^======^=====
+_t_ menu  _m_ matlab  _h_ zsh    _r_ w/o place
+_n_ next  _e_ eshell  _H_ bash   _R_ w/ place
 _p_ prev  _M-t_ new"
   ("t" my-ivy-term-goto)
   ("M-t" multi-term)
@@ -203,7 +200,8 @@ _p_ prev  _M-t_ new"
   ("m" matlab-shell)
   ("e" eshell)
   ("M-t" multi-term)
-  ("r" my-term-rename-as-prompt)
+  ("r" my-term-rename-as-prompt-level-1)
+  ("R" my-term-rename-as-prompt-level-0)
   ("h" counsel-yank-zsh-history)
   ("H" counsel-yank-bash-history))
 
