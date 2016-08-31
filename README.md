@@ -15,11 +15,6 @@ between different softwares and reducing the distraction from other
 sources of information. Within Emacs, you can develop your favorite
 work-flow and stick to the same key shortcuts for different tasks.
 
-# Emacs Version
-I recommend to use the Emacs version from
-[Railwaycat's Port](https://github.com/railwaycat/emacs-mac-port),
-which provides a native GUI support for latest Mac OSX.
-
 # Installation
 `git clone --recursive https://github.com/zhfe99/.emacs.d ~/.emacs.d`
 
