@@ -22,10 +22,11 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; open todo-list at startup
-(setq initial-buffer-choice (lambda ()
+(when (string-equal system-type "darwin")
+  (setq initial-buffer-choice (lambda ()
                               (org-agenda-list 1)
                               (org-todo-list)
-                              (get-buffer "*Org Agenda(t)*")))
+                              (get-buffer "*Org Agenda(t)*"))))
 
 ;; font
 (setq-default line-spacing 0.1)
