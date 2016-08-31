@@ -171,5 +171,12 @@ indent yanked text (with prefix arg don't indent)."
                      (backward-char direction))
                    (point)))))
 
+;; save buffer with whitespace cleanup
+(defun my-save-buffer ()
+  "Save buffer with whitespace cleanup."
+  (interactive)
+  (whitespace-cleanup)
+  (save-buffer))
+
 (provide 'my-editor)
 ;;; my-editor.el ends here

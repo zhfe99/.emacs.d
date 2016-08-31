@@ -52,18 +52,17 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
 ;; open
 (defhydra hydra-open (:color blue :hint nil :idle 1.5)
   "
-^Buffer^    ^File^       ^Org^      
+^Buffer^    ^File^       ^Org^
 ^======^====^====^=======^===^======
-_s_ save    _o_ open     _c_ capture           
-_k_ kill    _f_ project  
-_b_ bury    _z_ reveal   
-_r_ revert  _d_ dired
-_u_ dupe    _m_ machine"  
-  ("s" save-buffer)
+_s_ save    _f_ project  _c_ capture
+_k_ kill    _z_ reveal
+_b_ bury    _d_ dired
+_r_ revert  _m_ machine
+_u_ dupe"
+  ("s" my-save-buffer)
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" revert-buffer-no-confirm)
-  ("o" counsel-find-file)
   ("f" find-file-in-project)
   ("z" reveal-in-osx-finder)
   ("d" counsel-goto-recent-directory)
@@ -87,7 +86,7 @@ _l_ line  _V_ up    _I_ my    _B_ set     _'_ pop"
   ("b" bookmark-jump)
   ("B" bookmark-set)
   ("v" my-scroll-down-half :exit nil)
-  ("V" my-scroll-up-half :exit nil)  
+  ("V" my-scroll-up-half :exit nil)
   ("q" nil))
 
 ;; toggle
@@ -115,7 +114,7 @@ _w_ space   ^^         ^^        _e_ ediff"
 ^====^=====^====^=
 _t_ date
 _l_ line"
-  ("t" my-insert-current-date)  
+  ("t" my-insert-current-date)
   ("l" my-avy-copy-line)
   ("o" crux-smart-open-line)
   ("O" crux-smart-open-line-above))
@@ -126,12 +125,12 @@ _l_ line"
 ^Move^    ^Out^      ^Wrap^      ^Kill^
 ^====^====^===^======^====^======^====^===
 _f_ ford  _,_ left   _s_ splice  _k_ kill
-_b_ back  _._ right  _r_ rewarp  _d_ ford 
-^^        _>_ end    _l_ slurp   _D_ back 
+_b_ back  _._ right  _r_ rewarp  _d_ ford
+^^        _>_ end    _l_ slurp   _D_ back
 ^^        _<_ left   _a_ barf    _i_ inner
 ^^        ^^         ^^          _o_ outer"
   ("f" sp-forward-sexp)
-  ("b" sp-backward-sexp)  
+  ("b" sp-backward-sexp)
   ("," sp-backward-up-sexp)
   ("." sp-up-sexp)
   ("<" my-sp-backward-up-sexp-loop)
@@ -144,7 +143,7 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
   ("o" change-outer :exit t)
   ("k" sp-kill-hybrid-sexp :exit t)
   ("d" sp-kill-sexp :exit t)
-  ("D" sp-backward-kill-sexp :exit t)  
+  ("D" sp-backward-kill-sexp :exit t)
   ("q" nil))
 
 ;; git
@@ -233,7 +232,7 @@ _/_ hist"
 ^======^====^======^====^===^======^======^====^=====^====
 _=_ expand  _s_ swoop  _g_ google  _n_ narrow  _a_ comment
 _-_ shrink  _m_ mark   _b_ bing
-_._ next    _r_ all    
+_._ next    _r_ all
 _,_ prev    _l_ line
 _>_ snext
 _<_ sprev"
@@ -242,7 +241,7 @@ _<_ sprev"
   ("-" er/contract-region)
   ("g" prelude-google :exit t)
   ("b" prelude-bing :exit t)
-  ("s" helm-swoop :exit t)  
+  ("s" helm-swoop :exit t)
   ("." mc/mark-next-like-this)
   (">" mc/skip-to-next-like-this)
   ("," mc/mark-previous-like-this)
