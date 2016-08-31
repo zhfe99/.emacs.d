@@ -28,6 +28,7 @@
 
 ;; C-
 ;; The following keys are still available:
+;; -
 ;; q
 ;; ; '
 ;; , 
@@ -42,7 +43,7 @@
 (global-set-key (kbd "C-t") 'hydra-transpose/body)
 (global-set-key (kbd "C-o") 'hydra-window/body)
 (global-set-key (kbd "C-x o") 'ace-window)
-(global-set-key (kbd "C-.") 'hydra-mc/body)
+(global-set-key (kbd "C-.") 'dired-jump)
 (global-set-key (kbd "\e[46;5~") 'hydra-mc/body) ; C-. in iterm2
 (global-set-key (kbd "C-=") 'hydra-region/body)
 (global-set-key (kbd "\e[46;3~") 'hydra-region/body) ; C-= in iterm2
@@ -51,7 +52,7 @@
 ;; The following keys are still available:
 ;; =
 ;; r [ ]
-;; l
+;;
 ;;
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
@@ -60,13 +61,14 @@
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "M-t") 'hydra-term/body)
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
-(global-set-key (kbd "M-H") 'counsel-goto-recent-directory)
-(global-set-key (kbd "M-o") 'hydra-open/body)
+(global-set-key (kbd "M-o") 'counsel-find-file)
+(global-set-key (kbd "M-l") 'hydra-open/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-s") 'hydra-sp/body)
 (global-set-key (kbd "M-i") 'hydra-jump/body)
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
+(global-set-key (kbd "M-J") 'avy-goto-line)
 (global-set-key (kbd "M-.") 'helm-etags+-select)
 (global-set-key (kbd "M-,") 'helm-etags+-history-go-back)
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)

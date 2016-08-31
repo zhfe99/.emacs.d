@@ -41,7 +41,7 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("3" split-window-right-and-move-there-dammit)
   ("4" my-save-window-conf-1 :exit t)
   ("5" my-goto-window-conf-1 :exit t)
-  ("b" balance-windows)
+  ("b" balance-windows :exit t)
   ("=" text-scale-increase)
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
@@ -167,24 +167,6 @@ _g_ magit  _i_ menu  _s_ stage
   ("t" git-timemachine :exit t)
   ("a" git-gutter+-stage-and-commit-whole-buffer))
 
-;; multiple-cursors
-(defhydra hydra-mc (:hint nil :idle 1.5)
-  "
-^Select^  ^Skip^     ^Line^   ^Multi^
-^======^==^====^=====^====^===^=====^=
-_._ next  _>_ next  _l_ line  _r_ all
-_,_ prev  _<_ prev  _a_ head  _m_ mark
-^^        ^^        _e_ tail"
-  ("." mc/mark-next-like-this)
-  (">" mc/skip-to-next-like-this)
-  ("," mc/mark-previous-like-this)
-  ("<" mc/skip-to-previous-like-this)
-  ("a" mc/edit-beginnings-of-lines :exit t)
-  ("e" mc/edit-ends-of-lines :exit t)
-  ("l" mc/edit-lines :exit t)
-  ("r" mc/mark-all-in-region :exit t)
-  ("m" mc/mark-all-like-this :exit t))
-
 ;; term
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
@@ -245,19 +227,30 @@ _/_ hist"
   ("q" nil))
 
 ;; region
-(defhydra hydra-region (:idle 1.5)
+(defhydra hydra-region (:hint nil :idle 1.5)
   "
 ^Select^    ^Search^    ^Web^      ^Narrow^    ^Align^
-^=====^================^======^====^======^====^=====^====
+^======^====^======^====^===^======^======^====^=====^====
 _=_ expand  _s_ swoop  _g_ google  _n_ narrow  _a_ comment
-_-_ shrink             _b_ bing"
-  ("a" my-align-comment "align-comment" :exit t)
-  ("=" er/expand-region "expand")
-  ("-" er/contract-region "contract")
-  ("g" prelude-google "google" :exit t)
-  ("b" prelude-bing "bing" :exit t)
-  ("s" helm-swoop "swoop" :exit t)  
-  ("n" my-narrow-or-widen-dwim "narrow"))
+_-_ shrink  _m_ mark   _b_ bing
+_._ next    _r_ all    
+_,_ prev    _l_ line
+_>_ snext
+_<_ sprev"
+  ("a" my-align-comment :exit t)
+  ("=" er/expand-region)
+  ("-" er/contract-region)
+  ("g" prelude-google :exit t)
+  ("b" prelude-bing :exit t)
+  ("s" helm-swoop :exit t)  
+  ("." mc/mark-next-like-this)
+  (">" mc/skip-to-next-like-this)
+  ("," mc/mark-previous-like-this)
+  ("<" mc/skip-to-previous-like-this)
+  ("n" my-narrow-or-widen-dwim)
+  ("l" mc/edit-lines :exit t)
+  ("r" mc/mark-all-in-region :exit t)
+  ("m" mc/mark-all-like-this :exit t))
 
 ;; gdb
 (defhydra hydra-gdb (:color pink :hint nil)
