@@ -25,12 +25,6 @@
       (isearch-yank-string region))))
 (add-hook 'isearch-mode-hook #'jrh-isearch-with-region)
 
-;; revert buffer without confirmation
-(defun revert-buffer-no-confirm ()
-  "Revert buffer without confirmation."
-  (interactive)
-  (revert-buffer t t))
-
 ;; insert current date
 (defun my-insert-current-date()
   "Insert current date."
@@ -73,19 +67,6 @@ indent yanked text (with prefix arg don't indent)."
                               (member major-mode prelude-yank-indent-modes)))
                      (let ((transient-mark-mode nil))
                        (yank-advised-indent-function (region-beginning) (region-end)))))
-
-;; use auto-save
-;; follow http://www.jianshu.com/p/998ceaf522d1
-(require 'auto-save)
-(auto-save-enable)
-(setq auto-save-slient t)
-
-;; save buffer with whitespace cleanup
-(defun my-save-buffer ()
-  "Save buffer with whitespace cleanup."
-  (interactive)
-  (whitespace-cleanup)
-  (save-buffer))
 
 (use-package reveal-in-osx-finder
   :if (string-equal system-type "darwin"))

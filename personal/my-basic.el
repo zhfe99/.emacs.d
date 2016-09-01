@@ -78,6 +78,7 @@
 (require 'my-tag)
 (require 'my-company)
 (require 'my-window)
+(require 'my-buffer)
 (require 'my-tramp)
 (require 'my-matlab)
 (require 'my-python)
@@ -93,8 +94,6 @@
 (require 'my-git)
 (require 'my-dired)
 (require 'my-info)
-
-(require 'my-ibuffer)
 (require 'my-hydra)
 (require 'my-keymap)
 

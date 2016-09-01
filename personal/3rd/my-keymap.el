@@ -31,7 +31,7 @@
 ;; -
 ;; q
 ;; ; '
-;; , 
+;; ,
 ;; Some of the key might not be available in terminal
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
@@ -65,12 +65,12 @@
 (global-set-key (kbd "M-l") 'hydra-open/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
-(global-set-key (kbd "M-s") 'hydra-sp/body)
+(global-set-key (kbd "M-a") 'hydra-sp/body)
+(global-set-key (kbd "M-s") 'my-save-buffer)
 (global-set-key (kbd "M-i") 'hydra-jump/body)
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
 (global-set-key (kbd "M-J") 'avy-goto-line)
-(global-set-key (kbd "M-.") 'helm-etags+-select)
-(global-set-key (kbd "M-,") 'helm-etags+-history-go-back)
+(global-set-key (kbd "M-.") 'hydra-tag/body)
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "M-m") 'iy-go-up-to-char)
@@ -90,7 +90,7 @@
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
-(define-key dired-mode-map "J" 'dired-up-directory)
+(define-key dired-mode-map "." 'dired-up-directory)
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map (kbd "<f1>") 'org-agenda-list)
 (define-key dired-mode-map (kbd "<f2>") 'org-todo-list)
@@ -98,9 +98,10 @@
 (define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'magit-status-fullscreen)
+(define-key dired-mode-map (kbd "M-l") 'hydra-open/body)
 
 ;; org-mode
-(define-key org-mode-map (kbd "M-a") 'hydra-org/body)
+(define-key org-mode-map (kbd "M-,") 'hydra-org/body)
 (define-key org-mode-map (kbd "M-h") 'ivy-switch-buffer)
 (define-key org-mode-map (kbd "<S-up>") 'windmove-up)
 (define-key org-mode-map (kbd "<S-down>") 'windmove-down)
@@ -110,21 +111,21 @@
 (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
 (add-hook 'org-agenda-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-a") 'hydra-org/body)))
+            (local-set-key (kbd "M-,") 'hydra-org/body)))
 
 ;; lisp-mode
-(define-key lisp-mode-map (kbd "M-a") 'hydra-lisp/body)
-(define-key emacs-lisp-mode-map (kbd "M-a") 'hydra-lisp/body)
+(define-key lisp-mode-map (kbd "M-,") 'hydra-lisp/body)
+(define-key emacs-lisp-mode-map (kbd "M-,") 'hydra-lisp/body)
 
 ;; sh-mode
 (with-eval-after-load "sh-mode"
-  (define-key sh-mode-map (kbd "M-a") 'hydra-sh/body))
+  (define-key sh-mode-map (kbd "M-,") 'hydra-sh/body))
 
 ;; python-mode
-(define-key python-mode-map (kbd "M-a") 'hydra-python/body)
+(define-key python-mode-map (kbd "M-,") 'hydra-python/body)
 
 ;; elpy
-(with-eval-after-load "elpy"  
+(with-eval-after-load "elpy"
   (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
   (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
   (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
@@ -137,8 +138,10 @@
 (define-key c-mode-map (kbd "M-j") 'nil)
 (define-key c++-mode-map (kbd "M-e") nil)
 (define-key c-mode-map (kbd "M-e") nil)
-(define-key c++-mode-map (kbd "M-a") 'hydra-c/body)
-(define-key c-mode-map (kbd "M-a") 'hydra-c/body)
+(define-key c++-mode-map (kbd "M-a") 'hydra-sp/body)
+(define-key c-mode-map (kbd "M-a") 'hydra-sp/body)
+(define-key c++-mode-map (kbd "M-,") 'hydra-c/body)
+(define-key c-mode-map (kbd "M-,") 'hydra-c/body)
 (define-key c++-mode-map (kbd "M-q") nil)
 (define-key c-mode-map (kbd "M-q") nil)
 (define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)

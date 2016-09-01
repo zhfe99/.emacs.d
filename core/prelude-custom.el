@@ -48,7 +48,7 @@
   :type 'boolean
   :group 'prelude)
 
-(defcustom prelude-whitespace nil
+(defcustom prelude-whitespace t
   "Non-nil values enable Prelude's whitespace visualization."
   :type 'boolean
   :group 'prelude)

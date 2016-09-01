@@ -58,7 +58,6 @@ IF OPEN-ANOTHER-WINDOW is true, open the file in another window."
     (setq collection (split-string (shell-command-to-string (format git-cmd keyword))
                                    "\n"
                                    t))
-
     (when (and collection (> (length collection) 0))
       (setq val (if (= 1 (length collection)) (car collection)
                     (ivy-read (format " matching \"%s\":" keyword) collection)))
@@ -192,7 +191,7 @@ Or else, find files since 24 weeks (6 months) ago."
                         (bookmark-jump bookmark)))))
 
 ;; https://github.com/abo-abo/swiper/issues/256
-(require 'ivy_buffer_extend)
+;; (require 'ivy_buffer_extend)
 
 (provide 'my-ivy)
 ;;; my-dired.el ends here

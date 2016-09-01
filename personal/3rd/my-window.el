@@ -77,29 +77,6 @@
   (interactive)
   (jump-to-register 4))
 
-(require 'ace-window)
-(defun ace-duplicate-other-buffer-in-current-window ()
-  "Open other buffer in current window."
-  (interactive)
-  (let ((start-win (selected-window))
-        (buf (current-buffer))
-        (win (aw-select " Ace Buffer: ")))
-    (progn
-      (aw-switch-to-window win)
-      (setq buf (buffer-name))
-      (message buf)
-      (aw-switch-to-window start-win)
-      (switch-to-buffer buf))))
-
-(defun ace-duplicate-current-buffer-in-other-window ()
-  "Open current buffer in other window."
-  (interactive)
-  (let ((buf (current-buffer))
-        (win (aw-select " Ace Buffer: ")))
-    (progn
-      (aw-switch-to-window win)
-      (switch-to-buffer buf))))
-
 (defun my-move-splitter-left (arg)
   "Move window splitter left."
   (interactive "p")

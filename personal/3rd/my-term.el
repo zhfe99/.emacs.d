@@ -106,7 +106,7 @@
                             (string-match " " prompt)))))
 
 (defun my-term-rename-as-prompt-level (level)
-  "Rename term as prompt."  
+  "Rename term as prompt."
   (let (prompt)
     (setq prompt (my-term-get-prompt))
     (rename-buffer (format "*%s*"

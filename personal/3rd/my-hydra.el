@@ -52,23 +52,23 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
 ;; open
 (defhydra hydra-open (:color blue :hint nil :idle 1.5)
   "
-^Buffer^    ^File^       ^Org^
+^Buffer^    ^File^       ^Special^
 ^======^====^====^=======^===^======
-_s_ save    _f_ project  _c_ capture
-_k_ kill    _z_ reveal
-_b_ bury    _d_ dired
-_r_ revert  _m_ machine
-_u_ dupe"
-  ("s" my-save-buffer)
+_k_ kill    _f_ project  _c_ capture
+_b_ bury    _z_ reveal   _s_ scratch
+_r_ revert  _d_ dired
+_u_ dupe    _m_ machine"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
-  ("r" revert-buffer-no-confirm)
+  ("r" my-revert-buffer)
   ("f" find-file-in-project)
   ("z" reveal-in-osx-finder)
   ("d" counsel-goto-recent-directory)
-  ("u" ace-duplicate-current-buffer-in-other-window)
+  ("u" my-duplicate-current-buffer-in-ace-window)
+  ("U" my-duplicate-ace-buffer-in-current-window)
   ("m" my-switch-to-current-on-server-or-local)
-  ("c" org-capture))
+  ("c" org-capture)
+  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
@@ -195,19 +195,19 @@ _m_ man"
   ("m" helm-man-woman))
 
 ;; tag
-(defhydra hydra-tag (:hint nil :idle 1.5)
+(defhydra hydra-tag (:color blue :hint nil :idle 1.5)
   "
 ^Helm^    ^Dump^    ^Emacs^
 ^====^====^====^====^=====^=
 _._ ford  _f_ ford  _>_ ford
 _,_ back  _b_ back
 _/_ hist"
-  ("." helm-etags+-select :exit t)
-  ("f" dumb-jump-go :exit t)
-  ("b" dumb-jump-back)
-  ("/" helm-etags+-history)
+  ("." helm-etags+-select)
   ("," helm-etags+-history-go-back)
-  (">" find-tag :exit t))
+  ("/" helm-etags+-history)
+  ("f" dumb-jump-go)
+  ("b" dumb-jump-back)
+  (">" find-tag))
 
 ;; transpose
 (defhydra hydra-transpose (:idle 1.5)
@@ -275,15 +275,15 @@ _s_ step"
 ;; org
 (defhydra hydra-org (:color pink :hint nil :idle 1.5)
   "
-^Move^    ^Cross^   ^Head^        ^Change^    ^Open^     ^Link^
+^Move^    ^Cross^   ^Decorator^   ^Change^    ^Open^     ^Link^
 ^====^====^=====^===^====^========^======^====^====^=====^====^====
 _n_ next  _j_ next  _t_ todo      _←_ left    _o_ open   _y_ stored
 _p_ prev  _k_ prev  _w_ refile    _↓_ down    _O_ dired  _Y_ Chrome
-^^        _h_ up    _#_ tag       _↑_ up
+^^        _u_ up    _#_ tag       _↑_ up
 ^^        ^^        _,_ priority  _→_ right"
   ("j" outline-next-visible-heading)
   ("k" outline-previous-visible-heading)
-  ("h" outline-up-heading)
+  ("u" outline-up-heading)
   ("n" org-forward-heading-same-level)
   ("p" org-backward-heading-same-level)
   ("T" org-show-todo-tree)
@@ -293,8 +293,8 @@ _p_ prev  _k_ prev  _w_ refile    _↓_ down    _O_ dired  _Y_ Chrome
   ("w" org-refile)
   ("#" org-set-tags)
   ("," org-priority)
-  ("<left>" org-metaleft)
-  ("<right>" org-metaright)
+  ("<left>" org-shiftmetaleft)
+  ("<right>" org-shiftmetaright)
   ("<up>" org-metaup)
   ("<down>" org-metadown)
   ("o" org-open-at-point :exit t)
