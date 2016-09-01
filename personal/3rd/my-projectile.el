@@ -35,5 +35,12 @@
 ;; projectile: remote project will expire in 1 hour
 (setq projectile-file-exists-remote-cache-expire (* 60 60))
 
+;; clean up recentf & projectile projects
+(defun my-cleanup()
+  "Clean up."
+  (interactive)
+  (recentf-cleanup)
+  (projectile-cleanup-known-projects))
+
 (provide 'my-projectile)
 ;;; my-editor.el ends here

@@ -132,5 +132,20 @@
       (shrink-window arg)
     (enlarge-window arg)))
 
+(defun window-half-height ()
+  (max 1 (/ (1- (window-height (selected-window))) 2)))
+
+(defun my-scroll-down-half ()
+  (interactive)
+  (next-line (window-half-height)))
+
+(defun my-scroll-up-half ()
+  (interactive)
+  (previous-line (window-half-height)))
+
+;; smooth scroll
+(require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
+
 (provide 'my-window)
 ;;; my-window.el ends here

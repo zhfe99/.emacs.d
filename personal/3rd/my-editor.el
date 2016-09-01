@@ -5,19 +5,9 @@
 
 ;;; Code:
 
-;; smooth scroll
-(require 'smooth-scrolling)
-(setq smooth-scroll-margin 5)
-
 ;; ace-mode
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)
-
-;; use my own zenburn
-(use-package zenburn-theme
-  :load-path "site-lisp/zenburn-emacs/"
-  :config
-  (load-theme 'zenburn t))
 
 ;; turn-on which-function-mode
 ;; but turn-off it for cython (.pyx, .pyd) otherwise it will be extremely slow
@@ -57,13 +47,6 @@
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
 
-;; clean up recentf & projectile projects
-(defun my-cleanup()
-  "Clean up."
-  (interactive)
-  (recentf-cleanup)
-  (projectile-cleanup-known-projects))
-
 (global-flycheck-mode -1)
 ;; (require 'helm-flycheck)
 ;; (setq flycheck-display-errors-delay 0.9)
@@ -91,48 +74,21 @@ indent yanked text (with prefix arg don't indent)."
                      (let ((transient-mark-mode nil))
                        (yank-advised-indent-function (region-beginning) (region-end)))))
 
-(defun window-half-height ()
-  (max 1 (/ (1- (window-height (selected-window))) 2)))
-
-(defun my-scroll-down-half ()
-  (interactive)
-  (next-line (window-half-height)))
-
-(defun my-scroll-up-half ()
-  (interactive)
-  (previous-line (window-half-height)))
-
-;; use multiple-cursor
-(use-package multiple-cursors
-  :ensure t)
-
-;; multiple-cursor: map RET to get consistent behavior at the terminal
-;; https://github.com/magnars/multiple-cursors.el/pull/168
-(define-key mc/keymap (kbd "<RET>") 'multiple-cursors-mode)
-
-;; loop sp-up-sexp until the end
-(defun my-sp-up-sexp-loop (&optional arg interactive)
-  "Move forward out of one level of parentheses."
-  (interactive)
-  (while (sp-up-sexp) nil))
-
-;; loop sp-up-sexp until the end
-(defun my-sp-backward-up-sexp-loop (&optional arg interactive)
-  "Move forward out of one level of parentheses."
-  (interactive)
-  (while (sp-backward-up-sexp) nil))
-
 ;; use auto-save
 ;; follow http://www.jianshu.com/p/998ceaf522d1
 (require 'auto-save)
 (auto-save-enable)
 (setq auto-save-slient t)
 
+;; save buffer with whitespace cleanup
+(defun my-save-buffer ()
+  "Save buffer with whitespace cleanup."
+  (interactive)
+  (whitespace-cleanup)
+  (save-buffer))
+
 (use-package reveal-in-osx-finder
   :if (string-equal system-type "darwin"))
-
-(use-package change-inner
-  :ensure t)
 
 (use-package find-file-in-project
   :load-path "site-lisp/find-file-in-project/"
@@ -157,26 +113,6 @@ indent yanked text (with prefix arg don't indent)."
                      (point)))))
         (kill-new str)
         (select-window initial-window)))))
-
-;; http://emacs.stackexchange.com/questions/18716/why-does-multiple-cursors-use-the-same-char-for-all-cursors-with-zap-to-char-but/18880#18880
-(defun mc-friendly/zap-up-to-char (arg char)
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     (read-char "Zap up to char: " t)))
-  (let ((direction (if (>= arg 0) 1 -1)))
-    (kill-region (point)
-                 (progn
-                   (forward-char direction)
-                   (unwind-protect
-                       (search-forward (char-to-string char) nil nil arg)
-                     (backward-char direction))
-                   (point)))))
-
-;; save buffer with whitespace cleanup
-(defun my-save-buffer ()
-  "Save buffer with whitespace cleanup."
-  (interactive)
-  (whitespace-cleanup)
-  (save-buffer))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

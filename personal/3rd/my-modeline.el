@@ -5,6 +5,12 @@
 
 ;;; Code:
 
+;; use my own zenburn
+(use-package zenburn-theme
+  :load-path "site-lisp/zenburn-emacs/"
+  :config
+  (load-theme 'zenburn t))
+
 (setq sml/theme 'respectful)
 (size-indication-mode -1)
 (setq sml/name-width 20)
