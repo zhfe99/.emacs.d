@@ -54,10 +54,11 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   "
 ^Buffer^    ^File^       ^Special^
 ^======^====^====^=======^===^======
-_k_ kill    _f_ project  _c_ capture
-_b_ bury    _z_ reveal   _s_ scratch
-_r_ revert  _d_ dired
-_u_ dupe    _m_ machine"
+_k_ kill    _f_ project  _ss_ scratch
+_b_ bury    _z_ reveal   _sc_ capture
+_r_ revert  _d_ dired    _sa_ agenda
+_u_ dupe    _m_ machine  _st_ todo
+_U_ dupe2   ^^           _si_ info"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
@@ -67,8 +68,11 @@ _u_ dupe    _m_ machine"
   ("u" my-duplicate-current-buffer-in-ace-window)
   ("U" my-duplicate-ace-buffer-in-current-window)
   ("m" my-switch-to-current-on-server-or-local)
-  ("c" org-capture)
-  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
+  ("sc" org-capture)
+  ("sa" org-agenda-list)
+  ("st" org-todo-list)
+  ("si" (lambda () (interactive) (find-file "~/code/mine/org/info.org")))
+  ("ss" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
@@ -169,11 +173,13 @@ _g_ magit  _i_ menu  _s_ stage
 ;; term
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
-^Select^  ^Mode^      ^History^  ^Rename^
-^======^==^====^======^=======^==^======^=====
-_t_ menu  _m_ matlab  _h_ zsh    _r_ w/o place
-_n_ next  _e_ eshell  _H_ bash   _R_ w/ place
+^Select^  ^Mode^      ^History^  ^Rename^      ^Mode^
+^======^==^====^======^=======^==^======^======^====^==
+_t_ menu  _m_ matlab  _h_ zsh    _r_ w/o place _l_ line
+_n_ next  _e_ eshell  _H_ bash   _R_ w/ place  _c_ char
 _p_ prev  _M-t_ new"
+  ("l" term-line-mode)
+  ("c" term-char-mode)
   ("t" my-ivy-term-goto)
   ("M-t" multi-term)
   ("n" multi-term-next)
@@ -228,15 +234,20 @@ _/_ hist"
 ;; region
 (defhydra hydra-region (:hint nil :idle 1.5)
   "
-^Select^    ^Search^    ^Web^      ^Narrow^    ^Align^
-^======^====^======^====^===^======^======^====^=====^====
-_=_ expand  _s_ swoop  _g_ google  _n_ narrow  _a_ comment
-_-_ shrink  _m_ mark   _b_ bing
-_._ next    _r_ all
-_,_ prev    _l_ line
-_>_ snext
-_<_ sprev"
+^Mark^      ^MC^       ^Search^    ^Other^
+^====^======^==^=======^======^====^=====^===
+_=_ expand  _._ next   _s_ swoop   _n_ narrow
+_-_ shrink  _,_ prev   _g_ google  _a_ align
+_p_ para    _>_ snext  _b_ bing
+_f_ defun   _<_ sprev
+_\"_ quote   _r_ all
+_(_ pair    _l_ line
+^^          _m_ mark"
   ("a" my-align-comment :exit t)
+  ("p" er/mark-paragraph :exit t)
+  ("f" er/mark-defun :exit t)
+  ("\"" er/mark-inside-quotes :exit t)
+  ("(" er/mark-inside-pairs :exit t)
   ("=" er/expand-region)
   ("-" er/contract-region)
   ("g" prelude-google :exit t)
