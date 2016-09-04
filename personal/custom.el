@@ -19,6 +19,7 @@
    (quote
     ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
  '(lua-default-application "th")
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(org-agenda-files (quote ("~/code/mine/org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))

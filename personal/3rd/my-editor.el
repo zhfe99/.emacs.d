@@ -32,6 +32,8 @@
   (let ((time-format "%Y-%m-%d"))
     (insert (format-time-string time-format (current-time)))))
 
+;; insert current file name
+
 ;; align function head comment
 (defun my-align-comment()
   "Align function head comment."
@@ -79,21 +81,9 @@ indent yanked text (with prefix arg don't indent)."
   :load-path "site-lisp/emacs-fasd/")
 (global-fasd-mode 1)
 
-;; copy a selected line
-(defun my-avy-copy-line (arg)
-  "Copy a selected line."
-  (interactive "p")
-  (let ((initial-window (selected-window)))
-    (avy-with avy-copy-line
-      (let* ((start (avy--line))
-             (str (buffer-substring-no-properties
-                   start
-                   (save-excursion
-                     (goto-char start)
-                     (move-end-of-line arg)
-                     (point)))))
-        (kill-new str)
-        (select-window initial-window)))))
+;; (use-package workgroups2
+;;   :load-path "site-lisp/workgroups2/src/")
+;; (workgroups-mode 1)
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

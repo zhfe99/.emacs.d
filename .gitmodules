@@ -13,3 +13,9 @@
 [submodule "site-lisp/emacs-fasd"]
 	path = site-lisp/emacs-fasd
 	url = ../emacs-fasd.git
+[submodule "site-lisp/emacs-counsel-gtags"]
+	path = site-lisp/emacs-counsel-gtags
+	url = git@github.com:zhfe99/emacs-counsel-gtags.git
+[submodule "site-lisp/workgroups2"]
+	path = site-lisp/workgroups2
+	url = git://github.com/pashinin/workgroups2.git
