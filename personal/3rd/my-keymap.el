@@ -78,10 +78,6 @@
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
-;; function key
-(global-set-key (kbd "<f1>") 'org-agenda-list)
-(global-set-key (kbd "<f2>") 'org-todo-list)
-
 ;; dired-mode
 (define-key dired-mode-map "E" 'ace-dired-find-file)
 (define-key dired-mode-map "o" 'crux-open-with)
