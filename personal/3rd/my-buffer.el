@@ -68,8 +68,9 @@
 (defun my-duplicate-current-buffer-in-ace-window ()
   "Open current buffer in other window."
   (interactive)
-  (aw-switch-to-window (aw-select " Ace Buffer: "))
-  (switch-to-buffer (current-buffer)))
+  (let (buf (current-buffer))
+    (aw-switch-to-window (aw-select " Ace Buffer: "))
+    (switch-to-buffer buf)))
 
 ;; use auto-save
 ;; follow http://www.jianshu.com/p/998ceaf522d1
