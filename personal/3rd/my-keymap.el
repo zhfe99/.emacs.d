@@ -33,6 +33,7 @@
 (global-set-key (kbd "C-1") 'delete-other-windows)
 (global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
 (global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
+(global-set-key (kbd "C-0") 'ace-delete-window)
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
@@ -54,7 +55,7 @@
 ;; The following keys are still available:
 ;; =
 ;; [ ]
-;;
+;; k
 ;;
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
@@ -62,11 +63,12 @@
 (global-set-key (kbd "M-e") 'hydra-edit/body)
 (global-set-key (kbd "M-r") 'hydra-region/body)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "M-u") 'counsel-projectile)
 (global-set-key (kbd "M-t") 'hydra-term/body)
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-o") 'counsel-find-file)
 (global-set-key (kbd "M-l") 'hydra-open/body)
-(global-set-key (kbd "M-k") 'hydra-special/body)
+(global-set-key (kbd "M-p") 'hydra-special/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-a") 'hydra-sp/body)
@@ -88,6 +90,7 @@
 (define-key dired-mode-map "o" 'crux-open-with)
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
+(define-key dired-mode-map "t" 'my-term-open-at-current-buffer)
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
@@ -95,6 +98,7 @@
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
+(define-key dired-mode-map (kbd "M-u") 'counsel-projectile)
 (define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
 (define-key dired-mode-map (kbd "M-g") 'magit-status-fullscreen)

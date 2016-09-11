@@ -23,7 +23,6 @@
  '(org-agenda-files (quote ("~/code/mine/org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(powerline-default-separator (quote slant))
- '(projectile-keymap-prefix (kbd "M-p"))
  '(projectile-tags-command "ctags -Re -f \"%s\" %s")
  '(safe-local-variable-values
    (quote
