@@ -85,6 +85,20 @@
                         nil))
                     (buffer-list))))
 
+;;===========================================================
+;; open a new term starting from the folder of current buffer
+(defun my-term-open-at-current-buffer ()
+  "Open a new term starting from the folder of current buffer"
+  (interactive)
+  (let ((current-dired default-directory))
+    (multi-term)
+    (sleep-for 0.5)
+    (term-send-raw-string (format "cd %s" current-dired))
+    (sleep-for 0.1)
+    (term-send-raw-string "\C-j")
+    (sleep-for 0.1)
+    (term-send-raw-string "\C-l")))
+
 ;;===========
 ;; Get prompt
 (defun my-term-get-prompt ()
@@ -131,9 +145,7 @@
     (setq win (get-buffer-window buffer))
     (if win
         (select-window win)
-      (switch-to-buffer buffer))
-    )
-  )
+      (switch-to-buffer buffer))))
 
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
@@ -141,7 +153,7 @@
   (let ((buffer-list (my-term-get-all-term-buffer))
         len)
     (setq len (length buffer-list))
-    (cond ((= 0 len) (multi-term-next))
+    (cond ((= 0 len) (my-term-open-at-current-buffer))
           ((= 1 len) (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
           (t (ivy-read "terms:"
                        buffer-list
