@@ -13,10 +13,9 @@
 ^=====^====^====^=====^========^=====^====^=====^=====^====^====^======
 _h_ left   _H_ left   _C-h_ left     _←_ left   _2_ below  _=_ increase
 _j_ down   _J_ down   _C-j_ down     _↓_ down   _3_ right  _-_ decrease
-_k_ up     _K_ up     _C-k_ up       _↑_ up     _u_ undo   _0_ default
-_l_ right  _L_ right  _C-l_ right    _→_ right  _r_ redo
-_o_ ace    _1_ other  _b_   balance  _s_ ace
-^^         _d_ ace"
+_k_ up     _K_ up     _C-k_ up       _↑_ up     ^^         _0_ default
+_l_ right  _L_ right  _C-l_ right    _→_ right
+           _1_ other  _b_   balance"
   ("h" windmove-left)
   ("j" windmove-down)
   ("k" windmove-up)
@@ -33,9 +32,6 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("J" my-push-window-down :exit t)
   ("K" my-push-window-up :exit t)
   ("L" my-push-window-right :exit t)
-  ("o" ace-select-window)
-  ("u" winner-undo)
-  ("r" winner-redo :exit t)
   ("1" delete-other-windows :exit t)
   ("2" split-window-below-and-move-there-dammit)
   ("3" split-window-right-and-move-there-dammit)
@@ -45,8 +41,6 @@ _o_ ace    _1_ other  _b_   balance  _s_ ace
   ("=" text-scale-increase)
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
-  ("s" (lambda () (interactive) (ace-window 4)) :exit t)
-  ("d" (lambda () (interactive) (ace-window 16)) :exit t)
   ("q" nil))
 
 ;; open
@@ -76,14 +70,16 @@ _U_ dupe2"
 ^===^=====^====^=======^=====^======^====^=====
 _i_ info  _a_ agenda   _s_ scratch  _d_ dynamic
 _r_ read  _t_ todo     _m_ message
-_p_ proj  _c_ capture"
+_p_ proj  _c_ capture  _l_ async"
   ("i" (lambda () (interactive) (find-file "~/code/mine/org/info.org")))
   ("r" (lambda () (interactive) (find-file "~/code/mine/org/read.org")))
   ("p" (lambda () (interactive) (find-file "~/code/mine/org/proj.org")))
-  ("d" (lambda () (interactive) (find-file "~/.dotfiles/shell/bash_user_dynamic.sh")))
+  ("d" (lambda () (interactive) (find-file "~/Downloads")))
+  ("D" (lambda () (interactive) (find-file "~/.dotfiles/shell/bash_user_dynamic.sh")))
   ("a" org-agenda-list)
   ("t" org-todo-list)
   ("c" org-capture)
+  ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
   ("m" (lambda () (interactive) (switch-to-buffer "*Messages*"))))
 
@@ -336,7 +332,7 @@ _e_ eval"
   ("e" eval-defun))
 
 ;; dired sort
-(defhydra hydra-dired-sort (:color blue :hint nil :idle 1.5)
+(defhydra hydra-dired-sort (:color blue :hint nil)
   "
 _n_ name
 _d_ date

@@ -29,8 +29,10 @@
 ;; -
 ;; q
 ;; ; '
-;; ,
-;; Some of the key might not be available in terminal
+;;
+(global-set-key (kbd "C-1") 'delete-other-windows)
+(global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
+(global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
@@ -43,7 +45,10 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-.") 'dired-jump)
 (global-set-key (kbd "C-,") 'company-complete)
-(global-set-key (kbd "\e[46;5~") 'dired-jump) ; C-. in iterm2
+
+;; Some of the key might not be available in terminal (eg., iterm2)
+;; need rebind
+(global-set-key (kbd "\e[46;5~") 'dired-jump) ; C-.
 
 ;; M-
 ;; The following keys are still available:
@@ -88,7 +93,7 @@
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "." 'dired-up-directory)
 (define-key dired-mode-map "L" 'my-org-store-link)
-(define-key dired-mode-map "S" 'hydra-dired-sort/body)
+(define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
