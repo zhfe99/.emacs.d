@@ -57,6 +57,7 @@
             (insert (format-time-string time-format (current-time))))
         (message "create xxx not found")))))
 
+;; python mode hook
 (add-hook 'python-mode-hook
           '(lambda ()
              (git-gutter+-mode)
