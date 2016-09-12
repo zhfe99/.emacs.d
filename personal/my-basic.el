@@ -66,8 +66,17 @@
 (prelude-require-package 'git-gutter-fringe+)
 (prelude-require-package 'dash-at-point)
 
-;; other setting
+;; github package
 (require 'use-package)
+(use-package reveal-in-osx-finder
+  :if (string-equal system-type "darwin"))
+(use-package find-file-in-project
+  :load-path "site-lisp/find-file-in-project/"
+  :ensure t)
+(use-package fasd
+  :load-path "site-lisp/emacs-fasd/")
+
+;; my package
 (require 'my-env)
 (require 'my-modeline)
 (require 'my-projectile)

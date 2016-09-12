@@ -36,8 +36,7 @@
 
 ;; environment variables
 (setenv "PATH"
-        (concat "/usr/local/bin"
-                ":" "/Library/TeX/texbin"
+        (concat ":" "/Library/TeX/texbin"
                 ":" (getenv "PATH")))
 (setq exec-path (append exec-path '("/Library/TeX/texbin")))
 (setq exec-path (append exec-path '("/Library/TeX/Root/bin/universal-darwin")))
@@ -45,13 +44,6 @@
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"
                 ":" (getenv "HOME") "/tool/py_lua"))
-(setenv "PYTHONPATH"
-        (concat (getenv "HOME") "/code"
-                ":" (getenv "PYTHONPATH")))
-
-(setenv "PYTHONPATH"
-        (concat (getenv "HOME") "/code/baidu/tl/tools"
-                ":" (getenv "PYTHONPATH")))
 
 ;; ispell
 (setq ispell-program-name
@@ -60,13 +52,6 @@
         "/usr/local/bin/aspell")
        ((string-equal system-type "gnu/linux")
         (concat (getenv "HOME") "/apps/bin/aspell"))))
-
-;; define function to shutdown emacs server instance
-(defun server-shutdown ()
-  "Save buffers, Quit, and Shutdown (kill) server"
-  (interactive)
-  (save-some-buffers)
-  (kill-emacs))
 
 ;; hide buffer when using M-&
 ;; http://emacs.stackexchange.com/questions/5553/async-shell-process-buffer-always-clobbers-window-arrangement

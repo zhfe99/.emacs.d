@@ -101,8 +101,9 @@
 (define-key dired-mode-map (kbd "M-u") 'counsel-projectile)
 (define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
 (define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
-(define-key dired-mode-map (kbd "M-g") 'magit-status-fullscreen)
+(define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
 (define-key dired-mode-map (kbd "M-l") 'hydra-open/body)
+(define-key dired-mode-map (kbd "M-p") 'hydra-special/body)
 
 ;; org-mode
 (define-key org-mode-map (kbd "M-,") 'hydra-org/body)

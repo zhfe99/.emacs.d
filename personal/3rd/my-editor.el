@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-;; ace-mode
+;; turn off ace-isearch-mode
 (global-ace-isearch-mode -1)
 (setq ace-isearch-use-ace-jump nil)
 
@@ -16,14 +16,14 @@
   '(setq which-func-modes '(java-mode c++-mode c-mode org-mode python-mode emacs-lisp-mode)))
 
 ;; isearch with selected region
-(defun jrh-isearch-with-region ()
+(defun my-isearch-with-region ()
   "Use region as the isearch text."
   (when mark-active
     (let ((region (funcall region-extract-function nil)))
       (deactivate-mark)
       (isearch-push-state)
       (isearch-yank-string region))))
-(add-hook 'isearch-mode-hook #'jrh-isearch-with-region)
+(add-hook 'isearch-mode-hook #'my-isearch-with-region)
 
 ;; insert current date
 (defun my-insert-current-date()
@@ -43,6 +43,7 @@
    (region-end)
    (concat "\\(\\s-*\\)" " -")))
 
+;; turn-off flycheck-mode
 (global-flycheck-mode -1)
 ;; (require 'helm-flycheck)
 ;; (setq flycheck-display-errors-delay 0.9)
@@ -61,8 +62,7 @@
 
 ;; Type M-y after C-y to activate counsel-yank-pop
 (advise-commands "indent" (yank counsel-yank-pop) after
-                 "If current mode is one of `prelude-yank-indent-modes',
-indent yanked text (with prefix arg don't indent)."
+                 "If current mode is one of `prelude-yank-indent-modes', indent yanked text (with prefix arg don't indent)."
                  (if (and (not (ad-get-arg 0))
                           (not (member major-mode prelude-indent-sensitive-modes))
                           (or (derived-mode-p 'prog-mode)
@@ -70,15 +70,13 @@ indent yanked text (with prefix arg don't indent)."
                      (let ((transient-mark-mode nil))
                        (yank-advised-indent-function (region-beginning) (region-end)))))
 
-(use-package reveal-in-osx-finder
-  :if (string-equal system-type "darwin"))
+;; define function to shutdown emacs server instance
+(defun server-shutdown ()
+  "Save buffers, Quit, and Shutdown (kill) server"
+  (interactive)
+  (save-some-buffers)
+  (kill-emacs))
 
-(use-package find-file-in-project
-  :load-path "site-lisp/find-file-in-project/"
-  :ensure t)
-
-(use-package fasd
-  :load-path "site-lisp/emacs-fasd/")
 (global-fasd-mode 1)
 
 ;; (use-package workgroups2

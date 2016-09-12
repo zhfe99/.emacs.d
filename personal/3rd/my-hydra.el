@@ -76,6 +76,7 @@ _p_ proj  _c_ capture  _l_ async"
   ("r" (lambda () (interactive) (find-file "~/code/mine/org/read.org")))
   ("p" (lambda () (interactive) (find-file "~/code/mine/org/proj.org")))
   ("d" (lambda () (interactive) (find-file "~/Downloads")))
+  ("e" (lambda () (interactive) (find-file "~/papers/experts")))
   ("D" (lambda () (interactive) (find-file "~/.dotfiles/shell/bash_user_dynamic.sh")))
   ("a" org-agenda-list)
   ("t" org-todo-list)
