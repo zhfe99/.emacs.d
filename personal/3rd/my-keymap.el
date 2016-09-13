@@ -115,6 +115,7 @@
 
 ;; org-mode
 (define-key org-mode-map (kbd "M-,") 'hydra-org/body)
+(define-key org-mode-map (kbd "M-a") 'hydra-sp/body)
 (define-key org-mode-map (kbd "M-e") 'hydra-edit/body)
 (define-key org-mode-map (kbd "M-h") 'ivy-switch-buffer)
 (define-key org-mode-map (kbd "<M-up>") 'move-text-up)
