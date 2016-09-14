@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; turn off ace-isearch-mode
-(global-ace-isearch-mode -1)
-(setq ace-isearch-use-ace-jump nil)
+; (global-ace-isearch-mode -1)
+; (setq ace-isearch-use-ace-jump nil)
 
 ;; turn-on which-function-mode
 ;; but turn-off it for cython (.pyx, .pyd) otherwise it will be extremely slow

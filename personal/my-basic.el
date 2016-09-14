@@ -8,7 +8,6 @@
 ;; enable prelude sub-modules
 (require 'prelude-company)
 (require 'prelude-ido)
-(require 'prelude-helm)
 (require 'prelude-programming)
 (require 'prelude-org)
 (require 'prelude-python)
@@ -22,8 +21,6 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 ;; 3rd package
-(prelude-require-package 'ace-isearch)
-(prelude-require-package 'ace-pinyin)
 (prelude-require-package 'ace-window)
 (prelude-require-package 'auctex)
 (prelude-require-package 'google-c-style)
@@ -35,10 +32,7 @@
 (prelude-require-package 'dired-sort)
 (prelude-require-package 'elpy)
 (prelude-require-package 'ggtags)
-(prelude-require-package 'helm-descbinds)
 ;; (prelude-require-package 'helm-flycheck)
-(prelude-require-package 'helm-projectile)
-(prelude-require-package 'helm-swoop)
 (prelude-require-package 'hydra)
 (prelude-require-package 'julia-mode)
 (prelude-require-package 'markdown-mode)

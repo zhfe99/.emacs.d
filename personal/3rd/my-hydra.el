@@ -244,10 +244,10 @@ _/_ hist"
   "
 ^Mark^      ^MC^       ^Search^
 ^====^======^==^=======^======^==
-_=_ expand  _._ next   _s_ swoop
-_-_ shrink  _,_ prev   _g_ google
-_p_ para    _>_ snext  _b_ baidu
-_f_ defun   _<_ sprev  _B_ bing
+_=_ expand  _._ next   _g_ google
+_-_ shrink  _,_ prev   _b_ baidu
+_p_ para    _>_ snext  _B_ bing
+_f_ defun   _<_ sprev
 _\"_ quote   _r_ all
 _(_ pair    _l_ line
 ^^          _m_ mark"
@@ -260,7 +260,6 @@ _(_ pair    _l_ line
   ("g" prelude-google :exit t)
   ("b" prelude-baidu :exit t)
   ("B" prelude-bing :exit t)
-  ("s" helm-swoop :exit t)
   ("." mc/mark-next-like-this)
   (">" mc/skip-to-next-like-this)
   ("," mc/mark-previous-like-this)

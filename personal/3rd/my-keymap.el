@@ -37,7 +37,7 @@
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-h b") 'helm-descbinds)
+(global-set-key (kbd "C-h b") 'counsel-descbinds)
 (global-set-key (kbd "C-k") 'kill-line)
 (global-set-key (kbd "C-j") 'indent-new-comment-line)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
