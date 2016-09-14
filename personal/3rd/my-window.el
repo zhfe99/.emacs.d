@@ -17,6 +17,21 @@
   (split-window-right)
   (windmove-right))
 
+(defun split-window-below-and-balance ()
+  (interactive)
+  (split-window-below)
+  (balance-windows))
+
+(defun split-window-right-and-balance ()
+  (interactive)
+  (split-window-right)
+  (balance-windows))
+
+(defun ace-delete-window-and-balance ()
+  (interactive)
+  (ace-delete-window)
+  (balance-windows))
+
 (defun my-push-window-up ()
   (interactive)
   (let ((other-window (windmove-find-other-window 'up)))

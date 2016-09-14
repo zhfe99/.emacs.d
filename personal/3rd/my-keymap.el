@@ -31,9 +31,9 @@
 ;; ; '
 ;;
 (global-set-key (kbd "C-1") 'delete-other-windows)
-(global-set-key (kbd "C-2") 'split-window-below-and-move-there-dammit)
-(global-set-key (kbd "C-3") 'split-window-right-and-move-there-dammit)
-(global-set-key (kbd "C-0") 'ace-delete-window)
+(global-set-key (kbd "C-2") 'split-window-below-and-balance)
+(global-set-key (kbd "C-3") 'split-window-right-and-balance)
+(global-set-key (kbd "C-0") 'ace-delete-window-and-balance)
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
