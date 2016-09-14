@@ -50,14 +50,14 @@
 ;; Some of the key might not be available in terminal (eg., iterm2)
 ;; need rebind
 (global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
-(global-set-key (kbd "\e[45;2~") 'split-window-below-and-move-there-dammit) ; C-2
-(global-set-key (kbd "\e[45;3~") 'split-window-right-and-move-there-dammit) ; C-3
-(global-set-key (kbd "\e[45;0~") 'ace-delete-window)          ; C-0
+(global-set-key (kbd "\e[45;2~") 'split-window-below-and-balance) ; C-2
+(global-set-key (kbd "\e[45;3~") 'split-window-right-and-balance) ; C-3
+(global-set-key (kbd "\e[45;0~") 'ace-delete-window-and-balance) ; C-0
 (global-set-key (kbd "\e[46;4~") 'company-complete) ; C-,
 (global-set-key (kbd "\e[46;5~") 'dired-jump) ; C-.
-(global-set-key (kbd "\e[46;3~") 'er/expand-region)           ; C-=
-(global-set-key (kbd "\e[47;A~") 'move-text-up)         ; M-up
-(global-set-key (kbd "\e[47;B~") 'move-text-down)       ; M-down
+(global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
+(global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
+(global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
 
 ;; M-
 ;; The following keys are still available:
