@@ -33,6 +33,7 @@
 (prelude-require-package 'elpy)
 (prelude-require-package 'ggtags)
 ;; (prelude-require-package 'helm-flycheck)
+(prelude-require-package 'helm)
 (prelude-require-package 'hydra)
 (prelude-require-package 'julia-mode)
 (prelude-require-package 'markdown-mode)
