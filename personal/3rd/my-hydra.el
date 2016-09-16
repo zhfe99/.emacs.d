@@ -292,13 +292,12 @@ _s_ step"
 ;; org
 (defhydra hydra-org (:color pink :hint nil :idle 1.5)
   "
-^Move^    ^Cross^   ^Decorator^   ^Change^    ^Open^      ^Link^
+^Move^    ^Cross^   ^Decorator^   ^Change^    ^Tree^      ^Link^
 ^====^====^=====^===^====^========^======^====^====^======^====^====
-_N_ next  _n_ next  _t_ todo      _←_ left    _o_ open    _y_ stored
-_P_ prev  _p_ prev  _w_ refile    _↓_ down    _O_ dired   _Y_ Chrome
-^^        _u_ up    _#_ tag       _↑_ up      _>_ expand
-^^        ^^        _,_ priority  _→_ right
-^^        ^^        ^^            _s_ sort"
+_N_ next  _n_ next  _t_ todo      _←_ left    _k_ kill    _y_ stored
+_P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome
+^^        _u_ up    _#_ tag       _↑_ up      _>_ expand  _o_ open
+^^        ^^        _,_ priority  _→_ right   ^^          _O_ dired"
   ("s" org-sort)
   ("n" outline-next-visible-heading)
   ("p" outline-previous-visible-heading)
@@ -310,6 +309,7 @@ _P_ prev  _p_ prev  _w_ refile    _↓_ down    _O_ dired   _Y_ Chrome
   ("t" org-todo)
   ("y" org-insert-link :exit t)
   ("Y" my-insert-current-chrome-link :exit t)
+  ("k" crux-kill-whole-line)
   ("w" org-refile)
   ("#" org-set-tags)
   ("," org-priority)
@@ -317,8 +317,8 @@ _P_ prev  _p_ prev  _w_ refile    _↓_ down    _O_ dired   _Y_ Chrome
   ("<right>" org-shiftmetaright)
   ("<up>" org-metaup)
   ("<down>" org-metadown)
-  ("o" org-open-at-point :exit t)
-  ("O" my-org-open-at-point :exit t)
+  ("o" org-open-at-point)
+  ("O" my-org-open-at-point)
   ("q" nil))
 
 ;; lisp
