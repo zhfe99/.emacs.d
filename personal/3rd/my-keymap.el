@@ -105,6 +105,7 @@
 (define-key dired-mode-map "." 'dired-up-directory)
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
+(define-key dired-mode-map "z" 'reveal-in-osx-finder)
 (define-key dired-mode-map (kbd "M-b") 'subword-backward)
 (define-key dired-mode-map (kbd "M-u") 'counsel-projectile)
 (define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
