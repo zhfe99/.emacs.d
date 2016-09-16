@@ -149,8 +149,17 @@
 (define-key c++-mode-map (kbd "M-,") 'hydra-c/body)
 (define-key c-mode-map (kbd "M-,") 'hydra-c/body)
 
+;; protobuf-mode
 (require 'protobuf-mode)
 (define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
+
+;; matlab
+(add-hook 'matlab-mode-hook
+          (lambda()
+            (local-set-key (kbd "M-q") nil)
+            (local-set-key (kbd "M-j") nil)
+            (local-set-key (kbd "M-s") nil)
+            (local-set-key (kbd "M-;") nil)))
 
 ;; diff-mode
 (define-key diff-mode-map (kbd "M-o") 'hydra-open/body)

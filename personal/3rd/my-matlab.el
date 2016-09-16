@@ -48,9 +48,7 @@
             (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)
             (indent-guide-mode)
-            (git-gutter+-mode)
-            (local-set-key (kbd "M-j") 'hydra-jump/body)
-            (local-set-key (kbd "M-;") 'comment-dwim)))
+            (git-gutter+-mode)))
 
 ;; julia-mode
 (add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
