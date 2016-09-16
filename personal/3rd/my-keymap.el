@@ -5,25 +5,6 @@
 
 ;;; Code:
 
-(defun get-key-combo (key)
-  "Just return the KEY combo entered by the user."
-  (interactive "kKey combo: ")
-  key)
-
-(defun keymap-unset-key (key keymap)
-  "Remove binding of KEY in a KEYMAP."
-  (interactive
-   (list (call-interactively #'get-key-combo)
-         (completing-read "Which map: " minor-mode-map-alist nil t)))
-  (let ((map (rest (assoc (intern keymap) minor-mode-map-alist))))
-    (when map
-      (define-key map key nil)
-      (message  "%s unbound for %s" key keymap))))
-
-;; H-
-(global-set-key (kbd "H-g") 'hydra-gdb/body)
-(global-set-key (kbd "\e[60;1~") 'hydra-gdb/body) ; H-g
-
 ;; C-
 ;; The following keys are still available:
 ;; -
@@ -91,7 +72,11 @@
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
-;; function key
+;; H-
+(global-set-key (kbd "H-g") 'hydra-gdb/body)
+(global-set-key (kbd "\e[60;1~") 'hydra-gdb/body) ; H-g
+
+;; f-
 
 ;; dired-mode
 (define-key dired-mode-map "E" 'ace-dired-find-file)
@@ -106,26 +91,26 @@
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "z" 'reveal-in-osx-finder)
-(define-key dired-mode-map (kbd "M-b") 'subword-backward)
-(define-key dired-mode-map (kbd "M-u") 'counsel-projectile)
-(define-key dired-mode-map (kbd "M-i") 'hydra-jump/body)
-(define-key dired-mode-map (kbd "C-o") 'hydra-window/body)
-(define-key dired-mode-map (kbd "M-g") 'hydra-git/body)
-(define-key dired-mode-map (kbd "M-l") 'hydra-open/body)
-(define-key dired-mode-map (kbd "M-p") 'hydra-special/body)
+(define-key dired-mode-map (kbd "M-b") nil)
+(define-key dired-mode-map (kbd "M-u") nil)
+(define-key dired-mode-map (kbd "M-i") nil)
+(define-key dired-mode-map (kbd "C-o") nil)
+(define-key dired-mode-map (kbd "M-g") nil)
+(define-key dired-mode-map (kbd "M-l") nil)
+(define-key dired-mode-map (kbd "M-p") nil)
 
 ;; org-mode
 (require 'org)
 (define-key org-mode-map (kbd "M-,") 'hydra-org/body)
-(define-key org-mode-map (kbd "M-a") 'hydra-sp/body)
-(define-key org-mode-map (kbd "M-e") 'hydra-edit/body)
-(define-key org-mode-map (kbd "M-h") 'ivy-switch-buffer)
-(define-key org-mode-map (kbd "<M-up>") 'move-text-up)
-(define-key org-mode-map (kbd "<M-down>") 'move-text-down)
-(define-key org-mode-map (kbd "<S-up>") 'windmove-up)
-(define-key org-mode-map (kbd "<S-down>") 'windmove-down)
-(define-key org-mode-map (kbd "<S-left>") 'windmove-left)
-(define-key org-mode-map (kbd "<S-right>") 'windmove-right)
+(define-key org-mode-map (kbd "M-a") nil)
+(define-key org-mode-map (kbd "M-e") nil)
+(define-key org-mode-map (kbd "M-h") nil)
+(define-key org-mode-map (kbd "<M-up>") nil)
+(define-key org-mode-map (kbd "<M-down>") nil)
+(define-key org-mode-map (kbd "<S-up>") nil)
+(define-key org-mode-map (kbd "<S-down>") nil)
+(define-key org-mode-map (kbd "<S-left>") nil)
+(define-key org-mode-map (kbd "<S-right>") nil)
 (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
 (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
 (add-hook 'org-agenda-mode-hook
@@ -153,16 +138,16 @@
   (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
 
 ;; c-mode
-(define-key c++-mode-map (kbd "M-j") 'nil)
-(define-key c-mode-map (kbd "M-j") 'nil)
+(define-key c++-mode-map (kbd "M-j") nil)
+(define-key c-mode-map (kbd "M-j") nil)
 (define-key c++-mode-map (kbd "M-e") nil)
 (define-key c-mode-map (kbd "M-e") nil)
-(define-key c++-mode-map (kbd "M-a") 'hydra-sp/body)
-(define-key c-mode-map (kbd "M-a") 'hydra-sp/body)
-(define-key c++-mode-map (kbd "M-,") 'hydra-c/body)
-(define-key c-mode-map (kbd "M-,") 'hydra-c/body)
+(define-key c++-mode-map (kbd "M-a") nil)
+(define-key c-mode-map (kbd "M-a") nil)
 (define-key c++-mode-map (kbd "M-q") nil)
 (define-key c-mode-map (kbd "M-q") nil)
+(define-key c++-mode-map (kbd "M-,") 'hydra-c/body)
+(define-key c-mode-map (kbd "M-,") 'hydra-c/body)
 
 (require 'protobuf-mode)
 (define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
@@ -175,19 +160,13 @@
 (define-key flyspell-mode-map (kbd "C-,") nil)
 
 ;; smartparens-mode
-(with-eval-after-load "smartparens-mode"
-  (define-key minor-mode-map (kbd "<M-up>") 'move-text-up))
-(keymap-unset-key '[M-down] "smartparens-mode")
-(keymap-unset-key '[M-up] "smartparens-mode")
-(keymap-unset-key '[M-s] "smartparens-mode")
-(keymap-unset-key (kbd "M-s") "smartparens-mode")
-(keymap-unset-key (kbd "M-r") "smartparens-mode")
+(define-key smartparens-mode-map (kbd "<M-up>") nil)
+(define-key smartparens-mode-map (kbd "<M-down>") nil)
+(define-key smartparens-mode-map (kbd "M-s") nil)
+(define-key smartparens-mode-map (kbd "M-r") nil)
 
 ;; prelude-mode
-(defun my-prelude-mode-keys ()
-  "My keybindings for prelude-mode."
-  (define-key prelude-mode-map (kbd "M-o") nil))
-(add-hook 'prelude-mode-hook 'my-prelude-mode-keys)
+(define-key prelude-mode-map (kbd "M-o") nil)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
