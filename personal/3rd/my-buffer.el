@@ -136,7 +136,10 @@
    ("3" (lambda (file)
           (split-window-right-and-move-there-dammit)
           (find-file file))
-    "right")))
+    "right")
+   ("z" (lambda (d)
+          (reveal-in-osx-finder-as d nil))
+    "reveal")))
 
 ;;===========================================================
 ;; Change the binding action of counsel-goto-recent-directory
@@ -157,7 +160,10 @@
    ("3" (lambda (d)
           (split-window-right-and-move-there-dammit)
           (dired d))
-    "right")))
+    "right")
+   ("z" (lambda (d)
+          (reveal-in-osx-finder-as d nil))
+    "reveal")))
 
 (provide 'my-buffer)
 ;;; my-ibuffer.el ends here
