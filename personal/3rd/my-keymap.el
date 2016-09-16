@@ -115,6 +115,7 @@
 (define-key dired-mode-map (kbd "M-p") 'hydra-special/body)
 
 ;; org-mode
+(require 'org)
 (define-key org-mode-map (kbd "M-,") 'hydra-org/body)
 (define-key org-mode-map (kbd "M-a") 'hydra-sp/body)
 (define-key org-mode-map (kbd "M-e") 'hydra-edit/body)
@@ -162,6 +163,8 @@
 (define-key c-mode-map (kbd "M-,") 'hydra-c/body)
 (define-key c++-mode-map (kbd "M-q") nil)
 (define-key c-mode-map (kbd "M-q") nil)
+
+(require 'protobuf-mode)
 (define-key protobuf-mode-map (kbd "M-j") 'avy-goto-word-1)
 
 ;; diff-mode
