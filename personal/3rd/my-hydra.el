@@ -49,15 +49,14 @@ _l_ right  _L_ right  _C-l_ right    _→_ right
   "
 ^Buffer^    ^File^
 ^======^====^====^=====
-_k_ kill    _f_ project
-_b_ bury    _z_ reveal
-_r_ revert  _d_ dired
-_u_ dupe    _m_ machine
+_k_ kill    _z_ reveal
+_b_ bury    _d_ dired
+_r_ revert  _m_ machine
+_u_ dupe
 _U_ dupe2"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
-  ("f" find-file-in-project)
   ("z" reveal-in-osx-finder)
   ("d" counsel-goto-recent-directory)
   ("u" my-duplicate-current-buffer-in-ace-window)

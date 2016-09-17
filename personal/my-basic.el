@@ -31,9 +31,6 @@
   :load-path "site-lisp/swiper/")
 (use-package reveal-in-osx-finder
   :if (string-equal system-type "darwin"))
-(use-package find-file-in-project
-  :load-path "site-lisp/find-file-in-project/"
-  :ensure t)
 (use-package fasd
   :load-path "site-lisp/emacs-fasd/")
 

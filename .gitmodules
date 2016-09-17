@@ -7,9 +7,6 @@
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
 	url = ../helm-etags-plus.git
-[submodule "site-lisp/find-file-in-project"]
-	path = site-lisp/find-file-in-project
-	url = ../find-file-in-project.git
 [submodule "site-lisp/emacs-fasd"]
 	path = site-lisp/emacs-fasd
 	url = ../emacs-fasd.git
