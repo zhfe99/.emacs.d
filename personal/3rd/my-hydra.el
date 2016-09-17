@@ -128,13 +128,15 @@ _I_ indent-highlight"
 ;; edit
 (defhydra hydra-edit (:color blue :hint nil :idle 1.5)
   "
-^Region^    ^Insert^   ^Para^   ^File^     ^Spell^
-^======^====^======^===^====^===^====^=====^=====^==
-_a_ align   _t_ date  _q_ fill  _e_ ediff  _i_ check
-_n_ narrow  ^^        ^^        _f_ find"
+^Filename^     ^Date^     ^Para^   ^File^     ^Spell^
+^========^=====^====^=====^====^===^====^=====^=====^==
+_nn_ name      _t_ date  _q_ fill  _e_ ediff  _i_ check
+_na_ absolute  ^^        ^^        _f_ find
+_nr_ relative"
   ("t" my-insert-current-date)
-  ("a" my-align-comment)
-  ("n" my-narrow-or-widen-dwim)
+  ("nn" my-insert-file-name)
+  ("na" my-insert-file-path-absolute)
+  ("nr" my-insert-file-path-relative)
   ("i" ispell-word)
   ("e" ediff)
   ("f" find-name-dired)
@@ -242,15 +244,17 @@ _/_ hist"
 ;; region
 (defhydra hydra-region (:hint nil :idle 1.5)
   "
-^Mark^      ^MC^       ^Search^
-^====^======^==^=======^======^==
-_=_ expand  _._ next   _g_ google
-_-_ shrink  _,_ prev   _b_ baidu
+^Mark^      ^MC^       ^Search^    ^Operation^
+^====^======^==^=======^======^====^=========^
+_=_ expand  _._ next   _g_ google  _a_ align
+_-_ shrink  _,_ prev   _b_ baidu   _n_ narrow
 _p_ para    _>_ snext  _B_ bing
 _f_ defun   _<_ sprev
 _\"_ quote   _r_ all
 _(_ pair    _l_ line
 ^^          _m_ mark"
+  ("a" my-align-comment :exit t)
+  ("n" my-narrow-or-widen-dwim :exit t)
   ("p" er/mark-paragraph :exit t)
   ("f" er/mark-defun :exit t)
   ("\"" er/mark-inside-quotes :exit t)

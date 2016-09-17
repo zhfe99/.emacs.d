@@ -32,7 +32,23 @@
   (let ((time-format "%Y-%m-%d"))
     (insert (format-time-string time-format (current-time)))))
 
-;; insert current file name
+;;===============================
+;; insert file name/path at point
+;; http://pragmaticemacs.com/emacs/insert-file-name/
+(defun my-insert-file-name (filename &optional args)
+  "Insert name of file FILENAME into buffer after point."
+  (interactive "*fInsert file name: \nP")
+  (insert filename))
+
+(defun my-insert-file-path-absolute (filename &optional args)
+  "Insert name of file FILENAME into buffer after point."
+  (interactive "*fInsert file name: \nP")
+  (insert (expand-file-name filename)))
+
+(defun my-insert-file-path-relative (filename &optional args)
+  "Insert name of file FILENAME into buffer after point."
+  (interactive "*fInsert file name: \nP")
+  (insert (file-relative-name filename)))
 
 ;; align function head comment
 (defun my-align-comment()
