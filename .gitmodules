@@ -16,3 +16,6 @@
 [submodule "site-lisp/emacs-counsel-gtags"]
 	path = site-lisp/emacs-counsel-gtags
 	url = ../emacs-counsel-gtags.git
+[submodule "site-lisp/swiper"]
+	path = site-lisp/swiper
+	url = ../swiper.git

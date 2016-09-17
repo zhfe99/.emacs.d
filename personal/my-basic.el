@@ -20,6 +20,23 @@
 (package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
+;; github package
+(prelude-require-package 'use-package)
+(require 'use-package)
+(use-package swiper
+  :load-path "site-lisp/swiper/")
+(use-package ivy
+  :load-path "site-lisp/swiper/")
+(use-package counsel
+  :load-path "site-lisp/swiper/")
+(use-package reveal-in-osx-finder
+  :if (string-equal system-type "darwin"))
+(use-package find-file-in-project
+  :load-path "site-lisp/find-file-in-project/"
+  :ensure t)
+(use-package fasd
+  :load-path "site-lisp/emacs-fasd/")
+
 ;; 3rd package
 (prelude-require-package 'ace-window)
 (prelude-require-package 'auctex)
@@ -52,25 +69,12 @@
 (prelude-require-package 'window-numbering)
 (prelude-require-package 'protobuf-mode)
 (prelude-require-package 'smooth-scrolling)
-(prelude-require-package 'use-package)
 (prelude-require-package 'iy-go-to-char)
 (prelude-require-package 'imenu-anywhere)
-(prelude-require-package 'counsel)
-(prelude-require-package 'ivy)
 (prelude-require-package 'git-gutter)
 (prelude-require-package 'git-gutter+)
 (prelude-require-package 'git-gutter-fringe+)
 (prelude-require-package 'dash-at-point)
-
-;; github package
-(require 'use-package)
-(use-package reveal-in-osx-finder
-  :if (string-equal system-type "darwin"))
-(use-package find-file-in-project
-  :load-path "site-lisp/find-file-in-project/"
-  :ensure t)
-(use-package fasd
-  :load-path "site-lisp/emacs-fasd/")
 
 ;; my package
 (require 'my-env)
