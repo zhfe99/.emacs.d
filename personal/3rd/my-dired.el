@@ -250,6 +250,7 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
   (setq end-file
         (expand-file-name (file-name-nondirectory start-file) target-dir))
   (rename-file start-file-full end-file)
+  (revert-buffer)
   (message "moved %s to %s" start-file-full end-file)))
 
 ;; Using rsync in dired
