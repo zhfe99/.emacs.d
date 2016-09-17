@@ -88,8 +88,8 @@ _p_ proj  _c_ capture  _l_ async"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Avy^     ^Scroll^  ^Imenu^  ^Bookmark^  ^Misc^
-^===^=====^======^==^=====^==^========^==^====^===
+^Avy^     ^Scroll^  ^Imenu^   ^Bookmark^  ^Misc^
+^===^=====^======^==^=====^===^========^==^====^===
 _c_ char  _v_ down  _i_ list  _b_ jump   _k_ clock
 _l_ line  _V_ up    _I_ my    _B_ set    _'_ pop"
   ("c" avy-goto-char)
