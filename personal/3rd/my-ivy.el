@@ -242,5 +242,11 @@ Or else, find files since 24 weeks (6 months) ago."
     (?N . avy-action-copy-line)
     (?i . avy-action-ispell)))
 
+;; start counsel-ag from project root instead of current folder
+(defun my-counsel-ag-from-project-root ()
+  "Make counsel-ag aware of project root directory."
+  (interactive)
+  (counsel-ag nil (projectile-project-root)))
+
 (provide 'my-ivy)
 ;;; my-dired.el ends here
