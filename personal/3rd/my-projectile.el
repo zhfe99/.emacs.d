@@ -4,10 +4,6 @@
 
 ;; My projectile setting.
 
-;; use counsel-projectile
-(use-package counsel-projectile
-  :load-path "site-lisp/counsel-projectile/")
-
 ;; add bing search-backward
 (prelude-install-search-engine "bing" "http://www.bing.com/search?q=" "Bing: ")
 (prelude-install-search-engine "baidu" "http://www.baidu.com/s?wd=" "Baidu: ")

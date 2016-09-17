@@ -16,3 +16,6 @@
 [submodule "site-lisp/swiper"]
 	path = site-lisp/swiper
 	url = ../swiper.git
+[submodule "site-lisp/elpy"]
+	path = site-lisp/elpy
+	url = ../elpy.git

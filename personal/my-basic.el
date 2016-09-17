@@ -33,6 +33,10 @@
   :if (string-equal system-type "darwin"))
 (use-package fasd
   :load-path "site-lisp/emacs-fasd/")
+(use-package counsel-projectile
+  :load-path "site-lisp/counsel-projectile/")
+(use-package elpy
+  :load-path "site-lisp/elpy/")
 
 ;; 3rd package
 (prelude-require-package 'ace-window)
@@ -44,7 +48,6 @@
 (prelude-require-package 'dired+)
 (prelude-require-package 'dired-details+)
 (prelude-require-package 'dired-sort)
-(prelude-require-package 'elpy)
 (prelude-require-package 'ggtags)
 ;; (prelude-require-package 'helm-flycheck)
 (prelude-require-package 'helm)
