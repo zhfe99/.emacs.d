@@ -74,6 +74,9 @@
 
 ;; H-
 (global-set-key (kbd "H-g") 'hydra-gdb/body)
+
+;; Some of the key might not be available in terminal (eg., iterm2)
+;; need rebind
 (global-set-key (kbd "\e[60;1~") 'hydra-gdb/body) ; H-g
 
 ;; f-
@@ -132,6 +135,7 @@
 (with-eval-after-load "elpy"
   (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
   (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
+  (define-key elpy-mode-map (kbd "M-.") nil)
   (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
   (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left)
   (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right)
