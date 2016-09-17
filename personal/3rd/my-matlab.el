@@ -50,8 +50,5 @@
             (indent-guide-mode)
             (git-gutter+-mode)))
 
-;; julia-mode
-(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
-
 (provide 'my-matlab)
 ;;; my-editor.el ends here
