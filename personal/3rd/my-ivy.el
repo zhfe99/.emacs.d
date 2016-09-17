@@ -193,6 +193,29 @@ Or else, find files since 24 weeks (6 months) ago."
 ;; https://github.com/abo-abo/swiper/issues/256
 ;; (require 'ivy_buffer_extend)
 
+;;====================================================
+;; Search or Swipe for the Current Word
+;; http://pragmaticemacs.com/emacs/search-or-swipe-for-the-current-word/
+;; version of ivy-yank-word to yank from start of word
+(defun bjm/ivy-yank-whole-word ()
+  "Pull next word from buffer into search string."
+  (interactive)
+  (let (amend)
+    (with-ivy-window
+      ;;move to last word boundary
+      (re-search-backward "\\b")
+      (let ((pt (point))
+            (le (line-end-position)))
+        (forward-word 1)
+        (if (> (point) le)
+            (goto-char pt)
+          (setq amend (buffer-substring-no-properties pt (point))))))
+    (when amend
+      (insert (replace-regexp-in-string "  +" " " amend)))))
+
+;; bind it to M-j
+(define-key ivy-minibuffer-map (kbd "M-j") 'bjm/ivy-yank-whole-word)
+
 ;; copy line in avy-action
 (defun avy-action-copy-line (pt)
   "Copy current line on pt."
