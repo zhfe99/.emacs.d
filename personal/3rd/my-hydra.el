@@ -296,14 +296,17 @@ _s_ step"
 ;; org
 (defhydra hydra-org (:color pink :hint nil :idle 1.5)
   "
-^Move^    ^Cross^   ^Decorator^   ^Change^    ^Tree^      ^Link^
-^====^====^=====^===^====^========^======^====^====^======^====^====
-_N_ next  _n_ next  _t_ todo      _←_ left    _k_ kill    _y_ stored
-_P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome
+^Move^    ^Cross^   ^Decorator^   ^Change^    ^Tree^      ^Link^      ^Archive^
+^====^====^=====^===^====^========^======^====^====^======^====^======^=======^==
+_N_ next  _n_ next  _t_ todo      _←_ left    _k_ kill    _y_ stored  _a_ sibling
+_P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome  _A_ subtree
 ^^        _u_ up    _#_ tag       _↑_ up      _>_ expand  _o_ open
-^^        ^^        _,_ priority  _→_ right   ^^          _O_ dired"
+^^        ^^        _,_ priority  _→_ right   _/_ narrow  _O_ dired"
   ("s" org-sort)
   ("n" outline-next-visible-heading)
+  ("/" my-narrow-or-widen-dwim)
+  ("a" org-archive-sibling-heading)
+  ("A" org-archive-subtree-default)
   ("p" outline-previous-visible-heading)
   ("u" outline-up-heading)
   (">" org-content)
