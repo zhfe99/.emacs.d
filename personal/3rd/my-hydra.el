@@ -87,23 +87,23 @@ _p_ proj  _c_ capture  _l_ async"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Avy^     ^Scroll^  ^Imenu^   ^Bookmark^  ^Misc^
-^===^=====^======^==^=====^===^========^==^====^===
-_c_ char  _v_ down  _i_ list  _b_ jump   _k_ clock
-_l_ line  _V_ up    _I_ my    _B_ set    _'_ pop"
+^Avy^     ^Scroll^  ^List^        ^Misc^
+^===^=====^======^==^====^========^====^===
+_c_ char  _v_ down  _i_ imenu     _k_ clock
+_l_ line  _V_ up    _b_ bookmark  _'_ pop
+^^        _n_ next  _B_ set
+^^        _p_ prev"
   ("c" avy-goto-char)
   ("l" avy-goto-line)
   ("k" org-clock-goto)
   ("'" avy-pop-mark)
   ("i" counsel-imenu)
-  ("I" my-ivy-imenu-goto)
-  ("b" bookmark-jump)
+  ("b" counsel-bookmark)
   ("B" bookmark-set)
   ("v" my-scroll-down-half :exit nil)
   ("V" my-scroll-up-half :exit nil)
   ("n" (lambda () (interactive) (scroll-up 1)) :exit nil)
-  ("p" (lambda () (interactive) (scroll-down 1)) :exit nil)
-  ("q" nil))
+  ("p" (lambda () (interactive) (scroll-down 1)) :exit nil))
 
 ;; toggle
 (defhydra hydra-toggle (:color blue :hint nil :idle 1.5)
