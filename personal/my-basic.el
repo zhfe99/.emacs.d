@@ -76,6 +76,7 @@
 (require 'my-editor)
 (require 'my-sp)
 (require 'my-mc)
+(require 'my-avy)
 (require 'my-ivy)
 (require 'my-tag)
 (require 'my-company)
