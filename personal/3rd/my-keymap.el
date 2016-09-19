@@ -181,9 +181,5 @@
 ;; prelude-mode
 (define-key prelude-mode-map (kbd "M-o") nil)
 
-;; ivy-action
-(define-key ivy-minibuffer-map (kbd "M-j") 'bjm/ivy-yank-whole-word)
-(define-key ivy-minibuffer-map (kbd "C-o") 'ivy-occur)
-
 (provide 'my-keymap)
 ;;; my-keymap.el ends here

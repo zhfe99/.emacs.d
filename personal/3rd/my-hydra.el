@@ -172,13 +172,14 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 ^Over^     ^Grep^    ^Hunk^    ^Operation^
 ^====^=====^====^====^====^====^=========^
 _g_ magit  _h_ root  _i_ menu  _s_ stage
-^^         _H_ curr  _p_ prev  _c_ commit
+_f_ find   _H_ curr  _p_ prev  _c_ commit
 ^^         ^^        _n_ next  _a_ all
 ^^         ^^        _v_ show  _t_ time"
   ("g" magit-status-fullscreen :exit t)
   ("h" my-counsel-ag-from-project-root :exit t)
   ("H" counsel-ag :exit t)
   ("i" my-goto-git-gutter+ :exit t)
+  ("f" counsel-projectile-find-file :exit t)
   ("p" git-gutter+-previous-hunk)
   ("v" git-gutter+-show-hunk)
   ("n" git-gutter+-next-hunk)
