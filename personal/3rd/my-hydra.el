@@ -169,16 +169,15 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 ;; git
 (defhydra hydra-git (:hint nil)
   "
-^Over^     ^Jump^    ^Operation^
-^====^=====^====^====^=========^
-_g_ magit  _i_ menu  _s_ stage
-_G_ grep   _p_ prev  _c_ commit
-_h_ ag     _n_ next  _a_ all
-_H_ ag2    _v_ show  _t_ time"
+^Over^     ^Grep^    ^Hunk^    ^Operation^
+^====^=====^====^====^====^====^=========^
+_g_ magit  _h_ root  _i_ menu  _s_ stage
+^^         _H_ curr  _p_ prev  _c_ commit
+^^         ^^        _n_ next  _a_ all
+^^         ^^        _v_ show  _t_ time"
   ("g" magit-status-fullscreen :exit t)
-  ("G" counsel-git-grep :exit t)
-  ("h" counsel-ag :exit t)
-  ("H" my-counsel-ag-from-project-root :exit t)
+  ("h" my-counsel-ag-from-project-root :exit t)
+  ("H" counsel-ag :exit t)
   ("i" my-goto-git-gutter+ :exit t)
   ("p" git-gutter+-previous-hunk)
   ("v" git-gutter+-show-hunk)
