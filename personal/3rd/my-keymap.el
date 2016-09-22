@@ -8,8 +8,8 @@
 ;; C-
 ;; The following keys are still available:
 ;; -
-;; q
-;; ; '
+;; q ]
+;; ;
 ;;
 (global-set-key (kbd "C-1") 'delete-other-windows)
 (global-set-key (kbd "C-2") 'split-window-below-and-balance)
@@ -25,8 +25,11 @@
 (global-set-key (kbd "C-t") 'hydra-transpose/body)
 (global-set-key (kbd "C-o") 'hydra-window/body)
 (global-set-key (kbd "C-x o") 'ace-window)
-(global-set-key (kbd "C-.") 'dired-jump)
-(global-set-key (kbd "C-,") 'company-complete)
+(global-set-key (kbd "C-'") 'dired-jump)
+(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-<") 'mc/skip-to-previous-like-this)
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C->") 'mc/skip-to-next-like-this)
 
 ;; Some of the key might not be available in terminal (eg., iterm2)
 ;; need rebind
@@ -34,8 +37,9 @@
 (global-set-key (kbd "\e[45;2~") 'split-window-below-and-balance) ; C-2
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-balance) ; C-3
 (global-set-key (kbd "\e[45;0~") 'ace-delete-window-and-balance) ; C-0
-(global-set-key (kbd "\e[46;4~") 'company-complete) ; C-,
-(global-set-key (kbd "\e[46;5~") 'dired-jump) ; C-.
+(global-set-key (kbd "\e[27;5;39~") 'dired-jump) ; C-'
+(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-.
+(global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this) ; C-.
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
 (global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
@@ -90,7 +94,7 @@
 (define-key dired-mode-map "D" 'bjm/move-file-here)
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
-(define-key dired-mode-map "." 'dired-up-directory)
+(define-key dired-mode-map "'" 'dired-up-directory)
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "z" 'reveal-in-osx-finder)
@@ -162,6 +166,7 @@
           (lambda()
             (local-set-key (kbd "M-q") nil)
             (local-set-key (kbd "M-j") nil)
+            (local-set-key (kbd "M-a") nil)
             (local-set-key (kbd "M-s") nil)
             (local-set-key (kbd "M-;") nil)))
 
