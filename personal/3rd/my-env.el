@@ -18,7 +18,7 @@
 (setq mac-command-modifier 'meta)
 (setq whitespace-line-column 80000)
 (setq doc-view-resolution 800)
-(fringe-mode '(4 . 0))
+(fringe-mode '(8 . 0))
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; open todo-list at startup
