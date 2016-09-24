@@ -112,6 +112,7 @@
 (define-key org-mode-map (kbd "M-a") nil)
 (define-key org-mode-map (kbd "M-e") nil)
 (define-key org-mode-map (kbd "M-h") nil)
+(define-key org-mode-map (kbd "C-'") nil)
 (define-key org-mode-map (kbd "<M-up>") nil)
 (define-key org-mode-map (kbd "<M-down>") nil)
 (define-key org-mode-map (kbd "<S-up>") nil)
