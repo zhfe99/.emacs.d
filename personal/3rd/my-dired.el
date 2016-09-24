@@ -42,6 +42,7 @@
               "\\|^\\.boot2docker$"
               "\\|^\\.bypy$"
               "\\|^\\.cache$"
+              "\\|^\\.cisco$"
               "\\|^\\.cmake$"
               "\\|^\\.conda$"
               "\\|^\\.config$"
