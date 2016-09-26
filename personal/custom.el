@@ -46,12 +46,10 @@
               (quote font-lock-variable-name-face))))))))
  '(term-bind-key-alist
    (quote
-    (("C-c C-a" . term-send-ad)
-     ("C-c C-k" . term-char-mode)
+    (("C-c C-k" . term-char-mode)
      ("C-d" . term-send-raw)
      ("C-c C-f" . term-line-mode)
      ("C-c C-c" . term-interrupt-subjob)
-     ("C-c C-e" . term-send-esc)
      ("C-p" . previous-line)
      ("C-n" . next-line)
      ("C-s" . isearch-forward)

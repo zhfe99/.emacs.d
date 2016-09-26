@@ -5,16 +5,6 @@
 
 ;;; Code:
 
-(defun term-send-esc ()
-  "Send ESC in term mode."
-  (interactive)
-  (term-send-raw-string "\e"))
-
-(defun term-send-ad ()
-  "Send \C-a\C-d in term mode."
-  (interactive)
-  (term-send-raw-string "\C-a\C-d"))
-
 ;; https://github.com/xee5ch/prelude/commit/00dee5841fec8631b8ee66b752c5fb7320202686
 ;; remove C-a binding
 (defun my-term-mode-hook ()
