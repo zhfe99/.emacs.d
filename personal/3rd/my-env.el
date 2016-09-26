@@ -12,7 +12,6 @@
 (delete-selection-mode 1)
 (setq frame-title-format '((buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 (setq-default truncate-lines -1)
-(server-start)
 (setq kill-buffer-query-functions nil)
 (setq mac-option-modifier 'hyper)
 (setq mac-command-modifier 'meta)
