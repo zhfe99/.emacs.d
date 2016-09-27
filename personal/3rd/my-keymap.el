@@ -121,11 +121,15 @@
 (define-key org-mode-map (kbd "<S-right>") nil)
 (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
 (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
+
+;; org-agenda-mode
 (add-hook 'org-agenda-mode-hook
           (lambda ()
             (local-set-key (kbd "<S-right>") nil)
             (local-set-key (kbd "<S-left>") nil)
             (local-set-key (kbd "o") 'org-open-at-point)
+            (local-set-key (kbd "c") 'org-capture)
+            (local-set-key (kbd "w") 'org-agenda-refile)
             (local-set-key (kbd "M-,") 'hydra-org/body)))
 
 ;; lisp-mode
