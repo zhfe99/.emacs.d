@@ -45,7 +45,7 @@
   '(ace-window
     avy
     anzu
-    beacon
+    ;; beacon
     browse-kill-ring
     crux
     dash
