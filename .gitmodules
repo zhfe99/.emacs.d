@@ -22,9 +22,9 @@
 [submodule "elpa"]
 	path = elpa
 	url = ../elpa.git
-[submodule "site-lisp/indent-guide"]
-	path = site-lisp/indent-guide
-	url = ../indent-guide
 [submodule "site-lisp/indent-guide-xpm"]
 	path = site-lisp/indent-guide-xpm
+	url = ../indent-guide
+[submodule "site-lisp/indent-guide"]
+	path = site-lisp/indent-guide
 	url = ../indent-guide

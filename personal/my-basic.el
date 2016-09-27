@@ -41,7 +41,7 @@
     (use-package indent-guide
       :load-path "site-lisp/indent-guide-xpm/")
   (use-package indent-guide
-    :load-path "site-lisp/indent-guide/")
+    :load-path "site-lisp/indent-guide/"))
 
 ;; 3rd package
 (prelude-require-package 'ace-window)
