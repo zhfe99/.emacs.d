@@ -14,6 +14,7 @@
                        elpy-module-eldoc
                        elpy-module-flymake
                        elpy-module-pyvenv
+                       elpy-module-highlight-indentation
                        elpy-module-yasnippet))))
 
 ;; use fly-check instead of flymake
@@ -62,14 +63,6 @@
           '(lambda ()
              (git-gutter+-mode)
              (setq python-indent-offset 4)))
-
-;; use indent-gude only for mac
-(cond
- ((string-equal system-type "darwin")
-  (require 'indent-guide)
-  (add-hook 'python-mode-hook
-            '(lambda ()
-               (indent-guide-mode)))))
 
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))

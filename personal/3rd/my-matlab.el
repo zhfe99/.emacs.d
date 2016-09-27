@@ -47,7 +47,6 @@
             (setq matlab-indent-function t)
             (run-hooks 'prelude-prog-mode-hook)
             (auto-fill-mode -1)
-            (indent-guide-mode)
             (git-gutter+-mode)))
 
 (provide 'my-matlab)

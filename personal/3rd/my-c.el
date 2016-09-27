@@ -26,14 +26,6 @@
           (lambda()
             (git-gutter+-mode)))
 
-;; use indent-gude only for mac
-(cond
- ((string-equal system-type "darwin")
-  (require 'indent-guide)
-  (add-hook 'python-mode-hook
-            '(lambda ()
-               (indent-guide-mode)))))
-
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 

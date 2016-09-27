@@ -33,20 +33,16 @@
         (my-sh-modify-date))))
 ;; (add-hook 'before-save-hook 'my-sh-save-hook)
 
-(require 'indent-guide)
-
 ;; mode hook
 (add-hook 'sh-mode-hook
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
-            (indent-guide-mode)
             (git-gutter+-mode)))
 
 ;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (indent-guide-mode)
             (git-gutter+-mode)))
 
 (provide 'my-sh)

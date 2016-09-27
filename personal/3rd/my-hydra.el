@@ -114,10 +114,8 @@ _l_ line  _V_ up    _b_ bookmark  _'_ pop
 _l_ linum   _t_ load  _s_ sudo
 _v_ visual  ^^        _c_ cleanup
 _w_ space   ^^
-_i_ indent-guide
-_I_ indent-highlight"
-  ("i" indent-guide-mode)
-  ("I" highlight-indentation-mode)
+_i_ indent"
+  ("i" highlight-indentation-mode)
   ("l" linum-mode)
   ("t" counsel-load-theme)
   ("s" crux-sudo-edit)
