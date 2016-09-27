@@ -19,3 +19,6 @@
 [submodule "site-lisp/elpy"]
 	path = site-lisp/elpy
 	url = ../elpy.git
+[submodule "elpa"]
+	path = elpa
+	url = ../elpa.git
