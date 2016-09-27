@@ -103,7 +103,8 @@ _l_ line  _V_ up    _b_ bookmark  _'_ pop
   ("v" my-scroll-down-half :exit nil)
   ("V" my-scroll-up-half :exit nil)
   ("n" (lambda () (interactive) (scroll-up 1)) :exit nil)
-  ("p" (lambda () (interactive) (scroll-down 1)) :exit nil))
+  ("p" (lambda () (interactive) (scroll-down 1)) :exit nil)
+  ("q" nil))
 
 ;; toggle
 (defhydra hydra-toggle (:color blue :hint nil :idle 1.5)
