@@ -37,6 +37,11 @@
   :load-path "site-lisp/counsel-projectile/")
 (use-package elpy
   :load-path "site-lisp/elpy/")
+(if (display-graphic-p)
+    (use-package indent-guide
+      :load-path "site-lisp/indent-guide-xpm/")
+  (use-package indent-guide
+    :load-path "site-lisp/indent-guide/")
 
 ;; 3rd package
 (prelude-require-package 'ace-window)
