@@ -7,8 +7,7 @@
 
 ;; basic setting
 (setq visible-bell -1)
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(menu-bar-mode -1)
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (delete-selection-mode 1)
 (setq frame-title-format '((buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 (setq-default truncate-lines -1)
