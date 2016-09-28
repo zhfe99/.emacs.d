@@ -70,7 +70,8 @@ _U_ dupe2"
 ^===^=====^====^=======^=====^======^====^=====
 _i_ info  _a_ agenda   _s_ scratch  _d_ dynamic
 _r_ read  _t_ todo     _m_ message
-_p_ proj  _c_ capture  _l_ async"
+_p_ proj  _c_ capture  _l_ async
+_k_ clock"
   ("i" (lambda () (interactive) (find-file "~/code/mine/org/info.org")))
   ("r" (lambda () (interactive) (find-file "~/code/mine/org/read.org")))
   ("p" (lambda () (interactive) (find-file "~/code/mine/org/proj.org")))
@@ -80,6 +81,7 @@ _p_ proj  _c_ capture  _l_ async"
   ("a" org-agenda-list)
   ("t" org-todo-list)
   ("c" org-capture)
+  ("k" org-clock-goto)
   ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
   ("m" (lambda () (interactive) (switch-to-buffer "*Messages*"))))
@@ -87,23 +89,24 @@ _p_ proj  _c_ capture  _l_ async"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Avy^     ^Scroll^  ^List^        ^Misc^
-^===^=====^======^==^====^========^====^===
-_c_ char  _v_ down  _i_ imenu     _k_ clock
-_l_ line  _V_ up    _b_ bookmark  _'_ pop
-^^        _n_ next  _B_ set
-^^        _p_ prev"
+^Avy^     ^Scroll^  ^List^
+^===^=====^======^==^====^======
+_c_ char  _d_ down  _i_ imenu
+_'_ pop   _u_ up    _b_ bookmark
+^^        _k_ next  _B_ set
+^^        _j_ prev"
   ("c" avy-goto-char)
-  ("l" avy-goto-line)
-  ("k" org-clock-goto)
   ("'" avy-pop-mark)
   ("i" counsel-imenu)
   ("b" counsel-bookmark)
   ("B" bookmark-set)
-  ("v" my-scroll-down-half :exit nil)
-  ("V" my-scroll-up-half :exit nil)
-  ("n" (lambda () (interactive) (scroll-up 1)) :exit nil)
-  ("p" (lambda () (interactive) (scroll-down 1)) :exit nil)
+  ("d" my-scroll-down-half :exit nil)
+  ("u" my-scroll-up-half :exit nil)
+  ("l" forward-char :exit nil)
+  ("h" backward-char :exit nil)
+  ("m" set-mark-command "mark" :exit nil)
+  ("j" (lambda () (interactive) (scroll-up 1)) :exit nil)
+  ("k" (lambda () (interactive) (scroll-down 1)) :exit nil)
   ("q" nil))
 
 ;; toggle

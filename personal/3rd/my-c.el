@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-;; My Makefile/C/C++/Cuda setting.
+;; My (C)Makefile, C/C++/Cuda, GDB, protobuf setting.
 
 ;;; Code:
 
@@ -19,6 +19,7 @@
           (lambda()
             (subword-mode 1)
             (git-gutter+-mode)
+            (highlight-indentation-mode)
             (setq c-basic-offset 2)))
 
 ;; cmake-mode-hook

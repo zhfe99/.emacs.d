@@ -38,11 +38,13 @@
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
+            (highlight-indentation-mode)
             (git-gutter+-mode)))
 
 ;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
+            (highlight-indentation-mode)
             (git-gutter+-mode)))
 
 (provide 'my-sh)

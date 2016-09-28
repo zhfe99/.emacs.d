@@ -8,6 +8,7 @@
 ;; web-mode
 (add-hook 'web-mode-hook
           (lambda()
+            (highlight-indentation-mode)
             (setq web-mode-markup-indent-offset 2)))
 
 (provide 'my-web)
