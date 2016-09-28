@@ -194,5 +194,11 @@
 ;; prelude-mode
 (define-key prelude-mode-map (kbd "M-o") nil)
 
+;; js2-mode
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "M-.") nil))
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "M-j") nil))
+
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
