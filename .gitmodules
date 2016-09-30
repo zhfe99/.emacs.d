@@ -22,3 +22,6 @@
 [submodule "elpa"]
 	path = elpa
 	url = ../elpa.git
+[submodule "site-lisp/projectile"]
+	path = site-lisp/projectile
+	url = https://github.com/zhfe99/projectile.git
