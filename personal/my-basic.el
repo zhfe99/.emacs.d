@@ -20,24 +20,6 @@
 (package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
-;; github package
-(prelude-require-package 'use-package)
-(require 'use-package)
-(use-package swiper
-  :load-path "site-lisp/swiper/")
-(use-package ivy
-  :load-path "site-lisp/swiper/")
-(use-package counsel
-  :load-path "site-lisp/swiper/")
-(use-package reveal-in-osx-finder
-  :if (string-equal system-type "darwin"))
-(use-package fasd
-  :load-path "site-lisp/emacs-fasd/")
-(use-package counsel-projectile
-  :load-path "site-lisp/counsel-projectile/")
-(use-package elpy
-  :load-path "site-lisp/elpy/")
-
 ;; 3rd package
 (prelude-require-package 'ace-window)
 (prelude-require-package 'auctex)

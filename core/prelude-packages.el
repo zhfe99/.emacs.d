@@ -65,7 +65,7 @@
     ;; guru-mode
     imenu-anywhere
     ov
-    projectile
+    ;; projectile
     magit
     move-text
     operate-on-number
