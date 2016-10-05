@@ -4,6 +4,11 @@
 
 ;; My projectile setting.
 
+;; projectile-bookmark location
+(setq projectile-known-projects-file
+  (expand-file-name "projectile-bookmarks.eld"
+                    (concat user-emacs-directory "savefile/")))
+
 ;; add bing search-backward
 (prelude-install-search-engine "bing" "http://www.bing.com/search?q=" "Bing: ")
 (prelude-install-search-engine "baidu" "http://www.baidu.com/s?wd=" "Baidu: ")

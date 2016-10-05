@@ -32,6 +32,10 @@
 ;; default to hide stars
 (setq org-hide-leading-stars nil)
 
+;; org-clock-save file location
+(setq org-clock-persist-file (convert-standard-filename
+                              (concat user-emacs-directory "savefile/org-clock-save.el")))
+
 ;; org files location
 (setq org-directory "~/code/mine/org")
 
