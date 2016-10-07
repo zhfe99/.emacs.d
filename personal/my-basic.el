@@ -2,24 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; additional packages are available in the folder "3rd"
-(add-to-list 'load-path "~/.emacs.d/personal/3rd")
-
-;; enable prelude sub-modules
-(require 'prelude-company)
-(require 'prelude-ido)
-(require 'prelude-programming)
-(require 'prelude-org)
-(require 'prelude-python)
-(require 'prelude-web)
-(require 'prelude-css)
-(require 'prelude-js)
-
-;; add marmalade repo into package src (prelude only includes mepla)
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
 ;; 3rd package
 (prelude-require-package 'ace-window)
 (prelude-require-package 'auctex)
@@ -52,6 +34,9 @@
 (prelude-require-package 'dash-at-point)
 
 ;; my package
+;; additional packages are available in the folder "3rd"
+(add-to-list 'load-path "~/.emacs.d/personal/3rd")
+
 (require 'my-env)
 (require 'my-modeline)
 (require 'my-projectile)

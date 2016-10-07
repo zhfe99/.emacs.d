@@ -4,6 +4,16 @@
 
 ;; My projectile setting.
 
+;; enable prelude sub-modules
+(require 'prelude-company)
+(require 'prelude-ido)
+(require 'prelude-programming)
+(require 'prelude-org)
+(require 'prelude-python)
+(require 'prelude-web)
+(require 'prelude-css)
+(require 'prelude-js)
+
 ;; projectile-bookmark location
 (setq projectile-known-projects-file
   (expand-file-name "projectile-bookmarks.eld"
