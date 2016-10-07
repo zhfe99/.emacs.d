@@ -66,10 +66,10 @@ _U_ dupe2"
 ;; special buffer
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
-^Org^     ^Todo^       ^Emacs^      ^Bash^
-^===^=====^====^=======^=====^======^====^=====
-_i_ info  _a_ agenda   _s_ scratch  _d_ dynamic
-_r_ read  _t_ todo     _m_ message
+^Org^     ^Todo^       ^Emacs^      ^Fold^         ^Conf^
+^===^=====^====^=======^=====^======^====^=========^====^=====
+_i_ info  _a_ agenda   _s_ scratch  _d_ Downloads  _D_ dynamic
+_r_ read  _t_ todo     _m_ message  _e_ experts
 _p_ proj  _c_ capture  _l_ async
 _k_ clock"
   ("i" (lambda () (interactive) (find-file "~/code/mine/org/info.org")))
@@ -89,12 +89,13 @@ _k_ clock"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Avy^     ^Scroll^  ^List^
-^===^=====^======^==^====^======
-_c_ char  _d_ down  _i_ imenu
-_'_ pop   _u_ up    _b_ bookmark
-^^        _k_ next  _B_ set
-^^        _j_ prev"
+^Move^    ^Scroll^  ^Avy^     ^List^
+^====^====^======^==^===^=====^====^======
+_h_ left  _d_ down  _c_ char  _i_ imenu
+_j_ down  _u_ up    _'_ pop   _b_ bookmark
+_k_ up    ^^        ^^        _B_ set
+_l_ right
+_m_ mark"
   ("c" avy-goto-char)
   ("'" avy-pop-mark)
   ("i" counsel-imenu)
@@ -104,7 +105,7 @@ _'_ pop   _u_ up    _b_ bookmark
   ("u" my-scroll-up-half :exit nil)
   ("l" forward-char :exit nil)
   ("h" backward-char :exit nil)
-  ("m" set-mark-command "mark" :exit nil)
+  ("m" set-mark-command :exit nil)
   ("j" (lambda () (interactive) (scroll-up 1)) :exit nil)
   ("k" (lambda () (interactive) (scroll-down 1)) :exit nil)
   ("q" nil))
@@ -117,8 +118,10 @@ _'_ pop   _u_ up    _b_ bookmark
 _l_ linum   _t_ load  _s_ sudo
 _v_ visual  ^^        _c_ cleanup
 _w_ space   ^^
-_i_ indent"
+_i_ indent
+_f_ fill"
   ("i" highlight-indentation-mode)
+  ("f" auto-fill-mode)
   ("l" linum-mode)
   ("t" counsel-load-theme)
   ("s" crux-sudo-edit)
@@ -171,13 +174,15 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 ;; git
 (defhydra hydra-git (:hint nil)
   "
-^Over^     ^Grep^    ^Hunk^    ^Operation^
-^====^=====^====^====^====^====^=========^
-_g_ magit  _h_ root  _i_ menu  _s_ stage
-_f_ find   _H_ curr  _p_ prev  _c_ commit
-^^         ^^        _n_ next  _a_ all
-^^         ^^        _v_ show  _t_ time"
+^Magit^   ^Grep^    ^Hunk^    ^Operation^
+^=====^===^====^====^====^====^=========^
+_g_ over  _h_ root  _i_ menu  _s_ stage
+_l_ log   _H_ curr  _p_ prev  _c_ commit
+^^        _f_ file  _n_ next  _a_ all
+^^         ^^       _v_ show  _t_ time"
   ("g" magit-status-fullscreen :exit t)
+  ("G" magit-status :exit t)
+  ("l" magit-log-all :exit t)
   ("h" my-counsel-ag-from-project-root :exit t)
   ("H" counsel-ag :exit t)
   ("i" my-goto-git-gutter+ :exit t)
