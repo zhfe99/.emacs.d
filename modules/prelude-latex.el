@@ -57,7 +57,7 @@
 (setq TeX-close-quote "")
 (setq TeX-open-quote "")
 
-(setq-default TeX-master nil)
+(setq-default TeX-master t)
 
 ;; use pdflatex
 (setq TeX-PDF-mode t)
@@ -76,7 +76,6 @@
 
 (defun prelude-latex-mode-defaults ()
   "Default Prelude hook for `LaTeX-mode'."
-  (turn-on-auto-fill)
   (abbrev-mode +1)
   (smartparens-mode +1)
   (case prelude-latex-fast-math-entry
