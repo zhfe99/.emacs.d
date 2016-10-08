@@ -55,7 +55,7 @@
 
 ;; org todo key-words
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WORK(w)" "RUNG(r)" "|" "DONE(d)")))
+      '((sequence "TODO(t)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
 
 (setq org-agenda-custom-commands
       '(("h" "Daily habits"
@@ -76,24 +76,28 @@
 ;; (setq pomodoro-work-time 40)
 ;; (setq pomodoro-play-sounds nil)
 
-;; start org clock when the state is switched to WORK
-(defun org-clock-in-if-work ()
-  "Clock in when the task is marked STARTED."
+;; org clock in/out
+(defun my-org-clock-in-out ()
+  "Clock in when the task is marked WORK."
   (if (and (string= org-state "WORK")
            (not (string= org-last-state org-state)))
+
+      ;; clock in: other state -> work
       (progn
         ;; (pomodoro-start nil)
         (org-clock-in))
     ;; stop pomodoro
     ;; (when pomodoro-timer
     ;;   (pomodoro-stop))
-    ;; clock out
-    (when (and (or (string= org-state nil) (string= org-state "TODO"))
+
+    ;; clock out: work -> nil, TODO, HOLD
+    (when (and (or (string= org-state nil) (string= org-state "TODO") (string= org-state "HOLD"))
                (org-clocking-p))
       (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook
-          'org-clock-in-if-work)
+          'my-org-clock-in-out)
 
+;; agenda default setting
 (setq org-agenda-start-with-log-mode t)
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
