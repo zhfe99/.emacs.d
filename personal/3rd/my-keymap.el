@@ -98,6 +98,7 @@
 (define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "z" 'reveal-in-osx-finder)
+(define-key dired-mode-map "Z" 'my-dired-get-size)
 (define-key dired-mode-map (kbd "M-b") nil)
 (define-key dired-mode-map (kbd "M-u") nil)
 (define-key dired-mode-map (kbd "M-i") nil)
