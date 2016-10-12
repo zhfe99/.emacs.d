@@ -50,6 +50,14 @@
   (interactive "*fInsert file name: \nP")
   (insert (file-relative-name filename)))
 
+(defun my-insert-vlc-current-time ()
+  "Retrieve URL from current Safari page and prompt for description.
+Insert an Org link at point."
+  (interactive)
+  (let ((result (shell-command-to-string
+                 "osascript -e 'tell application \"VLC\" to return current time'")))
+    (insert (format "%s" (org-trim result)))))
+
 ;; align function head comment
 (defun my-align-comment()
   "Align function head comment."
