@@ -304,5 +304,10 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
          (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
          (match-string 1))))))
 
+;; Copy the current file path
+(defun my-dired-copy-current-file-path ()
+  (interactive)
+  (kill-new (dired-file-name-at-point)))
+
 (provide 'my-dired)
 ;;; my-dired.el ends here
