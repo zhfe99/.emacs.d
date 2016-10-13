@@ -13,6 +13,7 @@
         easy-kill
         eval-last-sexp
         helm-M-x
+        indent-new-comment-line
         iy-go-to-char--command
         kill-region
         matlab-electric-comment
