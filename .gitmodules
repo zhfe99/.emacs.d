@@ -25,3 +25,6 @@
 [submodule "site-lisp/projectile"]
 	path = site-lisp/projectile
 	url = https://github.com/zhfe99/projectile.git
+[submodule "site-lisp/pomodoro"]
+	path = site-lisp/pomodoro
+	url = https://github.com/baudtack/pomodoro.el

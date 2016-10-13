@@ -25,6 +25,8 @@
   :load-path "site-lisp/counsel-projectile/")
 (use-package elpy
   :load-path "site-lisp/elpy/")
+(use-package pomodoro
+  :load-path "site-lisp/pomodoro/")
 
 (provide 'my-preload)
 ;;; my-preload.el ends here

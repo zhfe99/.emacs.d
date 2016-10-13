@@ -50,9 +50,6 @@
 (setq org-log-done t)
 (setq org-clock-idle-time 30)
 
-;; Already use pomodoro. Don't need to show clock in mode-line
-;; (setq org-clock-clocked-in-display nil)
-
 ;; org todo key-words
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
@@ -68,13 +65,16 @@
         ))
 
 ;; use pomodoro
-;; (require 'pomodoro)
-;; (defun my-pomodoro-add-to-mode-line ()
-;;   (setq-default mode-line-format
-;;                 (cons mode-line-format '(pomodoro-mode-line-string))))
-;; (my-pomodoro-add-to-mode-line)
-;; (setq pomodoro-work-time 40)
-;; (setq pomodoro-play-sounds nil)
+(require 'pomodoro)
+(defun my-pomodoro-add-to-mode-line ()
+  (setq-default mode-line-format
+                (cons mode-line-format '(pomodoro-mode-line-string))))
+(my-pomodoro-add-to-mode-line)
+(setq pomodoro-work-time 40)
+(setq pomodoro-play-sounds nil)
+
+;; Already use pomodoro. Don't need to show clock in mode-line
+(setq org-clock-clocked-in-display nil)
 
 ;; org clock in/out
 (defun my-org-clock-in-out ()
@@ -84,11 +84,12 @@
 
       ;; clock in: other state -> work
       (progn
-        ;; (pomodoro-start nil)
+        (pomodoro-start nil)
         (org-clock-in))
+
     ;; stop pomodoro
-    ;; (when pomodoro-timer
-    ;;   (pomodoro-stop))
+    (when pomodoro-timer
+      (pomodoro-stop))
 
     ;; clock out: work -> nil, TODO, HOLD
     (when (and (or (string= org-state nil) (string= org-state "TODO") (string= org-state "HOLD"))
