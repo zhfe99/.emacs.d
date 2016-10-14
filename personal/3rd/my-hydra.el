@@ -304,7 +304,7 @@ _P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome  _A_ subt
   ("s" org-sort)
   ("n" outline-next-visible-heading)
   ("/" my-narrow-or-widen-dwim)
-  ("a" org-archive-sibling-heading)
+  ("a" org-archive-to-archive-sibling)
   ("A" org-archive-subtree-default)
   ("p" outline-previous-visible-heading)
   ("u" outline-up-heading)
