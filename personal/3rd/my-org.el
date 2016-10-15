@@ -8,6 +8,15 @@
 ;; set org mode for *.org and *.org_archive
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
+;; use org habit
+(require 'org-habit)
+(add-to-list 'org-modules "org-habit")
+(setq org-habit-preceding-days 7
+      org-habit-following-days 1
+      org-habit-graph-column 80
+      org-habit-show-habits-only-for-today nil
+      org-habit-show-all-today t)
+
 ;; bueatify bullet
 (require 'org-bullets)
 (add-hook 'org-mode-hook
