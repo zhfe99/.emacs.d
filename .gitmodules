@@ -1,27 +1,27 @@
+[submodule "elpa"]
+	path = elpa
+	url = https://github.com/zhfe99/elpa.git
 [submodule "site-lisp/counsel-projectile"]
 	path = site-lisp/counsel-projectile
-	url = ../counsel-projectile.git
+	url = https://github.com/zhfe99/counsel-projectile.git
 [submodule "site-lisp/zenburn-emacs"]
 	path = site-lisp/zenburn-emacs
-	url = ../zenburn-emacs.git
+	url = https://github.com/zhfe99/zenburn-emacs.git
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
-	url = ../helm-etags-plus.git
+	url = https://github.com/zhfe99/helm-etags-plus.git
 [submodule "site-lisp/emacs-fasd"]
 	path = site-lisp/emacs-fasd
-	url = ../emacs-fasd.git
+	url = https://github.com/steckerhalter/emacs-fasd.git
 [submodule "site-lisp/emacs-counsel-gtags"]
 	path = site-lisp/emacs-counsel-gtags
-	url = ../emacs-counsel-gtags.git
+	url = https://github.com/syohex/emacs-counsel-gtags.git
 [submodule "site-lisp/swiper"]
 	path = site-lisp/swiper
 	url = https://github.com/abo-abo/swiper.git
 [submodule "site-lisp/elpy"]
 	path = site-lisp/elpy
-	url = ../elpy.git
-[submodule "elpa"]
-	path = elpa
-	url = ../elpa.git
+	url = https://github.com/jorgenschaefer/elpy.git
 [submodule "site-lisp/projectile"]
 	path = site-lisp/projectile
 	url = https://github.com/bbatsov/projectile.git
