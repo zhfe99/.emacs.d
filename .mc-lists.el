@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         apply-operation-to-number-at-point
+        backward-sexp
         c-electric-delete-forward
         c-electric-paren
         c-electric-slash
@@ -12,6 +13,7 @@
         crux-move-beginning-of-line
         easy-kill
         eval-last-sexp
+        forward-sexp
         helm-M-x
         indent-new-comment-line
         iy-go-to-char--command
@@ -28,6 +30,7 @@
         sp-splice-sexp
         wdired-finish-edit
         wdired-previous-line
+        web-mode-comment-indent-new-line
         yas-expand
         zop-up-to-char
         ))
