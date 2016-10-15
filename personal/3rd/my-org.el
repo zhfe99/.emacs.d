@@ -17,22 +17,24 @@
       org-habit-show-habits-only-for-today t
       org-habit-show-all-today t)
 
-;; bueatify bullet
+;;=======
+;; bullet
 (require 'org-bullets)
-(add-hook 'org-mode-hook
-          (lambda ()
-            (org-bullets-mode 1)
-            (git-gutter+-mode)))
-
-;; markdown hood
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (git-gutter+-mode)))
 
 ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
 ;; the more pointed, the more important
 (eval-after-load 'org-bullets
   '(setq org-bullets-bullet-list '("●" "✹" "✭" "✦" "■" "▲" )))
+
+;;=====
+;; hook
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-bullets-mode 1)
+            (git-gutter+-mode)))
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (git-gutter+-mode)))
 
 ;; default to indent outline
 ;; if set t, then org-hide-leading-stars will be always t
@@ -73,8 +75,8 @@
         ;; other commands here
         ))
 
-;;=============
-;; use pomodoro
+;;=========
+;; pomodoro
 (require 'pomodoro)
 (defun my-pomodoro-add-to-mode-line ()
   (setq-default mode-line-format
@@ -83,7 +85,7 @@
 (setq pomodoro-work-time 40)
 (setq pomodoro-play-sounds nil)
 
-;; Already use pomodoro. Don't need to show clock in mode-line
+;; don't need to show clock in mode-line because already using pomodoro
 (setq org-clock-clocked-in-display nil)
 
 ;;=================
@@ -109,19 +111,15 @@
 (add-hook 'org-after-todo-state-change-hook
           'my-org-clock-in-out)
 
-;; agenda default setting
+;;=======
+;; agenda
 (setq org-agenda-start-with-log-mode t)
 (setq org-agenda-start-on-weekday nil)
 (setq org-agenda-sticky t)
 (setq org-agenda-span 'day)
-
-;; agenda format
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
-
-(setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
-(setq org-imenu-depth 3)
 (setq org-agenda-archives-mode t)
 
 ;; don't destroy window configuration
@@ -132,8 +130,13 @@
   (flet ((delete-other-windows () nil))
     ad-do-it))
 
+(setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
+(setq org-imenu-depth 3)
+
+;;========
+;; browser
 ;; get the current page from Safari
-(defun jcs-get-link (link)
+(defun my-insert-current-safari-link (link)
   "Retrieve URL from current Safari page and prompt for description.
 Insert an Org link at point."
   (interactive "sLink Description: ")
@@ -141,7 +144,19 @@ Insert an Org link at point."
                  "osascript -e 'tell application \"Safari\" to return URL of document 1'")))
     (insert (format "[[%s][%s]]" (org-trim result) link))))
 
-;; org capture template
+;; get the current page from Chrome
+(defun my-insert-current-chrome-link ()
+  "Retrieve URL from current Chrome page and prompt for description.
+Insert an Org link at point."
+  (interactive)
+  (let ((result (shell-command-to-string
+                 "osascript -e 'tell application \"Google Chrome\" to return URL of active tab of front window'"))
+        (desc (shell-command-to-string
+               "osascript -e 'tell application \"Google Chrome\" to return title of active tab of front window'")))
+    (insert (format "[[%s][%s]]" (org-trim result) (org-trim desc)))))
+
+;;========
+;; capture
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/code/mine/org/life.org" "misc")
          "* TODO %?\n  %i\n")
@@ -152,6 +167,8 @@ Insert an Org link at point."
       '((nil :maxlevel . 1)
         (org-agenda-files :maxlevel . 1)))
 
+;;=====
+;; link
 (defun my-org-open-at-point (&optional arg reference-buffer)
   "Open link at or after point.
 If there is no link at point, this function will search forward up to
@@ -646,16 +663,6 @@ active region."
                                        (buffer-file-name)) "::#" custom-id))
            (push (list link desc) org-stored-links))
          (car org-stored-links))))))
-
-(defun my-insert-current-chrome-link ()
-  "Retrieve URL from current Safari page and prompt for description.
-Insert an Org link at point."
-  (interactive)
-  (let ((result (shell-command-to-string
-                 "osascript -e 'tell application \"Google Chrome\" to return URL of active tab of front window'"))
-        (desc (shell-command-to-string
-               "osascript -e 'tell application \"Google Chrome\" to return title of active tab of front window'")))
-    (insert (format "[[%s][%s]]" (org-trim result) (org-trim desc)))))
 
 (provide 'my-org)
 ;;; my-org.el ends here
