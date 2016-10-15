@@ -14,7 +14,7 @@
 (setq org-habit-preceding-days 7
       org-habit-following-days 1
       org-habit-graph-column 80
-      org-habit-show-habits-only-for-today nil
+      org-habit-show-habits-only-for-today t
       org-habit-show-all-today t)
 
 ;; bueatify bullet
@@ -31,8 +31,8 @@
 
 ;; http://nadeausoftware.com/articles/2007/11/latency_friendly_customized_bullets_using_unicode_characters
 ;; the more pointed, the more important
-;; (eval-after-load 'org-bullets
-;;   '(setq org-bullets-bullet-list '("✺" "✹" "✸" "✷" "✶" "✭" "✦" "■" "▲" "●" )))
+(eval-after-load 'org-bullets
+  '(setq org-bullets-bullet-list '("●" "✹" "✭" "✦" "■" "▲" )))
 
 ;; default to indent outline
 ;; if set t, then org-hide-leading-stars will be always t
@@ -73,6 +73,7 @@
         ;; other commands here
         ))
 
+;;=============
 ;; use pomodoro
 (require 'pomodoro)
 (defun my-pomodoro-add-to-mode-line ()
@@ -85,6 +86,7 @@
 ;; Already use pomodoro. Don't need to show clock in mode-line
 (setq org-clock-clocked-in-display nil)
 
+;;=================
 ;; org clock in/out
 (defun my-org-clock-in-out ()
   "Clock in when the task is marked WORK."
@@ -141,7 +143,7 @@ Insert an Org link at point."
 
 ;; org capture template
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/code/mine/org/gtd.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/code/mine/org/life.org" "misc")
          "* TODO %?\n  %i\n")
         ("j" "Journal" entry (file+datetree "~/code/mine/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
