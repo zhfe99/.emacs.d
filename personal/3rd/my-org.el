@@ -8,6 +8,9 @@
 ;; set org mode for *.org and *.org_archive
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
+;; markdown export
+(require 'ox-md nil t)
+
 ;; use org habit
 (require 'org-habit)
 (add-to-list 'org-modules "org-habit")

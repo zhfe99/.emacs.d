@@ -5,7 +5,6 @@
 ;; add marmalade repo into package src (prelude only includes mepla)
 (require 'package)
 (package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 ;; github package
 (require 'use-package)
