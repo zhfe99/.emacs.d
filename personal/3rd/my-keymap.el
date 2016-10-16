@@ -49,7 +49,7 @@
 ;; =
 ;; [ ]
 ;; k
-;;
+;; n
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-'") 'repeat)
@@ -134,13 +134,18 @@
             (local-set-key (kbd "w") 'org-agenda-refile)
             (local-set-key (kbd "M-,") 'hydra-org/body)))
 
+;; markdown-mode
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-p") nil)
+            (local-set-key (kbd "M-n") nil)))
+
 ;; lisp-mode
 (define-key lisp-mode-map (kbd "M-,") 'hydra-lisp/body)
 (define-key emacs-lisp-mode-map (kbd "M-,") 'hydra-lisp/body)
 
 ;; sh-mode
-(with-eval-after-load "sh-mode"
-  (define-key sh-mode-map (kbd "M-,") 'hydra-sh/body))
+(define-key sh-mode-map (kbd "M-,") 'hydra-sh/body)
 
 ;; python-mode
 (define-key python-mode-map (kbd "M-,") 'hydra-python/body)
