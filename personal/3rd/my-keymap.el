@@ -145,7 +145,8 @@
 (define-key emacs-lisp-mode-map (kbd "M-,") 'hydra-lisp/body)
 
 ;; sh-mode
-(define-key sh-mode-map (kbd "M-,") 'hydra-sh/body)
+(with-eval-after-load "sh-mode"
+  (define-key sh-mode-map (kbd "M-,") 'hydra-sh/body))
 
 ;; python-mode
 (define-key python-mode-map (kbd "M-,") 'hydra-python/body)
