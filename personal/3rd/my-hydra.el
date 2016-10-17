@@ -80,7 +80,7 @@ _k_ clock"
   ("D" (lambda () (interactive) (find-file "~/.dotfiles/shell/bash_user_dynamic.sh")))
   ("a" org-agenda-list)
   ("t" org-todo-list)
-  ("c" org-capture)
+  ("c" my-org-capture)
   ("k" org-clock-goto)
   ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))

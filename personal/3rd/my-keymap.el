@@ -130,7 +130,7 @@
             (local-set-key (kbd "<S-right>") nil)
             (local-set-key (kbd "<S-left>") nil)
             (local-set-key (kbd "o") 'org-open-at-point)
-            (local-set-key (kbd "c") 'org-capture)
+            (local-set-key (kbd "c") 'my-org-capture)
             (local-set-key (kbd "w") 'org-agenda-refile)
             (local-set-key (kbd "M-,") 'hydra-org/body)))
 
