@@ -154,6 +154,8 @@
 ;; elpy
 (with-eval-after-load "elpy"
   (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
+  (define-key elpy-mode-map (kbd "<M-up>") nil)
+  (define-key elpy-mode-map (kbd "<M-down>") nil)
   (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
   (define-key elpy-mode-map (kbd "M-.") nil)
   (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)

@@ -58,6 +58,15 @@ Insert an Org link at point."
                  "osascript -e 'tell application \"VLC\" to return current time'")))
     (insert (format "%s" (org-trim result)))))
 
+(defun my-insert-chrome-current-url ()
+  "Retrieve URL from current Chrome page and prompt for description."
+  (interactive)
+  (let ((result (shell-command-to-string
+                 "osascript -e 'tell application \"Google Chrome\" to return URL of active tab of front window'"))
+        (desc (shell-command-to-string
+               "osascript -e 'tell application \"Google Chrome\" to return title of active tab of front window'")))
+    (insert (format "%s" (org-trim result)))))
+
 ;; align function head comment
 (defun my-align-comment()
   "Align function head comment."
@@ -106,6 +115,20 @@ Insert an Org link at point."
 ;; (use-package workgroups2
 ;;   :load-path "site-lisp/workgroups2/src/")
 ;; (workgroups-mode 1)
+
+;; merge comment-line and comment-dwim
+;; http://ergoemacs.org/misc/emacs_comment-line_vs_comment-dwim.html
+(defun my-comment-dwim ()
+  "Like `comment-dwim', but toggle comment if cursor is not at end of line.
+Version 2016-10-17"
+  (interactive)
+  (if (region-active-p)
+      (comment-dwim nil)
+    (if (eq (point) (line-end-position))
+        (comment-dwim nil)
+      (if (fboundp 'comment-line)
+          (comment-line 1)
+        (comment-or-uncomment-region (line-beginning-position) (line-end-position))))))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

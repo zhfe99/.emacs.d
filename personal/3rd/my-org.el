@@ -125,6 +125,18 @@
 (setq org-agenda-prefix-format "%?-12t% s")
 (setq org-agenda-archives-mode t)
 
+;; clock report show "\emsp" in agenda
+;; http://emacs.stackexchange.com/questions/9528/is-it-possible-to-remove-emsp-from-clock-report-but-preserve-indentation
+(defun my-org-clocktable-indent-string (level)
+  (if (= level 1)
+      ""
+    (let ((str "*"))
+      (while (> level 2)
+        (setq level (1- level)
+              str (concat str "--")))
+      (concat str ""))))
+(advice-add 'org-clocktable-indent-string :override #'my-org-clocktable-indent-string)
+
 ;; don't destroy window configuration
 (setq org-agenda-window-setup 'current-window)
 (setq org-src-window-setup 'current-window)
