@@ -19,6 +19,9 @@
 (fringe-mode '(8 . 0))
 (setq ediff-split-window-function 'split-window-horizontally)
 
+;; be quiet when revert-buffer
+(setq auto-revert-verbose nil)
+
 ;; open todo-list at startup
 (when (string-equal system-type "darwin")
   (setq initial-buffer-choice (lambda ()
