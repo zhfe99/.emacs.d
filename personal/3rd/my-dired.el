@@ -304,6 +304,18 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
          (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
          (match-string 1))))))
 
+;; Count the files insides marked elements
+(defun my-dired-get-count ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (with-temp-buffer
+      (apply 'call-process (concat (getenv "HOME") "/.dotfiles/bin/co") nil t nil files)
+      (message
+       "Count: %s"
+       (progn
+         (re-search-backward "\\(^[ 0-9.,]+\\).*$")
+         (match-string 1))))))
+
 ;; Copy the current file path
 (defun my-dired-copy-current-file-path ()
   (interactive)
