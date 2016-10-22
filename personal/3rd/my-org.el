@@ -150,6 +150,7 @@
 
 ;; ======
 ;; capture
+(require 'org-capture)
 (defun my-org-capture (&optional goto keys)
   "Capture something.
 \\<org-capture-mode-map>
@@ -190,7 +191,7 @@ of the day at point (if any) or the current HH:MM time."
                                 org-capture-link-is-already-stored)
                            (plist-get org-store-link-plist :annotation)
                          (ignore-errors (org-store-link nil))))
-           (entry (or org-capture-entry (org-capture-select-template "t")))
+           (entry (or nil (org-capture-select-template "t")))
            initial)
       (setq initial (or org-capture-initial
                         (and (org-region-active-p)
