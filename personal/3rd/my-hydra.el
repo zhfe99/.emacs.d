@@ -342,6 +342,8 @@ _e_ eval"
 ;; dired sort
 (defhydra hydra-dired-sort (:color blue :hint nil)
   "
+^Sort^
+^====^==
 _n_ name
 _d_ date
 _s_ size"
@@ -349,11 +351,29 @@ _s_ size"
   ("n" dired-sort-name)
   ("s" dired-sort-size))
 
+;; dired
+(defhydra hydra-dired (:color blue :hint nil)
+  "
+^Open^    ^Info^     ^Copy^    ^Move^
+^====^====^====^=====^====^====^====^===========
+_o_ crux  _c_ count  _p_ path  _d_ from Download
+_a_ ace   _s_ size   _l_ link  _r_ rsync to
+_t_ term"
+  ("o" crux-open-with)
+  ("a" ace-dired-find-file)
+  ("t" my-term-open-at-current-buffer)
+  ("c" my-dired-get-count)
+  ("s" my-dired-get-size)
+  ("l" my-org-store-link)
+  ("p" my-dired-copy-current-file-path)
+  ("d" my-move-file-here)
+  ("r" my-dired-rsync))
+
 ;; python
 (defhydra hydra-python (:color red :hint nil :idle 1.5)
   "
 ^Date^
----------
+^====^====
 _c_ create"
   ("c" my-python-create-date))
 
@@ -361,7 +381,7 @@ _c_ create"
 (defhydra hydra-sh (:color red :hint nil :idle 1.5)
   "
 ^Date^
----------
+^====^====
 _c_ create"
   ("c" my-sh-create-date))
 
@@ -369,7 +389,7 @@ _c_ create"
 (defhydra hydra-c (:color red :hint nil)
   "
 ^Tag^
-^===^
+^===^====
 _i_ irony"
   ("i" irony-install-server))
 

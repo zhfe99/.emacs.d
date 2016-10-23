@@ -86,20 +86,13 @@
 ;; f-
 
 ;; dired-mode
-(define-key dired-mode-map "E" 'ace-dired-find-file)
 (define-key dired-mode-map "o" 'crux-open-with)
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
-(define-key dired-mode-map "t" 'my-term-open-at-current-buffer)
-(define-key dired-mode-map "D" 'bjm/move-file-here)
-(define-key dired-mode-map "Y" 'ora-dired-rsync)
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "'" 'dired-up-directory)
-(define-key dired-mode-map "L" 'my-org-store-link)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
-(define-key dired-mode-map "z" 'my-dired-get-count)
-(define-key dired-mode-map "Z" 'my-dired-get-size)
-(define-key dired-mode-map "y" 'my-dired-copy-current-file-path)
+(define-key dired-mode-map (kbd ",") 'hydra-dired/body)
 (define-key dired-mode-map (kbd "M-b") nil)
 (define-key dired-mode-map (kbd "M-u") nil)
 (define-key dired-mode-map (kbd "M-i") nil)
