@@ -32,6 +32,12 @@
   (let ((time-format "%Y-%m-%d"))
     (insert (format-time-string time-format (current-time)))))
 
+;; insert org current clocked task
+(defun my-insert-org-clocked-task()
+  "Insert org current clocked task."
+  (interactive)
+  (insert org-clock-current-task))
+
 ;;===============================
 ;; insert file name/path at point
 ;; http://pragmaticemacs.com/emacs/insert-file-name/

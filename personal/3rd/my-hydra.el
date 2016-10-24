@@ -132,12 +132,14 @@ _f_ fill"
 ;; edit
 (defhydra hydra-edit (:color blue :hint nil :idle 1.5)
   "
-^Filename^     ^Insert^  ^Para^   ^File^     ^Spell^
-^========^=====^======^==^====^===^====^=====^=====^===
-_nn_ name      _t_ date  _q_ fill  _e_ ediff  _i_ check
+^Filename^     ^Insert^  ^Para^    ^File^     ^Spell^
+^========^=====^======^==^====^====^====^=====^=====^===
+_nn_ name      _d_ date  _q_ fill  _e_ ediff  _i_ check
 _na_ absolute  _v_ vlc   ^^        _f_ find
-_nr_ relative  _y_ url"
-  ("t" my-insert-current-date)
+_nr_ relative  _y_ url
+^^             _o_ org"
+  ("d" my-insert-current-date)
+  ("o" my-insert-org-clocked-task)
   ("v" my-insert-vlc-current-time)
   ("y" my-insert-chrome-current-url)
   ("nn" my-insert-file-name)
