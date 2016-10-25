@@ -325,5 +325,18 @@ from which to select the file to move, sorted by most recent first."
   (interactive)
   (kill-new (dired-file-name-at-point)))
 
+;; Open marked files using open
+(defun my-dired-open-marked-files ()
+  (interactive)
+  (let* ((files (dired-get-marked-files))
+         (open (pcase system-type
+                 (`darwin "open")
+                 ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open")))
+         (program (if (or nil (not open))
+                      (read-shell-command "Open current file with: ")
+                    open)))
+    ;; the rsync command
+    (apply 'call-process "open" nil t nil files)))
+
 (provide 'my-dired)
 ;;; my-dired.el ends here

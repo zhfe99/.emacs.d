@@ -87,6 +87,7 @@
 
 ;; dired-mode
 (define-key dired-mode-map "o" 'crux-open-with)
+(define-key dired-mode-map "O" 'my-dired-open-marked-files)
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map ")" 'dired-omit-mode)
