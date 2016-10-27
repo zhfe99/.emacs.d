@@ -107,8 +107,8 @@
     (when pomodoro-timer
       (pomodoro-stop))
 
-    ;; clock out: work -> nil, TODO, HOLD
-    (when (and (or (string= org-state nil) (string= org-state "TODO") (string= org-state "HOLD"))
+    ;; clock out: work -> nil, TODO, HOLD, RUNG
+    (when (and (or (string= org-state nil) (string= org-state "TODO") (string= org-state "HOLD") (string= org-state "RUNG"))
                (org-clocking-p))
       (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook
