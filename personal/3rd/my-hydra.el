@@ -353,19 +353,28 @@ _s_ size"
   ("n" dired-sort-name)
   ("s" dired-sort-size))
 
+;; dired info
+(defhydra hydra-dired-info (:color blue :hint nil)
+  "
+^Info^
+^====^===
+_c_ count
+_l_ lines
+_s_ size"
+  ("c" my-dired-get-count)
+  ("s" my-dired-get-size)
+  ("l" my-dired-get-lines))
+
 ;; dired
 (defhydra hydra-dired (:color blue :hint nil)
   "
-^Open^    ^Info^     ^Copy^    ^Move^
-^====^====^====^=====^====^====^====^===========
-_o_ crux  _c_ count  _p_ path  _d_ from Download
-_a_ ace   _s_ size   _l_ link  _r_ rsync to
-_t_ term"
-  ("o" crux-open-with)
+^Open^    ^Copy^    ^Move^
+^====^====^====^====^====^===========
+_a_ ace   _p_ path  _d_ from Download
+_t_ term  _l_ link  _r_ rsync to
+"
   ("a" ace-dired-find-file)
   ("t" my-term-open-at-current-buffer)
-  ("c" my-dired-get-count)
-  ("s" my-dired-get-size)
   ("l" my-org-store-link)
   ("p" my-dired-copy-current-file-path)
   ("d" my-move-file-here)

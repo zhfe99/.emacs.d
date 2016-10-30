@@ -320,6 +320,17 @@ from which to select the file to move, sorted by most recent first."
          (re-search-backward "\\(^[ 0-9.,]+\\).*$")
          (match-string 1))))))
 
+(defun my-dired-get-lines ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (with-temp-buffer
+      (apply 'call-process "/usr/bin/wc" nil t nil "-l" files)
+      (message
+       "#Lines: %s"
+       (progn
+         (re-search-backward "\\(^[ 0-9.,]+\\).*")
+         (match-string 1))))))
+
 ;; Copy the current file path
 (defun my-dired-copy-current-file-path ()
   (interactive)
