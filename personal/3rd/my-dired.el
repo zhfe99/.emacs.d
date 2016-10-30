@@ -304,9 +304,10 @@ from which to select the file to move, sorted by most recent first."
       (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
       (message
        "Size of all marked files: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
-         (match-string 1))))))
+       (string-trim
+        (progn
+          (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
+          (match-string 1)))))))
 
 ;; Count the files insides marked elements
 (defun my-dired-get-count ()
@@ -316,9 +317,10 @@ from which to select the file to move, sorted by most recent first."
       (apply 'call-process (concat (getenv "HOME") "/.dotfiles/bin/co") nil t nil files)
       (message
        "Count: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+\\).*$")
-         (match-string 1))))))
+       (string-trim
+        (progn
+          (re-search-backward "\\(^[ 0-9.,]+\\).*$")
+          (match-string 1)))))))
 
 (defun my-dired-get-lines ()
   (interactive)
@@ -327,9 +329,10 @@ from which to select the file to move, sorted by most recent first."
       (apply 'call-process "/usr/bin/wc" nil t nil "-l" files)
       (message
        "#Lines: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+\\).*")
-         (match-string 1))))))
+       (string-trim
+        (progn
+          (re-search-backward "\\(^[ 0-9.,]+\\).*")
+          (match-string 1)))))))
 
 ;; Copy the current file path
 (defun my-dired-copy-current-file-path ()
