@@ -68,7 +68,8 @@
 (defun my-duplicate-current-buffer-in-ace-window ()
   "Open current buffer in other window."
   (interactive)
-  (let (buf (current-buffer))
+  (let (buf)
+    (setq buf (current-buffer))
     (aw-switch-to-window (aw-select " Ace Buffer: "))
     (switch-to-buffer buf)))
 

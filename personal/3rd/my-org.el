@@ -286,7 +286,7 @@ Insert an Org link at point."
 ;; capture
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/code/mine/org/life.org" "misc")
-         "* TODO %?\n  %i")
+         "* TODO %?")
         ("j" "Journal" entry (file+datetree "~/code/mine/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
