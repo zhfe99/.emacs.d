@@ -15,7 +15,7 @@
 (require 'org-habit)
 (add-to-list 'org-modules "org-habit")
 (setq org-habit-preceding-days 7
-      org-habit-following-days 7
+      org-habit-following-days 1
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today t
       org-habit-show-all-today t)
@@ -790,6 +790,13 @@ active region."
                                        (buffer-file-name)) "::#" custom-id))
            (push (list link desc) org-stored-links))
          (car org-stored-links))))))
+
+;; (require 'w3m-load)
+;; (setq browse-url-browser-function 'w3m-browse-url)
+(setq browse-url-browser-function 'browse-url-default-browser)
+;; (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+;; ;; optional keyboard short-cut
+;; (global-set-key "\C-xm" 'browse-url-at-point)
 
 (provide 'my-org)
 ;;; my-org.el ends here
