@@ -9,33 +9,22 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Focus^    ^Delete^   ^Boundary^     ^Swap^     ^Split^    ^Text^
-^=====^====^====^=====^========^=====^====^=====^=====^====^====^======
-_h_ left   _H_ left   _C-h_ left     _←_ left   _2_ below  _=_ increase
-_j_ down   _J_ down   _C-j_ down     _↓_ down   _3_ right  _-_ decrease
-_k_ up     _K_ up     _C-k_ up       _↑_ up     ^^         _0_ default
-_l_ right  _L_ right  _C-l_ right    _→_ right
-^^         _1_ other  _b_   balance  _s_ ace"
-  ("h" windmove-left)
-  ("j" windmove-down)
-  ("k" windmove-up)
-  ("l" windmove-right)
+^Boundary^   ^Swap^     ^Text^
+^========^===^====^=====^====^======
+_h_ left     _←_ left   _=_ increase
+_j_ down     _↓_ down   _-_ decrease
+_k_ up       _↑_ up     _0_ default
+_l_ right    _→_ right
+_b_ balance  _s_ ace"
   ("<left>" buf-move-left)
   ("<down>" buf-move-down)
   ("<up>" buf-move-up)
   ("<right>" buf-move-right)
   ("s" ace-swap-window :exit t)
-  ("C-h" my-move-splitter-left)
-  ("C-j" my-move-splitter-down)
-  ("C-k" my-move-splitter-up)
-  ("C-l" my-move-splitter-right)
-  ("H" my-push-window-left :exit t)
-  ("J" my-push-window-down :exit t)
-  ("K" my-push-window-up :exit t)
-  ("L" my-push-window-right :exit t)
-  ("1" delete-other-windows :exit t)
-  ("2" split-window-below)
-  ("3" split-window-right)
+  ("h" my-move-splitter-left)
+  ("j" my-move-splitter-down)
+  ("k" my-move-splitter-up)
+  ("l" my-move-splitter-right)
   ("4" my-save-window-conf-1 :exit t)
   ("5" my-goto-window-conf-1 :exit t)
   ("b" balance-windows :exit t)
