@@ -107,6 +107,7 @@
               "\\|^\\.texmf-var$"
               "\\|^\\.theano$"
               "\\|^\\.thunderbird$"
+              "\\|^\\.tramp_history$"
               "\\|^\\.vim_mru_files$"
               "\\|^\\.vim_runtime$"
               "\\|^\\.viminfo$"
@@ -351,6 +352,18 @@ from which to select the file to move, sorted by most recent first."
                     open)))
     ;; the rsync command
     (apply 'call-process "open" nil t nil files)))
+
+(defun my-dired-open-marked-files-with-vlc ()
+  (interactive)
+  (let* ((files (dired-get-marked-files))
+         (open (pcase system-type
+                 (`darwin "open")
+                 ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open")))
+         (program (if (or nil (not open))
+                      (read-shell-command "Open current file with: ")
+                    open)))
+    ;; the rsync command
+    (apply 'call-process "/Applications/VLC.app/Contents/MacOS/VLC" nil t nil files)))
 
 (provide 'my-dired)
 ;;; my-dired.el ends here
