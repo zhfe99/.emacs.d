@@ -43,6 +43,16 @@
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
 (global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
+(global-set-key (kbd "\e[46;3;A~") 'my-push-window-up)     ; H-M-up
+(global-set-key (kbd "\e[46;3;B~") 'my-push-window-down)     ; H-M-down
+(global-set-key (kbd "\e[46;3;C~") 'my-push-window-left)     ; H-M-left
+(global-set-key (kbd "\e[46;3;D~") 'my-push-window-right)     ; H-M-right
+
+;; H-M-
+(global-set-key (kbd "<H-M-left>") 'my-push-window-left)
+(global-set-key (kbd "<H-M-right>") 'my-push-window-right)
+(global-set-key (kbd "<H-M-up>") 'my-push-window-up)
+(global-set-key (kbd "<H-M-down>") 'my-push-window-down)
 
 ;; M-
 ;; The following keys are still available:
