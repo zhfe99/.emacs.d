@@ -146,8 +146,8 @@ _nr_ relative  _y_ url
 ^====^====^===^======^====^======^====^===
 _f_ ford  _,_ left   _s_ splice  _k_ kill
 _b_ back  _._ right  _r_ rewarp  _d_ ford
-^^        _>_ end    _l_ slurp   _i_ inner
-^^        _<_ head   _a_ barf    _o_ outer"
+^^        _>_ end    _l_ slurp
+^^        _<_ head   _a_ barf"
   ("f" sp-forward-sexp)
   ("b" sp-backward-sexp)
   ("," sp-backward-up-sexp)
@@ -158,8 +158,6 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
   ("r" sp-rewrap-sexp :exit t)
   ("l" sp-slurp-hybrid-sexp)
   ("a" sp-forward-barf-sexp)
-  ("i" change-inner :exit t)
-  ("o" change-outer :exit t)
   ("k" sp-kill-hybrid-sexp :exit t)
   ("d" sp-kill-sexp :exit t)
   ("q" nil))
