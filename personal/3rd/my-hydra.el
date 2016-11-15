@@ -15,12 +15,14 @@ _h_ left     _←_ left   _=_ increase
 _j_ down     _↓_ down   _-_ decrease
 _k_ up       _↑_ up     _0_ default
 _l_ right    _→_ right
-_b_ balance  _s_ ace"
+_b_ balance  _s_ ace
+^^           _u_ dupe"
   ("<left>" buf-move-left)
   ("<down>" buf-move-down)
   ("<up>" buf-move-up)
   ("<right>" buf-move-right)
   ("s" ace-swap-window :exit t)
+  ("u" my-duplicate-current-buffer-in-ace-window :exit t)
   ("h" my-move-splitter-left)
   ("j" my-move-splitter-down)
   ("k" my-move-splitter-up)
@@ -40,17 +42,12 @@ _b_ balance  _s_ ace"
 ^======^====^====^=====
 _k_ kill    _z_ reveal
 _b_ bury    _d_ dired
-_r_ revert  _m_ machine
-_u_ dupe
-_U_ dupe2"
+_r_ revert"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
   ("z" reveal-in-osx-finder)
-  ("d" counsel-goto-recent-directory)
-  ("u" my-duplicate-current-buffer-in-ace-window)
-  ("U" my-duplicate-ace-buffer-in-current-window)
-  ("m" my-switch-to-current-on-server-or-local))
+  ("d" counsel-goto-recent-directory))
 
 ;; special buffer
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
@@ -355,16 +352,15 @@ _s_ size"
 ;; dired
 (defhydra hydra-dired (:color blue :hint nil)
   "
-^Open^    ^Copy^    ^Move^
-^====^====^====^====^====^===========
-_u_ ace   _p_ path  _d_ from Download
-_t_ term  _l_ link  _r_ rsync to
-"
-  ("u" my-dired-find-file-ace-window)
-  ("t" my-term-open-at-current-buffer)
+^Copy^    ^Move^
+^====^====^====^===========
+_p_ path  _d_ from Download
+_l_ link  _D_ from Desktop
+^^        _r_ rsync to"
   ("l" my-org-store-link)
   ("p" my-dired-copy-current-file-path)
-  ("d" my-move-file-here)
+  ("d" my-dired-move-file-from-downloads)
+  ("D" my-dired-move-file-from-desktop)
   ("r" my-dired-rsync))
 
 ;; python

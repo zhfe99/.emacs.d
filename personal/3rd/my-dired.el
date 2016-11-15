@@ -207,27 +207,23 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
         (aw-switch-to-window win)
         (find-file buf)))))
 
-;;;;;;;;;;;;;;;;;
+;; ==============
 ;; move file here
 (require 'dash)
 (require 'swiper)
 
-;; start directory
-(defvar my-move-file-here-start-dir (expand-file-name "~/Downloads"))
-
-(defun my-move-file-here ()
+(defun my-dired-move-file-from (folder)
   "Move file from somewhere else to here.
 The file is taken from a start directory set by
 `my-move-file-here-start-dir' and moved to the current directory
 if invoked in dired, or else the directory containing current buffer.
 The user is presented with a list of files in the start directory,
 from which to select the file to move, sorted by most recent first."
-  (interactive)
   (let (file-list target-dir file-list-sorted start-file start-file-full)
     ;; clean directories from list but keep times
     (setq file-list
           (-remove (lambda (x) (nth 1 x))
-                   (directory-files-and-attributes my-move-file-here-start-dir)))
+                   (directory-files-and-attributes (expand-file-name folder))))
 
     ;; get target directory
     ;; http://ergoemacs.org/emacs/emacs_copy_file_path.html
@@ -262,7 +258,15 @@ from which to select the file to move, sorted by most recent first."
   (revert-buffer)
   (message "moved %s to %s" start-file-full end-file)))
 
-;;=====================
+(defun my-dired-move-file-from-downloads()
+  (interactive)
+  (my-dired-move-file-from "~/Downloads"))
+
+(defun my-dired-move-file-from-desktop()
+  (interactive)
+  (my-dired-move-file-from "~/Desktop"))
+
+;; ====================
 ;; Using rsync in dired
 ;; http://oremacs.com/2016/02/24/dired-rsync/
 (defun my-dired-rsync (dest)
