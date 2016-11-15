@@ -251,7 +251,7 @@ from which to select the file to move, sorted by most recent first."
 
   ;; add full path to start file and end-file
   (setq start-file-full
-        (expand-file-name start-file my-move-file-here-start-dir))
+        (expand-file-name start-file folder))
   (setq end-file
         (expand-file-name (file-name-nondirectory start-file) target-dir))
   (rename-file start-file-full end-file)
