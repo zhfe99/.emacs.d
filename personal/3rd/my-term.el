@@ -75,7 +75,7 @@
                         nil))
                     (buffer-list))))
 
-;;===========================================================
+;; ==========================================================
 ;; open a new term starting from the folder of current buffer
 (defun my-term-open-at-current-buffer ()
   "Open a new term starting from the folder of current buffer"
@@ -127,7 +127,7 @@
   (interactive)
   (my-term-rename-as-prompt-level 1))
 
-;;======================
+;; =====================
 ;; Open term list in ivy
 (defun my-buffer-switch-in-visible-window (buffer)
   "Switch buffer in visible window"
@@ -145,6 +145,39 @@
     (setq len (length buffer-list))
     (cond ((= 0 len) (my-term-open-at-current-buffer))
           ((= 1 len) (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
+          (t (ivy-read "terms:"
+                       buffer-list
+                       :action (lambda (buffer)
+                                 (my-buffer-switch-in-visible-window (cdr buffer))))))))
+
+(defun my-term-switch-term-to-current-folder ()
+  "Switch term and set it to current folder"
+  (interactive)
+  (let (buffer-list
+        current-dired
+        len)
+    (setq current-dired
+          (if (equal major-mode 'dired-mode)
+              (expand-file-name default-directory)
+            (if (null (buffer-file-name))
+                (user-error "ERROR: current buffer is not associated with a file.")
+              (file-name-directory (buffer-file-name)))))
+    (setq buffer-list (my-term-get-all-term-buffer))
+    (setq len (length buffer-list))
+    (cond ((= 0 len)
+           (my-term-open-at-current-buffer)
+           (term-send-raw-string (format "cd %s" current-dired))
+           (sleep-for 0.1)
+           (term-send-raw-string "\C-j")
+           (sleep-for 0.1)
+           (term-send-raw-string "\C-l"))
+          ((= 1 len)
+           (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list)))
+           (term-send-raw-string (format "cd %s" current-dired))
+           (sleep-for 0.1)
+           (term-send-raw-string "\C-j")
+           (sleep-for 0.1)
+           (term-send-raw-string "\C-l"))
           (t (ivy-read "terms:"
                        buffer-list
                        :action (lambda (buffer)
