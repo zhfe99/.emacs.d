@@ -96,11 +96,13 @@
 ;; f-
 
 ;; dired-mode
-(define-key dired-mode-map "o" 'crux-open-with)
-(define-key dired-mode-map "O" 'my-dired-open-marked-files)
+(define-key dired-mode-map "o" 'my-dired-open-marked-files)
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
+(define-key dired-mode-map "a" 'my-dired-find-file-ace-window)
+(define-key dired-mode-map "D" 'my-dired-duplicate-marked-files-in-current-folder)
 (define-key dired-mode-map ")" 'dired-omit-mode)
+(define-key dired-mode-map "/" 'dired-narrow)
 (define-key dired-mode-map "'" 'dired-up-directory)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "i" 'hydra-dired-info/body)

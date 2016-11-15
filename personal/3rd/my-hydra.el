@@ -357,10 +357,10 @@ _s_ size"
   "
 ^Open^    ^Copy^    ^Move^
 ^====^====^====^====^====^===========
-_a_ ace   _p_ path  _d_ from Download
+_u_ ace   _p_ path  _d_ from Download
 _t_ term  _l_ link  _r_ rsync to
 "
-  ("a" ace-dired-find-file)
+  ("u" my-dired-find-file-ace-window)
   ("t" my-term-open-at-current-buffer)
   ("l" my-org-store-link)
   ("p" my-dired-copy-current-file-path)

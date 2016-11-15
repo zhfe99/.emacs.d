@@ -20,6 +20,10 @@
 
 (setq dired-listing-switches "-alh")
 
+;; use dired-narrow
+(use-package dired-narrow
+  :ensure t)
+
 ;; dired omit files
 (setq dired-omit-files
       (concat dired-omit-files
@@ -191,7 +195,7 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
             (switch-to-buffer buf))
         (aw-switch-to-window start-win)))))
 
-(defun ace-dired-find-file ()
+(defun my-dired-find-file-ace-window ()
   "Find a file and display it in another window."
   (interactive)
   (if (not (window-parent))
@@ -290,11 +294,16 @@ from which to select the file to move, sorted by most recent first."
     ;; finally, switch to that window
     (other-window 1)))
 
-;; use dired-narrow
-(use-package dired-narrow
-  :ensure t
-  :bind (:map dired-mode-map
-              ("/" . dired-narrow)))
+;; =========
+;; Duplicate
+(defun my-dired-duplicate-marked-files-in-current-folder ()
+  (interactive)
+  ;; store all selected files into "files" list
+  (let ((files (dired-get-marked-files)) destfile)
+    (dolist (file files)
+      (setq destfile (format "%s_dup" file))
+      (copy-file file destfile))
+    (revert-buffer)))
 
 ;; Get the size of marked elements
 ;; http://oremacs.com/2015/01/12/dired-file-size/
@@ -323,12 +332,13 @@ from which to select the file to move, sorted by most recent first."
           (re-search-backward "\\(^[ 0-9.,]+\\).*$")
           (match-string 1)))))))
 
+;; Count lines of the marked files
 (defun my-dired-get-lines ()
   (interactive)
   (let ((files (dired-get-marked-files)))
     (with-temp-buffer
       (apply 'call-process "/usr/bin/wc" nil t nil "-l" files)
-      (message
+      (messagenn
        "#Lines: %s"
        (string-trim
         (progn
@@ -353,6 +363,7 @@ from which to select the file to move, sorted by most recent first."
     ;; the rsync command
     (apply 'call-process "open" nil t nil files)))
 
+;; Open marked file with vlc
 (defun my-dired-open-marked-files-with-vlc ()
   (interactive)
   (let* ((files (dired-get-marked-files))
