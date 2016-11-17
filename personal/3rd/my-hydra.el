@@ -9,10 +9,10 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Boundary^   ^Swap^     ^Text^        ^Transpose^
-^========^===^====^=====^====^========^=========^==
-_h_ left     _←_ left   _=_ increase  _f_ flip horz
-_j_ down     _↓_ down   _-_ decrease  _F_ flip vert
+^Boundary^   ^Swap^     ^Text^        ^Transpose^    ^Save^  ^Load^
+^========^===^====^=====^====^========^=========^====^====^==^====^
+_h_ left     _←_ left   _=_ increase  _f_ flip horz  _1_ 1   _!_ 1
+_j_ down     _↓_ down   _-_ decrease  _F_ flip vert  _2_ 2   _@_ 2
 _k_ up       _↑_ up     _0_ default   _H_ rot left
 _l_ right    _→_ right  ^^            _L_ rot right
 _b_ balance  _s_ ace
@@ -31,8 +31,10 @@ _b_ balance  _s_ ace
   ("j" my-move-splitter-down)
   ("k" my-move-splitter-up)
   ("l" my-move-splitter-right)
-  ("4" my-save-window-conf-1 :exit t)
-  ("5" my-goto-window-conf-1 :exit t)
+  ("1" my-save-window-conf-1 :exit t)
+  ("!" my-goto-window-conf-1 :exit t)
+  ("2" my-save-window-conf-2 :exit t)
+  ("@" my-goto-window-conf-2 :exit t)
   ("b" balance-windows :exit t)
   ("=" text-scale-increase)
   ("-" text-scale-decrease)
