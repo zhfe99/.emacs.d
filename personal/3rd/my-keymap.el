@@ -106,6 +106,8 @@
 (define-key dired-mode-map "'" 'dired-up-directory)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "i" 'hydra-dired-info/body)
+(define-key dired-mode-map "r" 'dired-do-rename)
+(define-key dired-mode-map "R" 'hydra-dired-ranger/body)
 (define-key dired-mode-map (kbd ",") 'hydra-dired/body)
 (define-key dired-mode-map (kbd "M-b") nil)
 (define-key dired-mode-map (kbd "M-u") nil)

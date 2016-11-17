@@ -28,6 +28,12 @@
   :load-path "site-lisp/pomodoro/")
 (use-package transpose-frame
   :load-path "site-lisp/transpose-frame/")
+(use-package dired-ranger
+  :load-path "site-lisp/dired-hacks/")
+(use-package dired-subtree
+  :load-path "site-lisp/dired-hacks/")
+(use-package dired-filter
+  :load-path "site-lisp/dired-hacks/")
 
 (provide 'my-preload)
 ;;; my-preload.el ends here

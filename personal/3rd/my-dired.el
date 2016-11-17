@@ -16,6 +16,9 @@
   '(progn
      (require 'dired+)
      (require 'dired-sort)
+     (require 'dired-ranger)
+     (require 'dired-subtree)
+     (require 'dired-filter)
      (global-dired-hide-details-mode)))
 
 (setq dired-listing-switches "-alh")

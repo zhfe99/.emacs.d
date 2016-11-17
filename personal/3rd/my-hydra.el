@@ -345,6 +345,18 @@ _s_ size"
   ("n" dired-sort-name)
   ("s" dired-sort-size))
 
+;; dired ranger
+(defhydra hydra-dired-ranger (:color blue :hint nil)
+  "
+^Ranger^
+^======^=
+_c_ copy
+_m_ move
+_p_ paste"
+  ("c" dired-ranger-copy)
+  ("m" dired-ranger-move)
+  ("p" dired-ranger-paste))
+
 ;; dired info
 (defhydra hydra-dired-info (:color blue :hint nil)
   "
