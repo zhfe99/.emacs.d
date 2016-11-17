@@ -9,12 +9,12 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Boundary^   ^Swap^     ^Text^
-^========^===^====^=====^====^======
-_h_ left     _←_ left   _=_ increase
-_j_ down     _↓_ down   _-_ decrease
-_k_ up       _↑_ up     _0_ default
-_l_ right    _→_ right
+^Boundary^   ^Swap^     ^Text^        ^Transpose^
+^========^===^====^=====^====^========^=========^==
+_h_ left     _←_ left   _=_ increase  _f_ flip horz
+_j_ down     _↓_ down   _-_ decrease  _F_ flip vert
+_k_ up       _↑_ up     _0_ default   _H_ rot left
+_l_ right    _→_ right  ^^            _L_ rot right
 _b_ balance  _s_ ace
 ^^           _u_ dupe"
   ("<left>" buf-move-left)
@@ -23,6 +23,10 @@ _b_ balance  _s_ ace
   ("<right>" buf-move-right)
   ("s" ace-swap-window :exit t)
   ("u" my-duplicate-current-buffer-in-ace-window :exit t)
+  ("f" flop-frame :exit t)
+  ("F" flip-frame :exit t)
+  ("H" rotate-frame-anticlockwise :exit t)
+  ("L" rotate-frame-clockwise :exit t)
   ("h" my-move-splitter-left)
   ("j" my-move-splitter-down)
   ("k" my-move-splitter-up)

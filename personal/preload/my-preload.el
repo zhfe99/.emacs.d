@@ -26,6 +26,8 @@
   :load-path "site-lisp/elpy/")
 (use-package pomodoro
   :load-path "site-lisp/pomodoro/")
+(use-package transpose-frame
+  :load-path "site-lisp/transpose-frame/")
 
 (provide 'my-preload)
 ;;; my-preload.el ends here

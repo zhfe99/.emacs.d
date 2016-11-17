@@ -139,6 +139,9 @@
   (interactive)
   (previous-line (window-half-height)))
 
+;; transpose frame
+(require 'transpose-frame)
+
 ;; smooth scroll
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
