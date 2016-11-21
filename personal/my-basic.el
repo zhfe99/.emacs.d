@@ -66,5 +66,10 @@
 (require 'my-hydra)
 (require 'my-keymap)
 
+;; my private package
+(when (file-directory-p "~/.emacs.d_private")
+  (add-to-list 'load-path "~/.emacs.d_private")
+  (require 'my-private))
+
 (provide 'my-basic)
 ;;; my-basic.el ends here

@@ -71,7 +71,6 @@
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-o") 'counsel-find-file)
 (global-set-key (kbd "M-l") 'hydra-open/body)
-(global-set-key (kbd "M-p") 'hydra-special/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
 (global-set-key (kbd "M-a") 'hydra-sp/body)

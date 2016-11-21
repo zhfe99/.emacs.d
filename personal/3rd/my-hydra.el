@@ -55,29 +55,6 @@ _r_ revert"
   ("z" reveal-in-osx-finder)
   ("d" counsel-goto-recent-directory))
 
-;; special buffer
-(defhydra hydra-special (:color blue :hint nil :idle 1.5)
-  "
-^Org^     ^Todo^       ^Emacs^      ^Fold^         ^Conf^
-^===^=====^====^=======^=====^======^====^=========^====^=====
-_i_ info  _a_ agenda   _s_ scratch  _d_ Downloads  _D_ dynamic
-_r_ read  _t_ todo     _m_ message  _e_ experts
-_p_ proj  _c_ capture  _l_ async
-_k_ clock"
-  ("i" (lambda () (interactive) (find-file "~/code/mine/org/info.org")))
-  ("r" (lambda () (interactive) (find-file "~/code/mine/org/read.org")))
-  ("p" (lambda () (interactive) (find-file "~/code/mine/org/proj.org")))
-  ("d" (lambda () (interactive) (find-file "~/Downloads")))
-  ("e" (lambda () (interactive) (find-file "~/papers/experts")))
-  ("D" (lambda () (interactive) (find-file "~/.dotfiles/shell/bash_user_dynamic.sh")))
-  ("a" org-agenda-list)
-  ("t" org-todo-list)
-  ("c" my-org-capture)
-  ("k" org-clock-goto)
-  ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
-  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
-  ("m" (lambda () (interactive) (switch-to-buffer "*Messages*"))))
-
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
