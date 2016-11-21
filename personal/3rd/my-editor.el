@@ -136,5 +136,68 @@ Version 2016-10-17"
           (comment-line 1)
         (comment-or-uncomment-region (line-beginning-position) (line-end-position))))))
 
+;; ======================================
+;; Move Cursor by Paragraph or Text Block
+;; http://ergoemacs.org/emacs/emacs_move_by_paragraph.html
+(defun my-forward-block (&optional n)
+  "Move cursor beginning of next text block.
+A text block is separated by blank lines.
+This command similar to `forward-paragraph', but this command's behavior is the same regardless of syntax table.
+URL `http://ergoemacs.org/emacs/emacs_move_by_paragraph.html'
+Version 2016-06-15"
+  (interactive "p")
+  (let ((n (if (null n) 1 n)))
+    (search-forward-regexp "\n[\t\n ]*\n+" nil "NOERROR" n)))
+
+(defun my-backward-block (&optional n)
+  "Move cursor to previous text block.
+See: `xah-forward-block'
+URL `http://ergoemacs.org/emacs/emacs_move_by_paragraph.html'
+Version 2016-06-15"
+  (interactive "p")
+  (let ((n (if (null n) 1 n))
+        (-i 1))
+    (while (<= -i n)
+      (if (search-backward-regexp "\n[\t\n ]*\n+" nil "NOERROR")
+          (progn (skip-chars-backward "\n\t "))
+        (progn (goto-char (point-min))
+               (setq -i n)))
+      (setq -i (1+ -i)))))
+
+;; ======================================
+;; Move Cursor to Beginning of Line/Block
+;; http://ergoemacs.org/emacs/emacs_keybinding_design_beginning-of-line-or-block.html
+(defun my-beginning-of-line-or-block (&optional n)
+  "Move cursor to beginning of line, or beginning of current or previous text block.
+ (a text block is separated by blank lines)
+URL `http://ergoemacs.org/emacs/emacs_keybinding_design_beginning-of-line-or-block.html'
+version 2016-06-15"
+  (interactive "p")
+  (let ((n (if (null n) 1 n)))
+    (if (equal n 1)
+        (if (or (equal (point) (line-beginning-position))
+                (equal last-command this-command )
+                ;; (equal last-command 'xah-end-of-line-or-block )
+                )
+            (my-backward-block n)
+          (beginning-of-line))
+      (my-backward-block n))))
+
+(defun my-end-of-line-or-block (&optional n)
+  "Move cursor to end of line, or end of current or next text block.
+ (a text block is separated by blank lines)
+URL `http://ergoemacs.org/emacs/emacs_keybinding_design_beginning-of-line-or-block.html'
+version 2016-06-15"
+  (interactive "p")
+  (let ((n (if (null n) 1 n)))
+    (if (equal n 1)
+        (if (or (equal (point) (line-end-position))
+                (equal last-command this-command )
+                ;; (equal last-command 'my-beginning-of-line-or-block )
+                )
+            (my-forward-block)
+          (end-of-line))
+      (progn (my-forward-block n)))))
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
