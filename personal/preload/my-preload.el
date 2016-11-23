@@ -10,6 +10,8 @@
 (require 'use-package)
 (use-package swiper
   :load-path "site-lisp/swiper/")
+(use-package avy
+  :load-path "site-lisp/avy/")
 (use-package ivy
   :load-path "site-lisp/swiper/")
 (use-package counsel

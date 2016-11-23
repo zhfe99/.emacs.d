@@ -58,14 +58,15 @@ _r_ revert"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Move^    ^Scroll^  ^Avy^     ^List^
-^====^====^======^==^===^=====^====^======
-_h_ left  _d_ down  _c_ char  _i_ imenu
-_j_ down  _u_ up    _'_ pop   _b_ bookmark
-_k_ up    ^^        ^^        _B_ set
+^Move^    ^Scroll^  ^Avy^      ^List^
+^====^====^======^==^===^======^====^======
+_h_ left  _d_ down  _c_ char   _i_ imenu
+_j_ down  _u_ up    _w_ word   _b_ bookmark
+_k_ up    ^^        _'_ pop    _B_ set
 _l_ right
 _m_ mark"
   ("c" avy-goto-char)
+  ("w" avy-goto-word-1)
   ("'" avy-pop-mark)
   ("i" counsel-imenu)
   ("b" counsel-bookmark)

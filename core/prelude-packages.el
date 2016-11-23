@@ -43,7 +43,6 @@
 
 (defvar prelude-packages
   '(ace-window
-    avy
     anzu
     ;; beacon
     browse-kill-ring
