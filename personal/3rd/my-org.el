@@ -11,16 +11,7 @@
 ;; markdown export
 (require 'ox-md nil t)
 
-;; use org habit
-(require 'org-habit)
-(add-to-list 'org-modules "org-habit")
-(setq org-habit-preceding-days 7
-      org-habit-following-days 1
-      org-habit-graph-column 80
-      org-habit-show-habits-only-for-today t
-      org-habit-show-all-today t)
-
-;;=======
+;; ======
 ;; bullet
 (require 'org-bullets)
 
@@ -29,7 +20,7 @@
 (eval-after-load 'org-bullets
   '(setq org-bullets-bullet-list '("●" "✹" "✭" "✦" "■" "▲" )))
 
-;;=====
+;; ====
 ;; hook
 (add-hook 'org-mode-hook
           (lambda ()
@@ -50,9 +41,6 @@
 (setq org-clock-persist-file (convert-standard-filename
                               (concat user-emacs-directory "savefile/org-clock-save.el")))
 
-;; org files location
-(setq org-directory "~/code/mine/org")
-
 ;; use org-completion-use
 (setq org-completion-use-ido t)
 
@@ -68,53 +56,9 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
 
-(setq org-agenda-custom-commands
-      '(("h" "Daily habits"
-         ((agenda ""))
-         ((org-agenda-show-log t)
-          (org-agenda-ndays 7)
-          (org-agenda-log-mode-items '(state))
-          (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp ":DAILY:"))))
-        ;; other commands here
-        ))
-
-;;=========
-;; pomodoro
-(require 'pomodoro)
-(defun my-pomodoro-add-to-mode-line ()
-  (setq-default mode-line-format
-                (cons mode-line-format '(pomodoro-mode-line-string))))
-(my-pomodoro-add-to-mode-line)
-(setq pomodoro-work-time 40)
-(setq pomodoro-play-sounds nil)
-
-;; don't need to show clock in mode-line because already using pomodoro
-(setq org-clock-clocked-in-display nil)
-
-;;=================
-;; org clock in/out
-(defun my-org-clock-in-out ()
-  "Clock in when the task is marked WORK."
-  (if (and (string= org-state "WORK")
-           (not (string= org-last-state org-state)))
-
-      ;; clock in: other state -> work
-      (progn
-        (pomodoro-start nil)
-        (org-clock-in))
-
-    ;; stop pomodoro
-    (when pomodoro-timer
-      (pomodoro-stop))
-
-    ;; clock out: work -> nil, TODO, HOLD, RUNG
-    (when (and (or (string= org-state nil) (string= org-state "TODO") (string= org-state "HOLD") (string= org-state "RUNG"))
-               (org-clocking-p))
-      (org-clock-out))))
 (add-hook 'org-after-todo-state-change-hook
           'my-org-clock-in-out)
 
-;;=======
 ;; agenda
 (setq org-agenda-start-with-log-mode t)
 (setq org-agenda-start-on-weekday nil)
@@ -124,6 +68,11 @@
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
 (setq org-agenda-archives-mode t)
+
+;; org-refile
+(setq org-refile-targets
+      '((nil :maxlevel . 1)
+        (org-agenda-files :maxlevel . 1)))
 
 ;; clock report show "\emsp" in agenda
 ;; http://emacs.stackexchange.com/questions/9528/is-it-possible-to-remove-emsp-from-clock-report-but-preserve-indentation
@@ -259,40 +208,6 @@ of the day at point (if any) or the current HH:MM time."
                  "Could not start the clock in this capture buffer")))
           (if (org-capture-get :immediate-finish)
               (org-capture-finalize)))))))))
-
-;;========
-;; browser
-;; get the current page from Safari
-(defun my-insert-current-safari-link (link)
-  "Retrieve URL from current Safari page and prompt for description.
-Insert an Org link at point."
-  (interactive "sLink Description: ")
-  (let ((result (shell-command-to-string
-                 "osascript -e 'tell application \"Safari\" to return URL of document 1'")))
-    (insert (format "[[%s][%s]]" (org-trim result) link))))
-
-;; get the current page from Chrome
-(defun my-insert-current-chrome-link ()
-  "Retrieve URL from current Chrome page and prompt for description.
-Insert an Org link at point."
-  (interactive)
-  (let ((result (shell-command-to-string
-                 "osascript -e 'tell application \"Google Chrome\" to return URL of active tab of front window'"))
-        (desc (shell-command-to-string
-               "osascript -e 'tell application \"Google Chrome\" to return title of active tab of front window'")))
-    (insert (format "[[%s][%s]]" (org-trim result) (org-trim desc)))))
-
-;;========
-;; capture
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/code/mine/org/life.org" "misc")
-         "* TODO %?")
-        ("j" "Journal" entry (file+datetree "~/code/mine/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
-
-(setq org-refile-targets
-      '((nil :maxlevel . 1)
-        (org-agenda-files :maxlevel . 1)))
 
 ;;=====
 ;; link
@@ -790,13 +705,6 @@ active region."
                                        (buffer-file-name)) "::#" custom-id))
            (push (list link desc) org-stored-links))
          (car org-stored-links))))))
-
-;; (require 'w3m-load)
-;; (setq browse-url-browser-function 'w3m-browse-url)
-(setq browse-url-browser-function 'browse-url-default-browser)
-;; (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-;; ;; optional keyboard short-cut
-;; (global-set-key "\C-xm" 'browse-url-at-point)
 
 (provide 'my-org)
 ;;; my-org.el ends here
