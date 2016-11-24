@@ -3,7 +3,6 @@
 ;;; Code:
 
 ;; 3rd package
-(prelude-require-package 'ace-window)
 (prelude-require-package 'auctex)
 (prelude-require-package 'google-c-style)
 (prelude-require-package 'org-bullets)
@@ -15,7 +14,6 @@
 (prelude-require-package 'helm)
 (prelude-require-package 'hydra)
 (prelude-require-package 'markdown-mode)
-(prelude-require-package 'pomodoro)
 (prelude-require-package 'jump-char)
 (prelude-require-package 'lua-mode)
 (prelude-require-package 'matlab-mode)
@@ -27,6 +25,7 @@
 (prelude-require-package 'protobuf-mode)
 (prelude-require-package 'smooth-scrolling)
 (prelude-require-package 'iy-go-to-char)
+(prelude-require-package 'with-editor)
 (prelude-require-package 'git-gutter)
 (prelude-require-package 'git-gutter+)
 (prelude-require-package 'git-gutter-fringe+)

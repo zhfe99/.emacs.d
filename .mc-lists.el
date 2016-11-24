@@ -15,11 +15,16 @@
         eval-last-sexp
         forward-sexp
         helm-M-x
+        hydra-case/body
+        hydra-case/nil
+        hydra-case/subword-capitalize
+        hydra-case/subword-downcase
         indent-new-comment-line
         iy-go-to-char--command
         kill-region
         matlab-electric-comment
         mc-friendly/zap-up-to-char
+        my-save-buffer
         org-delete-char
         org-metaright
         org-self-insert-command

@@ -9,28 +9,32 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Boundary^   ^Swap^     ^Text^        ^Transpose^    ^Save^  ^Load^
-^========^===^====^=====^====^========^=========^====^====^==^====^
-_h_ left     _←_ left   _=_ increase  _f_ flip horz  _1_ 1   _!_ 1
-_j_ down     _↓_ down   _-_ decrease  _F_ flip vert  _2_ 2   _@_ 2
-_k_ up       _↑_ up     _0_ default   _H_ rot left
-_l_ right    _→_ right  ^^            _L_ rot right
-_b_ balance  _s_ ace
-^^           _u_ dupe"
+^Delete^   ^Boundary^   ^Swap^     ^Text^        ^Transpose^     ^Save^  ^Load^
+^======^===^========^===^====^=====^====^========^=========^=====^====^==^====^
+_h_ left   _H_ left     _←_ left   _=_ increase  _fh_ flip horz  _1_ 1   _!_ 1
+_j_ down   _J_ down     _↓_ down   _-_ decrease  _fv_ flip vert  _2_ 2   _@_ 2
+_k_ up     _K_ up       _↑_ up     _0_ default   _rl_ rot left
+_l_ right  _L_ right    _→_ right  ^^            _rr_ rot right
+^^         _b_ balance  _s_ ace
+^^         ^^           _u_ dupe"
+  ("h" my-push-window-left :exit t)
+  ("j" my-push-window-down :exit t)
+  ("k" my-push-window-up :exit t)
+  ("l" my-push-window-right :exit t)
   ("<left>" buf-move-left)
   ("<down>" buf-move-down)
   ("<up>" buf-move-up)
   ("<right>" buf-move-right)
   ("s" ace-swap-window :exit t)
   ("u" my-duplicate-current-buffer-in-ace-window :exit t)
-  ("f" flop-frame :exit t)
-  ("F" flip-frame :exit t)
-  ("H" rotate-frame-anticlockwise :exit t)
-  ("L" rotate-frame-clockwise :exit t)
-  ("h" my-move-splitter-left)
-  ("j" my-move-splitter-down)
-  ("k" my-move-splitter-up)
-  ("l" my-move-splitter-right)
+  ("fh" flop-frame :exit t)
+  ("fv" flip-frame :exit t)
+  ("rl" rotate-frame-anticlockwise :exit t)
+  ("rr" rotate-frame-clockwise :exit t)
+  ("H" my-move-splitter-left)
+  ("J" my-move-splitter-down)
+  ("K" my-move-splitter-up)
+  ("L" my-move-splitter-right)
   ("1" my-save-window-conf-1 :exit t)
   ("!" my-goto-window-conf-1 :exit t)
   ("2" my-save-window-conf-2 :exit t)
@@ -65,8 +69,9 @@ _j_ down  _u_ up    _w_ word   _b_ bookmark
 _k_ up    ^^        _'_ pop    _B_ set
 _l_ right
 _m_ mark"
+  ("s" isearch-forward)
   ("c" avy-goto-char)
-  ("w" avy-goto-word-1)
+  ("w" avy-goto-char-timer)
   ("'" avy-pop-mark)
   ("i" counsel-imenu)
   ("b" counsel-bookmark)
@@ -84,7 +89,7 @@ _m_ mark"
 (defhydra hydra-toggle (:color blue :hint nil :idle 1.5)
   "
 ^Mode^      ^Theme^   ^Other^
-^====^======^=====^===^====^===
+^====^======^=====^===^====^=====
 _l_ linum   _t_ load  _s_ sudo
 _v_ visual  ^^        _c_ cleanup
 _w_ space   ^^
@@ -205,19 +210,30 @@ _/_ hist"
   (">" find-tag))
 
 ;; transpose
-(defhydra hydra-transpose (:idle 1.5)
-  "transpose"
-  ("l" transpose-lines "line")
-  ("w" transpose-words "word")
-  ("c" transpose-chars "char")
-  ("s" transpose-sexps "sexp"))
+(defhydra hydra-transpose (:color blue :hint nil :idle 1.5)
+  "
+^Transpose^
+^=========^
+_c_ char
+_w_ word
+_l_ line
+_s_ sexp"
+  ("l" transpose-lines)
+  ("w" transpose-words)
+  ("c" transpose-chars)
+  ("s" transpose-sexps))
 
 ;; change case
-(defhydra hydra-case (:color pink :idle 1.5)
-  "case"
-  ("c" subword-capitalize "captial")
-  ("u" subword-upcase "upcase")
-  ("l" subword-downcase "downcase")
+(defhydra hydra-case (:color pink :hint nil :idle 1.5)
+  "
+^Case^
+^==========^
+_c_ captial
+_u_ upcase
+_l_ downcase"
+  ("c" subword-capitalize)
+  ("u" subword-upcase)
+  ("l" subword-downcase)
   ("q" nil))
 
 ;; region
@@ -328,10 +344,14 @@ _s_ size"
 ^======^=
 _c_ copy
 _m_ move
-_p_ paste"
+_p_ paste
+_r_ rsync
+_d_ duplicate"
   ("c" dired-ranger-copy)
   ("m" dired-ranger-move)
-  ("p" dired-ranger-paste))
+  ("p" dired-ranger-paste)
+  ("d" my-dired-duplicate-marked-files-in-current-folder)
+  ("r" my-dired-rsync))
 
 ;; dired info
 (defhydra hydra-dired-info (:color blue :hint nil)
@@ -344,18 +364,6 @@ _s_ size"
   ("c" my-dired-get-count)
   ("s" my-dired-get-size)
   ("l" my-dired-get-lines))
-
-;; dired
-(defhydra hydra-dired (:color blue :hint nil)
-  "
-^Dired^
-^=====^==
-_p_ path
-_l_ link
-_r_ rsync"
-  ("l" my-org-store-link)
-  ("p" my-dired-copy-current-file-path)
-  ("r" my-dired-rsync))
 
 ;; python
 (defhydra hydra-python (:color red :hint nil :idle 1.5)

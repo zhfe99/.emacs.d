@@ -44,6 +44,9 @@
 ;; use org-completion-use
 (setq org-completion-use-ido t)
 
+;; org imenu
+(setq org-imenu-depth 3)
+
 ;; org clock
 (setq org-clock-persist 't)
 (setq org-clock-persist-query-resume nil)
@@ -93,9 +96,6 @@
     (around nm-org-agenda-get-restriction-and-command activate)
   (flet ((delete-other-windows () nil))
     ad-do-it))
-
-(setq org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK" "REF")))
-(setq org-imenu-depth 3)
 
 ;; ======
 ;; capture

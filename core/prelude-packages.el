@@ -42,11 +42,11 @@
 (package-initialize)
 
 (defvar prelude-packages
-  '(ace-window
+  '(;; ace-window
     anzu
     ;; beacon
     browse-kill-ring
-    crux
+    ;; crux
     dash
     discover-my-major
     diff-hl

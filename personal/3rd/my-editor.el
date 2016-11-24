@@ -5,10 +5,6 @@
 
 ;;; Code:
 
-;; turn off ace-isearch-mode
-; (global-ace-isearch-mode -1)
-; (setq ace-isearch-use-ace-jump nil)
-
 ;; turn-on which-function-mode
 ;; but turn-off it for cython (.pyx, .pyd) otherwise it will be extremely slow
 (which-function-mode 1)
@@ -26,10 +22,17 @@
 (add-hook 'isearch-mode-hook #'my-isearch-with-region)
 
 ;; insert current date
-(defun my-insert-current-date()
+(defun my-insert-current-date ()
   "Insert current date."
   (interactive)
   (let ((time-format "%Y-%m-%d"))
+    (insert (format-time-string time-format (current-time)))))
+
+;; insert current time
+(defun my-insert-current-time ()
+  "Insert current time."
+  (interactive)
+  (let ((time-format "%H:%M:%S"))
     (insert (format-time-string time-format (current-time)))))
 
 ;; insert org current clocked task
@@ -38,7 +41,7 @@
   (interactive)
   (insert org-clock-current-task))
 
-;;===============================
+;; ==============================
 ;; insert file name/path at point
 ;; http://pragmaticemacs.com/emacs/insert-file-name/
 (defun my-insert-file-name (filename &optional args)
@@ -56,6 +59,7 @@
   (interactive "*fInsert file name: \nP")
   (insert (file-relative-name filename)))
 
+;; =====
 ;; align function head comment
 (defun my-align-comment()
   "Align function head comment."
@@ -101,10 +105,7 @@
 
 (global-fasd-mode 1)
 
-;; (use-package workgroups2
-;;   :load-path "site-lisp/workgroups2/src/")
-;; (workgroups-mode 1)
-
+;; ===================================
 ;; merge comment-line and comment-dwim
 ;; http://ergoemacs.org/misc/emacs_comment-line_vs_comment-dwim.html
 (defun my-comment-dwim ()
@@ -181,6 +182,23 @@ version 2016-06-15"
             (my-forward-block)
           (end-of-line))
       (progn (my-forward-block n)))))
+
+;; ======================================
+;; Copy text from Emacs to OS X clipboard
+;; http://emacs.stackexchange.com/questions/10900/copy-text-from-emacs-to-os-x-clipboard
+(defun my-pbcopy ()
+  (interactive)
+  (let ((deactivate-mark t))
+    (call-process-region (point) (mark) "pbcopy")))
+
+(defun my-pbpaste ()
+  (interactive)
+  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
+(defun my-pbcut ()
+  (interactive)
+  (pbcopy)
+  (delete-region (region-beginning) (region-end)))
 
 (provide 'my-editor)
 ;;; my-editor.el ends here

@@ -34,3 +34,9 @@
 [submodule "site-lisp/avy"]
 	path = site-lisp/avy
 	url = https://github.com/zhfe99/avy.git
+[submodule "site-lisp/ace-window"]
+	path = site-lisp/ace-window
+	url = https://github.com/abo-abo/ace-window.git
+[submodule "site-lisp/crux"]
+	path = site-lisp/crux
+	url = https://github.com/bbatsov/crux

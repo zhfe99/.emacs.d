@@ -43,23 +43,14 @@
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
 (global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
-(global-set-key (kbd "\e[46;3;A~") 'my-push-window-up)     ; H-M-up
-(global-set-key (kbd "\e[46;3;B~") 'my-push-window-down)     ; H-M-down
-(global-set-key (kbd "\e[46;3;C~") 'my-push-window-left)     ; H-M-left
-(global-set-key (kbd "\e[46;3;D~") 'my-push-window-right)     ; H-M-right
-
-;; H-M-
-(global-set-key (kbd "<H-M-left>") 'my-push-window-left)
-(global-set-key (kbd "<H-M-right>") 'my-push-window-right)
-(global-set-key (kbd "<H-M-up>") 'my-push-window-up)
-(global-set-key (kbd "<H-M-down>") 'my-push-window-down)
 
 ;; M-
 ;; The following keys are still available:
 ;; =
-;; [ ]
+;; ]
 ;; k
-;; n
+;; m n
+(global-set-key (kbd "M-Z") 'iy-go-up-to-char)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 (global-set-key (kbd "M-'") 'repeat)
@@ -76,12 +67,11 @@
 (global-set-key (kbd "M-a") 'hydra-sp/body)
 (global-set-key (kbd "M-s") 'my-save-buffer)
 (global-set-key (kbd "M-i") 'hydra-jump/body)
-(global-set-key (kbd "M-j") 'avy-goto-char-timer)
+(global-set-key (kbd "M-j") 'avy-goto-word-1)
 (global-set-key (kbd "M-J") 'avy-goto-line)
+(global-set-key (kbd "M-;") 'my-comment-dwim)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
-(global-set-key (kbd "M-m") 'iy-go-up-to-char)
-(global-set-key (kbd "M-M") 'iy-go-to-char-backward)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
@@ -95,19 +85,15 @@
 ;; f-
 
 ;; dired-mode
-(define-key dired-mode-map "o" 'my-dired-open-marked-files)
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map "f" 'my-dired-find-file-ace-window)
-(define-key dired-mode-map "D" 'my-dired-duplicate-marked-files-in-current-folder)
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "/" 'dired-narrow)
 (define-key dired-mode-map "'" 'dired-up-directory)
 (define-key dired-mode-map "s" 'hydra-dired-sort/body)
 (define-key dired-mode-map "i" 'hydra-dired-info/body)
-(define-key dired-mode-map "r" 'dired-do-rename)
-(define-key dired-mode-map "R" 'hydra-dired-ranger/body)
-(define-key dired-mode-map (kbd ",") 'hydra-dired/body)
+(define-key dired-mode-map "r" 'hydra-dired-ranger/body)
 (define-key dired-mode-map (kbd "M-b") nil)
 (define-key dired-mode-map (kbd "M-u") nil)
 (define-key dired-mode-map (kbd "M-i") nil)

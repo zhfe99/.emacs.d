@@ -8,10 +8,6 @@
 (setq-default diredp-hide-details-initially-flag nil
               dired-dwim-target t)
 
-;; Prefer g-prefixed coreutils version of standard utilities when available
-(let ((gls (executable-find "gls")))
-  (when gls (setq insert-directory-program gls)))
-
 (eval-after-load 'dired
   '(progn
      (require 'dired+)
@@ -22,10 +18,6 @@
      (global-dired-hide-details-mode)))
 
 (setq dired-listing-switches "-alh")
-
-;; use dired-narrow
-(use-package dired-narrow
-  :ensure t)
 
 ;; dired omit files
 (setq dired-omit-files
@@ -144,60 +136,13 @@
         ".pyo" ".idx" ".lof" ".lot" ".glo" ".blg" ".bbl" ".cp" ".cps" ".fn"
         ".fns" ".ky" ".kys" ".pg" ".pgs" ".tp" ".tps" ".vr" ".vrs"))
 
-;; ace-jump only search filename in dired
+;; dired hook
 (add-hook 'dired-mode-hook
           (lambda ()
             (subword-mode 1)
-            (dired-omit-mode t)
-            (setq-local ace-jump-search-filter
-                        (lambda ()
-                          (get-text-property (point) 'dired-filename)))))
+            (dired-omit-mode t)))
 
-(defun ace-command-other-window (cmd &optional one-win-cmd)
-  "Execute CMD in another window.
-If provided, call ONE-WIN-CMD instead when there is only one window."
-  (interactive "CM-x (other window) ")
-  (catch 'done
-    (when (and one-win-cmd
-               (not (window-parent)))
-      (call-interactively one-win-cmd)
-      (throw 'done t))
-    (let ((start-window (selected-window)))
-      (unwind-protect
-          (progn
-            (aw-switch-to-window
-             (aw-select  " Ace - Command "))
-            (call-interactively cmd))
-        (aw-switch-to-window start-window)))))
-
-(defun ace-find-file ()
-  "Find a file and display it in another window."
-  (interactive)
-  (if (not (window-parent))
-      (ido-find-file-other-window)
-    (let ((start-win (selected-window))
-          (buf (find-file-noselect (ido-read-file-name "File: ")))
-          (win (aw-select " Ace File: ")))
-      (unwind-protect
-          (progn
-            (aw-switch-to-window win)
-            (switch-to-buffer buf))
-        (aw-switch-to-window start-win)))))
-
-(defun ace-switch-buffer ()
-  "Switch to another buffer in another window."
-  (interactive)
-  (if (not (window-parent))
-      (ido-switch-buffer-other-window)
-    (let ((start-win (selected-window))
-          (buf (ido-read-buffer "Buffer: "))
-          (win (aw-select " Ace Buffer: ")))
-      (unwind-protect
-          (progn
-            (aw-switch-to-window win)
-            (switch-to-buffer buf))
-        (aw-switch-to-window start-win)))))
-
+;; Find a file and display it in another window
 (defun my-dired-find-file-ace-window ()
   "Find a file and display it in another window."
   (interactive)
@@ -253,6 +198,8 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
       (copy-file file destfile))
     (revert-buffer)))
 
+;; =========
+;; file info
 ;; Get the size of marked elements
 ;; http://oremacs.com/2015/01/12/dired-file-size/
 (defun my-dired-get-size ()
@@ -286,7 +233,7 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
   (let ((files (dired-get-marked-files)))
     (with-temp-buffer
       (apply 'call-process "/usr/bin/wc" nil t nil "-l" files)
-      (messagenn
+      (message
        "#Lines: %s"
        (string-trim
         (progn
@@ -297,19 +244,6 @@ If provided, call ONE-WIN-CMD instead when there is only one window."
 (defun my-dired-copy-current-file-path ()
   (interactive)
   (kill-new (dired-file-name-at-point)))
-
-;; Open marked files using open
-(defun my-dired-open-marked-files ()
-  (interactive)
-  (let* ((files (dired-get-marked-files))
-         (open (pcase system-type
-                 (`darwin "open")
-                 ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open")))
-         (program (if (or nil (not open))
-                      (read-shell-command "Open current file with: ")
-                    open)))
-    ;; the rsync command
-    (apply 'call-process "open" nil t nil files)))
 
 (provide 'my-dired)
 ;;; my-dired.el ends here

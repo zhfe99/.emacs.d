@@ -24,6 +24,9 @@
    (quote
     ("/Users/feng/code/mine/org/life.org" "/Users/feng/code/mine/org/proj.org" "/Users/feng/code/mine/org/read.org")))
  '(org-clock-into-drawer "LOGBOOK")
+ '(package-selected-packages
+   (quote
+    (zop-to-char yaml-mode window-numbering which-key wgrep web-mode volatile-highlights vkill use-package undo-tree smooth-scrolling smex smartrep smartparens smart-mode-line reveal-in-osx-finder rainbow-mode pyvenv pyenv-mode protobuf-mode peep-dired ov org-bullets operate-on-number multiple-cursors multi-term move-text matlab-mode markdown-preview-mode magit lua-mode key-chord jump-char json-mode js2-mode jedi iy-go-to-char imenu-anywhere ido-ubiquitous hydra highlight-indentation helm-flycheck grizzl google-c-style gitignore-mode gitconfig-mode git-timemachine git-gutter-fringe git-gutter-fringe+ gh ggtags flx-ido exec-path-from-shell etags-table etags-select easy-kill dumb-jump discover-my-major dired-sort dired-narrow dired-details+ dired+ diff-hl dash-at-point cython-mode cuda-mode csv-mode crux company-jedi company-irony-c-headers company-irony company-auctex company-anaconda color-theme-solarized cmake-mode change-inner cdlatex cask-mode buffer-move browse-kill-ring anzu anaphora)))
  '(powerline-default-separator (quote slant))
  '(projectile-tags-command "ctags -Re -f \"%s\" %s")
  '(safe-local-variable-values

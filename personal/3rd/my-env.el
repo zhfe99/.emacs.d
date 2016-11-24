@@ -8,6 +8,7 @@
 ;; basic setting
 (setq visible-bell -1)
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (delete-selection-mode 1)
 (setq frame-title-format '((buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 (setq-default truncate-lines -1)
@@ -18,6 +19,10 @@
 (setq doc-view-resolution 800)
 (fringe-mode '(8 . 0))
 (setq ediff-split-window-function 'split-window-horizontally)
+
+;; copy to Linux's
+;; http://stackoverflow.com/questions/64360/how-to-copy-text-from-emacs-to-another-application-on-linux
+(setq x-select-enable-clipboard t)
 
 ;; be quiet when revert-buffer
 (setq auto-revert-verbose nil)

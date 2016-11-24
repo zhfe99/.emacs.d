@@ -168,16 +168,12 @@
            (my-term-open-at-current-buffer)
            (term-send-raw-string (format "cd %s" current-dired))
            (sleep-for 0.1)
-           (term-send-raw-string "\C-j")
-           (sleep-for 0.1)
-           (term-send-raw-string "\C-l"))
+           (term-send-raw-string "\C-j"))
           ((= 1 len)
            (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list)))
            (term-send-raw-string (format "cd %s" current-dired))
            (sleep-for 0.1)
-           (term-send-raw-string "\C-j")
-           (sleep-for 0.1)
-           (term-send-raw-string "\C-l"))
+           (term-send-raw-string "\C-j"))
           (t (ivy-read "terms:"
                        buffer-list
                        :action (lambda (buffer)

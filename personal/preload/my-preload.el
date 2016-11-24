@@ -12,6 +12,8 @@
   :load-path "site-lisp/swiper/")
 (use-package avy
   :load-path "site-lisp/avy/")
+(use-package ace-window
+  :load-path "site-lisp/ace-window/")
 (use-package ivy
   :load-path "site-lisp/swiper/")
 (use-package counsel
@@ -36,6 +38,10 @@
   :load-path "site-lisp/dired-hacks/")
 (use-package dired-filter
   :load-path "site-lisp/dired-hacks/")
+(use-package dired-narrow
+  :load-path "site-lisp/dired-hacks/")
+(use-package crux
+  :load-path "site-lisp/crux/")
 
 (provide 'my-preload)
 ;;; my-preload.el ends here
