@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: python header
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# key: hst
+# --
+#!/usr/bin/env python
+History
+  create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
