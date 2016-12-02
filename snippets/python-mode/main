@@ -4,15 +4,10 @@
 # key: main
 # --
 def main():
+    """Main function.
     """
-    Main function.
-    """
-    import argparse
 
-    # argument
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--$0', help='', dest='', default=)
-    args = parser.parse_args()
+    $0
 
 
 if __name__ == '__main__':
