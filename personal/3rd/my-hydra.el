@@ -312,7 +312,7 @@ _P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome  _A_ subt
   ("<up>" org-metaup)
   ("<down>" org-metadown)
   ("o" org-open-at-point)
-  ("O" my-org-open-at-point)
+  ("O" my-org-open-at-point :exit t)
   ("q" nil))
 
 ;; lisp
