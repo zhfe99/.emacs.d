@@ -20,9 +20,6 @@
     ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "xxalignat" "flalign" "aligns")))
  '(lua-default-application "th")
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
- '(org-agenda-files
-   (quote
-    ("/Users/feng/code/mine/org/life.org" "/Users/feng/code/mine/org/proj.org" "/Users/feng/code/mine/org/read.org")))
  '(org-clock-into-drawer "LOGBOOK")
  '(package-selected-packages
    (quote
