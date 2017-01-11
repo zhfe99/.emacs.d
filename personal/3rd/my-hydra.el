@@ -340,17 +340,15 @@ _s_ size"
 ;; dired ranger
 (defhydra hydra-dired-ranger (:color blue :hint nil)
   "
-^Ranger^
-^======^=
-_c_ copy
-_m_ move
-_p_ paste
-_r_ rsync
-_d_ duplicate"
+^Ranger^   ^Misc^
+^======^===^====^===
+_c_ copy   _r_ rsync
+_m_ move   _u_ dupe
+_p_ paste"
   ("c" dired-ranger-copy)
   ("m" dired-ranger-move)
   ("p" dired-ranger-paste)
-  ("d" my-dired-duplicate-marked-files-in-current-folder)
+  ("u" my-dired-duplicate-marked-files-in-current-folder)
   ("r" my-dired-rsync))
 
 ;; dired info
@@ -360,10 +358,14 @@ _d_ duplicate"
 ^====^===
 _c_ count
 _l_ lines
-_s_ size"
+_s_ size
+_p_ path
+_o_ org"
   ("c" my-dired-get-count)
   ("s" my-dired-get-size)
-  ("l" my-dired-get-lines))
+  ("l" my-dired-get-lines)
+  ("p" my-dired-copy-current-file-path)
+  ("o" my-org-store-link))
 
 ;; python
 (defhydra hydra-python (:color red :hint nil :idle 1.5)
