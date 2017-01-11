@@ -27,9 +27,7 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-'") 'dired-jump)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-<") 'mc/skip-to-previous-like-this)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C->") 'mc/skip-to-next-like-this)
 
 ;; Some of the key might not be available in terminal (eg., iterm2)
 ;; need rebind
@@ -38,7 +36,7 @@
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-balance) ; C-3
 (global-set-key (kbd "\e[45;0~") 'ace-delete-window-and-balance) ; C-0
 (global-set-key (kbd "\e[27;5;39~") 'dired-jump) ; C-'
-(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-.
+(global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-,
 (global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this) ; C-.
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
@@ -49,7 +47,7 @@
 ;; =
 ;; ]
 ;; k
-;; m n
+;; n
 (global-set-key (kbd "M-Z") 'iy-go-up-to-char)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
@@ -71,6 +69,7 @@
 (global-set-key (kbd "M-j") 'avy-goto-word-1)
 (global-set-key (kbd "M-J") 'avy-goto-line)
 (global-set-key (kbd "M-;") 'my-comment-dwim)
+(global-set-key (kbd "M-m") 'hydra-mc/body)
 (global-set-key (kbd "M-.") 'hydra-tag/body)
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "<M-up>") 'move-text-up)

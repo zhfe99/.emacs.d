@@ -43,16 +43,20 @@
 (setq mc/cmds-to-run-once
       '(
         hydra--digit-argument
+        hydra-mc/body
         hydra-mc/mc/edit-beginnings-of-lines
         hydra-mc/mc/edit-beginnings-of-lines-and-exit
         hydra-mc/mc/edit-ends-of-lines-and-exit
         hydra-mc/mc/edit-lines-and-exit
         hydra-mc/mc/mark-all-like-this
         hydra-mc/mc/mark-next-like-this
+        hydra-mc/mc/mark-next-like-this-and-exit
         hydra-mc/mc/mark-previous-like-this
         hydra-mc/mc/skip-to-next-like-this
+        hydra-mc/mc/skip-to-previous-like-this
         hydra-region/mc/edit-beginnings-of-lines-and-exit
         hydra-region/mc/edit-lines-and-exit
+        hydra-region/mc/insert-numbers-and-exit
         hydra-region/mc/mark-all-like-this-and-exit
         hydra-region/mc/mark-next-like-this
         hydra-region/mc/mark-previous-like-this
