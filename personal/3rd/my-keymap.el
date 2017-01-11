@@ -53,6 +53,7 @@
 (global-set-key (kbd "M-Z") 'iy-go-up-to-char)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
+(global-set-key (kbd "M-p") 'hydra-special/body)
 (global-set-key (kbd "M-'") 'repeat)
 (global-set-key (kbd "M-e") 'hydra-edit/body)
 (global-set-key (kbd "M-r") 'hydra-region/body)

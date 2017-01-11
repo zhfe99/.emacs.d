@@ -259,6 +259,18 @@ _(_ pair ^  ^^        _y_ open"
   ("a" mc/mark-all-in-region)
   ("m" mc/mark-all-like-this))
 
+;; special buffer
+(defhydra hydra-special (:color blue :hint nil :idle 1.5)
+  "
+^Emacs^
+^=====^====
+_s_ scratch
+_m_ message
+_l_ async"
+  ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
+  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
+  ("m" (lambda () (interactive) (switch-to-buffer "*Messages*"))))
+
 ;; gdb
 (defhydra hydra-gdb (:color pink :hint nil)
   "
