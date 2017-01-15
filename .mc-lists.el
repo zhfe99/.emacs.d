@@ -19,6 +19,8 @@
         hydra-case/nil
         hydra-case/subword-capitalize
         hydra-case/subword-downcase
+        hydra-region/body
+        hydra-tag/body
         indent-new-comment-line
         iy-go-to-char--command
         kill-region
@@ -48,12 +50,15 @@
         hydra-mc/mc/edit-beginnings-of-lines-and-exit
         hydra-mc/mc/edit-ends-of-lines-and-exit
         hydra-mc/mc/edit-lines-and-exit
+        hydra-mc/mc/insert-numbers-and-exit
         hydra-mc/mc/mark-all-like-this
+        hydra-mc/mc/mark-all-like-this-and-exit
         hydra-mc/mc/mark-next-like-this
         hydra-mc/mc/mark-next-like-this-and-exit
         hydra-mc/mc/mark-previous-like-this
         hydra-mc/mc/skip-to-next-like-this
         hydra-mc/mc/skip-to-previous-like-this
+        hydra-mc/nil
         hydra-region/mc/edit-beginnings-of-lines-and-exit
         hydra-region/mc/edit-lines-and-exit
         hydra-region/mc/insert-numbers-and-exit

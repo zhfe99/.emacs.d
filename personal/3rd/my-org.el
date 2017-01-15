@@ -71,6 +71,7 @@
 (setq org-agenda-todo-keyword-format "%-1s")
 (setq org-agenda-prefix-format "%?-12t% s")
 (setq org-agenda-archives-mode t)
+(setq org-agenda-todo-ignore-scheduled "past")
 
 ;; org-refile
 (setq org-refile-targets
