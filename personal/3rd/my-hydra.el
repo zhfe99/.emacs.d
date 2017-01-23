@@ -48,16 +48,21 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right  _@_ load 2
 ;; open
 (defhydra hydra-open (:color blue :hint nil :idle 1.5)
   "
-^Buffer^    ^File^
-^======^====^====^=====
-_k_ kill    _z_ reveal
-_b_ bury    _d_ dired
-_r_ revert"
+^Buffer^    ^File^      ^Org^
+^======^====^====^======^===^======
+_k_ kill    _z_ reveal  _a_ agenda
+_b_ bury    _d_ dired   _t_ todo
+_r_ revert  ^^          _c_ capture
+^^          ^^          _k_ clock"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
   ("z" reveal-in-osx-finder)
-  ("d" counsel-goto-recent-directory))
+  ("l" org-clock-goto)
+  ("d" counsel-goto-recent-directory)
+  ("a" org-agenda-list)
+  ("t" org-todo-list)
+  ("c" my-org-capture))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
@@ -154,7 +159,7 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 _g_ over  _h_ root  _i_ menu  _s_ stage
 _l_ log   _H_ curr  _p_ prev  _c_ commit
 ^^        _f_ file  _n_ next  _a_ all
-^^         ^^       _v_ show  _t_ time"
+^^        _d_ dir   _v_ show  _t_ time"
   ("g" magit-status-fullscreen :exit t)
   ("G" magit-status :exit t)
   ("l" magit-log-all :exit t)
@@ -162,6 +167,7 @@ _l_ log   _H_ curr  _p_ prev  _c_ commit
   ("H" counsel-ag :exit t)
   ("i" my-goto-git-gutter+ :exit t)
   ("f" counsel-projectile-find-file :exit t)
+  ("d" counsel-projectile-find-dir :exit t)
   ("p" git-gutter+-previous-hunk)
   ("v" git-gutter+-show-hunk)
   ("n" git-gutter+-next-hunk)
