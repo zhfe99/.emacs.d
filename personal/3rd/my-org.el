@@ -57,7 +57,14 @@
 
 ;; org todo key-words
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "yellow" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("RUNG" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold))))
 
 (add-hook 'org-after-todo-state-change-hook
           'my-org-clock-in-out)
