@@ -114,6 +114,10 @@
 (define-key org-mode-map (kbd "<S-down>") nil)
 (define-key org-mode-map (kbd "<S-left>") nil)
 (define-key org-mode-map (kbd "<S-right>") nil)
+(define-key org-mode-map (kbd "<H-left>") 'org-shiftleft)
+(define-key org-mode-map (kbd "<H-right>") 'org-shiftright)
+(define-key org-mode-map (kbd "<H-up>") 'org-shiftup)
+(define-key org-mode-map (kbd "<H-down>") 'org-shiftdown)
 (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
 (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
 
