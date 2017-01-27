@@ -27,13 +27,6 @@
 ;; be quiet when revert-buffer
 (setq auto-revert-verbose nil)
 
-;; open todo-list at startup
-(when (string-equal system-type "darwin")
-  (setq initial-buffer-choice (lambda ()
-                              (org-agenda-list 1)
-                              (org-todo-list)
-                              (get-buffer "*Org Agenda(t)*"))))
-
 ;; font
 (setq-default line-spacing 0.1)
 (condition-case err
