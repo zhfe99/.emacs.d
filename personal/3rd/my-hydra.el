@@ -50,17 +50,16 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right  _@_ load 2
   "
 ^Buffer^    ^File^      ^Org^
 ^======^====^====^======^===^======
-_k_ kill    _z_ reveal
-_b_ bury    _d_ dired   _t_ todo
-_r_ revert  ^^          _c_ capture
-^^          ^^          _k_ clock"
+_k_ kill    _z_ reveal  _a_ agenda
+_b_ bury    _d_ dired   _c_ capture
+_r_ revert  ^^          _l_ clock"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
   ("z" reveal-in-osx-finder)
-  ("l" org-clock-goto)
   ("d" counsel-goto-recent-directory)
-  ("t" org-todo-list)
+  ("a" (org-agenda nil "c"))
+  ("l" org-clock-goto)
   ("c" my-org-capture))
 
 ;; jump
