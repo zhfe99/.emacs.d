@@ -50,7 +50,7 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right  _@_ load 2
   "
 ^Buffer^    ^File^      ^Org^
 ^======^====^====^======^===^======
-_k_ kill    _z_ reveal  _a_ agenda
+_k_ kill    _z_ reveal
 _b_ bury    _d_ dired   _t_ todo
 _r_ revert  ^^          _c_ capture
 ^^          ^^          _k_ clock"
@@ -60,7 +60,6 @@ _r_ revert  ^^          _c_ capture
   ("z" reveal-in-osx-finder)
   ("l" org-clock-goto)
   ("d" counsel-goto-recent-directory)
-  ("a" org-agenda-list)
   ("t" org-todo-list)
   ("c" my-org-capture))
 

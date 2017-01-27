@@ -82,6 +82,7 @@
 (global-set-key (kbd "\e[60;1~") 'hydra-gdb/body) ; H-g
 
 ;; f-
+(global-set-key (kbd "<f1>") 'org-agenda)
 
 ;; dired-mode
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
