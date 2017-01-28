@@ -82,7 +82,6 @@
 (global-set-key (kbd "\e[60;1~") 'hydra-gdb/body) ; H-g
 
 ;; f-
-(global-set-key (kbd "<f1>") 'org-agenda)
 
 ;; dired-mode
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
@@ -128,7 +127,6 @@
             (local-set-key (kbd "<S-right>") nil)
             (local-set-key (kbd "<S-left>") nil)
             (local-set-key (kbd "o") 'org-open-at-point)
-            (local-set-key (kbd "c") 'my-org-capture)
             (local-set-key (kbd "w") 'org-agenda-refile)
             (local-set-key (kbd "M-,") 'hydra-org/body)))
 

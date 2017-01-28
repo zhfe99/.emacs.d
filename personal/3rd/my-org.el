@@ -30,6 +30,8 @@
           (lambda ()
             (git-gutter+-mode)))
 
+;; ======
+;; format
 ;; default to indent outline
 ;; if set t, then org-hide-leading-stars will be always t
 (setq org-startup-indented nil)
@@ -37,81 +39,25 @@
 ;; default to hide stars
 (setq org-hide-leading-stars nil)
 
-;; org-clock-save file location
-(setq org-clock-persist-file (convert-standard-filename
-                              (concat user-emacs-directory "savefile/org-clock-save.el")))
-
 ;; use org-completion-use
 (setq org-completion-use-ido t)
 
 ;; org imenu
 (setq org-imenu-depth 3)
 
-;; org clock
-(setq org-clock-persist 't)
-(setq org-clock-persist-query-resume nil)
-(org-clock-persistence-insinuate)
-(setq org-clock-out-remove-zero-time-clocks t)
-(setq org-log-done t)
-(setq org-clock-idle-time 30)
-
-;; org todo key-words
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WORK(w)" "HOLD(h)" "RUNG(r)" "|" "DONE(d)")))
-
-(setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
-              ("NEXT" :foreground "yellow" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
-              ("RUNG" :foreground "orange" :weight bold)
-              ("HOLD" :foreground "magenta" :weight bold))))
-
-(add-hook 'org-after-todo-state-change-hook
-          'my-org-clock-in-out)
-
-;; agenda
-(setq org-agenda-start-with-log-mode t)
-(setq org-agenda-start-on-weekday nil)
-(setq org-agenda-sticky t)
-(setq org-agenda-span 'day)
-(setq org-agenda-use-time-grid t)
-(setq org-agenda-todo-keyword-format "%-1s")
-(setq org-agenda-prefix-format "%-10:c%?-12t% s")
-(setq org-agenda-archives-mode t)
-(setq org-agenda-todo-ignore-scheduled "past")
-
-;; org-refile
+;; ======
+;; refile
 (setq org-refile-targets
       '((nil :maxlevel . 1)
         (org-agenda-files :maxlevel . 1)))
 
-;; clock report show "\emsp" in agenda
-;; http://emacs.stackexchange.com/questions/9528/is-it-possible-to-remove-emsp-from-clock-report-but-preserve-indentation
-(defun my-org-clocktable-indent-string (level)
-  (if (= level 1)
-      ""
-    (let ((str "*"))
-      (while (> level 2)
-        (setq level (1- level)
-              str (concat str "--")))
-      (concat str ""))))
-(advice-add 'org-clocktable-indent-string :override #'my-org-clocktable-indent-string)
-
-;; don't destroy window configuration
-(setq org-agenda-window-setup 'current-window)
-(setq org-src-window-setup 'current-window)
-(defadvice org-agenda-get-restriction-and-command
-    (around nm-org-agenda-get-restriction-and-command activate)
-  (flet ((delete-other-windows () nil))
-    ad-do-it))
-
-;; ===================
-;; capture with prompt
+;; ======================
+;; capture without prompt
 (defun my-org-capture (&optional vanila)
   (interactive "P")
   (org-capture nil "t"))
 
-;;=====
+;; ====
 ;; link
 (defun my-org-open-at-point (&optional arg reference-buffer)
   "Open link at or after point.
