@@ -243,11 +243,6 @@
 ;; Copy the current file path
 (defun my-dired-copy-current-file-path ()
   (interactive)
-  (kill-new (dired-file-name-at-point)))
-
-;; Copy the current file path
-(defun my-dired-copy-current-file-path-with-home-expanded ()
-  (interactive)
   (kill-new (expand-file-name (dired-file-name-at-point))))
 
 (provide 'my-dired)

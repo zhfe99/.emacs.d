@@ -392,13 +392,11 @@ _c_ count
 _l_ lines
 _s_ size
 _p_ path
-_P_ path e.
 _o_ org"
   ("c" my-dired-get-count)
   ("s" my-dired-get-size)
   ("l" my-dired-get-lines)
   ("p" my-dired-copy-current-file-path)
-  ("P" my-dired-copy-current-file-path-with-home-expanded)
   ("o" my-org-store-link))
 
 ;; python
