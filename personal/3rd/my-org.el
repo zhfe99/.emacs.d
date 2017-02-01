@@ -353,7 +353,7 @@ active region."
                     (delq
                      nil (mapcar (lambda (f)
                                    (let (fs) (if (funcall f) (push f fs))))
-                                 org-store-link-functions))
+                                 (org-store-link-functions)))
                     sfunsn (mapcar (lambda (fu) (symbol-name (car fu))) sfuns))
               (or (and (cdr sfuns)
                        (funcall (intern
