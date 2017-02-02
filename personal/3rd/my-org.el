@@ -51,12 +51,6 @@
       '((nil :maxlevel . 1)
         (org-agenda-files :maxlevel . 1)))
 
-;; ======================
-;; capture without prompt
-(defun my-org-capture (&optional vanila)
-  (interactive "P")
-  (org-capture nil "t"))
-
 ;; ====
 ;; link
 (defun my-org-open-at-point (&optional arg reference-buffer)

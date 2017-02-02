@@ -50,16 +50,15 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right  _@_ load 2
   "
 ^Buffer^    ^File^      ^Org^
 ^======^====^====^======^===^======
-_k_ kill    _z_ reveal  _c_ capture
-_b_ bury    _d_ dired   _l_ clock
+_k_ kill    _z_ reveal  _c_ clock
+_b_ bury    _d_ dired
 _r_ revert"
   ("k" kill-this-buffer)
   ("b" bury-buffer)
   ("r" my-revert-buffer)
   ("z" reveal-in-osx-finder)
   ("d" counsel-goto-recent-directory)
-  ("l" org-clock-goto)
-  ("c" my-org-capture))
+  ("c" org-clock-goto))
 
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
