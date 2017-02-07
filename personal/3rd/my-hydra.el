@@ -109,9 +109,8 @@ _f_ fill"
 ^Filename^     ^Insert^  ^Para^    ^File^
 ^========^=====^======^==^====^====^====^===
 _nn_ name      _d_ date  _q_ fill  _e_ ediff
-_na_ absolute  ^^        ^^        _f_ find
-_nr_ relative  ^^
-^^             _o_ org"
+_na_ absolute  _o_ org   ^^        _f_ find
+_nr_ relative"
   ("d" my-insert-current-date)
   ("o" my-insert-org-clocked-task)
   ("nn" my-insert-file-name)
