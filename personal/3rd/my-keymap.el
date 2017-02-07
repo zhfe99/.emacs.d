@@ -46,7 +46,6 @@
 ;; The following keys are still available:
 ;; =
 ;; p ]
-;; k
 ;; n
 (global-set-key (kbd "M-Z") 'iy-go-up-to-char)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -60,6 +59,7 @@
 (global-set-key (kbd "M-T") 'hydra-term/body)
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-o") 'counsel-find-file)
+(global-set-key (kbd "M-k") 'kill-this-buffer)
 (global-set-key (kbd "M-l") 'hydra-open/body)
 (global-set-key (kbd "M-g") 'hydra-git/body)
 (global-set-key (kbd "M-c") 'hydra-case/body)
@@ -115,6 +115,7 @@
 (define-key org-mode-map (kbd "<S-down>") nil)
 (define-key org-mode-map (kbd "<S-left>") nil)
 (define-key org-mode-map (kbd "<S-right>") nil)
+(define-key org-mode-map (kbd "H-t") 'org-todo)
 (define-key org-mode-map (kbd "<H-left>") 'org-shiftleft)
 (define-key org-mode-map (kbd "<H-right>") 'org-shiftright)
 (define-key org-mode-map (kbd "<H-up>") 'org-shiftup)

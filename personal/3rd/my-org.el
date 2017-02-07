@@ -65,7 +65,6 @@ application the system uses for this file type."
   ;; if in a code block, then open the block's results
   (unless (call-interactively #'org-babel-open-src-block-result)
     (org-load-modules-maybe)
-    (move-marker org-open-link-marker (point))
     (setq org-window-config-before-follow-link (current-window-configuration))
     (org-remove-occur-highlights nil nil t)
     (cond
