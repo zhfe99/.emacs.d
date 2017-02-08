@@ -174,19 +174,18 @@ _l_ log   _H_ curr  _p_ prev  _c_ commit
   "
 ^Select^  ^Mode^      ^History^  ^Rename^       ^Mode^
 ^======^==^====^======^=======^==^======^=======^====^==
-_t_ menu  _m_ matlab  _h_ zsh    _r_ w/o place  _l_ line
+_t_ new   _m_ matlab  _h_ zsh    _r_ w/o place  _l_ line
 _n_ next  _e_ eshell  _H_ bash   _R_ w/ place   _c_ char
-_p_ prev  _M-t_ new
+_p_ prev
 _d_ curr"
   ("l" term-line-mode)
   ("c" term-char-mode)
-  ("t" my-ivy-term-goto)
   ("d" my-term-switch-term-to-current-folder)
   ("n" multi-term-next)
   ("p" multi-term-prev)
   ("m" matlab-shell)
   ("e" eshell)
-  ("M-t" my-term-open-at-current-buffer)
+  ("t" my-term-open-at-current-buffer)
   ("r" my-term-rename-as-prompt-level-1)
   ("R" my-term-rename-as-prompt-level-0)
   ("h" counsel-yank-zsh-history)

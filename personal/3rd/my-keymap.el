@@ -95,6 +95,7 @@
 (define-key dired-mode-map "i" 'hydra-dired-info/body)
 (define-key dired-mode-map "r" 'hydra-dired-ranger/body)
 (define-key dired-mode-map (kbd "M-b") nil)
+(define-key dired-mode-map (kbd "M-T") nil)
 (define-key dired-mode-map (kbd "M-u") nil)
 (define-key dired-mode-map (kbd "M-i") nil)
 (define-key dired-mode-map (kbd "C-o") nil)

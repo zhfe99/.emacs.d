@@ -62,7 +62,7 @@
      ("M-d" . term-send-forward-kill-word)
      ("<M-DEL>" . term-send-backward-kill-word)
      ("M-r" . term-send-reverse-search-history)
-     ("M-," . term-send-raw)
+     ("M-," . hydra-term/body)
      ("M-." . comint-dynamic-complete))))
  '(term-unbind-key-list (quote ("C-o" "C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>"))))
 (custom-set-faces
