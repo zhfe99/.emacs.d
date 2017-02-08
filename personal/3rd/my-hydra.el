@@ -61,13 +61,12 @@ _r_ revert  _d_ dired"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Move^    ^Scroll^  ^Avy^      ^List^
-^====^====^======^==^===^======^====^======
-_h_ left  _d_ down  _c_ char   _i_ imenu
-_j_ down  _u_ up    _w_ word   _b_ bookmark
-_k_ up    ^^        _'_ pop    _B_ set
-_l_ right
-_m_ mark"
+^Move^    ^Scroll^  ^Avy^     ^List^
+^====^====^======^==^===^=====^====^======
+_h_ left  _n_ down  _c_ char  _i_ imenu
+_j_ down  _p_ up    _w_ word  _b_ bookmark
+_k_ up    ^^        _'_ pop   _B_ set
+_l_ right"
   ("s" isearch-forward)
   ("c" avy-goto-char)
   ("w" avy-goto-char-timer)
@@ -75,11 +74,10 @@ _m_ mark"
   ("i" counsel-imenu)
   ("b" counsel-bookmark)
   ("B" bookmark-set)
-  ("d" my-scroll-down-half :exit nil)
-  ("u" my-scroll-up-half :exit nil)
+  ("n" my-scroll-down-half :exit nil)
+  ("p" my-scroll-up-half :exit nil)
   ("l" forward-char :exit nil)
   ("h" backward-char :exit nil)
-  ("m" set-mark-command :exit nil)
   ("j" (lambda () (interactive) (scroll-up 1)) :exit nil)
   ("k" (lambda () (interactive) (scroll-down 1)) :exit nil)
   ("q" nil))
