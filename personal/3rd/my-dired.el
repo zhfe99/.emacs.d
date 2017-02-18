@@ -17,7 +17,12 @@
      (require 'dired-filter)
      (global-dired-hide-details-mode)))
 
-(setq dired-listing-switches "-alh")
+;; set ls default command argument
+(cond
+ ((string-equal system-type "darwin")
+  (setq insert-directory-program "/usr/local/bin/gls")
+  (setq dired-listing-switches "-f -alFh"))
+ (t (setq dired-listing-switches "-alh")))
 
 ;; dired omit files
 (setq dired-omit-files
