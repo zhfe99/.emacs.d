@@ -1,6 +1,6 @@
 [submodule "elpa"]
 	path = elpa
-	url = https://github.com/zhfe99/elpa.git
+	url = ../elpa.git
 [submodule "site-lisp/counsel-projectile"]
 	path = site-lisp/counsel-projectile
 	url = https://github.com/zhfe99/counsel-projectile.git
