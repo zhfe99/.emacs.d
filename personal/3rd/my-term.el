@@ -23,8 +23,6 @@
  ((string-equal system-type "gnu/linux")
   (setq multi-term-buffer-name "term"
         multi-term-program (concat (getenv "APPS") "/bin/zsh"))))
-;; (add-hook 'term-mode-hook
-;;           (lambda () (setq truncate-lines 0)))
 
 ;; yank bash history
 (defun counsel-yank-bash-history ()
