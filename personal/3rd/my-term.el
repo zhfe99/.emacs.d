@@ -135,7 +135,10 @@
     (setq win (get-buffer-window buffer))
     (if win
         (select-window win)
-      (switch-to-buffer buffer))))
+      (switch-to-buffer buffer))
+    (end-of-buffer)
+    (previous-line)
+    (term-send-raw-string "\C-e")))
 
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
