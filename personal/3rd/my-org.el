@@ -45,12 +45,6 @@
 ;; org imenu
 (setq org-imenu-depth 3)
 
-;; ======
-;; refile
-(setq org-refile-targets
-      '((nil :maxlevel . 1)
-        (org-agenda-files :maxlevel . 1)))
-
 ;; ====
 ;; link
 (defun my-org-open-at-point (&optional arg reference-buffer)

@@ -91,7 +91,7 @@
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "/" 'dired-narrow)
 (define-key dired-mode-map "'" 'dired-up-directory)
-(define-key dired-mode-map "s" 'hydra-dired-sort/body)
+(define-key dired-mode-map "s" 'hydra-dired-quick-sort/body)
 (define-key dired-mode-map "i" 'hydra-dired-info/body)
 (define-key dired-mode-map "r" 'hydra-dired-ranger/body)
 (define-key dired-mode-map (kbd "M-b") nil)
@@ -105,7 +105,6 @@
 
 ;; org-mode
 (require 'org)
-(define-key org-mode-map (kbd "M-,") 'hydra-org/body)
 (define-key org-mode-map (kbd "M-a") nil)
 (define-key org-mode-map (kbd "M-e") nil)
 (define-key org-mode-map (kbd "M-h") nil)
@@ -129,6 +128,8 @@
           (lambda ()
             (local-set-key (kbd "<S-right>") nil)
             (local-set-key (kbd "<S-left>") nil)
+            (local-set-key (kbd "<S-up>") nil)
+            (local-set-key (kbd "<S-down>") nil)
             (local-set-key (kbd "o") 'org-open-at-point)
             (local-set-key (kbd "w") 'org-agenda-refile)
             (local-set-key (kbd "M-,") 'hydra-org/body)))

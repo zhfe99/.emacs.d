@@ -3,6 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        LaTeX-insert-left-brace
+        TeX-insert-backslash
+        TeX-insert-dollar
         apply-operation-to-number-at-point
         backward-sexp
         c-electric-delete-forward
@@ -57,6 +60,7 @@
         hydra-mc/mc/mark-next-like-this-and-exit
         hydra-mc/mc/mark-previous-like-this
         hydra-mc/mc/skip-to-next-like-this
+        hydra-mc/mc/skip-to-next-like-this-and-exit
         hydra-mc/mc/skip-to-previous-like-this
         hydra-mc/nil
         hydra-region/mc/edit-beginnings-of-lines-and-exit

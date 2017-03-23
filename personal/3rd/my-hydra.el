@@ -305,41 +305,6 @@ _s_ step"
   ("s" gud-step)
   ("q" nil))
 
-;; org
-(defhydra hydra-org (:color pink :hint nil :idle 1.5)
-  "
-^Move^    ^Cross^   ^Decorator^   ^Change^    ^Tree^      ^Link^      ^Archive^
-^====^====^=====^===^====^========^======^====^====^======^====^======^=======^==
-_N_ next  _n_ next  _t_ todo      _←_ left    _k_ kill    _y_ stored  _a_ sibling
-_P_ prev  _p_ prev  _w_ refile    _↓_ down    _s_ sort    _Y_ Chrome  _A_ subtree
-^^        _u_ up    _#_ tag       _↑_ up      _>_ expand  _o_ open
-^^        ^^        _,_ priority  _→_ right   _/_ narrow  _O_ dired"
-  ("s" org-sort)
-  ("n" outline-next-visible-heading)
-  ("/" my-narrow-or-widen-dwim)
-  ("a" org-archive-to-archive-sibling)
-  ("A" org-archive-subtree-default)
-  ("p" outline-previous-visible-heading)
-  ("u" outline-up-heading)
-  (">" org-content)
-  ("N" org-forward-heading-same-level)
-  ("P" org-backward-heading-same-level)
-  ("T" org-show-todo-tree)
-  ("t" org-todo)
-  ("y" org-insert-link :exit t)
-  ("Y" my-insert-current-chrome-link :exit t)
-  ("k" crux-kill-whole-line)
-  ("w" org-refile)
-  ("#" org-set-tags)
-  ("," org-priority)
-  ("<left>" org-shiftmetaleft)
-  ("<right>" org-shiftmetaright)
-  ("<up>" org-metaup)
-  ("<down>" org-metadown)
-  ("o" org-open-at-point)
-  ("O" my-org-open-at-point :exit t)
-  ("q" nil))
-
 ;; lisp
 (defhydra hydra-lisp (:color blue :hint nil :idle 1.5)
   "
@@ -349,18 +314,6 @@ _g_ edebug
 _e_ eval"
   ("g" edebug-defun)
   ("e" eval-defun))
-
-;; dired sort
-(defhydra hydra-dired-sort (:color blue :hint nil)
-  "
-^Sort^
-^====^==
-_n_ name
-_d_ date
-_s_ size"
-  ("d" dired-sort-ctime)
-  ("n" dired-sort-name)
-  ("s" dired-sort-size))
 
 ;; dired ranger
 (defhydra hydra-dired-ranger (:color blue :hint nil)

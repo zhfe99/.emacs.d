@@ -250,5 +250,9 @@
   (interactive)
   (kill-new (expand-file-name (dired-file-name-at-point))))
 
+;; use dired quick sort
+(require 'dired-quick-sort)
+(add-hook 'dired-mode-hook 'dired-quick-sort)
+
 (provide 'my-dired)
 ;;; my-dired.el ends here
