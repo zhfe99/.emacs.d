@@ -10,33 +10,9 @@
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
 	url = https://github.com/zhfe99/helm-etags-plus.git
-[submodule "site-lisp/emacs-fasd"]
-	path = site-lisp/emacs-fasd
-	url = https://github.com/steckerhalter/emacs-fasd.git
-[submodule "site-lisp/emacs-counsel-gtags"]
-	path = site-lisp/emacs-counsel-gtags
-	url = https://github.com/syohex/emacs-counsel-gtags.git
-[submodule "site-lisp/swiper"]
-	path = site-lisp/swiper
-	url = https://github.com/abo-abo/swiper.git
-[submodule "site-lisp/elpy"]
-	path = site-lisp/elpy
-	url = https://github.com/jorgenschaefer/elpy.git
-[submodule "site-lisp/projectile"]
-	path = site-lisp/projectile
-	url = https://github.com/bbatsov/projectile.git
 [submodule "site-lisp/pomodoro"]
 	path = site-lisp/pomodoro
 	url = https://github.com/baudtack/pomodoro.el
 [submodule "site-lisp/dired-hacks"]
 	path = site-lisp/dired-hacks
 	url = https://github.com/Fuco1/dired-hacks
-[submodule "site-lisp/avy"]
-	path = site-lisp/avy
-	url = https://github.com/zhfe99/avy.git
-[submodule "site-lisp/ace-window"]
-	path = site-lisp/ace-window
-	url = https://github.com/abo-abo/ace-window.git
-[submodule "site-lisp/crux"]
-	path = site-lisp/crux
-	url = https://github.com/bbatsov/crux

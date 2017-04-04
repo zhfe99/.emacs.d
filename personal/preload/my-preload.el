@@ -8,30 +8,12 @@
 
 ;; github package
 (require 'use-package)
-(use-package swiper
-  :load-path "site-lisp/swiper/")
-(use-package avy
-  :load-path "site-lisp/avy/")
-(use-package ace-window
-  :load-path "site-lisp/ace-window/")
-(use-package ivy
-  :load-path "site-lisp/swiper/")
-(use-package counsel
-  :load-path "site-lisp/swiper/")
 (use-package reveal-in-osx-finder
   :if (string-equal system-type "darwin"))
-(use-package fasd
-  :load-path "site-lisp/emacs-fasd/")
-(use-package projectile
-  :load-path "site-lisp/projectile/")
 (use-package counsel-projectile
   :load-path "site-lisp/counsel-projectile/")
-(use-package elpy
-  :load-path "site-lisp/elpy/")
 (use-package pomodoro
   :load-path "site-lisp/pomodoro/")
-(use-package transpose-frame
-  :load-path "site-lisp/transpose-frame/")
 (use-package dired-ranger
   :load-path "site-lisp/dired-hacks/")
 (use-package dired-subtree
@@ -40,8 +22,6 @@
   :load-path "site-lisp/dired-hacks/")
 (use-package dired-narrow
   :load-path "site-lisp/dired-hacks/")
-(use-package crux
-  :load-path "site-lisp/crux/")
 
 (provide 'my-preload)
 ;;; my-preload.el ends here
