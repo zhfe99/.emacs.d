@@ -10,8 +10,6 @@
 (require 'use-package)
 (use-package reveal-in-osx-finder
   :if (string-equal system-type "darwin"))
-(use-package counsel-projectile
-  :load-path "site-lisp/counsel-projectile/")
 (use-package pomodoro
   :load-path "site-lisp/pomodoro/")
 (use-package dired-ranger

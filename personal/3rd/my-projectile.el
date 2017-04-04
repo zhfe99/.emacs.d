@@ -39,5 +39,69 @@
   (recentf-cleanup)
   (projectile-cleanup-known-projects))
 
+(require 'counsel-projectile)
+
+;; Change counsel-projectile default action to dired
+(defun counsel-projectile (&optional arg)
+  "Use projectile with Ivy instead of ido.
+
+With a prefix ARG invalidates the cache first."
+  (interactive "P")
+  (ivy-read "Switch to project: "
+            (if (projectile-project-p)
+                (cons (abbreviate-file-name (projectile-project-root))
+                      (projectile-relevant-known-projects))
+              projectile-known-projects)
+            :action
+            (lambda (dir)
+              ;; (projectile-switch-project-by-name dir arg)
+              (dired dir))
+            :require-match t
+            :caller 'counsel-projectile))
+
+;; add "." to open root
+(ivy-set-actions
+ 'counsel-projectile
+ '(("f" (lambda (dir)
+          (let ((projectile-switch-project-action 'counsel-projectile-find-file))
+            (projectile-switch-project-by-name dir arg)))
+    "find file")
+   ("d" (lambda (dir)
+          (let ((projectile-switch-project-action 'counsel-projectile-find-dir))
+            (projectile-switch-project-by-name dir arg)))
+    "find directory")
+   ("b" (lambda (dir)
+          (let ((projectile-switch-project-action 'counsel-projectile-switch-to-buffer))
+            (projectile-switch-project-by-name dir arg)))
+    "switch to buffer")
+   ("s" (lambda (dir)
+          (let ((projectile-switch-project-action 'projectile-save-project-buffers))
+            (projectile-switch-project-by-name dir arg)))
+    "save all buffers")
+   ("k" (lambda (dir)
+          (let ((projectile-switch-project-action 'projectile-kill-buffers))
+            (projectile-switch-project-by-name dir arg)))
+    "kill all buffers")
+   ("r" (lambda (dir)
+          (let ((projectile-switch-project-action
+                 'projectile-remove-current-project-from-known-projects))
+            (projectile-switch-project-by-name dir arg)))
+    "remove from known projects")
+   ("l" (lambda (dir)
+          (let ((projectile-switch-project-action 'projectile-edit-dir-locals))
+            (projectile-switch-project-by-name dir arg)))
+    "edit dir-locals")
+   ("g" (lambda (dir)
+          (let ((projectile-switch-project-action 'projectile-vc))
+            (projectile-switch-project-by-name dir arg)))
+    "open in vc-dir / magit / monky")
+   ("e" (lambda (dir)
+          (let ((projectile-switch-project-action 'projectile-run-eshell))
+            (projectile-switch-project-by-name dir arg)))
+    "start eshell")
+   ("." (lambda (dir)
+          (dired dir))
+    "open root directory")))
+
 (provide 'my-projectile)
 ;;; my-editor.el ends here
