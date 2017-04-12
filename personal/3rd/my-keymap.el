@@ -56,7 +56,6 @@
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "M-u") 'counsel-projectile)
 (global-set-key (kbd "M-t") 'my-ivy-term-goto)
-(global-set-key (kbd "M-T") 'hydra-term/body)
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-o") 'counsel-find-file)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
@@ -209,6 +208,10 @@
   '(define-key js2-mode-map (kbd "M-.") nil))
 (eval-after-load 'js2-mode
   '(define-key js2-mode-map (kbd "M-j") nil))
+
+;; term-mode
+(define-key term-raw-map (kbd "M-,") 'hydra-term/body)
+(define-key term-mode-map (kbd "M-,") 'hydra-term/body)
 
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
