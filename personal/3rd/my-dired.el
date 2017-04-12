@@ -255,7 +255,7 @@
 (add-hook 'dired-mode-hook 'dired-quick-sort)
 
 ;; auto refresh dired when file changes
-(add-hook 'dired-mode-hook 'auto-revert-mode)
+;; (add-hook 'dired-mode-hook 'auto-revert-mode)
 
 (provide 'my-dired)
 ;;; my-dired.el ends here
