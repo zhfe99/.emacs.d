@@ -10,6 +10,7 @@
 
 (require 'cl)
 (require 'ivy)
+(require 'ivy-hydra)
 (require 'counsel)
 
 ;; enable ivy-mode
