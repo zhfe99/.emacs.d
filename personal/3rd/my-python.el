@@ -62,6 +62,7 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (git-gutter+-mode)
+             (linum-mode)
              (setq python-indent-offset 4)))
 
 ;; Use only own snippets, do not use bundled ones
