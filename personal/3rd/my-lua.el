@@ -34,6 +34,7 @@
           (lambda ()
             (subword-mode 1)
             (yas-minor-mode)
+            (linum-mode)
             (git-gutter+-mode)
             (setq safe-local-variable-values
                   '((lua-indent-level . 2)
