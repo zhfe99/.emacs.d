@@ -51,11 +51,10 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right  _@_ load 2
 ^Buffer^    ^File^      ^Org^
 ^======^====^====^======^===^======
 _b_ bury    _z_ reveal  _c_ clock
-_r_ revert  _d_ dired"
+_r_ revert"
   ("b" bury-buffer)
   ("r" my-revert-buffer)
   ("z" reveal-in-osx-finder)
-  ("d" counsel-goto-recent-directory)
   ("c" org-clock-goto))
 
 ;; jump
