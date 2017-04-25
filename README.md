@@ -20,5 +20,4 @@ work-flow and stick to the same key shortcuts for different tasks.
 
 # Organization
 My configuration follows the default setting of the popular
-[prelude](https://github.com/bbatsov/prelude) package. My
-personal modification can be found in the sub-folder [`personal/`](https://github.com/zhfe99/.emacs.d/tree/master/personal) and [`personal/3rd`](https://github.com/zhfe99/.emacs.d/tree/master/personal/3rd).
+[prelude](https://github.com/bbatsov/prelude) package. My personal modification can be found in the sub-folder [`personal/`](https://github.com/zhfe99/.emacs.d/tree/master/personal) and [`personal/3rd`](https://github.com/zhfe99/.emacs.d/tree/master/personal/3rd).
