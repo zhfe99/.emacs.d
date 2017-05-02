@@ -173,5 +173,13 @@
 (define-key ivy-minibuffer-map (kbd "M-j") 'bjm/ivy-yank-whole-word)
 (define-key ivy-minibuffer-map (kbd "C-o") 'ivy-occur)
 
+;; ========
+;; ivy-rich
+(require 'ivy-rich)
+(ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
+
+(setq ivy-virtual-abbreviate 'full
+      ivy-rich-switch-buffer-align-virtual-buffer t)
+
 (provide 'my-ivy)
 ;;; my-dired.el ends here
