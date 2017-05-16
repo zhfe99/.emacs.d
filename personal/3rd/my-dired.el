@@ -257,5 +257,9 @@
 ;; auto refresh dired when file changes
 ;; (add-hook 'dired-mode-hook 'auto-revert-mode)
 
+;; ======================
+;; support imenu in dired
+(require 'dired-imenu)
+
 (provide 'my-dired)
 ;;; my-dired.el ends here
