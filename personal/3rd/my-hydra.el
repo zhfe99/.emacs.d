@@ -9,15 +9,15 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Delete^   ^Boundary^   ^Swap^     ^Text^        ^Transpose^     ^Layout^
-^======^===^========^===^====^=====^====^========^=========^=====^======^
-_h_ left   _H_ left     _←_ left   _=_ increase  _fh_ flip horz  _p_ push
-_j_ down   _J_ down     _↓_ down   _-_ decrease  _fv_ flip vert  _P_ pop
-_k_ up     _K_ up       _↑_ up     _0_ default   _rl_ rot left
-_l_ right  _L_ right    _→_ right  ^^            _rr_ rot right
-^^         _b_ balance  _s_ ace
-^^         ^^           _u_ dupe
-^^         ^^           _m_ move"
+^Move^     ^Delete^   ^Boundary^   ^Text^        ^Transpose^     ^Layout^
+^====^=====^======^===^========^===^====^========^=========^=====^======^
+_←_ left   _h_ left   _H_ left     _=_ increase  _fh_ flip horz  _p_ push
+_↓_ down   _j_ down   _J_ down     _-_ decrease  _fv_ flip vert  _P_ pop
+_↑_ up     _k_ up     _K_ up       _0_ default   _rl_ rot left
+_→_ right  _l_ right  _L_ right    ^^            _rr_ rot right
+_m_ move   ^^         _b_ balance
+_s_ swap
+_u_ dupe"
   ("h" my-push-window-left :exit t)
   ("j" my-push-window-down :exit t)
   ("k" my-push-window-up :exit t)
