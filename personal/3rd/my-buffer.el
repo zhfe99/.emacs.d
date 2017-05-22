@@ -73,6 +73,19 @@
     (aw-switch-to-window (aw-select " Ace Buffer: "))
     (switch-to-buffer buf)))
 
+;; move current buffer in other window
+(defun my-move-current-buffer-in-ace-window ()
+  "Move current buffer in other window"
+  (interactive)
+  (let ((curr-buf (current-buffer))
+        (prev-buf (previous-buffer))
+        (start-win (selected-window))
+        (target-win (aw-select " Ace Buffer: ")))
+    (aw-switch-to-window target-win)
+    (switch-to-buffer curr-buf)
+    (aw-switch-to-window start-win)
+    (switch-to-buffer prev-buf)))
+
 ;;==============
 ;; use auto-save
 ;; follow http://www.jianshu.com/p/998ceaf522d1

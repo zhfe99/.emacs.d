@@ -16,7 +16,8 @@ _j_ down   _J_ down     _↓_ down   _-_ decrease  _fv_ flip vert  _P_ pop
 _k_ up     _K_ up       _↑_ up     _0_ default   _rl_ rot left
 _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right
 ^^         _b_ balance  _s_ ace
-^^         ^^           _u_ dupe"
+^^         ^^           _u_ dupe
+^^         ^^           _m_ move"
   ("h" my-push-window-left :exit t)
   ("j" my-push-window-down :exit t)
   ("k" my-push-window-up :exit t)
@@ -27,6 +28,7 @@ _l_ right  _L_ right    _→_ right  ^^            _rr_ rot right
   ("<right>" buf-move-right)
   ("s" ace-swap-window :exit t)
   ("u" my-duplicate-current-buffer-in-ace-window :exit t)
+  ("m" my-move-current-buffer-in-ace-window :exit t)
   ("fh" flop-frame :exit t)
   ("fv" flip-frame :exit t)
   ("rl" rotate-frame-anticlockwise :exit t)
