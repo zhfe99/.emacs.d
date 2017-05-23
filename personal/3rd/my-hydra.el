@@ -194,15 +194,15 @@ _d_ curr"
   "
 ^Etags^    ^Dump^    ^Emacs^  ^Gtags^
 ^=====^====^====^====^=====^==^=====^
-_._ ford  _f_ ford  _>_ ford  _g_ find
-_,_ back  _b_ back
+_f_ ford  _._ ford  _>_ ford  _g_ find
+_b_ back  _,_ back
 _/_ hist"
   ("g" counsel-gtags-dwim)
-  ("." helm-etags+-select)
-  ("," helm-etags+-history-go-back)
+  ("f" helm-etags+-select)
+  ("b" helm-etags+-history-go-back)
   ("/" helm-etags+-history)
-  ("f" dumb-jump-go)
-  ("b" dumb-jump-back)
+  ("." dumb-jump-go)
+  ("," dumb-jump-back)
   (">" find-tag))
 
 ;; transpose
