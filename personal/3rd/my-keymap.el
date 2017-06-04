@@ -87,6 +87,7 @@
 (define-key dired-mode-map "c" 'dired-toggle-read-only)
 (define-key dired-mode-map "d" 'dired-do-delete)
 (define-key dired-mode-map "f" 'my-dired-find-file-ace-window)
+(define-key dired-mode-map "T" 'my-term-switch-term-to-current-folder)
 (define-key dired-mode-map ")" 'dired-omit-mode)
 (define-key dired-mode-map "/" 'dired-narrow)
 (define-key dired-mode-map "'" 'dired-up-directory)
