@@ -10,7 +10,6 @@
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
 ^Move^     ^Delete^   ^Boundary^   ^Text^        ^Transpose^     ^Layout^
-^====^=====^======^===^========^===^====^========^=========^=====^======^
 _←_ left   _h_ left   _H_ left     _=_ increase  _fh_ flip horz  _p_ push
 _↓_ down   _j_ down   _J_ down     _-_ decrease  _fv_ flip vert  _P_ pop
 _↑_ up     _k_ up     _K_ up       _0_ default   _rl_ rot left
@@ -49,7 +48,6 @@ _u_ dupe"
 (defhydra hydra-open (:color blue :hint nil :idle 1.5)
   "
 ^Buffer^    ^File^      ^Org^
-^======^====^====^======^===^======
 _b_ bury    _z_ reveal  _c_ clock
 _r_ revert"
   ("b" bury-buffer)
@@ -60,14 +58,11 @@ _r_ revert"
 ;; jump
 (defhydra hydra-jump (:color blue :hint nil :idle 1.5)
   "
-^Move^    ^Scroll^  ^Avy^     ^List^
-^====^====^======^==^===^=====^====^======
-_h_ left  _n_ down  _c_ char  _i_ imenu
-_j_ down  _p_ up    _w_ word  _b_ bookmark
-_k_ up    ^^        _'_ pop   _B_ set
-_l_ right
-_gg_ head
-_G_ end"
+^Move^     ^Scroll^   ^Avy^     ^List^
+_h_ left   _n_ down   _c_ char  _i_ imenu
+_j_ down   _p_ up     _w_ word  _b_ bookmark
+_k_ up     _gg_ head  _'_ pop   _B_ set
+_l_ right  _G_ end"
   ("s" isearch-forward)
   ("c" avy-goto-char)
   ("w" avy-goto-char-timer)
@@ -108,7 +103,6 @@ _f_ fill"
 (defhydra hydra-edit (:color blue :hint nil :idle 1.5)
   "
 ^Filename^     ^Insert^  ^Para^    ^File^
-^========^=====^======^==^====^====^====^===
 _nn_ name      _d_ date  _q_ fill  _e_ ediff
 _na_ absolute  _o_ org   ^^        _f_ find
 _nr_ relative"
@@ -126,7 +120,6 @@ _nr_ relative"
 (defhydra hydra-sp (:color pink :hint nil :idle 1.5)
   "
 ^Move^    ^Out^      ^Wrap^      ^Kill^
-^====^====^===^======^====^======^====^===
 _f_ ford  _,_ left   _s_ splice  _k_ kill
 _b_ back  _._ right  _r_ rewarp  _d_ ford
 ^^        _>_ end    _l_ slurp
@@ -149,7 +142,6 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 (defhydra hydra-git (:hint nil)
   "
 ^Magit^   ^Grep^    ^Hunk^    ^Operate^   ^Proj^
-^=====^===^====^====^====^====^=======^===^====^====
 _g_ over  _h_ root  _i_ menu  _s_ stage   _M-g_ proj
 _l_ log   _H_ curr  _p_ prev  _c_ commit
 ^^        _f_ file  _n_ next  _a_ all
@@ -175,7 +167,6 @@ _l_ log   _H_ curr  _p_ prev  _c_ commit
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
   "
 ^Select^  ^Mode^      ^History^  ^Rename^       ^Mode^
-^======^==^====^======^=======^==^======^=======^====^==
 _t_ new   _m_ matlab  _h_ zsh    _r_ w/o place  _l_ line
 _n_ next  _e_ eshell  _H_ bash   _R_ w/ place   _c_ char
 _p_ prev
@@ -197,7 +188,6 @@ _d_ curr"
 (defhydra hydra-tag (:color blue :hint nil :idle 1.5)
   "
 ^Etags^    ^Dump^    ^Emacs^  ^Gtags^
-^=====^====^====^====^=====^==^=====^
 _f_ ford  _._ ford  _>_ ford  _g_ find
 _b_ back  _,_ back
 _/_ hist"
@@ -212,8 +202,7 @@ _/_ hist"
 ;; transpose
 (defhydra hydra-transpose (:color blue :hint nil :idle 1.5)
   "
-^Transpose^
-^=========^
+^Transpose
 _c_ char
 _w_ word
 _l_ line
@@ -227,7 +216,6 @@ _s_ sexp"
 (defhydra hydra-case (:color pink :hint nil :idle 1.5)
   "
 ^Case^
-^==========^
 _c_ captial
 _u_ upcase
 _l_ downcase"
@@ -240,7 +228,6 @@ _l_ downcase"
 (defhydra hydra-region (:color blue :hint nil :idle 1.5)
   "
 ^Mark^   ^  ^Web^       ^Operation^
-^====^===^==^===^=======^=========^
 _p_ para ^  _g_ google  _-_ align
 _f_ defun^  _b_ baidu   _n_ narrow
 _\"_ quote  _B_ bing
@@ -260,7 +247,6 @@ _(_ pair ^  _y_ open"
 (defhydra hydra-mc (:color blue :hint nil :idle 1.5)
   "
 ^One^     ^Skip^    ^Many^      ^Line^  ^^  ^Insert^
-^===^=====^====^====^====^======^====^==^^==^======^==
 _,_ prev  _<_ prev  _r_ region  _l_ line^^  _n_ number
 _._ next  _>_ next  _m_ buffer  _\\^_ head  _c_ char
 ^^        ^^        ^^          _$_ end"
@@ -280,7 +266,6 @@ _._ next  _>_ next  _m_ buffer  _\\^_ head  _c_ char
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
 ^Emacs^
-^=====^====
 _s_ scratch
 _m_ message
 _l_ async"
@@ -292,7 +277,6 @@ _l_ async"
 (defhydra hydra-gdb (:color pink :hint nil)
   "
 ^Move^    ^Break^
-^====^====^=====^
 _c_ cont  _b_ set
 _n_ next  _B_ show
 _s_ step"
@@ -313,7 +297,6 @@ _s_ step"
 (defhydra hydra-lisp (:color blue :hint nil :idle 1.5)
   "
 ^Eval^
-^====^====
 _g_ edebug
 _e_ eval"
   ("g" edebug-defun)
@@ -323,7 +306,6 @@ _e_ eval"
 (defhydra hydra-dired-ranger (:color blue :hint nil)
   "
 ^Ranger^   ^Misc^
-^======^===^====^===
 _c_ copy   _r_ rsync
 _m_ move   _u_ dupe
 _p_ paste"
@@ -337,7 +319,6 @@ _p_ paste"
 (defhydra hydra-dired-info (:color blue :hint nil)
   "
 ^Info^
-^====^=====
 _c_ count
 _l_ lines
 _s_ size
@@ -353,7 +334,6 @@ _o_ org"
 (defhydra hydra-python (:color red :hint nil :idle 1.5)
   "
 ^Date^
-^====^====
 _c_ create"
   ("c" my-python-create-date))
 
@@ -361,7 +341,6 @@ _c_ create"
 (defhydra hydra-sh (:color red :hint nil :idle 1.5)
   "
 ^Date^
-^====^====
 _c_ create"
   ("c" my-sh-create-date))
 
@@ -369,7 +348,6 @@ _c_ create"
 (defhydra hydra-c (:color red :hint nil)
   "
 ^Tag^
-^===^====
 _i_ irony"
   ("i" irony-install-server))
 
