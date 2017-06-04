@@ -65,7 +65,9 @@ _r_ revert"
 _h_ left  _n_ down  _c_ char  _i_ imenu
 _j_ down  _p_ up    _w_ word  _b_ bookmark
 _k_ up    ^^        _'_ pop   _B_ set
-_l_ right"
+_l_ right
+_gg_ head
+_G_ end"
   ("s" isearch-forward)
   ("c" avy-goto-char)
   ("w" avy-goto-char-timer)
@@ -77,6 +79,8 @@ _l_ right"
   ("p" my-scroll-up-half :exit nil)
   ("l" forward-char :exit nil)
   ("h" backward-char :exit nil)
+  ("gg" beginning-of-buffer :exit nil)
+  ("G" end-of-buffer :exit nil)
   ("j" (lambda () (interactive) (scroll-up 1)) :exit nil)
   ("k" (lambda () (interactive) (scroll-down 1)) :exit nil)
   ("q" nil))
