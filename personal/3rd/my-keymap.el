@@ -120,6 +120,8 @@
 (define-key org-mode-map (kbd "<H-right>") 'org-shiftright)
 (define-key org-mode-map (kbd "<H-up>") 'org-shiftup)
 (define-key org-mode-map (kbd "<H-down>") 'org-shiftdown)
+(define-key org-mode-map (kbd "\e[46;C~") 'org-metaleft) ; M-left in iterm2
+(define-key org-mode-map (kbd "\e[46;D~") 'org-metaright) ; M-right in iterm2
 (define-key org-mode-map (kbd "\e[49;C~") 'org-shiftmetaleft) ; M-S-left in iterm2
 (define-key org-mode-map (kbd "\e[49;D~") 'org-shiftmetaright) ; M-S-right in iterm2
 
