@@ -227,38 +227,40 @@ _l_ downcase"
 ;; region
 (defhydra hydra-region (:color blue :hint nil :idle 1.5)
   "
-^Mark^   ^  ^Web^       ^Operation^
-_p_ para ^  _g_ google  _-_ align
-_f_ defun^  _b_ baidu   _n_ narrow
-_\"_ quote  _B_ bing
-_(_ pair ^  _y_ open"
+^Mark^     ^Operation^
+_p_ para   _-_ align
+_f_ defun  _n_ narrow
+_q_ quote
+_[_ pair
+_]_ pair"
   ("-" my-align-comment)
   ("n" my-narrow-or-widen-dwim)
   ("p" er/mark-paragraph)
   ("f" er/mark-defun)
-  ("\"" er/mark-inside-quotes)
-  ("(" er/mark-inside-pairs)
-  ("g" prelude-google)
-  ("b" prelude-baidu)
-  ("B" prelude-bing)
-  ("y" browse-url))
+  ("q" er/mark-inside-quotes)
+  ("Q" er/mark-outside-quotes)
+  ("[" er/mark-inside-pairs)
+  ("]" er/mark-outside-pairs)
+  ("." er/expand-region :exit nil)
+  ("," er/contract-region :exit nil)
+  ("u" er/mark-url))
 
 ;; mc
 (defhydra hydra-mc (:color blue :hint nil :idle 1.5)
   "
 ^One^     ^Skip^    ^Many^      ^Line^  ^^  ^Insert^
 _,_ prev  _<_ prev  _r_ region  _l_ line^^  _n_ number
-_._ next  _>_ next  _m_ buffer  _\\^_ head  _c_ char
+_._ next  _>_ next  _b_ buffer  _\\^_ head  _c_ char
 ^^        ^^        ^^          _$_ end"
   ("r" mc/mark-all-in-region)
-  ("m" mc/mark-all-like-this)
+  ("b" mc/mark-all-like-this)
   ("l" mc/edit-lines)
   ("^" mc/edit-beginnings-of-lines)
   ("$" mc/edit-ends-of-lines)
-  ("," mc/mark-previous-like-this)
-  ("." mc/mark-next-like-this)
-  ("<" mc/skip-to-previous-like-this)
-  (">" mc/skip-to-next-like-this)
+  ("," mc/mark-previous-like-this :exit nil)
+  ("." mc/mark-next-like-this :exit nil)
+  ("<" mc/skip-to-previous-like-this :exit nil)
+  (">" mc/skip-to-next-like-this :exit nil)
   ("n" mc/insert-numbers)
   ("c" mc/insert-letters))
 
