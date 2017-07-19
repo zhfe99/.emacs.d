@@ -57,6 +57,10 @@
 (add-to-list 'display-buffer-alist
              (cons "\\*Async Shell Command\\*.*" (cons #'display-buffer-no-window nil)))
 
+;; Changing the Recentering Order
+;; http://irreal.org/blog/?p=6436
+(setq recenter-positions '(top middle bottom))
+
 ;;=================
 ;; open large files
 ;; http://stackoverflow.com/questions/18316665/how-to-improve-emacs-performace-when-view-large-file
