@@ -20,8 +20,8 @@
             (subword-mode 1)
             (git-gutter+-mode)
             (linum-mode)
-            (highlight-indentation-mode)
-            (setq c-basic-offset 4)))
+            (setq c-basic-offset 4)
+            (highlight-indentation-mode)))
 
 ;; cmake-mode-hook
 (add-hook 'cmake-mode-hook
