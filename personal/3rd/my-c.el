@@ -21,7 +21,7 @@
             (git-gutter+-mode)
             (linum-mode)
             (highlight-indentation-mode)
-            (setq c-basic-offset 2)))
+            (setq c-basic-offset 4)))
 
 ;; cmake-mode-hook
 (add-hook 'cmake-mode-hook
@@ -43,7 +43,7 @@
           (lambda()
             (subword-mode 1)
             (linum-mode)
-            (setq c-basic-offset 2)
+            (setq c-basic-offset 4)
             (git-gutter+-mode)))
 
 ;; gdb
