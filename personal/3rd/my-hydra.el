@@ -238,9 +238,9 @@ _l_ downcase"
 ;; region
 (defhydra hydra-region (:color blue :hint nil :idle 1.5)
   "
-^Mark^     ^Operation^
-_p_ para   _-_ align
-_f_ defun  _n_ narrow
+^Select^   ^Operation^  ^Sexp^
+_p_ para   _-_ align    _s_ splice
+_f_ defun  _n_ narrow   _r_ rewrap
 _q_ quote
 _[_ pair
 _]_ pair"
@@ -254,6 +254,8 @@ _]_ pair"
   ("]" er/mark-outside-pairs)
   ("." er/expand-region :exit nil)
   ("," er/contract-region :exit nil)
+  ("s" sp-splice-sexp)
+  ("r" sp-rewrap-sexp)
   ("u" er/mark-url))
 
 ;; mc
