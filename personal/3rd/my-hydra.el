@@ -9,13 +9,13 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Move^     ^Delete^   ^Boundary^   ^Text^        ^Transpose^     ^Layout^
-_←_ left   _h_ left   _H_ left     _=_ increase  _fh_ flip horz  _p_ push
-_↓_ down   _j_ down   _J_ down     _-_ decrease  _fv_ flip vert  _P_ pop
-_↑_ up     _k_ up     _K_ up       _0_ default   _rl_ rot left
-_→_ right  _l_ right  _L_ right    ^^            _rr_ rot right
-_m_ move   ^^         _b_ balance
-_s_ swap
+^Move^     ^Delete^   ^Boundary^   ^Text^        ^Transpose^     ^Eyebrowse^
+_←_ left   _h_ left   _H_ left     _=_ increase  _fh_ flip horz  _e_ switch
+_↓_ down   _j_ down   _J_ down     _-_ decrease  _fv_ flip vert  _t_ tag
+_↑_ up     _k_ up     _K_ up       _0_ default   _rl_ rot left   _,_ prev
+_→_ right  _l_ right  _L_ right    ^^            _rr_ rot right  _._ next
+_m_ move   ^^         _b_ balance  ^^            ^^              _c_ create
+_s_ swap   ^^         ^^           ^^            ^^              _x_ close
 _u_ dupe"
   ("h" my-push-window-left :exit t)
   ("j" my-push-window-down :exit t)
@@ -36,12 +36,16 @@ _u_ dupe"
   ("J" my-move-splitter-down)
   ("K" my-move-splitter-up)
   ("L" my-move-splitter-right)
-  ("p" ivy-push-view :exit t)
-  ("P" ivy-pop-view :exit t)
   ("b" balance-windows :exit t)
   ("=" text-scale-increase)
   ("-" text-scale-decrease)
   ("0" (text-scale-adjust 0))
+  ("c" eyebrowse-create-window-config :exit t)
+  ("x" eyebrowse-close-window-config :exit t)
+  ("e" eyebrowse-switch-to-window-config :exit t)
+  ("t" eyebrowse-rename-window-config :exit t)
+  ("," eyebrowse-prev-window-config :exit t)
+  ("." eyebrowse-next-window-config :exit t)
   ("q" nil))
 
 ;; open
