@@ -119,6 +119,10 @@
 (require 'popwin)
 (popwin-mode 1)
 
+;; =============
+;; use eyebrowse
+(eyebrowse-mode t)
+
 ;; popwin settings
 ;; (setq popwin:special-display-config
 ;;       '(("*Help*" :height 30 :stick t)
