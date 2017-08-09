@@ -10,6 +10,7 @@
         backward-sexp
         c-electric-delete-forward
         c-electric-paren
+        c-electric-semi&comma
         c-electric-slash
         counsel-M-x
         crux-kill-whole-line
