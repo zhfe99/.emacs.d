@@ -98,7 +98,7 @@ _l_ right  _G_ end"
 ^====^======^=====^===^====^=====
 _l_ linum   _t_ load  _s_ sudo
 _v_ visual  ^^        _c_ cleanup
-_w_ space   ^^
+_w_ space   ^^        _u_ untabify
 _i_ indent
 _f_ fill"
   ("i" highlight-indentation-mode)
@@ -108,6 +108,7 @@ _f_ fill"
   ("s" crux-sudo-edit)
   ("c" my-cleanup)
   ("w" whitespace-mode)
+  ("u" untabify)
   ("v" visual-line-mode))
 
 ;; edit
