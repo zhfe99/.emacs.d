@@ -160,7 +160,6 @@ _I_ init   _f_ file  _n_ next  _a_ all
 ^^         _d_ dir   _v_ show  _t_ time"
   ("M-g" counsel-projectile :exit t)
   ("g" magit-status-fullscreen :exit t)
-  ("G" magit-status :exit t)
   ("I" magit-init :exit t)
   ("l" magit-log-all :exit t)
   ("h" my-counsel-ag-from-project-root :exit t)
