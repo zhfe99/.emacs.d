@@ -30,5 +30,6 @@ TAGS
 README.md
 /image-dired/*
 .emacs.desktop
+.emacs.desktop.lock
+network-security.data
 /.org-id-locations
-/irony/bin/irony-server
