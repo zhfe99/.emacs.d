@@ -216,5 +216,19 @@
 (define-key term-raw-map (kbd "M-,") 'hydra-term/body)
 (define-key term-mode-map (kbd "M-,") 'hydra-term/body)
 
+;; copy-paste for osx
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+(cond
+ ((string-equal system-type "darwin")
+  (progn
+    (setq interprogram-cut-function 'paste-to-osx)
+    (setq interprogram-paste-function 'copy-from-osx))))
+
 (provide 'my-keymap)
 ;;; my-keymap.el ends here
