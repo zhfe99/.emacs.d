@@ -15,6 +15,7 @@
         counsel-M-x
         crux-kill-whole-line
         crux-move-beginning-of-line
+        cycle-spacing
         easy-kill
         eval-last-sexp
         forward-sexp

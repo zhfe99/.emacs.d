@@ -180,6 +180,15 @@
                        :action (lambda (buffer)
                                  (my-buffer-switch-in-visible-window (cdr buffer))))))))
 
+(defun my-ansi-color (&optional beg end)
+  "Interpret ANSI color esacape sequence by colorifying cotent.
+Operate on selected region on whole buffer."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (ansi-color-apply-on-region beg end))
+
 (ivy-set-actions
  'my-ivy-term-goto
  '(("n" (lambda (buffer) (multi-term)) "new")
