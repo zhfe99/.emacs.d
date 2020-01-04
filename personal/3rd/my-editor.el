@@ -200,5 +200,17 @@ version 2016-06-15"
   (pbcopy)
   (delete-region (region-beginning) (region-end)))
 
+;; ===============
+;; open large file
+(defun my-find-file-check-make-large-file-read-only-hook ()
+  "If a file is over a given size, make the buffer read only."
+  (when (> (buffer-size) (* 1024 102))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (show-smartparens-global-mode -1)
+    (fundamental-mode)))
+
+(add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here

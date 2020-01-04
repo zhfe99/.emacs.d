@@ -13,6 +13,7 @@
         c-electric-semi&comma
         c-electric-slash
         counsel-M-x
+        counsel-yank-pop
         crux-kill-whole-line
         crux-move-beginning-of-line
         cycle-spacing
@@ -32,8 +33,11 @@
         matlab-electric-comment
         mc-friendly/zap-up-to-char
         my-save-buffer
+        org-beginning-of-line
         org-delete-char
+        org-end-of-line
         org-metaright
+        org-return-indent
         org-self-insert-command
         prelude-move-beginning-of-line
         sp-backward-sexp
