@@ -204,7 +204,8 @@ version 2016-06-15"
 ;; open large file
 (defun my-find-file-check-make-large-file-read-only-hook ()
   "If a file is over a given size, make the buffer read only."
-  (when (> (buffer-size) (* 1024 102))
+  (when (and (not (string-suffix-p "org" (buffer-file-name)))
+             (> (buffer-size) (* 1024 102)))
     (setq buffer-read-only t)
     (buffer-disable-undo)
     (show-smartparens-global-mode -1)
