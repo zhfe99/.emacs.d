@@ -38,6 +38,7 @@
 (global-set-key (kbd "\e[27;5;39~") 'dired-jump) ; C-'
 (global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-,
 (global-set-key (kbd "\e[46;5~") 'mc/mark-next-like-this) ; C-.
+(global-set-key (kbd "\e[46;6~") 'org-force-cycle-archived) ; C-tab
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
 (global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
@@ -109,8 +110,13 @@
 (define-key org-mode-map (kbd "M-e") nil)
 (define-key org-mode-map (kbd "M-h") nil)
 (define-key org-mode-map (kbd "C-'") nil)
-(define-key org-mode-map (kbd "<M-up>") nil)
-(define-key org-mode-map (kbd "<M-down>") nil)
+(define-key org-mode-map (kbd "<C-left>") 'outline-up-heading)
+(define-key org-mode-map (kbd "<C-up>") 'org-backward-heading-same-level)
+(define-key org-mode-map (kbd "<C-down>") 'org-forward-heading-same-level)
+(define-key org-mode-map (kbd "\e[47;A~") 'org-metaup)     ; M-up
+(define-key org-mode-map (kbd "\e[47;B~") 'org-metadown)   ; M-down
+;; (define-key org-mode-map (kbd "<M-up>") nil)
+;; (define-key org-mode-map (kbd "<M-down>") nil)
 (define-key org-mode-map (kbd "<S-up>") nil)
 (define-key org-mode-map (kbd "<S-down>") nil)
 (define-key org-mode-map (kbd "<S-left>") nil)

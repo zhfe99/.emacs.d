@@ -182,5 +182,21 @@
 ;;          (call-interactively 'term)))
 ;;    :default-config-keywords '(:position :top)))
 
+(defun buffer-resize1 ()
+  (interactive)
+  (delete-other-windows)
+  (split-window-vertically (floor (* 0.68 (window-height))))
+  (other-window 1)
+  (switch-to-buffer buf)
+  (other-window 1))
+
+(defun buffer-resize2 ()
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally (floor (* 0.68 (window-width))))
+  (other-window 1)
+  (switch-to-buffer buf)
+  (other-window 1))
+
 (provide 'my-window)
 ;;; my-window.el ends here

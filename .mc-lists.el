@@ -19,6 +19,7 @@
         cycle-spacing
         easy-kill
         eval-last-sexp
+        eval-print-last-sexp
         forward-sexp
         helm-M-x
         hydra-case/body
