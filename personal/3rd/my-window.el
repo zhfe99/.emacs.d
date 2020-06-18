@@ -198,5 +198,62 @@
   (switch-to-buffer buf)
   (other-window 1))
 
+
+(setq display-buffer-alist
+      '(;; top side window
+        ("\\*elfeed-mpv-output.*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)
+         (side . top)
+         (slot . -1))
+        ("\\*\\(Flycheck\\|Flymake\\|Package-Lint\\|vc-git :\\).*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)
+         (side . top)
+         (slot . 0))
+        ("\\*Messages.*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)
+         (side . bottom)
+         (slot . 1))
+        ("\\*\\(Backtrace\\|Warnings\\|Compile-Log\\)\\*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)
+         (side . bottom)
+         (slot . 2))
+        ;; bottom side window
+        ("\\*\\(Output\\|Register Preview\\).*"
+         (display-buffer-in-side-window)
+         (window-width . 0.16)       ; See the :hook
+         (side . bottom)
+         (slot . -1))
+        (".*\\*\\(Completions\\|Embark Live Occur\\).*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)
+         (side . bottom)
+         (slot . 0))
+        ;; left side window
+        ("\\*Help.*"
+         (display-buffer-in-side-window)
+         (window-height . 0.16)       ; See the :hook
+         (side . bottom)
+         (slot . 0))
+        ;; right side window
+        ("\\*Faces\\*"
+         (display-buffer-in-side-window)
+         (window-width . 0.25)
+         (side . right)
+         (slot . 0))
+        ("\\*Custom.*"
+         (display-buffer-in-side-window)
+         (window-width . 0.25)
+         (side . right)
+         (slot . 1))
+        ;; bottom buffer (NOT side window)
+        ("\\*\\vc-\\(incoming\\|outgoing\\).*"
+         (display-buffer-at-bottom))
+        ("\\*Embark Occur.*"
+         (display-buffer-at-bottom))))
+
 (provide 'my-window)
 ;;; my-window.el ends here

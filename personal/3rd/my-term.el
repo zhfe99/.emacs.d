@@ -138,6 +138,25 @@
     (previous-line)
     (term-send-raw-string "\C-e")))
 
+(defun my-buffer-switch-in-side ()
+  "Open term in side window and move to it."
+  (interactive)
+  (let ((buffer-list (my-term-get-all-term-buffer))
+        len)
+    (setq len (length buffer-list))
+    (cond ((= 0 len) (my-term-open-at-current-buffer))
+          ((= 1 len)
+           (display-buffer-in-side-window
+            (cdr (nth 0 buffer-list))
+            `((side . bottom)
+              (slot . -1)
+              (window-width . 0.16)))
+           (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
+          (t (ivy-read "terms:"
+                       buffer-list
+                       :action (lambda (buffer)
+                                 (my-buffer-switch-in-visible-window (cdr buffer))))))))
+
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
   (interactive)

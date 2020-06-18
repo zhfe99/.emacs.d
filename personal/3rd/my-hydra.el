@@ -183,7 +183,9 @@ _I_ init   _f_ file  _n_ next  _a_ all
 _t_ new   _m_ matlab  _h_ zsh    _r_ w/o place  _l_ line
 _n_ next  _e_ eshell  _H_ bash   _R_ w/ place   _c_ char
 _p_ prev
-_d_ curr"
+_d_ curr
+_q_ quit"
+  ("q" quit-window)
   ("l" term-line-mode)
   ("c" term-char-mode)
   ("d" my-term-switch-term-to-current-folder)
