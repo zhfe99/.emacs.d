@@ -43,6 +43,9 @@
 (setenv "GTAGSLIBPATH"
         (concat (getenv "HOME") "/torch"
                 ":" (getenv "HOME") "/tool/py_lua"))
+(setenv "LD_LIBRARY_PATH"
+        (concat (getenv "HOME") "/.apps/lib"
+                ":" (getenv "LD_LIBRARY_PATH")))
 
 ;; ispell
 (setq ispell-program-name
