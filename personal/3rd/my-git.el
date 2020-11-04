@@ -58,5 +58,11 @@
 (set-default 'magit-no-confirm '(stage-all-changes
                                  unstage-all-changes))
 
+(defun my-magit-remove-git-lock-file ()
+  "Remove git's index lock file, if it exists."
+  (interactive)
+  (let ((base (magit-toplevel)))
+    (delete-file (concat base "/.git/index.lock"))))
+
 (provide 'my-git)
 ;;; my-git.el ends here

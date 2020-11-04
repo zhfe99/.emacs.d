@@ -157,7 +157,7 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 _g_ status _h_ root  _i_ menu  _s_ stage   _M-g_ proj  _o_ other file
 _l_ log    _H_ curr  _p_ prev  _c_ commit
 _I_ init   _f_ file  _n_ next  _a_ all
-^^         _d_ dir   _v_ show  _t_ time"
+_x_ index  _d_ dir   _v_ show  _t_ time"
   ("M-g" counsel-projectile :exit t)
   ("g" magit-status-fullscreen :exit t)
   ("I" magit-init :exit t)
@@ -174,7 +174,8 @@ _I_ init   _f_ file  _n_ next  _a_ all
   ("s" git-gutter+-stage-hunks)
   ("c" git-gutter+-stage-and-commit)
   ("t" git-timemachine :exit t)
-  ("a" git-gutter+-stage-and-commit-whole-buffer))
+  ("a" git-gutter+-stage-and-commit-whole-buffer)
+  ("x" my-magit-remove-git-lock-file))
 
 ;; term
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
