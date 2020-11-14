@@ -175,7 +175,7 @@ _x_ index  _d_ dir   _v_ show  _t_ time"
   ("c" git-gutter+-stage-and-commit)
   ("t" git-timemachine :exit t)
   ("a" git-gutter+-stage-and-commit-whole-buffer)
-  ("x" my-magit-remove-git-lock-file))
+  ("x" my-magit-remove-git-lock-file :exit t))
 
 ;; term
 (defhydra hydra-term (:color blue :hint nil :idle 1.5)
