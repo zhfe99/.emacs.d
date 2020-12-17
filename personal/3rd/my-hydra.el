@@ -157,11 +157,13 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 _g_ status _h_ root  _i_ menu  _s_ stage   _M-g_ proj  _o_ other file
 _l_ log    _H_ curr  _p_ prev  _c_ commit
 _I_ init   _f_ file  _n_ next  _a_ all
-_x_ index  _d_ dir   _v_ show  _t_ time"
+_x_ index  _d_ dir   _v_ show  _t_ time
+_b_ blame"
   ("M-g" counsel-projectile :exit t)
   ("g" magit-status-fullscreen :exit t)
   ("I" magit-init :exit t)
   ("l" magit-log-all :exit t)
+  ("b" magit-blame :exit t)
   ("h" my-counsel-ag-from-project-root :exit t)
   ("H" counsel-ag :exit t)
   ("i" my-goto-git-gutter+ :exit t)
