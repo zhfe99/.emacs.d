@@ -10,12 +10,11 @@
 
 (eval-after-load 'dired
   '(progn
-     (require 'dired+)
+     ;; (require 'dired+)
      (require 'dired-sort)
      (require 'dired-ranger)
      (require 'dired-subtree)
-     (require 'dired-filter)
-     (global-dired-hide-details-mode)))
+     (require 'dired-filter)))
 
 ;; set ls default command argument
 (cond
