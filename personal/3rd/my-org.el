@@ -117,7 +117,7 @@ active region."
            (setq link (concat "(" label ")") desc nil)))
 
         ;; We are in the agenda, link to referenced location
-        ((equal (org-bound-and-true-p org-agenda-buffer-name) (buffer-name))
+        ((equal (bound-and-true-p org-agenda-buffer-name) (buffer-name))
          (let ((m (or (get-text-property (point) 'org-hd-marker)
                       (get-text-property (point) 'org-marker))))
            (when m

@@ -17,6 +17,7 @@
         crux-kill-whole-line
         crux-move-beginning-of-line
         cycle-spacing
+        delete-horizontal-space
         easy-kill
         eval-last-sexp
         eval-print-last-sexp
@@ -26,6 +27,7 @@
         hydra-case/nil
         hydra-case/subword-capitalize
         hydra-case/subword-downcase
+        hydra-case/subword-upcase
         hydra-region/body
         hydra-tag/body
         indent-new-comment-line
