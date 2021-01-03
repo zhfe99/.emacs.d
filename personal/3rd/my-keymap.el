@@ -76,6 +76,8 @@
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
+(global-set-key (kbd "<M-H-left>") 'sp-splice-sexp)
+(global-set-key (kbd "\e[47;C~") 'sp-splice-sexp) ; M-H-left
 
 ;; H-
 (global-set-key (kbd "H-g") 'hydra-gdb/body)
