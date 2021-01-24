@@ -67,7 +67,7 @@
 
 ;; Use only own snippets, do not use bundled ones
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(yas-reload-all)
+(yas-global-mode 1)
 
 ;; Select all lines belong to the sub-block
 (defun my-nav-expand-to-sub-block ()

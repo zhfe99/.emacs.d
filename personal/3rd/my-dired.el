@@ -10,7 +10,7 @@
 
 (eval-after-load 'dired
   '(progn
-     (require 'dired+)
+     ;; (require 'dired+)
      (require 'dired-sort)
      (require 'dired-ranger)
      (require 'dired-subtree)

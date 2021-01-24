@@ -8,7 +8,7 @@
 $1
 
 History
-  create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m")`
+  create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m-%d")`
 """
 
 $0
