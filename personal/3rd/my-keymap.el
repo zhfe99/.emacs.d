@@ -76,6 +76,8 @@
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
+(global-set-key (kbd "C--") 'sp-splice-sexp)
+(global-set-key (kbd "\e[46;6~") 'sp-splice-sexp) ; C--
 
 ;; H-
 (global-set-key (kbd "H-g") 'hydra-gdb/body)
@@ -169,8 +171,8 @@
   (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
   (define-key elpy-mode-map (kbd "M-.") nil)
   (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
-  (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left)
-  (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right)
+  (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left) ; M-left
+  (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right) ; M-right
   (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
 
 ;; c-mode
