@@ -17,15 +17,21 @@
         crux-kill-whole-line
         crux-move-beginning-of-line
         cycle-spacing
+        delete-horizontal-space
         easy-kill
         eval-last-sexp
         eval-print-last-sexp
         forward-sexp
         helm-M-x
+        hydra--negative-argument
+        hydra--universal-argument
         hydra-case/body
         hydra-case/nil
         hydra-case/subword-capitalize
         hydra-case/subword-downcase
+        hydra-case/subword-upcase
+        hydra-edit/body
+        hydra-edit/my-insert-current-date-and-exit
         hydra-region/body
         hydra-tag/body
         indent-new-comment-line
