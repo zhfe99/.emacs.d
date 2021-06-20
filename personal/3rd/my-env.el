@@ -29,9 +29,10 @@
 
 ;; font
 (setq-default line-spacing 0.1)
-(condition-case err
-    (set-default-font "Hack 14")
-  (error (message "%s" (error-message-string err))))
+;; (condition-case err
+;;     (set-default-font "Hack 14")
+;;   (error (message "%s" (error-message-string err))))
+(set-face-attribute 'default nil :font "Hack" :height 150)
 
 ;; environment variables
 (setenv "PATH"
