@@ -7,7 +7,6 @@
 
 ;; C-
 ;; The following keys are still available:
-;; -
 ;; q ]
 ;; ;
 ;;
@@ -29,6 +28,7 @@
 (global-set-key (kbd "C-'") 'dired-jump)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C--") 'sp-splice-sexp)
 
 ;; Some of the key might not be available in terminal (eg., iterm2)
 ;; need rebind
@@ -44,6 +44,7 @@
 (global-set-key (kbd "\e[46;3~") 'er/expand-region) ; C-=
 (global-set-key (kbd "\e[47;A~") 'move-text-up)     ; M-up
 (global-set-key (kbd "\e[47;B~") 'move-text-down)   ; M-down
+(global-set-key (kbd "\e[46;6~") 'sp-splice-sexp) ; C--
 
 ;; M-
 ;; The following keys are still available:
@@ -76,8 +77,6 @@
 (global-set-key (kbd "M-q") 'hydra-toggle/body)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
-(global-set-key (kbd "C--") 'sp-splice-sexp)
-(global-set-key (kbd "\e[46;6~") 'sp-splice-sexp) ; C--
 
 ;; H-
 (global-set-key (kbd "H-g") 'hydra-gdb/body)
@@ -119,8 +118,6 @@
 (define-key org-mode-map (kbd "<C-down>") 'org-forward-heading-same-level)
 (define-key org-mode-map (kbd "\e[47;A~") 'org-metaup)     ; M-up
 (define-key org-mode-map (kbd "\e[47;B~") 'org-metadown)   ; M-down
-;; (define-key org-mode-map (kbd "<M-up>") nil)
-;; (define-key org-mode-map (kbd "<M-down>") nil)
 (define-key org-mode-map (kbd "<S-up>") nil)
 (define-key org-mode-map (kbd "<S-down>") nil)
 (define-key org-mode-map (kbd "<S-left>") nil)
