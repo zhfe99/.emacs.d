@@ -3,7 +3,7 @@
 	url = ../elpa.git
 [submodule "site-lisp/zenburn-emacs"]
 	path = site-lisp/zenburn-emacs
-	url = https://github.com/zhfe99/zenburn-emacs.git
+	url = ../zenburn-emacs.git
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
 	url = https://github.com/zhfe99/helm-etags-plus.git
