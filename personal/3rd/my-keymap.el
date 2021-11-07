@@ -220,8 +220,10 @@
   '(define-key js2-mode-map (kbd "M-j") nil))
 
 ;; term-mode
-(define-key term-raw-map (kbd "M-,") 'hydra-term/body)
-(define-key term-mode-map (kbd "M-,") 'hydra-term/body)
+(add-hook 'term-load-hook
+          (lambda ()
+            (define-key term-raw-map (kbd "M-,") 'hydra-term/body)
+            (define-key term-mode-map (kbd "M-,") 'hydra-term/body)))
 
 ;; copy-paste for osx
 (defun copy-from-osx ()
