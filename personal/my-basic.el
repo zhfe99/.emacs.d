@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+
 ;; 3rd package
 (prelude-require-package 'auctex)
 (prelude-require-package 'google-c-style)
