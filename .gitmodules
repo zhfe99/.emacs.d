@@ -7,9 +7,6 @@
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
 	url = ../helm-etags-plus.git
-[submodule "site-lisp/pomodoro"]
-	path = site-lisp/pomodoro
-	url = https://github.com/baudtack/pomodoro.el
 [submodule "site-lisp/dired-hacks"]
 	path = site-lisp/dired-hacks
 	url = ../dired-hacks
