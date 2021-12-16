@@ -6,7 +6,7 @@
 	url = ../zenburn-emacs.git
 [submodule "site-lisp/helm-etags-plus"]
 	path = site-lisp/helm-etags-plus
-	url = https://github.com/zhfe99/helm-etags-plus.git
+	url = ../helm-etags-plus.git
 [submodule "site-lisp/pomodoro"]
 	path = site-lisp/pomodoro
 	url = https://github.com/baudtack/pomodoro.el
