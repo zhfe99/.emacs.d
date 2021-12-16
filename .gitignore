@@ -33,3 +33,4 @@ README.md
 .emacs.desktop.lock
 network-security.data
 /.org-id-locations
+/transient/
