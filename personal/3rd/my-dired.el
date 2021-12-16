@@ -19,7 +19,7 @@
 ;; set ls default command argument
 (cond
  ((string-equal system-type "darwin")
-  (setq insert-directory-program "/usr/local/bin/gls")
+  (setq insert-directory-program "/opt/homebrew/bin/gls")
   (setq dired-listing-switches "-f -alFh"))
  (t (setq dired-listing-switches "-alh")))
 
