@@ -160,7 +160,8 @@ _I_ init   _f_ file  _n_ next  _a_ all
 _x_ index  _d_ dir   _v_ show  _t_ time
 _b_ blame"
   ("M-g" counsel-projectile :exit t)
-  ("g" magit-status-fullscreen :exit t)
+  ("g" magit-status :exit t)
+  ("G" magit-status-fullscreen :exit t)
   ("I" magit-init :exit t)
   ("l" magit-log-all :exit t)
   ("b" magit-blame :exit t)
