@@ -213,5 +213,17 @@ version 2016-06-15"
 
 (add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
 
+;; special buffer
+(defhydra hydra-special (:color blue :hint nil :idle 1.5)
+  "
+^Fold^           ^File^
+_h_ ~            _s_ *scratch*
+_c_ code
+"
+  ("h" (lambda () (interactive) (find-file "~")))
+  ("c" (lambda () (interactive) (find-file "~/code")))
+  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
+(global-set-key (kbd "M-p") 'hydra-special/body)
+
 (provide 'my-editor)
 ;;; my-editor.el ends here
