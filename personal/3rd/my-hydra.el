@@ -285,17 +285,6 @@ _._ next  _>_ next  _b_ buffer  _\\^_ head  _c_ char
   ("n" mc/insert-numbers)
   ("c" mc/insert-letters))
 
-;; special buffer
-(defhydra hydra-special (:color blue :hint nil :idle 1.5)
-  "
-^Emacs^
-_s_ scratch
-_m_ message
-_l_ async"
-  ("l" (lambda () (interactive) (switch-to-buffer "*Async Shell Command*")))
-  ("s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
-  ("m" (lambda () (interactive) (switch-to-buffer "*Messages*"))))
-
 ;; gdb
 (defhydra hydra-gdb (:color pink :hint nil)
   "
