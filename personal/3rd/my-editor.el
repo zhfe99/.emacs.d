@@ -219,9 +219,11 @@ version 2016-06-15"
 ^Fold^           ^File^
 _h_ ~            _s_ *scratch*
 _c_ code
+_d_ data
 "
   ("h" (lambda () (interactive) (find-file "~")))
   ("c" (lambda () (interactive) (find-file "~/code")))
+  ("d" (lambda () (interactive) (find-file "~/data")))
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 (global-set-key (kbd "M-p") 'hydra-special/body)
 
