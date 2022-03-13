@@ -343,11 +343,11 @@ _o_ org"
   ("o" my-org-store-link))
 
 ;; python
-(defhydra hydra-python (:color red :hint nil :idle 1.5)
-  "
-^Date^
-_c_ create"
-  ("c" my-python-create-date))
+;; (defhydra hydra-python (:color red :hint nil :idle 1.5)
+;;   "
+;; ^Date^
+;; _c_ create"
+;;   ("c" my-python-create-date))
 
 ;; shell
 (defhydra hydra-sh (:color red :hint nil :idle 1.5)

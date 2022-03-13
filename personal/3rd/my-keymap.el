@@ -158,7 +158,7 @@
   (define-key sh-mode-map (kbd "M-,") 'hydra-sh/body))
 
 ;; python-mode
-(define-key python-mode-map (kbd "M-,") 'hydra-python/body)
+;; (define-key python-mode-map (kbd "M-,") 'hydra-python/body)
 
 ;; elpy
 (with-eval-after-load "elpy"
