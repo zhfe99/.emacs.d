@@ -200,6 +200,25 @@ version 2016-06-15"
   (pbcopy)
   (delete-region (region-beginning) (region-end)))
 
+;; copy-paste for osx
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+
+(cond
+ ((string-equal system-type "darwin")
+  (progn
+    (setq interprogram-cut-function 'paste-to-osx)
+    (setq interprogram-paste-function 'copy-from-osx))))
+
+;; https://stackoverflow.com/questions/24620039/how-to-pbpaste-utf-8-characters-in-gnu-emacs-for-osx
+(setenv "LANG" "en_US.UTF-8")
+
 ;; ===============
 ;; open large file
 (defun my-find-file-check-make-large-file-read-only-hook ()
