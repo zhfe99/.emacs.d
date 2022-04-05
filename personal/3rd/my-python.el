@@ -5,6 +5,19 @@
 
 ;;; Code:
 
+;; Use only own snippets, do not use bundled ones
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(yas-global-mode 1)
+
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (elpy-enable)
+  :config
+  (setq elpy-rpc-python-command "python3"))
+  ;; (advice-add 'python-mode :before 'elpy-enable))
+
 ;; I don't like highlight-indentation mode
 ;; Instead I prefer to use indent-guide mode
 (cond
@@ -20,9 +33,6 @@
 ;; use fly-check instead of flymake
 ;; (with-eval-after-load 'elpy
 ;;   (remove-hook 'elpy-modules 'elpy-module-flymake))
-
-;; elpy for python
-(elpy-enable)
 
 (setq python-shell-prompt-detect-failure-warning nil)
 
@@ -65,10 +75,6 @@
              (linum-mode)
              (setq python-indent-offset 4)))
 
-;; Use only own snippets, do not use bundled ones
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(yas-global-mode 1)
-
 ;; Select all lines belong to the sub-block
 (defun my-nav-expand-to-sub-block ()
   "Select all lines belong to the sub-block."
@@ -108,7 +114,6 @@
         (insert "  ")
         (next-line)
         (setq curr-indentation (current-indentation))))))
-
 
 (provide 'my-python)
 ;;; my-python.el ends here
