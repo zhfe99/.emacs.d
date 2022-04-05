@@ -129,13 +129,6 @@
 (auto-save-enable)
 
 ;;=======
-;; save buffer with whitespace cleanup
-(defun my-save-buffer ()
-  "Save buffer with whitespace cleanup."
-  (interactive)
-  (whitespace-cleanup)
-  (save-buffer))
-
 ;; revert buffer without confirmation
 (defun my-revert-buffer ()
   "Revert buffer without confirmation."
