@@ -227,10 +227,29 @@ version 2016-06-15"
              (> (buffer-size) (* 1024 102)))
     (setq buffer-read-only t)
     (buffer-disable-undo)
+    (font-lock-mode -1)
+    (which-function-mode -1)
+    (linum-mode 0)
     (show-smartparens-global-mode -1)
     (fundamental-mode)))
 
 (add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
+
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
+
+(defun etc-log-tail-handler ()
+  (end-of-buffer)
+  (make-variable-buffer-local 'auto-revert-interval)
+  (setq auto-revert-interval 1)
+  (auto-revert-set-timer)
+  (make-variable-buffer-local 'auto-revert-verbose)
+  (setq auto-revert-verbose nil)
+  (read-only-mode t)
+  (font-lock-mode -1)
+  (when (fboundp 'show-smartparens-mode)
+    (show-smartparens-mode 0)))
+
+(add-hook 'auto-revert-tail-mode-hook 'etc-log-tail-handler)
 
 ;; special buffer
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
