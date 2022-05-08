@@ -10,6 +10,3 @@
 [submodule "site-lisp/dired-hacks"]
 	path = site-lisp/dired-hacks
 	url = ../dired-hacks
-[submodule "yasnippet-snippets"]
-	path = yasnippet-snippets
-	url = ../yasnippet-snippets.git

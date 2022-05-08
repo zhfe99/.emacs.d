@@ -6,14 +6,17 @@
 ;;; Code:
 
 ;; Use only own snippets, do not use bundled ones
+(require 'yasnippet)
+(require 'yasnippet-snippets)
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-global-mode 1)
+(yas-reload-all)
 
 (use-package elpy
   :ensure t
   :defer t
   :init
-  (elpy-enable)
+  (elpy-enable)  
   :config
   (setq elpy-rpc-python-command "python3"))
   ;; (advice-add 'python-mode :before 'elpy-enable))
@@ -27,8 +30,7 @@
                        elpy-module-eldoc
                        elpy-module-flymake
                        elpy-module-pyvenv
-                       elpy-module-highlight-indentation
-                       elpy-module-yasnippet))))
+                       elpy-module-highlight-indentation))))
 
 ;; use fly-check instead of flymake
 ;; (with-eval-after-load 'elpy
