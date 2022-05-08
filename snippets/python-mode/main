@@ -6,7 +6,7 @@
 def main():
     """Main function.
     """
-
+    args = parse_args()
     $0
 
 
