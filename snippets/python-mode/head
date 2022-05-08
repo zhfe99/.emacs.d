@@ -3,12 +3,12 @@
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # key: hd
 # --
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 $1
 
 History
-  create  -  Feng Zhou (zhfe99@gmail.com), `(format-time-string "%Y-%m-%d")`
+  create  -  Feng Zhou (fzhou@aibee.com), `(format-time-string "%Y-%m-%d")`
 """
 
 $0
