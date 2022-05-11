@@ -66,6 +66,7 @@
         hydra-mc/mc/edit-beginnings-of-lines-and-exit
         hydra-mc/mc/edit-ends-of-lines-and-exit
         hydra-mc/mc/edit-lines-and-exit
+        hydra-mc/mc/insert-letters-and-exit
         hydra-mc/mc/insert-numbers-and-exit
         hydra-mc/mc/mark-all-like-this
         hydra-mc/mc/mark-all-like-this-and-exit
