@@ -197,6 +197,29 @@
                        :action (lambda (buffer)
                                  (my-buffer-switch-in-visible-window (cdr buffer))))))))
 
+(defun my-term-show-in-current-buffer ()
+  "Switch term and set it to current folder"
+  (interactive)
+  (let (buffer-list
+        current-dired
+        len)
+    (setq current-dired
+          (if (equal major-mode 'dired-mode)
+              (expand-file-name default-directory)
+            (if (null (buffer-file-name))
+                (user-error "ERROR: current buffer is not associated with a file.")
+              (file-name-directory (buffer-file-name)))))
+    (setq buffer-list (my-term-get-all-term-buffer))
+    (setq len (length buffer-list))
+    (cond ((= 0 len)
+           (my-term-open-at-current-buffer))
+          ((= 1 len)
+           (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
+          (t (ivy-read "terms:"
+                       buffer-list
+                       :action (lambda (buffer)
+                                 (my-buffer-switch-in-visible-window (cdr buffer))))))))
+
 (defun my-ansi-color (&optional beg end)
   "Interpret ANSI color esacape sequence by colorifying cotent.
 Operate on selected region on whole buffer."

@@ -60,6 +60,7 @@
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "M-u") 'counsel-goto-recent-directory)
 (global-set-key (kbd "M-t") 'my-buffer-switch-in-side)
+(global-set-key (kbd "M-T") 'my-term-show-in-current-buffer)
 (global-set-key (kbd "M-h") 'ivy-switch-buffer)
 (global-set-key (kbd "M-o") 'counsel-find-file)
 (global-set-key (kbd "M-k") 'kill-this-buffer)
