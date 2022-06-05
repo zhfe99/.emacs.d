@@ -98,8 +98,8 @@ _l_ right  _G_ end"
 ^====^======^=====^===^====^=====
 _l_ linum   _t_ load  _s_ sudo
 _v_ visual  ^^        _c_ cleanup
-_w_ space   ^^        _u_ untabify
-_W_ cleanup space
+_W_ space   ^^        _u_ untabify
+_w_ cleanup space
 _i_ indent
 _f_ fill"
   ("i" highlight-indentation-mode)
@@ -108,8 +108,8 @@ _f_ fill"
   ("t" counsel-load-theme)
   ("s" crux-sudo-edit)
   ("c" my-cleanup)
-  ("w" whitespace-mode)
-  ("W" whitespace-cleanup)
+  ("W" whitespace-mode)
+  ("w" whitespace-cleanup)
   ("u" untabify)
   ("v" visual-line-mode))
 
