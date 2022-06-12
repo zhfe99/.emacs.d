@@ -74,7 +74,7 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (git-gutter+-mode)
-             (linum-mode)
+             ;; (linum-mode)
              (setq python-indent-offset 4)))
 
 ;; Select all lines belong to the sub-block

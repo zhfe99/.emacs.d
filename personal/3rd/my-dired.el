@@ -143,6 +143,7 @@
 ;; dired hook
 (add-hook 'dired-mode-hook
           (lambda ()
+            (dired-hide-details-mode)
             (subword-mode 1)
             (dired-omit-mode t)))
 
