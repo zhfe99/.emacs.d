@@ -182,22 +182,22 @@
 ;;          (call-interactively 'term)))
 ;;    :default-config-keywords '(:position :top)))
 
-(defun buffer-resize1 ()
+;; more balanced buffer resize
+(defun my-split-window-vertically-7 ()
   (interactive)
   (delete-other-windows)
-  (split-window-vertically (floor (* 0.68 (window-height))))
+  (split-window-vertically (floor (* 0.7 (window-height))))
   (other-window 1)
   (switch-to-buffer buf)
   (other-window 1))
 
-(defun buffer-resize2 ()
+(defun my-split-window-horizontally-3 ()
   (interactive)
   (delete-other-windows)
-  (split-window-horizontally (floor (* 0.68 (window-width))))
+  (split-window-horizontally (floor (* 0.3 (window-width))))
   (other-window 1)
   (switch-to-buffer buf)
   (other-window 1))
-
 
 (setq display-buffer-alist
       '(;; top side window

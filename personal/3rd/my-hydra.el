@@ -9,14 +9,16 @@
 ;; window
 (defhydra hydra-window (:hint nil :idle 1.5)
   "
-^Move^     ^Delete^   ^Boundary^   ^Text^        ^Transpose^     ^Eyebrowse^
-_←_ left   _h_ left   _H_ left     _=_ increase  _fh_ flip horz  _e_ switch
-_↓_ down   _j_ down   _J_ down     _-_ decrease  _fv_ flip vert  _t_ tag
-_↑_ up     _k_ up     _K_ up       _0_ default   _rl_ rot left   _,_ prev
-_→_ right  _l_ right  _L_ right    ^^            _rr_ rot right  _._ next
-_m_ move   ^^         _b_ balance  ^^            ^^              _c_ create
-_s_ swap   ^^         ^^           ^^            ^^              _x_ close
+^Move^     ^Delete^   ^Split^         ^Text^        ^Transpose^     ^Eyebrowse^
+_←_ left   _h_ left   _H_ horizontal  _=_ increase  _fh_ flip horz  _e_ switch
+_↓_ down   _j_ down   _J_ vertical    _-_ decrease  _fv_ flip vert  _t_ tag
+_↑_ up     _k_ up     _K_ up          _0_ default   _rl_ rot left   _,_ prev
+_→_ right  _l_ right  _L_ right       ^^            _rr_ rot right  _._ next
+_m_ move   ^^         _b_ balance     ^^            ^^              _c_ create
+_s_ swap   ^^         ^^              ^^            ^^              _x_ close
 _u_ dupe"
+  ("H" my-split-window-horizontally-3 :exit t)
+  ("J" my-split-window-vertically-7 :exit t)
   ("h" my-push-window-left :exit t)
   ("j" my-push-window-down :exit t)
   ("k" my-push-window-up :exit t)
@@ -32,8 +34,8 @@ _u_ dupe"
   ("fv" flip-frame :exit t)
   ("rl" rotate-frame-anticlockwise :exit t)
   ("rr" rotate-frame-clockwise :exit t)
-  ("H" my-move-splitter-left)
-  ("J" my-move-splitter-down)
+  ;; ("H" my-move-splitter-left)
+  ;; ("J" my-move-splitter-down)
   ("K" my-move-splitter-up)
   ("L" my-move-splitter-right)
   ("b" balance-windows :exit t)
