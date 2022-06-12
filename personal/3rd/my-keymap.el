@@ -13,7 +13,7 @@
 (global-set-key (kbd "C-1") 'delete-other-windows)
 (global-set-key (kbd "C-2") 'split-window-below-and-balance)
 (global-set-key (kbd "C-3") 'split-window-right-and-balance)
-(global-set-key (kbd "C-4") 'quit-window)
+(global-set-key (kbd "C-4") 'my-split-window-horizontally-3)
 (global-set-key (kbd "C-0") 'ace-delete-window-and-balance)
 (global-set-key (kbd "C-z") 'mc-friendly/zap-up-to-char)
 (global-set-key (kbd "C-s") 'swiper)
@@ -35,7 +35,7 @@
 (global-set-key (kbd "\e[45;1~") 'delete-other-windows) ; C-1
 (global-set-key (kbd "\e[45;2~") 'split-window-below-and-balance) ; C-2
 (global-set-key (kbd "\e[45;3~") 'split-window-right-and-balance) ; C-3
-(global-set-key (kbd "\e[45;4~") 'quit-window) ; C-4
+(global-set-key (kbd "\e[45;4~") 'my-split-window-horizontally-3) ; C-4
 (global-set-key (kbd "\e[45;0~") 'ace-delete-window-and-balance) ; C-0
 (global-set-key (kbd "\e[27;5;39~") 'dired-jump) ; C-'
 (global-set-key (kbd "\e[46;4~") 'mc/mark-previous-like-this) ; C-,
