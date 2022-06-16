@@ -143,9 +143,20 @@
   "Open term in side window and move to it."
   (interactive)
   (let ((buffer-list (my-term-get-all-term-buffer))
+        (buf (other-buffer))
         len)
     (setq len (length buffer-list))
-    (cond ((= 0 len) (my-term-open-at-current-buffer))
+    (cond ((= 0 len)
+           (display-buffer-in-side-window
+            buf
+            `((side . bottom)
+              (slot . -1)
+              (window-width . 0.16)))
+           (setq win (get-buffer-window buf))
+           (if win
+               (select-window win)
+             (switch-to-buffer buf))
+           (my-term-open-at-current-buffer))
           ((= 1 len)
            (display-buffer-in-side-window
             (cdr (nth 0 buffer-list))
