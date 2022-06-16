@@ -53,8 +53,7 @@
   (let ((other-window (windmove-find-other-window 'down)))
     (cond ((null other-window)
            (error "No window %s from selected window" 'down))
-          (t (delete-window other-window)))
-    (balance-windows)))
+          (t (delete-window other-window)))))
 
 (defun my-push-window-right ()
   (interactive)

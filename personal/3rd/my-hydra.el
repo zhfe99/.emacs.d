@@ -14,7 +14,7 @@ _←_ left   _h_ left   _H_ horizontal  _=_ increase  _fh_ flip horz  _e_ switch
 _↓_ down   _j_ down   _J_ vertical    _-_ decrease  _fv_ flip vert  _t_ tag
 _↑_ up     _k_ up     _K_ up          _0_ default   _rl_ rot left   _,_ prev
 _→_ right  _l_ right  _L_ right       ^^            _rr_ rot right  _._ next
-_m_ move   ^^         _b_ balance     ^^            ^^              _c_ create
+_m_ move   _T_ term   _b_ balance     ^^            ^^              _c_ create
 _s_ swap   ^^         ^^              ^^            ^^              _x_ close
 _u_ dupe"
   ("H" my-split-window-horizontally-3 :exit t)
@@ -23,6 +23,7 @@ _u_ dupe"
   ("j" my-push-window-down :exit t)
   ("k" my-push-window-up :exit t)
   ("l" my-push-window-right :exit t)
+  ("T" my-term-close-side :exit t)
   ("<left>" buf-move-left)
   ("<down>" buf-move-down)
   ("<up>" buf-move-up)
@@ -191,12 +192,10 @@ _b_ blame"
 _t_ new   _m_ matlab  _h_ zsh    _r_ w/o place  _l_ line
 _n_ next  _e_ eshell  _H_ bash   _R_ w/ place   _c_ char
 _p_ prev
-_d_ curr
 _q_ quit"
-  ("q" quit-window)
+  ("q" delete-window)
   ("l" term-line-mode)
   ("c" term-char-mode)
-  ("d" my-term-switch-term-to-current-folder)
   ("n" multi-term-next)
   ("p" multi-term-prev)
   ("m" matlab-shell)

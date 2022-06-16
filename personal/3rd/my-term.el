@@ -169,6 +169,17 @@
                        :action (lambda (buffer)
                                  (my-buffer-switch-in-visible-window (cdr buffer))))))))
 
+(defun my-term-close-side ()
+  "Close side window if there is a term."
+  (interactive)
+  (let ((buffer-list (my-term-get-all-term-buffer))
+        len)
+    (setq len (length buffer-list))
+    (cond ((= 1 len)
+           (setq win (get-buffer-window (cdr (nth 0 buffer-list))))
+           (if win
+               (delete-window win))))))
+
 (defun my-ivy-term-goto ()
   "Open term list in ivy"
   (interactive)
