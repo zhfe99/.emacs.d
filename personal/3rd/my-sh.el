@@ -39,7 +39,6 @@
             (subword-mode 1)
             (yas-minor-mode)
             (highlight-indentation-mode)
-            (linum-mode)
             (git-gutter+-mode)))
 
 ;; emacs-lisp

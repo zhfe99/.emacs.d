@@ -16,6 +16,5 @@ def parse_args():
     parser.add_argument('--$0',
                         help='')
     args = parser.parse_args()
-    pr.init(3)
 
     return args
