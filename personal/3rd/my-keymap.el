@@ -164,15 +164,19 @@
 ;; elpy
 (with-eval-after-load "elpy"
   (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
-  (define-key elpy-mode-map (kbd "<M-up>") nil)
-  (define-key elpy-mode-map (kbd "<M-down>") nil)
   (define-key elpy-mode-map (kbd "<M-S-right>") 'my-python-shift-block-right-two-space)
-  (define-key elpy-mode-map (kbd "M-.") nil)
   (define-key elpy-mode-map (kbd "\e[49;C~") 'my-nav-expand-to-sub-block)
+  (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space)  
+  (define-key elpy-mode-map (kbd "<M-up>") 'elpy-nav-move-line-or-region-up)
+  (define-key elpy-mode-map (kbd "<M-down>") 'elpy-nav-move-line-or-region-down)
+  (define-key elpy-mode-map (kbd "\e[47;A~") 'elpy-nav-move-line-or-region-up) ; M-up
+  (define-key elpy-mode-map (kbd "\e[47;B~") 'elpy-nav-move-line-or-region-down) ; M-down
+  (define-key elpy-mode-map (kbd "<M-left>") 'elpy-nav-indent-shift-left) ; M-left
+  (define-key elpy-mode-map (kbd "<M-right>") 'elpy-nav-indent-shift-right) ; M-right
   (define-key elpy-mode-map (kbd "\e[47;C~") 'elpy-nav-indent-shift-left) ; M-left
   (define-key elpy-mode-map (kbd "\e[47;D~") 'elpy-nav-indent-shift-right) ; M-right
-  (define-key elpy-mode-map (kbd "\e[49;D~") 'my-python-shift-block-right-two-space))
-
+  (define-key elpy-mode-map (kbd "M-.") nil))
+  
 ;; c-mode
 (define-key c++-mode-map (kbd "M-j") nil)
 (define-key c-mode-map (kbd "M-j") nil)
