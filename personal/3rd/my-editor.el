@@ -255,13 +255,15 @@ version 2016-06-15"
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
 ^Fold^           ^File^
-_h_ ~            _s_ *scratch*
-_c_ code
-_d_ data
+_t_ /true_ssd    _s_ *scratch*
+_f_ /face/fzhou/parking/data
+_d_ /data/parkinglot
+_m_ /mnt/data
 "
-  ("h" (lambda () (interactive) (find-file "~")))
-  ("c" (lambda () (interactive) (find-file "~/code")))
-  ("d" (lambda () (interactive) (find-file "~/data")))
+  ("m" (lambda () (interactive) (find-file "/mnt/data")))
+  ("t" (lambda () (interactive) (find-file "/true_ssd")))
+  ("f" (lambda () (interactive) (find-file "/face/fzhou/parking/data")))
+  ("d" (lambda () (interactive) (find-file "/data/parkinglot/")))
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 (global-set-key (kbd "M-p") 'hydra-special/body)
 
