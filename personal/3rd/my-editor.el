@@ -255,7 +255,7 @@ version 2016-06-15"
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
 ^Fold^           ^File^
-_t_ /true_ssd    _s_ *scratch*
+_t_ /truessd     _s_ *scratch*
 _T_ /training/parking_video
 _f_ /face/fzhou/parking/data
 _d_ /data/parkinglot
