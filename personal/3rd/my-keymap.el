@@ -167,6 +167,8 @@
 
 ;; elpy
 (with-eval-after-load "elpy"
+  (define-key elpy-mode-map (kbd "C-M-h") 'elpy-nav-backward-indent)
+  (define-key elpy-mode-map (kbd "C-M-l") 'elpy-nav-forward-indent)
   (define-key elpy-mode-map (kbd "C-M-p") 'elpy-nav-backward-block)
   (define-key elpy-mode-map (kbd "C-M-n") 'elpy-nav-forward-block)
   (define-key elpy-mode-map (kbd "<M-S-left>") 'my-nav-expand-to-sub-block)
