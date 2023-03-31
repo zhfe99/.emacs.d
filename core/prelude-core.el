@@ -1,17 +1,21 @@
 ;;; prelude-core.el --- Emacs Prelude: Core Prelude functions.
 ;;
-;; Copyright © 2011-2017 Bozhidar Batsov
+;; Copyright © 2011-2023 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
-;; Version: 1.0.0
-;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 
-;; Here are the definitions of most of the functions added by Prelude.
+;; Here are the definitions of most of the general-purpose functions and
+;; commands added by Prelude.  Some modules define additional module-specific
+;; functions and commands.
+;;
+;; Note that many of the original core Prelude commands were extracted to the
+;; crux package (Prelude installs it automatically).  Prelude's auto-save
+;; functionality was extracted to the super-save package.
 
 ;;; License:
 
@@ -32,9 +36,7 @@
 
 ;;; Code:
 
-(require 'thingatpt)
-(require 'dash)
-(require 'ov)
+(require 'cl-lib)
 
 (defun prelude-buffer-mode (buffer-or-name)
   "Retrieve the `major-mode' of BUFFER-OR-NAME."
@@ -63,19 +65,6 @@ PROMPT sets the `read-string prompt."
 (prelude-install-search-engine "github"     "https://github.com/search?q="                 "Search GitHub: ")
 (prelude-install-search-engine "duckduckgo" "https://duckduckgo.com/?t=lm&q="              "Search DuckDuckGo: ")
 
-(defun prelude-todo-ov-evaporate (_ov _after _beg _end &optional _length)
-  (let ((inhibit-modification-hooks t))
-    (if _after (ov-reset _ov))))
-
-(defun prelude-annotate-todo ()
-  "Put fringe marker on TODO: lines in the current buffer."
-  (interactive)
-  (ov-set (format "[[:space:]]*%s+[[:space:]]*TODO:" comment-start)
-          'before-string
-          (propertize (format "A")
-                      'display '(left-fringe right-triangle))
-          'modification-hooks '(prelude-todo-ov-evaporate)))
-
 (defun prelude-recompile-init ()
   "Byte-compile all your dotfiles again."
   (interactive)
@@ -83,15 +72,15 @@ PROMPT sets the `read-string prompt."
 
 (defvar prelude-tips
   '("Press <C-c o> to open a file with external program."
-    "Press <C-c p f> to navigate a project's files with ido."
+    "Press <C-c p f> to navigate a project's files."
     "Press <s-r> to open a recently visited file."
     "Press <C-c p s g> to run grep on a project."
     "Press <C-c p p> to switch between projects."
     "Press <C-=> to expand the selected region."
-    "Press <C-c g> to search in Google."
-    "Press <C-c G> to search in GitHub."
-    "Press <C-c y> to search in YouTube."
-    "Press <C-c U> to search in DuckDuckGo."
+    "Press <C-c C-/ g> to search in Google."
+    "Press <C-c C-/ h> to search in GitHub."
+    "Press <C-c C-/ y> to search in YouTube."
+    "Press <C-c C-/ d> to search in DuckDuckGo."
     "Press <C-c r> to rename the current buffer and the file it's visiting if any."
     "Press <C-c t> to open a terminal in Emacs."
     "Press <C-c k> to kill all the buffers, but the active one."
@@ -104,12 +93,10 @@ PROMPT sets the `read-string prompt."
     "Press <C-Backspace> to kill a line backwards."
     "Press <C-S-Backspace> or <s-k> to kill the whole line."
     "Press <s-j> or <C-^> to join lines."
-    "Press <s-.> or <C-c j> to jump to the start of a word in any visible window."
-    "Press <f11> to toggle fullscreen mode."
+    "Press <s-.> or <C-c v> to jump to the start of a word in any visible window."
     "Press <f12> to toggle the menu bar."
-    "Explore the Tools->Prelude menu to find out about some of Prelude extensions to Emacs."
-    "Access the official Emacs manual by pressing <C-h r>."
-    "Visit the EmacsWiki at http://emacswiki.org to find out even more about Emacs."))
+    "Explore the Prelude menu to find out about some of Prelude extensions to Emacs."
+    "Access the official Emacs manual by pressing <C-h r>."))
 
 (defun prelude-tip-of-the-day ()
   "Display a random entry from `prelude-tips'."
@@ -152,21 +139,9 @@ With a prefix ARG updates all installed packages."
   (when (y-or-n-p "Do you want to update Prelude's packages? ")
     (if arg
         (epl-upgrade)
-      (epl-upgrade (-filter (lambda (p) (memq (epl-package-name p) prelude-packages))
-                            (epl-installed-packages))))
+      (epl-upgrade (cl-remove-if-not (lambda (p) (memq (epl-package-name p) prelude-packages))
+                                     (epl-installed-packages))))
     (message "Update finished. Restart Emacs to complete the process.")))
-
-;;; Emacs in OSX already has fullscreen support
-;;; Emacs has a similar built-in command in 24.4
-(defun prelude-fullscreen ()
-  "Make Emacs window fullscreen.
-
-This follows freedesktop standards, should work in X servers."
-  (interactive)
-  (if (eq window-system 'x)
-      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                             '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-    (error "Only X server is supported")))
 
 (defun prelude-wrap-with (s)
   "Create a wrapper function for smartparens using S."

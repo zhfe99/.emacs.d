@@ -1,8 +1,6 @@
 ;;; prelude-rust.el --- Emacs Prelude: Rust programming support.
 ;;
-;; Authors: Doug MacEachern, Manoel Vilela
-;; Version: 1.0.1
-;; Keywords: convenience rust
+;; Authors: Doug MacEachern, Manoel Vilela, Ben Alex, Daniel Gerlach
 
 ;; This file is not part of GNU Emacs.
 
@@ -31,36 +29,59 @@
 
 (require 'prelude-programming)
 
-;; You may need installing the following packages on your system:
+;; You may need to install the following packages on your system:
 ;; * rustc (Rust Compiler)
 ;; * cargo (Rust Package Manager)
-;; * racer (Rust Completion Tool)
 ;; * rustfmt (Rust Tool for formatting code)
+;; * rust-analyzer as lsp server needs to be in global path, see:
+;; https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary
+
 
 (prelude-require-packages '(rust-mode
-                            racer
+                            cargo
                             flycheck-rust
-                            cargo))
+                            tree-sitter
+                            tree-sitter-langs
+                            yasnippet
+                            ron-mode))
 
-(setq rust-format-on-save t)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
 
-(eval-after-load 'rust-mode
-  '(progn
-     (add-hook 'rust-mode-hook 'racer-mode)
-     (add-hook 'racer-mode-hook 'eldoc-mode)
-     (add-hook 'rust-mode-hook 'cargo-minor-mode)
-     (add-hook 'rust-mode-hook 'flycheck-rust-setup)
-     (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
+(with-eval-after-load 'rust-mode
+  (add-hook 'rust-mode-hook 'cargo-minor-mode)
+  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
 
-     (defun prelude-rust-mode-defaults ()
-       (local-set-key (kbd "C-c C-d") 'racer-describe)
-       ;; CamelCase aware editing operations
-       (subword-mode +1))
+  ;; enable lsp for rust, by default it uses rust-analyzer as lsp server
+  (add-hook 'rust-mode-hook 'lsp)
 
-     (setq prelude-rust-mode-hook 'prelude-rust-mode-defaults)
+  ;; enable tree-sitter for nicer syntax highlighting
+  (add-hook 'rust-mode-hook #'tree-sitter-mode)
+  (add-hook 'rust-mode-hook #'tree-sitter-hl-mode)
 
-     (add-hook 'rust-mode-hook (lambda ()
-                               (run-hooks 'prelude-rust-mode-hook)))))
+  (defun prelude-rust-mode-defaults ()
+    ;; format on save
+    (setq rust-format-on-save t)
+
+    ;; lsp settings
+    (setq
+     ;; enable macro expansion
+     lsp-rust-analyzer-proc-macro-enable t
+     lsp-rust-analyzer-experimental-proc-attr-macros t)
+
+    ;; Prevent #! from chmodding rust files to be executable
+    (remove-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+    ;; snippets are required for correct lsp autocompletions
+    (yas-minor-mode)
+
+    ;; CamelCase aware editing operations
+    (subword-mode +1))
+
+  (setq prelude-rust-mode-hook 'prelude-rust-mode-defaults)
+
+  (add-hook 'rust-mode-hook (lambda ()
+                              (run-hooks 'prelude-rust-mode-hook))))
 
 (provide 'prelude-rust)
 ;;; prelude-rust.el ends here

@@ -1,11 +1,9 @@
 ;;; prelude-helm.el --- Helm setup
 ;;
-;; Copyright © 2011-2017 Bozhidar Batsov
+;; Copyright © 2011-2023 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
-;; Version: 1.0.0
-;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
 
@@ -35,7 +33,6 @@
 
 (prelude-require-packages '(helm helm-projectile))
 
-(require 'helm-config)
 (require 'helm-projectile)
 
 (when (executable-find "curl")

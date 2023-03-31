@@ -1,8 +1,7 @@
 ;;; prelude-go.el --- Emacs Prelude: Go programming support.
 ;;
 ;; Author: Doug MacEachern
-;; Version: 1.0.0
-;; Keywords: convenience go
+;; URL: https://github.com/bbatsov/prelude
 
 ;; This file is not part of GNU Emacs.
 
@@ -30,11 +29,13 @@
 ;;; Code:
 
 (require 'prelude-programming)
+(require 'prelude-lsp)
 
 (prelude-require-packages '(go-mode
-                            company-go
-                            go-eldoc
                             go-projectile
+                            lsp-mode
+                            lsp-ui
+                            company
                             gotest))
 
 (require 'go-projectile)
@@ -44,41 +45,48 @@
 
 (define-key 'help-command (kbd "G") 'godoc)
 
-(eval-after-load 'go-mode
-  '(progn
-     (defun prelude-go-mode-defaults ()
-       ;; Add to default go-mode key bindings
-       (let ((map go-mode-map))
-         (define-key map (kbd "C-c a") 'go-test-current-project) ;; current package, really
-         (define-key map (kbd "C-c m") 'go-test-current-file)
-         (define-key map (kbd "C-c .") 'go-test-current-test)
-         (define-key map (kbd "C-c b") 'go-run)
-         (define-key map (kbd "C-h f") 'godoc-at-point))
+;; Fix: super-save will cause go files to be saved when lsp-mode does
+;; certain things, triggering lsp-format-buffer. This causes, inter alia,
+;; commas to disappear when typing go function invocations
+(add-to-list 'super-save-predicates
+             (lambda () (not (eq major-mode 'go-mode))))
 
-       ;; Prefer goimports to gofmt if installed
-       (let ((goimports (executable-find "goimports")))
-         (when goimports
-           (setq gofmt-command goimports)))
+(with-eval-after-load 'go-mode
+  (defun prelude-go-mode-defaults ()
+    ;; Add to default go-mode key bindings
+    (let ((map go-mode-map))
+      (define-key map (kbd "C-c a") 'go-test-current-project) ;; current package, really
+      (define-key map (kbd "C-c m") 'go-test-current-file)
+      (define-key map (kbd "C-c .") 'go-test-current-test)
+      (define-key map (kbd "C-c b") 'go-run)
+      (define-key map (kbd "C-h f") 'godoc-at-point))
 
-       ;; gofmt on save
-       (add-hook 'before-save-hook 'gofmt-before-save nil t)
+    ;; Prefer goimports to gofmt if installed
+    (let ((goimports (executable-find "goimports")))
+      (when goimports
+        (setq gofmt-command goimports)))
 
-       ;; stop whitespace being highlighted
-       (whitespace-toggle-options '(tabs))
+    ;; stop whitespace being highlighted
+    (whitespace-toggle-options '(tabs))
 
-       ;; Company mode settings
-       (set (make-local-variable 'company-backends) '(company-go))
+    ;; CamelCase aware editing operations
+    (subword-mode +1))
 
-       ;; El-doc for Go
-       (go-eldoc-setup)
+  ;; if yas is present, this enables yas-global-mode
+  ;; which provides completion via company
+  (if (fboundp 'yas-global-mode)
+      (yas-global-mode))
 
-       ;; CamelCase aware editing operations
-       (subword-mode +1))
+  ;; configure lsp for go
+  (defun lsp-go-install-save-hooks ()
+    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+  (add-hook 'go-mode-hook #'lsp-deferred)
 
-     (setq prelude-go-mode-hook 'prelude-go-mode-defaults)
-
-     (add-hook 'go-mode-hook (lambda ()
-                               (run-hooks 'prelude-go-mode-hook)))))
+  (setq prelude-go-mode-hook 'prelude-go-mode-defaults)
+  (add-hook 'go-mode-hook (lambda ()
+                            (run-hooks 'prelude-go-mode-hook))))
 
 (provide 'prelude-go)
 ;;; prelude-go.el ends here

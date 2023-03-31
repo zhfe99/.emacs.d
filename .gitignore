@@ -13,7 +13,6 @@ ede-projects.el
 places
 .smex-items
 savefile/
-/prelude-modules.el
 projectile-bookmarks.eld
 session*
 .cask
@@ -32,5 +31,12 @@ README.md
 .emacs.desktop
 .emacs.desktop.lock
 network-security.data
-/.org-id-locations
-/transient/
+prelude-cheatsheet.el
+prelude-cheatsheet.aux
+prelude-cheatsheet.log
+transient/
+var/
+.cache/
+.lsp-session*
+gotools/
+eln-cache/
