@@ -40,3 +40,4 @@ var/
 .lsp-session*
 gotools/
 eln-cache/
+/elpy

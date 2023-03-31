@@ -45,7 +45,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (highlight-indentation-mode)
-            (linum-mode)
+            ;; (linum-mode)
             (git-gutter+-mode)))
 
 (provide 'my-sh)

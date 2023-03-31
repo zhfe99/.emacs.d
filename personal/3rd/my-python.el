@@ -27,7 +27,6 @@
  ((string-equal system-type "darwin")
   (setq elpy-modules '(elpy-module-sane-defaults
                        elpy-module-company
-                       elpy-module-eldoc
                        elpy-module-flymake
                        elpy-module-pyvenv
                        elpy-module-highlight-indentation))))
