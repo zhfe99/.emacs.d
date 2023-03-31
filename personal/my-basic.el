@@ -39,7 +39,7 @@
 (add-to-list 'load-path "~/.emacs.d/personal/3rd")
 
 (require 'my-env)
-(require 'my-modeline)
+; (require 'my-modeline)
 (require 'my-projectile)
 (require 'my-editor)
 (require 'my-sp)
