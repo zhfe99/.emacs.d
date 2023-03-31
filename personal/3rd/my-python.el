@@ -12,25 +12,25 @@
 (yas-global-mode 1)
 (yas-reload-all)
 
-;; (use-package elpy
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (elpy-enable)  
-;;   :config
-;;   (setq elpy-rpc-python-command "python3"))
-;;   ;; (advice-add 'python-mode :before 'elpy-enable))
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (elpy-enable)
+  :config
+  (setq elpy-rpc-python-command "python3"))
+  ;; (advice-add 'python-mode :before 'elpy-enable))
 
-;; ;; I don't like highlight-indentation mode
-;; ;; Instead I prefer to use indent-guide mode
-;; (cond
-;;  ((string-equal system-type "darwin")
-;;   (setq elpy-modules '(elpy-module-sane-defaults
-;;                        elpy-module-company
-;;                        elpy-module-eldoc
-;;                        elpy-module-flymake
-;;                        elpy-module-pyvenv
-;;                        elpy-module-highlight-indentation))))
+;; I don't like highlight-indentation mode
+;; Instead I prefer to use indent-guide mode
+(cond
+ ((string-equal system-type "darwin")
+  (setq elpy-modules '(elpy-module-sane-defaults
+                       elpy-module-company
+                       elpy-module-eldoc
+                       elpy-module-flymake
+                       elpy-module-pyvenv
+                       elpy-module-highlight-indentation))))
 
 ;; use fly-check instead of flymake
 ;; (with-eval-after-load 'elpy
