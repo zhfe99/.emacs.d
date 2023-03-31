@@ -11,14 +11,19 @@
   :config
   (load-theme 'zenburn t))
 
-;; (setq sml/theme 'respectful)
-;; (size-indication-mode -1)
-;; (setq sml/name-width 20)
-;; (setq sml/line-number-format " %3l")
-;; (setq sml/mode-width 3)
-;; (setq sml/mule-info nil)
-;; (setq sml/prefix nil)
-;; (sml/setup)
+(require 'smart-mode-line)
+(setq sml/no-confirm-load-theme t)
+;; delegate theming to the currently active theme
+(add-hook 'after-init-hook #'sml/setup)
+
+(setq sml/theme 'respectful)
+(size-indication-mode -1)
+(setq sml/name-width 20)
+(setq sml/line-number-format " %3l")
+(setq sml/mode-width 3)
+(setq sml/mule-info nil)
+(setq sml/prefix nil)
+(sml/setup)
 
 (provide 'my-modeline)
 ;;; my-modeline.el ends here
