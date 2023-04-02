@@ -23,13 +23,11 @@
 
 ;; I don't like highlight-indentation mode
 ;; Instead I prefer to use indent-guide mode
-(cond
- ((string-equal system-type "darwin")
-  (setq elpy-modules '(elpy-module-sane-defaults
-                       elpy-module-company
-                       elpy-module-flymake
-                       elpy-module-pyvenv
-                       elpy-module-highlight-indentation))))
+(setq elpy-modules '(elpy-module-sane-defaults
+                     ;; elpy-module-company
+                     ;; elpy-module-flymake
+                     ;; elpy-module-pyvenv
+                     elpy-module-highlight-indentation))
 
 ;; use fly-check instead of flymake
 ;; (with-eval-after-load 'elpy
