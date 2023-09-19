@@ -51,6 +51,7 @@
         sp-forward-sexp
         sp-rewrap-sexp
         sp-splice-sexp
+        wdired--self-insert
         wdired-finish-edit
         wdired-previous-line
         web-mode-comment-indent-new-line
