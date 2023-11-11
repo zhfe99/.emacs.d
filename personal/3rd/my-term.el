@@ -158,12 +158,15 @@
              (switch-to-buffer buf))
            (my-term-open-at-current-buffer))
           ((= 1 len)
-           (display-buffer-in-side-window
-            (cdr (nth 0 buffer-list))
-            `((side . bottom)
-              (slot . -1)
-              (window-width . 0.16)))
-           (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list))))
+           (setq win (get-buffer-window (cdr (nth 0 buffer-list))))
+           (if win
+               (select-window win)
+             (display-buffer-in-side-window
+              (cdr (nth 0 buffer-list))
+              `((side . bottom)
+                (slot . -1)
+                (window-width . 0.16)))
+             (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list)))))
           (t (ivy-read "terms:"
                        buffer-list
                        :action (lambda (buffer)
