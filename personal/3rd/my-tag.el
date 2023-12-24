@@ -45,6 +45,7 @@
   :load-path "site-lisp/emacs-counsel-gtags/")
 
 (setq dumb-jump-selector 'ivy)
+(setq dumb-jump-force-searcher 'ag)
 
 (provide 'my-tag)
 ;;; my-tag.el ends here
