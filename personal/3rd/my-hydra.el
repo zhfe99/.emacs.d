@@ -158,9 +158,9 @@ _b_ back  _._ right  _r_ rewarp  _d_ ford
 ;; git
 (defhydra hydra-git (:hint nil)
   "
-^Magit^    ^Grep^    ^Hunk^    ^Operate^   ^Proj^      ^Projectile^
-_g_ status _h_ root  _i_ menu  _s_ stage   _M-g_ proj  _o_ other file
-_l_ log    _H_ curr  _p_ prev  _c_ commit
+^Magit^    ^Grep^    ^Hunk^    ^Operate^   ^Proj^
+_g_ status _h_ root  _i_ menu  _s_ stage   _M-g_ proj
+_l_ log    _H_ curr  _p_ prev  _c_ commit. _r_ switch to proj root folder
 _I_ init   _f_ file  _n_ next  _a_ all
 _x_ index  _d_ dir   _v_ show  _t_ time
 _b_ blame"
@@ -175,7 +175,7 @@ _b_ blame"
   ("i" my-goto-git-gutter+ :exit t)
   ("f" counsel-projectile-find-file :exit t)
   ("d" counsel-projectile-find-dir :exit t)
-  ("o" projectile-find-other-file :exit t)
+  ("r" (dired (projectile-project-root)) :exit t)
   ("p" git-gutter+-previous-hunk)
   ("v" git-gutter+-show-hunk)
   ("n" git-gutter+-next-hunk)
