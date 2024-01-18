@@ -260,12 +260,14 @@ _T_ /training/parking_video
 _f_ /face/fzhou/parking/data
 _d_ /data/parkinglot
 _m_ /mnt/data
+_._ project root
 "
   ("m" (lambda () (interactive) (find-file "/mnt/data/log")))
   ("t" (lambda () (interactive) (find-file "/true_ssd/data")))
   ("T" (lambda () (interactive) (find-file "/training/parking_video")))
   ("f" (lambda () (interactive) (find-file "/face/fzhou/parking/data")))
   ("d" (lambda () (interactive) (find-file "/data/parkinglot/")))
+  ("." (dired (projectile-project-root)) :exit t)
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 (global-set-key (kbd "M-p") 'hydra-special/body)
 
