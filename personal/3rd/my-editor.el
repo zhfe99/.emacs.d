@@ -251,23 +251,49 @@ version 2016-06-15"
 
 (add-hook 'auto-revert-tail-mode-hook 'etc-log-tail-handler)
 
+;; switch to code root depending on machine
+(defun my-switch-to-code-root ()
+  (interactive)
+  (if (file-directory-p "/face/fzhou/code")
+      (find-file "/face/fzhou/code"))
+  (if (file-directory-p "/Users/feng/code")
+      (find-file "/Users/feng/code"))
+  (if (file-directory-p "/home/feng/code")
+      (find-file "/home/feng/code"))
+  (if (file-directory-p "/root/code")
+      (find-file "/root/code")))
+
+;; switch to data root depending on machine
+(defun my-switch-to-data-root ()
+  (interactive)
+  (if (file-directory-p "/face/fzhou/parking/data")
+      (find-file "/face/fzhou/parking/data"))
+  (if (file-directory-p "/data/parkinglot")
+      (find-file "/data/parkinglot"))
+  (if (file-directory-p "/Users/feng/data")
+      (find-file "/Users/feng/data"))
+  (if (file-directory-p "/home/feng/data")
+      (find-file "/home/feng/data"))
+  (if (file-directory-p "/root/data")
+      (find-file "/root/data")))
+
 ;; special buffer
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
 ^Fold^           ^File^
-_t_ /truessd     _s_ *scratch*
+_c_ code root    _s_ *scratch*
+_d_ data root
+_._ project home
 _T_ /training/parking_video
-_f_ /face/fzhou/parking/data
-_d_ /data/parkinglot
 _m_ /mnt/data
-_._ project root
+_t_ /truessd
 "
+  ("c" (my-switch-to-code-root))
+  ("d" (my-switch-to-data-root))
+  ("." (dired (projectile-project-root)))
   ("m" (lambda () (interactive) (find-file "/mnt/data/log")))
   ("t" (lambda () (interactive) (find-file "/true_ssd/data")))
   ("T" (lambda () (interactive) (find-file "/training/parking_video")))
-  ("f" (lambda () (interactive) (find-file "/face/fzhou/parking/data")))
-  ("d" (lambda () (interactive) (find-file "/data/parkinglot/")))
-  ("." (dired (projectile-project-root)) :exit t)
   ("s" (lambda () (interactive) (switch-to-buffer "*scratch*"))))
 (global-set-key (kbd "M-p") 'hydra-special/body)
 
