@@ -281,13 +281,15 @@ version 2016-06-15"
 (defhydra hydra-special (:color blue :hint nil :idle 1.5)
   "
 ^Fold^           ^File^
-_c_ code root    _s_ *scratch*
+_h_ home         _s_ *scratch*
+_c_ code root
 _d_ data root
 _._ project home
 _T_ /training/parking_video
 _m_ /mnt/data
 _t_ /truessd
 "
+  ("h" (lambda () (interactive) (find-file "~")))
   ("c" (my-switch-to-code-root))
   ("d" (my-switch-to-data-root))
   ("." (dired (projectile-project-root)))
