@@ -46,7 +46,7 @@
 (require 'my-mc)
 (require 'my-avy)
 (require 'my-ivy)
-(require 'my-tag)
+; (require 'my-tag)
 (require 'my-company)
 (require 'my-window)
 (require 'my-buffer)
@@ -58,9 +58,9 @@
 (require 'my-web)
 (require 'my-org)
 (require 'my-c)
-(cond
- ((string-equal system-type "darwin")
-  (require 'my-latex)))
+;; (cond
+;;  ((string-equal system-type "darwin")
+;;   (require 'my-latex)))
 (require 'my-term)
 (require 'my-git)
 (require 'my-dired)
