@@ -41,3 +41,4 @@ var/
 gotools/
 eln-cache/
 /elpy
+/org-persist
