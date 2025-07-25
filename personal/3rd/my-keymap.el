@@ -99,6 +99,7 @@
 (define-key dired-mode-map "s" 'hydra-dired-quick-sort/body)
 (define-key dired-mode-map "i" 'hydra-dired-info/body)
 (define-key dired-mode-map "r" 'hydra-dired-ranger/body)
+(define-key dired-mode-map "P" 'my-dired-move-to-parent)
 (define-key dired-mode-map (kbd "M-b") nil)
 (define-key dired-mode-map (kbd "M-T") nil)
 (define-key dired-mode-map (kbd "M-u") nil)

@@ -250,6 +250,27 @@
   (interactive)
   (kill-new (expand-file-name (dired-file-name-at-point))))
 
+;; Move file to parent folder
+(defun my-dired-move-to-parent ()
+  "Move the file at point to its parent directory."
+  (interactive)
+  (let* ((file (dired-get-filename))
+         (parent-dir (file-name-directory (directory-file-name (file-name-directory file))))
+         (filename (file-name-nondirectory file))
+         (new-path (expand-file-name filename parent-dir)))
+    (when (and file parent-dir)
+      (if (file-exists-p new-path)
+          (if (y-or-n-p (format "File %s already exists in parent directory. Overwrite? " filename))
+              (progn
+                (rename-file file new-path t)
+                (message "Moved %s to %s" filename parent-dir)
+                (revert-buffer))
+            (message "Move cancelled."))
+        (progn
+          (rename-file file new-path)
+          (message "Moved %s to %s" filename parent-dir)
+          (revert-buffer))))))
+
 ;; use dired quick sort
 (require 'dired-quick-sort)
 (add-hook 'dired-mode-hook 'dired-quick-sort)
