@@ -271,6 +271,14 @@
           (message "Moved %s to %s" filename parent-dir)
           (revert-buffer))))))
 
+(defun my-dired-show-dir-size ()
+  "在 minibuffer 显示当前目录真实大小（用 du）。"
+  (interactive)
+  (let ((size (string-trim
+               (shell-command-to-string
+                (format "du -sh %s" (shell-quote-argument (dired-current-directory)))))))
+    (message "%s" size)))
+
 ;; use dired quick sort
 (require 'dired-quick-sort)
 (add-hook 'dired-mode-hook 'dired-quick-sort)
