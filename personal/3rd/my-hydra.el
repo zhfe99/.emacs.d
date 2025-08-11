@@ -335,11 +335,13 @@ _p_ paste"
 ^Info^
 _c_ count
 _l_ lines
-_s_ size
+_s_ dwim folder
+_S_ parent folder size
 _p_ path
 _o_ org"
   ("c" my-dired-get-count)
   ("s" my-dired-get-size)
+  ("S" my-dired-show-dir-size)
   ("l" my-dired-get-lines)
   ("p" my-dired-copy-current-file-path)
   ("o" my-org-store-link))
