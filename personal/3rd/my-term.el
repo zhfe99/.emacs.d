@@ -140,37 +140,43 @@
     (term-send-raw-string "\C-e")))
 
 (defun my-buffer-switch-in-side ()
-  "Open term in side window and move to it."
+  "Open term in side window and move to it. If already in a term buffer, close the window."
   (interactive)
-  (let ((buffer-list (my-term-get-all-term-buffer))
-        (buf (other-buffer))
-        len)
-    (setq len (length buffer-list))
-    (cond ((= 0 len)
-           (display-buffer-in-side-window
-            buf
-            `((side . bottom)
-              (slot . -1)
-              (window-width . 0.16)))
-           (setq win (get-buffer-window buf))
-           (if win
-               (select-window win)
-             (switch-to-buffer buf))
-           (my-term-open-at-current-buffer))
-          ((= 1 len)
-           (setq win (get-buffer-window (cdr (nth 0 buffer-list))))
-           (if win
-               (select-window win)
+  (if (equal major-mode 'term-mode)
+      ;; If already in a term buffer, close the window
+      (let ((win (get-buffer-window (current-buffer))))
+        (when win
+          (delete-window win)))
+    ;; Otherwise, open/switch to a term in side window
+    (let ((buffer-list (my-term-get-all-term-buffer))
+          (buf (other-buffer))
+          len)
+      (setq len (length buffer-list))
+      (cond ((= 0 len)
              (display-buffer-in-side-window
-              (cdr (nth 0 buffer-list))
+              buf
               `((side . bottom)
                 (slot . -1)
                 (window-width . 0.16)))
-             (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list)))))
-          (t (ivy-read "terms:"
-                       buffer-list
-                       :action (lambda (buffer)
-                                 (my-buffer-switch-in-visible-window (cdr buffer))))))))
+             (setq win (get-buffer-window buf))
+             (if win
+                 (select-window win)
+               (switch-to-buffer buf))
+             (my-term-open-at-current-buffer))
+            ((= 1 len)
+             (setq win (get-buffer-window (cdr (nth 0 buffer-list))))
+             (if win
+                 (select-window win)
+               (display-buffer-in-side-window
+                (cdr (nth 0 buffer-list))
+                `((side . bottom)
+                  (slot . -1)
+                  (window-width . 0.16)))
+               (my-buffer-switch-in-visible-window (cdr (nth 0 buffer-list)))))
+            (t (ivy-read "terms:"
+                         buffer-list
+                         :action (lambda (buffer)
+                                   (my-buffer-switch-in-visible-window (cdr buffer))))))))))
 
 (defun my-term-close-side ()
   "Close side window if there is a term."
