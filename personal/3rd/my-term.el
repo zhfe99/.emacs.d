@@ -176,7 +176,7 @@
             (t (ivy-read "terms:"
                          buffer-list
                          :action (lambda (buffer)
-                                   (my-buffer-switch-in-visible-window (cdr buffer))))))))))
+                                   (my-buffer-switch-in-visible-window (cdr buffer)))))))))
 
 (defun my-term-close-side ()
   "Close side window if there is a term."
