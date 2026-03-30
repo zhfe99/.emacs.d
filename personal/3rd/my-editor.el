@@ -87,14 +87,6 @@
         (t (error "Please select a region to narrow to"))))
 
 ;; Type M-y after C-y to activate counsel-yank-pop
-(advise-commands "indent" (yank counsel-yank-pop) after
-                 "If current mode is one of `prelude-yank-indent-modes', indent yanked text (with prefix arg don't indent)."
-                 (if (and (not (ad-get-arg 0))
-                          (not (member major-mode prelude-indent-sensitive-modes))
-                          (or (derived-mode-p 'prog-mode)
-                              (member major-mode prelude-yank-indent-modes)))
-                     (let ((transient-mark-mode nil))
-                       (yank-advised-indent-function (region-beginning) (region-end)))))
 
 ;; define function to shutdown emacs server instance
 (defun server-shutdown ()

@@ -34,6 +34,7 @@
         hydra-edit/my-insert-current-date-and-exit
         hydra-region/body
         hydra-tag/body
+        indent-for-tab-command
         indent-new-comment-line
         iy-go-to-char--command
         kill-region

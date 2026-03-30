@@ -215,8 +215,9 @@
 (define-key diff-mode-map (kbd "M-o") 'hydra-open/body)
 
 ;; flyspell-mode
-(define-key flyspell-mode-map (kbd "C-.") nil)
-(define-key flyspell-mode-map (kbd "C-,") nil)
+(with-eval-after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-.") nil)
+  (define-key flyspell-mode-map (kbd "C-,") nil))
 
 ;; smartparens-mode
 (define-key smartparens-mode-map (kbd "<M-up>") nil)
