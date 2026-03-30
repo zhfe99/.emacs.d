@@ -1,6 +1,6 @@
 ;;; prelude-ui.el --- Emacs Prelude: UI optimizations and tweaks.
 ;;
-;; Copyright © 2011-2025 Bozhidar Batsov
+;; Copyright © 2011-2026 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -34,8 +34,7 @@
 ;; the toolbar is just a waste of valuable screen estate
 ;; in a tty tool-bar-mode does not properly auto-load, and is
 ;; already disabled anyway
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
+(tool-bar-mode -1)
 
 (when prelude-minimalistic-ui
   (menu-bar-mode -1))
@@ -54,6 +53,9 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+;; enable smooth pixel scrolling on graphical displays
+(pixel-scroll-precision-mode t)
+
 ;; mode line settings
 (line-number-mode t)
 (column-number-mode t)
@@ -69,7 +71,7 @@
 ;;     (global-nlinum-mode t)))
 
 ;; enable y/n answers
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
@@ -92,13 +94,27 @@
 ;; (require 'beacon)
 ;; (beacon-mode +1)
 
+
+;; NOTE(@lerax): dom 01 jun 2025 12:42:24
+;; helm-descbinds became incompatible with which-key-mode ins 202402XX version
+;; Using prelude, calling which-key-mode as hook in
+;; server-after-make-frame-hook crash terminal daemoned session
+;; this function prevents to this happen
+(defun prelude-safe-which-key-mode ()
+  (condition-case err
+      (which-key-mode +1)
+    (error
+     (let ((error-message (cadr err)))
+       (with-temp-message "" ;; don't print to minibuffer
+         (message "[Prelude] bypass error: %s" error-message))))))
+
 ;; show available keybindings after you start typing
 ;; add to hook when running as a daemon as a workaround for a
 ;; which-key bug
 ;; https://github.com/justbur/emacs-which-key/issues/306
 (if (daemonp)
-    (add-hook 'server-after-make-frame-hook 'which-key-mode)
-  (which-key-mode +1))
+    (add-hook 'server-after-make-frame-hook #'prelude-safe-which-key-mode)
+  (prelude-safe-which-key-mode))
 
 (provide 'prelude-ui)
 ;;; prelude-ui.el ends here
