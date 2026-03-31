@@ -10,6 +10,9 @@
   (defmacro advise-commands (&rest _args)
     nil))
 
+(unless (boundp 'flyspell-mode-map)
+  (defvar flyspell-mode-map (make-sparse-keymap)))
+
 ;; github package
 ;; (require 'use-package)
 (use-package reveal-in-osx-finder
