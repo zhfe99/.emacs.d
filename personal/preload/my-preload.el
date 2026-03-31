@@ -6,6 +6,10 @@
 (require 'package)
 ;; (package-initialize)
 
+(unless (fboundp 'advise-commands)
+  (defmacro advise-commands (&rest _args)
+    nil))
+
 ;; github package
 ;; (require 'use-package)
 (use-package reveal-in-osx-finder
