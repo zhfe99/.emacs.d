@@ -221,7 +221,7 @@ version 2016-06-15"
     (buffer-disable-undo)
     (font-lock-mode -1)
     (which-function-mode -1)
-    (linum-mode 0)
+    (display-line-numbers-mode 0)
     (show-smartparens-global-mode -1)
     (fundamental-mode)))
 

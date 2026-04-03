@@ -19,14 +19,14 @@
           (lambda()
             (subword-mode 1)
             (git-gutter+-mode)
-            (linum-mode)
+            (display-line-numbers-mode 1)
             (setq c-basic-offset 4)
             (highlight-indentation-mode)))
 
 ;; cmake-mode-hook
 (add-hook 'cmake-mode-hook
           (lambda()
-            (linum-mode)
+            (display-line-numbers-mode 1)
             (git-gutter+-mode)))
 
 (add-hook 'c-mode-common-hook 'google-set-c-style)
@@ -42,7 +42,7 @@
 (add-hook 'protobuf-mode-hook
           (lambda()
             (subword-mode 1)
-            (linum-mode)
+            (display-line-numbers-mode 1)
             (setq c-basic-offset 4)
             (git-gutter+-mode)))
 
