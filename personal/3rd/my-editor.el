@@ -95,7 +95,8 @@
   (save-some-buffers)
   (kill-emacs))
 
-(global-fasd-mode 1)
+(when (executable-find "fasd")
+  (global-fasd-mode 1))
 
 ;; ===================================
 ;; merge comment-line and comment-dwim
