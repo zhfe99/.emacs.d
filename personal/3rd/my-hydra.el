@@ -107,7 +107,7 @@ _i_ indent
 _f_ fill"
   ("i" highlight-indentation-mode)
   ("f" auto-fill-mode)
-  ("l" linum-mode)
+  ("l" display-line-numbers-mode)
   ("t" counsel-load-theme)
   ("s" crux-sudo-edit)
   ("c" my-cleanup)
