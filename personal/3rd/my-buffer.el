@@ -102,14 +102,17 @@
     (save-excursion
       (dolist (buf (buffer-list))
         (set-buffer buf)
-        (if (and (buffer-file-name) (buffer-modified-p))
-            (progn
-              (push (buffer-name) autosave-buffer-list)
-              (if auto-save-slient
-                  (with-temp-message ""
-                    (basic-save-buffer))
-                (basic-save-buffer))
-              )))
+        (if (and (buffer-file-name)
+                 (buffer-modified-p)
+                 (verify-visited-file-modtime buf))
+            (condition-case nil
+                (progn
+                  (push (buffer-name) autosave-buffer-list)
+                  (if auto-save-slient
+                      (with-temp-message ""
+                        (basic-save-buffer))
+                    (basic-save-buffer)))
+              (user-error nil))))
       ;; Tell user when auto save files.
       (unless auto-save-slient
         (cond
