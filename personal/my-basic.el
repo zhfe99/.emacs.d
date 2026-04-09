@@ -36,7 +36,7 @@
 
 ;; my package
 ;; additional packages are available in the folder "3rd"
-(add-to-list 'load-path "~/.emacs.d/personal/3rd")
+(add-to-list 'load-path (expand-file-name "personal/3rd" user-emacs-directory))
 
 (require 'my-env)
 (require 'my-modeline)
