@@ -224,6 +224,7 @@
 (define-key smartparens-mode-map (kbd "<M-down>") nil)
 (define-key smartparens-mode-map (kbd "M-s") nil)
 (define-key smartparens-mode-map (kbd "M-r") nil)
+(define-key smartparens-mode-map (kbd "M-<backspace>") #'backward-kill-word)
 
 ;; prelude-mode
 (define-key prelude-mode-map (kbd "M-o") nil)
