@@ -209,6 +209,11 @@ version 2016-06-15"
     (setq interprogram-cut-function 'paste-to-osx)
     (setq interprogram-paste-function 'copy-from-osx))))
 
+;; Show file creation time instead of modification time in Dired on macOS.
+(with-eval-after-load 'dired
+  (when (string-equal system-type "darwin")
+    (setq dired-listing-switches "-alhU")))
+
 ;; https://stackoverflow.com/questions/24620039/how-to-pbpaste-utf-8-characters-in-gnu-emacs-for-osx
 (setenv "LANG" "en_US.UTF-8")
 
