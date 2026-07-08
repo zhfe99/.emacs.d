@@ -96,6 +96,13 @@
 (setq auto-save-idle 1)
 (setq auto-save-slient t)
 
+(defun my-auto-save-file-writable-p (file)
+  "Return non-nil when FILE can be written without prompting."
+  (or (file-writable-p file)
+      (and (not (file-exists-p file))
+           (let ((dir (file-name-directory file)))
+             (and dir (file-writable-p dir))))))
+
 (defun auto-save-buffers ()
   (interactive)
   (let ((autosave-buffer-list))
@@ -104,6 +111,7 @@
         (set-buffer buf)
         (if (and (buffer-file-name)
                  (buffer-modified-p)
+                 (my-auto-save-file-writable-p (buffer-file-name))
                  (verify-visited-file-modtime buf))
             (condition-case nil
                 (progn
