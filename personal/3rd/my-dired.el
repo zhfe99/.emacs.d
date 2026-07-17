@@ -160,6 +160,18 @@
         (aw-switch-to-window win)
         (find-file buf)))))
 
+;; Open the file at point; HTML files always open in Google Chrome
+;; instead of whatever the system default browser is.
+(defun my-dired-open-file ()
+  "Open the file at point.
+HTML files are opened in Google Chrome.  Everything else falls back
+to `dired-find-file-other-window'."
+  (interactive)
+  (let ((file (dired-get-filename nil t)))
+    (if (and file (string-match-p "\\.html?\\'" file))
+        (start-process "google-chrome" nil "open" "-a" "Google Chrome" file)
+      (dired-find-file-other-window))))
+
 ;; ====================
 ;; Using rsync in dired
 ;; http://oremacs.com/2016/02/24/dired-rsync/
